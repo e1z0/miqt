@@ -4,8 +4,8 @@ import (
 	"math"
 	"os"
 
-	qt "github.com/mappu/miqt/qt6"
-	charts "github.com/mappu/miqt/qt-restricted-extras/charts6"
+	qt "github.com/e1z0/miqt/qt6"
+	charts "github.com/e1z0/miqt/qt-restricted-extras/charts6"
 )
 
 func main() {

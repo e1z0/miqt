@@ -5,8 +5,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/mappu/miqt/qt"
-	"github.com/mappu/miqt/qt/multimedia"
+	"github.com/e1z0/miqt/qt"
+	"github.com/e1z0/miqt/qt/multimedia"
 )
 
 func main() {

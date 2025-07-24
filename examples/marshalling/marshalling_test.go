@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/mappu/miqt/qt"
+	"github.com/e1z0/miqt/qt"
 )
 
 func testMarshalling(t *testing.T) {

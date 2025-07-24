@@ -6,7 +6,7 @@
 package main
 
 import (
-	"github.com/mappu/miqt/qt"
+	"github.com/e1z0/miqt/qt"
 )
 
 type MainWindowUi struct {

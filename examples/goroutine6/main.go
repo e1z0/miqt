@@ -6,8 +6,8 @@ import (
 	"runtime"
 	"time"
 
-	qt "github.com/mappu/miqt/qt6"
-	"github.com/mappu/miqt/qt6/mainthread"
+	qt "github.com/e1z0/miqt/qt6"
+	"github.com/e1z0/miqt/qt6/mainthread"
 )
 
 func main() {

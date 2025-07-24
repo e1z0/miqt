@@ -15,7 +15,7 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/mappu/miqt/docker"
+	"github.com/e1z0/miqt/docker"
 )
 
 // glob2regex converts the glob pattern into a regexp.

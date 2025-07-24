@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	"github.com/mappu/miqt/qt"
-	"github.com/mappu/miqt/qt-extras/scintillaedit"
+	"github.com/e1z0/miqt/qt"
+	"github.com/e1z0/miqt/qt-extras/scintillaedit"
 )
 
 // n.b. May need LD_LIBRARY_PATH= env var set to find the necessary .so file

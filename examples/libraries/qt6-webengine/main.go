@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	qt "github.com/mappu/miqt/qt6"
-	"github.com/mappu/miqt/qt6/webengine"
+	qt "github.com/e1z0/miqt/qt6"
+	"github.com/e1z0/miqt/qt6/webengine"
 )
 
 func main() {

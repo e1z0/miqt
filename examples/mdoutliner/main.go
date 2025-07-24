@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/mappu/miqt/qt"
+	"github.com/e1z0/miqt/qt"
 )
 
 //go:embed README.md

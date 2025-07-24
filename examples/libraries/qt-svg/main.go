@@ -3,8 +3,8 @@ package main
 import (
 	"os"
 
-	"github.com/mappu/miqt/qt"
-	"github.com/mappu/miqt/qt/svg"
+	"github.com/e1z0/miqt/qt"
+	"github.com/e1z0/miqt/qt/svg"
 )
 
 func main() {

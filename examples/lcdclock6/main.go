@@ -4,7 +4,7 @@ import (
 	"os"
 	"strings"
 
-	qt "github.com/mappu/miqt/qt6"
+	qt "github.com/e1z0/miqt/qt6"
 )
 
 func main() {
