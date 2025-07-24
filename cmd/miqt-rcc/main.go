@@ -69,9 +69,9 @@ func RccExec() error {
 
 	// Figure out import statement
 
-	miqtImport := `"github.com/mappu/miqt/qt"`
+	miqtImport := `"github.com/e1z0/miqt/qt"`
 	if *useQt6 {
-		miqtImport = `qt "github.com/mappu/miqt/qt6"`
+		miqtImport = `qt "github.com/e1z0/miqt/qt6"`
 	}
 
 	// Figure out regeneration command
