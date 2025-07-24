@@ -215,32 +215,20 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		ClangMatchSameHeaderDefinitionOnly,
 	)
 
+        // qtermwidget
+        generate(
+                "qt-restricted-extras/qtermwidget",
+                []string{
+                        "/usr/local/include/qtermwidget5",
+                },
+                OnlyHeaders("qtermwidget_export.h","qtermwidget.h"),
+                clangBin,
+                pkgConfigCflags("qtermwidget5"),
+                outDir,
+                ClangMatchSameHeaderDefinitionOnly,
+        )
 
-	// Depends on QtCore/Gui/Widgets, QPrintSupport
-	generate(
-		"qt-restricted-extras/qscintilla",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt5/Qsci",
-		},
-		AllowAllHeaders,
-		clangBin,
-		pkgConfigCflags("Qt5PrintSupport"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-	)
 
-	// Depends on QtCore/Gui/Widgets
-	generate(
-		"qt-extras/scintillaedit",
-		[]string{
-			filepath.Join(extraLibsDir, "scintilla/qt/ScintillaEdit/ScintillaEdit.h"),
-		},
-		AllowAllHeaders,
-		clangBin,
-		"--std=c++1z "+pkgConfigCflags("ScintillaEdit"),
-		outDir,
-		(&clangMatchUnderPath{filepath.Join(extraLibsDir, "scintilla")}).Match,
-	)
 
 	// FLUSH all known typedefs / ...
 
@@ -481,17 +469,4 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		ClangMatchSameHeaderDefinitionOnly,
 	)
 
-	// Qt 6 QScintilla
-	// Depends on QtCore/Gui/Widgets, QPrintSupport
-	generate(
-		"qt-restricted-extras/qscintilla6",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt6/Qsci",
-		},
-		AllowAllHeaders,
-		clangBin,
-		"--std=c++17 "+pkgConfigCflags("Qt6PrintSupport"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-	)
 }
