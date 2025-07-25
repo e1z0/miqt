@@ -29,7 +29,7 @@ func TestRcc(t *testing.T) {
 go 1.19
 
 require (
-	github.com/mappu/miqt v1.0.0
+	github.com/e1z0/miqt v1.0.0
 )
 
 replace github.com/mappu/miqt => ` + filepath.Clean(RccDir+`/../../`) + `

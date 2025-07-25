@@ -318,12 +318,12 @@ detect_env_qt_version() {
 # detect_miqt_qt_version echoes either "qt5", "qt6", or exits bash.
 detect_miqt_qt_version() {
 	local IS_QT5=false
-	if grep -qF '"github.com/mappu/miqt/qt"' *.go ; then
+	if grep -qF '"github.com/e1z0/miqt/qt"' *.go ; then
 		IS_QT5=true
 	fi
 	
 	local IS_QT6=false
-	if grep -qF '"github.com/mappu/miqt/qt6"' *.go ; then
+	if grep -qF '"github.com/e1z0/miqt/qt6"' *.go ; then
 		IS_QT6=true
 	fi
 	
