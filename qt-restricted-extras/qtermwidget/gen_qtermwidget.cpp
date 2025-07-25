@@ -32,7 +32,7 @@
 #include <QByteArray>
 #include <cstring>
 #include <QTabletEvent>
-#include <QTermWidget>
+//#include <QTermWidget>
 #include <QTextCodec>
 #include <QTimerEvent>
 #include <QUrl>

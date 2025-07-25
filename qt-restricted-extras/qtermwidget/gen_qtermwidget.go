@@ -368,9 +368,9 @@ func (this *QTermWidget) GetPtySlaveFd() int {
 	return (int)(C.QTermWidget_getPtySlaveFd(this.h))
 }
 
-func (this *QTermWidget) SetKeyboardCursorShape(shape Konsole__Emulation__KeyboardCursorShape) {
-	C.QTermWidget_setKeyboardCursorShape(this.h, (C.int)(shape))
-}
+//func (this *QTermWidget) SetKeyboardCursorShape(shape Konsole__Emulation__KeyboardCursorShape) {
+//	C.QTermWidget_setKeyboardCursorShape(this.h, (C.int)(shape))
+//}
 
 func (this *QTermWidget) SetBlinkingCursor(blink bool) {
 	C.QTermWidget_setBlinkingCursor(this.h, (C.bool)(blink))
