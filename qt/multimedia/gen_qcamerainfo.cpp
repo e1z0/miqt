@@ -17,20 +17,20 @@ extern "C" {
 #endif
 
 QCameraInfo* QCameraInfo_new() {
-	return new (std::nothrow) QCameraInfo();
+	return new QCameraInfo();
 }
 
 QCameraInfo* QCameraInfo_new2(QCamera* camera) {
-	return new (std::nothrow) QCameraInfo(*camera);
+	return new QCameraInfo(*camera);
 }
 
 QCameraInfo* QCameraInfo_new3(QCameraInfo* other) {
-	return new (std::nothrow) QCameraInfo(*other);
+	return new QCameraInfo(*other);
 }
 
 QCameraInfo* QCameraInfo_new4(struct miqt_string name) {
 	QByteArray name_QByteArray(name.data, name.len);
-	return new (std::nothrow) QCameraInfo(name_QByteArray);
+	return new QCameraInfo(name_QByteArray);
 }
 
 void QCameraInfo_operatorAssign(QCameraInfo* self, QCameraInfo* other) {

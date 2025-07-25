@@ -16,15 +16,15 @@ extern "C" {
 #endif
 
 QMediaFormat* QMediaFormat_new() {
-	return new (std::nothrow) QMediaFormat();
+	return new QMediaFormat();
 }
 
 QMediaFormat* QMediaFormat_new2(QMediaFormat* other) {
-	return new (std::nothrow) QMediaFormat(*other);
+	return new QMediaFormat(*other);
 }
 
 QMediaFormat* QMediaFormat_new3(int format) {
-	return new (std::nothrow) QMediaFormat(static_cast<QMediaFormat::FileFormat>(format));
+	return new QMediaFormat(static_cast<QMediaFormat::FileFormat>(format));
 }
 
 void QMediaFormat_operatorAssign(QMediaFormat* self, QMediaFormat* other) {

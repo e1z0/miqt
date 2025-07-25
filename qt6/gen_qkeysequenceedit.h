@@ -110,7 +110,6 @@ void QKeySequenceEdit_timerEvent(QKeySequenceEdit* self, QTimerEvent* param1);
 void QKeySequenceEdit_focusOutEvent(QKeySequenceEdit* self, QFocusEvent* param1);
 struct miqt_string QKeySequenceEdit_tr2(const char* s, const char* c);
 struct miqt_string QKeySequenceEdit_tr3(const char* s, const char* c, int n);
-
 bool QKeySequenceEdit_override_virtual_event(void* self, intptr_t slot);
 bool QKeySequenceEdit_virtualbase_event(void* self, QEvent* param1);
 bool QKeySequenceEdit_override_virtual_keyPressEvent(void* self, intptr_t slot);
@@ -205,7 +204,6 @@ bool QKeySequenceEdit_override_virtual_connectNotify(void* self, intptr_t slot);
 void QKeySequenceEdit_virtualbase_connectNotify(void* self, QMetaMethod* signal);
 bool QKeySequenceEdit_override_virtual_disconnectNotify(void* self, intptr_t slot);
 void QKeySequenceEdit_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
-
 void QKeySequenceEdit_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* self);
 void QKeySequenceEdit_protectedbase_create(bool* _dynamic_cast_ok, void* self);
 void QKeySequenceEdit_protectedbase_destroy(bool* _dynamic_cast_ok, void* self);
@@ -215,7 +213,6 @@ QObject* QKeySequenceEdit_protectedbase_sender(bool* _dynamic_cast_ok, const voi
 int QKeySequenceEdit_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self);
 int QKeySequenceEdit_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal);
 bool QKeySequenceEdit_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal);
-
 void QKeySequenceEdit_delete(QKeySequenceEdit* self);
 
 #ifdef __cplusplus

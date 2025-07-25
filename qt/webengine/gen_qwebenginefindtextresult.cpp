@@ -11,11 +11,11 @@ extern "C" {
 #endif
 
 QWebEngineFindTextResult* QWebEngineFindTextResult_new() {
-	return new (std::nothrow) QWebEngineFindTextResult();
+	return new QWebEngineFindTextResult();
 }
 
 QWebEngineFindTextResult* QWebEngineFindTextResult_new2(QWebEngineFindTextResult* other) {
-	return new (std::nothrow) QWebEngineFindTextResult(*other);
+	return new QWebEngineFindTextResult(*other);
 }
 
 int QWebEngineFindTextResult_numberOfMatches(const QWebEngineFindTextResult* self) {

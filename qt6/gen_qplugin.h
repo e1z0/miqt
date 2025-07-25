@@ -43,11 +43,9 @@ typedef struct QStaticPlugin QStaticPlugin;
 #endif
 
 unsigned char QPluginMetaData_archRequirements();
-
 void QPluginMetaData_delete(QPluginMetaData* self);
 
 QJsonObject* QStaticPlugin_metaData(const QStaticPlugin* self);
-
 void QStaticPlugin_delete(QStaticPlugin* self);
 
 QPluginMetaData__Header* QPluginMetaData__Header_new(QPluginMetaData__Header* param1);

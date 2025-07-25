@@ -20,40 +20,40 @@ extern "C" {
 #endif
 
 QJSValue* QJSValue_new() {
-	return new (std::nothrow) QJSValue();
+	return new QJSValue();
 }
 
 QJSValue* QJSValue_new2(QJSValue* other) {
-	return new (std::nothrow) QJSValue(*other);
+	return new QJSValue(*other);
 }
 
 QJSValue* QJSValue_new3(bool value) {
-	return new (std::nothrow) QJSValue(value);
+	return new QJSValue(value);
 }
 
 QJSValue* QJSValue_new4(int value) {
-	return new (std::nothrow) QJSValue(static_cast<int>(value));
+	return new QJSValue(static_cast<int>(value));
 }
 
 QJSValue* QJSValue_new5(unsigned int value) {
-	return new (std::nothrow) QJSValue(static_cast<uint>(value));
+	return new QJSValue(static_cast<uint>(value));
 }
 
 QJSValue* QJSValue_new6(double value) {
-	return new (std::nothrow) QJSValue(static_cast<double>(value));
+	return new QJSValue(static_cast<double>(value));
 }
 
 QJSValue* QJSValue_new7(struct miqt_string value) {
 	QString value_QString = QString::fromUtf8(value.data, value.len);
-	return new (std::nothrow) QJSValue(value_QString);
+	return new QJSValue(value_QString);
 }
 
 QJSValue* QJSValue_new8(const char* str) {
-	return new (std::nothrow) QJSValue(str);
+	return new QJSValue(str);
 }
 
 QJSValue* QJSValue_new9(int value) {
-	return new (std::nothrow) QJSValue(static_cast<QJSValue::SpecialValue>(value));
+	return new QJSValue(static_cast<QJSValue::SpecialValue>(value));
 }
 
 void QJSValue_operatorAssign(QJSValue* self, QJSValue* other) {

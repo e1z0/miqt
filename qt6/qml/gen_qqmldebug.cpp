@@ -17,11 +17,11 @@ extern "C" {
 #endif
 
 QQmlDebuggingEnabler* QQmlDebuggingEnabler_new() {
-	return new (std::nothrow) QQmlDebuggingEnabler();
+	return new QQmlDebuggingEnabler();
 }
 
 QQmlDebuggingEnabler* QQmlDebuggingEnabler_new2(bool printWarning) {
-	return new (std::nothrow) QQmlDebuggingEnabler(printWarning);
+	return new QQmlDebuggingEnabler(printWarning);
 }
 
 void QQmlDebuggingEnabler_enableDebugging(bool printWarning) {

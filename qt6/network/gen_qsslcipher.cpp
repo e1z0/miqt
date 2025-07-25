@@ -14,21 +14,21 @@ extern "C" {
 #endif
 
 QSslCipher* QSslCipher_new() {
-	return new (std::nothrow) QSslCipher();
+	return new QSslCipher();
 }
 
 QSslCipher* QSslCipher_new2(struct miqt_string name) {
 	QString name_QString = QString::fromUtf8(name.data, name.len);
-	return new (std::nothrow) QSslCipher(name_QString);
+	return new QSslCipher(name_QString);
 }
 
 QSslCipher* QSslCipher_new3(struct miqt_string name, int protocol) {
 	QString name_QString = QString::fromUtf8(name.data, name.len);
-	return new (std::nothrow) QSslCipher(name_QString, static_cast<QSsl::SslProtocol>(protocol));
+	return new QSslCipher(name_QString, static_cast<QSsl::SslProtocol>(protocol));
 }
 
 QSslCipher* QSslCipher_new4(QSslCipher* other) {
-	return new (std::nothrow) QSslCipher(*other);
+	return new QSslCipher(*other);
 }
 
 void QSslCipher_operatorAssign(QSslCipher* self, QSslCipher* other) {

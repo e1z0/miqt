@@ -16,8 +16,6 @@ extern "C" {
 #endif
 
 void miqt_exec_callback_QAbstractState_activeChanged(intptr_t, bool);
-void miqt_exec_callback_QAbstractState_entered(intptr_t);
-void miqt_exec_callback_QAbstractState_exited(intptr_t);
 #ifdef __cplusplus
 } /* extern C */
 #endif
@@ -121,18 +119,6 @@ struct miqt_string QAbstractState_trUtf83(const char* s, const char* c, int n) {
 	_ms.data = static_cast<char*>(malloc(_ms.len));
 	memcpy(_ms.data, _b.data(), _ms.len);
 	return _ms;
-}
-
-void QAbstractState_connect_entered(QAbstractState* self, intptr_t slot) {
-	QAbstractState::connect(self, &QAbstractState::entered, self, [=]() {
-		miqt_exec_callback_QAbstractState_entered(slot);
-	});
-}
-
-void QAbstractState_connect_exited(QAbstractState* self, intptr_t slot) {
-	QAbstractState::connect(self, &QAbstractState::exited, self, [=]() {
-		miqt_exec_callback_QAbstractState_exited(slot);
-	});
 }
 
 void QAbstractState_delete(QAbstractState* self) {

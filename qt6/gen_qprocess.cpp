@@ -23,10 +23,6 @@ extern "C" {
 void miqt_exec_callback_QProcess_finished(intptr_t, int);
 void miqt_exec_callback_QProcess_errorOccurred(intptr_t, int);
 void miqt_exec_callback_QProcess_finished2(intptr_t, int, int);
-void miqt_exec_callback_QProcess_started(intptr_t);
-void miqt_exec_callback_QProcess_stateChanged(intptr_t, int);
-void miqt_exec_callback_QProcess_readyReadStandardOutput(intptr_t);
-void miqt_exec_callback_QProcess_readyReadStandardError(intptr_t);
 bool miqt_exec_callback_QProcess_open(QProcess*, intptr_t, int);
 bool miqt_exec_callback_QProcess_waitForReadyRead(QProcess*, intptr_t, int);
 bool miqt_exec_callback_QProcess_waitForBytesWritten(QProcess*, intptr_t, int);
@@ -56,15 +52,15 @@ void miqt_exec_callback_QProcess_disconnectNotify(QProcess*, intptr_t, QMetaMeth
 #endif
 
 QProcessEnvironment* QProcessEnvironment_new() {
-	return new (std::nothrow) QProcessEnvironment();
+	return new QProcessEnvironment();
 }
 
 QProcessEnvironment* QProcessEnvironment_new2(int param1) {
-	return new (std::nothrow) QProcessEnvironment(static_cast<QProcessEnvironment::Initialization>(param1));
+	return new QProcessEnvironment(static_cast<QProcessEnvironment::Initialization>(param1));
 }
 
 QProcessEnvironment* QProcessEnvironment_new3(QProcessEnvironment* other) {
-	return new (std::nothrow) QProcessEnvironment(*other);
+	return new QProcessEnvironment(*other);
 }
 
 void QProcessEnvironment_operatorAssign(QProcessEnvironment* self, QProcessEnvironment* other) {
@@ -191,8 +187,8 @@ void QProcessEnvironment_delete(QProcessEnvironment* self) {
 class MiqtVirtualQProcess final : public QProcess {
 public:
 
-	MiqtVirtualQProcess(): QProcess() {}
-	MiqtVirtualQProcess(QObject* parent): QProcess(parent) {}
+	MiqtVirtualQProcess(): QProcess() {};
+	MiqtVirtualQProcess(QObject* parent): QProcess(parent) {};
 
 	virtual ~MiqtVirtualQProcess() override = default;
 
@@ -204,10 +200,12 @@ public:
 		if (handle__open == 0) {
 			return QProcess::open(mode);
 		}
-
+		
 		QIODeviceBase::OpenMode mode_ret = mode;
 		int sigval1 = static_cast<int>(mode_ret);
+
 		bool callback_return_value = miqt_exec_callback_QProcess_open(this, handle__open, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -221,9 +219,11 @@ public:
 		if (handle__waitForReadyRead == 0) {
 			return QProcess::waitForReadyRead(msecs);
 		}
-
+		
 		int sigval1 = msecs;
+
 		bool callback_return_value = miqt_exec_callback_QProcess_waitForReadyRead(this, handle__waitForReadyRead, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -237,9 +237,11 @@ public:
 		if (handle__waitForBytesWritten == 0) {
 			return QProcess::waitForBytesWritten(msecs);
 		}
-
+		
 		int sigval1 = msecs;
+
 		bool callback_return_value = miqt_exec_callback_QProcess_waitForBytesWritten(this, handle__waitForBytesWritten, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -253,8 +255,10 @@ public:
 		if (handle__bytesToWrite == 0) {
 			return QProcess::bytesToWrite();
 		}
+		
 
 		long long callback_return_value = miqt_exec_callback_QProcess_bytesToWrite(this, handle__bytesToWrite);
+
 		return static_cast<qint64>(callback_return_value);
 	}
 
@@ -268,8 +272,10 @@ public:
 		if (handle__isSequential == 0) {
 			return QProcess::isSequential();
 		}
+		
 
 		bool callback_return_value = miqt_exec_callback_QProcess_isSequential(this, handle__isSequential);
+
 		return callback_return_value;
 	}
 
@@ -284,9 +290,11 @@ public:
 			QProcess::close();
 			return;
 		}
+		
 
 		miqt_exec_callback_QProcess_close(this, handle__close);
 
+		
 	}
 
 	friend void QProcess_virtualbase_close(void* self);
@@ -299,11 +307,13 @@ public:
 		if (handle__readData == 0) {
 			return QProcess::readData(data, maxlen);
 		}
-
+		
 		char* sigval1 = data;
 		qint64 maxlen_ret = maxlen;
 		long long sigval2 = static_cast<long long>(maxlen_ret);
+
 		long long callback_return_value = miqt_exec_callback_QProcess_readData(this, handle__readData, sigval1, sigval2);
+
 		return static_cast<qint64>(callback_return_value);
 	}
 
@@ -317,11 +327,13 @@ public:
 		if (handle__writeData == 0) {
 			return QProcess::writeData(data, len);
 		}
-
+		
 		const char* sigval1 = (const char*) data;
 		qint64 len_ret = len;
 		long long sigval2 = static_cast<long long>(len_ret);
+
 		long long callback_return_value = miqt_exec_callback_QProcess_writeData(this, handle__writeData, sigval1, sigval2);
+
 		return static_cast<qint64>(callback_return_value);
 	}
 
@@ -335,8 +347,10 @@ public:
 		if (handle__pos == 0) {
 			return QProcess::pos();
 		}
+		
 
 		long long callback_return_value = miqt_exec_callback_QProcess_pos(this, handle__pos);
+
 		return static_cast<qint64>(callback_return_value);
 	}
 
@@ -350,8 +364,10 @@ public:
 		if (handle__size == 0) {
 			return QProcess::size();
 		}
+		
 
 		long long callback_return_value = miqt_exec_callback_QProcess_size(this, handle__size);
+
 		return static_cast<qint64>(callback_return_value);
 	}
 
@@ -365,10 +381,12 @@ public:
 		if (handle__seek == 0) {
 			return QProcess::seek(pos);
 		}
-
+		
 		qint64 pos_ret = pos;
 		long long sigval1 = static_cast<long long>(pos_ret);
+
 		bool callback_return_value = miqt_exec_callback_QProcess_seek(this, handle__seek, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -382,8 +400,10 @@ public:
 		if (handle__atEnd == 0) {
 			return QProcess::atEnd();
 		}
+		
 
 		bool callback_return_value = miqt_exec_callback_QProcess_atEnd(this, handle__atEnd);
+
 		return callback_return_value;
 	}
 
@@ -397,8 +417,10 @@ public:
 		if (handle__reset == 0) {
 			return QProcess::reset();
 		}
+		
 
 		bool callback_return_value = miqt_exec_callback_QProcess_reset(this, handle__reset);
+
 		return callback_return_value;
 	}
 
@@ -412,8 +434,10 @@ public:
 		if (handle__bytesAvailable == 0) {
 			return QProcess::bytesAvailable();
 		}
+		
 
 		long long callback_return_value = miqt_exec_callback_QProcess_bytesAvailable(this, handle__bytesAvailable);
+
 		return static_cast<qint64>(callback_return_value);
 	}
 
@@ -427,8 +451,10 @@ public:
 		if (handle__canReadLine == 0) {
 			return QProcess::canReadLine();
 		}
+		
 
 		bool callback_return_value = miqt_exec_callback_QProcess_canReadLine(this, handle__canReadLine);
+
 		return callback_return_value;
 	}
 
@@ -442,11 +468,13 @@ public:
 		if (handle__readLineData == 0) {
 			return QProcess::readLineData(data, maxlen);
 		}
-
+		
 		char* sigval1 = data;
 		qint64 maxlen_ret = maxlen;
 		long long sigval2 = static_cast<long long>(maxlen_ret);
+
 		long long callback_return_value = miqt_exec_callback_QProcess_readLineData(this, handle__readLineData, sigval1, sigval2);
+
 		return static_cast<qint64>(callback_return_value);
 	}
 
@@ -460,10 +488,12 @@ public:
 		if (handle__skipData == 0) {
 			return QProcess::skipData(maxSize);
 		}
-
+		
 		qint64 maxSize_ret = maxSize;
 		long long sigval1 = static_cast<long long>(maxSize_ret);
+
 		long long callback_return_value = miqt_exec_callback_QProcess_skipData(this, handle__skipData, sigval1);
+
 		return static_cast<qint64>(callback_return_value);
 	}
 
@@ -477,9 +507,11 @@ public:
 		if (handle__event == 0) {
 			return QProcess::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QProcess_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -493,10 +525,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QProcess::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QProcess_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -511,10 +545,12 @@ public:
 			QProcess::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QProcess_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QProcess_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -528,10 +564,12 @@ public:
 			QProcess::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QProcess_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QProcess_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -545,10 +583,12 @@ public:
 			QProcess::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QProcess_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QProcess_virtualbase_customEvent(void* self, QEvent* event);
@@ -562,12 +602,14 @@ public:
 			QProcess::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QProcess_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QProcess_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -581,12 +623,14 @@ public:
 			QProcess::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QProcess_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QProcess_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -602,11 +646,11 @@ public:
 };
 
 QProcess* QProcess_new() {
-	return new (std::nothrow) MiqtVirtualQProcess();
+	return new MiqtVirtualQProcess();
 }
 
 QProcess* QProcess_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQProcess(parent);
+	return new MiqtVirtualQProcess(parent);
 }
 
 void QProcess_virtbase(QProcess* src, QIODevice** outptr_QIODevice) {
@@ -935,7 +979,7 @@ void QProcess_finished(QProcess* self, int exitCode) {
 }
 
 void QProcess_connect_finished(QProcess* self, intptr_t slot) {
-	QProcess::connect(self, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), self, [=](int exitCode) {
+	MiqtVirtualQProcess::connect(self, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), self, [=](int exitCode) {
 		int sigval1 = exitCode;
 		miqt_exec_callback_QProcess_finished(slot, sigval1);
 	});
@@ -946,7 +990,7 @@ void QProcess_errorOccurred(QProcess* self, int error) {
 }
 
 void QProcess_connect_errorOccurred(QProcess* self, intptr_t slot) {
-	QProcess::connect(self, static_cast<void (QProcess::*)(QProcess::ProcessError)>(&QProcess::errorOccurred), self, [=](QProcess::ProcessError error) {
+	MiqtVirtualQProcess::connect(self, static_cast<void (QProcess::*)(QProcess::ProcessError)>(&QProcess::errorOccurred), self, [=](QProcess::ProcessError error) {
 		QProcess::ProcessError error_ret = error;
 		int sigval1 = static_cast<int>(error_ret);
 		miqt_exec_callback_QProcess_errorOccurred(slot, sigval1);
@@ -1085,7 +1129,7 @@ void QProcess_finished2(QProcess* self, int exitCode, int exitStatus) {
 }
 
 void QProcess_connect_finished2(QProcess* self, intptr_t slot) {
-	QProcess::connect(self, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), self, [=](int exitCode, QProcess::ExitStatus exitStatus) {
+	MiqtVirtualQProcess::connect(self, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), self, [=](int exitCode, QProcess::ExitStatus exitStatus) {
 		int sigval1 = exitCode;
 		QProcess::ExitStatus exitStatus_ret = exitStatus;
 		int sigval2 = static_cast<int>(exitStatus_ret);
@@ -1098,13 +1142,15 @@ bool QProcess_override_virtual_open(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__open = slot;
 	return true;
 }
 
 bool QProcess_virtualbase_open(void* self, int mode) {
-	return static_cast<MiqtVirtualQProcess*>(self)->QProcess::open(static_cast<MiqtVirtualQProcess::OpenMode>(mode));
+
+	return ( (MiqtVirtualQProcess*)(self) )->QProcess::open(static_cast<MiqtVirtualQProcess::OpenMode>(mode));
+
 }
 
 bool QProcess_override_virtual_waitForReadyRead(void* self, intptr_t slot) {
@@ -1112,13 +1158,15 @@ bool QProcess_override_virtual_waitForReadyRead(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__waitForReadyRead = slot;
 	return true;
 }
 
 bool QProcess_virtualbase_waitForReadyRead(void* self, int msecs) {
-	return static_cast<MiqtVirtualQProcess*>(self)->QProcess::waitForReadyRead(static_cast<int>(msecs));
+
+	return ( (MiqtVirtualQProcess*)(self) )->QProcess::waitForReadyRead(static_cast<int>(msecs));
+
 }
 
 bool QProcess_override_virtual_waitForBytesWritten(void* self, intptr_t slot) {
@@ -1126,13 +1174,15 @@ bool QProcess_override_virtual_waitForBytesWritten(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__waitForBytesWritten = slot;
 	return true;
 }
 
 bool QProcess_virtualbase_waitForBytesWritten(void* self, int msecs) {
-	return static_cast<MiqtVirtualQProcess*>(self)->QProcess::waitForBytesWritten(static_cast<int>(msecs));
+
+	return ( (MiqtVirtualQProcess*)(self) )->QProcess::waitForBytesWritten(static_cast<int>(msecs));
+
 }
 
 bool QProcess_override_virtual_bytesToWrite(void* self, intptr_t slot) {
@@ -1140,14 +1190,16 @@ bool QProcess_override_virtual_bytesToWrite(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__bytesToWrite = slot;
 	return true;
 }
 
 long long QProcess_virtualbase_bytesToWrite(const void* self) {
-	qint64 _ret = static_cast<const MiqtVirtualQProcess*>(self)->QProcess::bytesToWrite();
+
+	qint64 _ret = ( (const MiqtVirtualQProcess*)(self) )->QProcess::bytesToWrite();
 	return static_cast<long long>(_ret);
+
 }
 
 bool QProcess_override_virtual_isSequential(void* self, intptr_t slot) {
@@ -1155,13 +1207,15 @@ bool QProcess_override_virtual_isSequential(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__isSequential = slot;
 	return true;
 }
 
 bool QProcess_virtualbase_isSequential(const void* self) {
-	return static_cast<const MiqtVirtualQProcess*>(self)->QProcess::isSequential();
+
+	return ( (const MiqtVirtualQProcess*)(self) )->QProcess::isSequential();
+
 }
 
 bool QProcess_override_virtual_close(void* self, intptr_t slot) {
@@ -1169,13 +1223,15 @@ bool QProcess_override_virtual_close(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__close = slot;
 	return true;
 }
 
 void QProcess_virtualbase_close(void* self) {
-	static_cast<MiqtVirtualQProcess*>(self)->QProcess::close();
+
+	( (MiqtVirtualQProcess*)(self) )->QProcess::close();
+
 }
 
 bool QProcess_override_virtual_readData(void* self, intptr_t slot) {
@@ -1183,14 +1239,16 @@ bool QProcess_override_virtual_readData(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__readData = slot;
 	return true;
 }
 
 long long QProcess_virtualbase_readData(void* self, char* data, long long maxlen) {
-	qint64 _ret = static_cast<MiqtVirtualQProcess*>(self)->QProcess::readData(data, static_cast<qint64>(maxlen));
+
+	qint64 _ret = ( (MiqtVirtualQProcess*)(self) )->QProcess::readData(data, static_cast<qint64>(maxlen));
 	return static_cast<long long>(_ret);
+
 }
 
 bool QProcess_override_virtual_writeData(void* self, intptr_t slot) {
@@ -1198,14 +1256,16 @@ bool QProcess_override_virtual_writeData(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__writeData = slot;
 	return true;
 }
 
 long long QProcess_virtualbase_writeData(void* self, const char* data, long long len) {
-	qint64 _ret = static_cast<MiqtVirtualQProcess*>(self)->QProcess::writeData(data, static_cast<qint64>(len));
+
+	qint64 _ret = ( (MiqtVirtualQProcess*)(self) )->QProcess::writeData(data, static_cast<qint64>(len));
 	return static_cast<long long>(_ret);
+
 }
 
 bool QProcess_override_virtual_pos(void* self, intptr_t slot) {
@@ -1213,14 +1273,16 @@ bool QProcess_override_virtual_pos(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__pos = slot;
 	return true;
 }
 
 long long QProcess_virtualbase_pos(const void* self) {
-	qint64 _ret = static_cast<const MiqtVirtualQProcess*>(self)->QProcess::pos();
+
+	qint64 _ret = ( (const MiqtVirtualQProcess*)(self) )->QProcess::pos();
 	return static_cast<long long>(_ret);
+
 }
 
 bool QProcess_override_virtual_size(void* self, intptr_t slot) {
@@ -1228,14 +1290,16 @@ bool QProcess_override_virtual_size(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__size = slot;
 	return true;
 }
 
 long long QProcess_virtualbase_size(const void* self) {
-	qint64 _ret = static_cast<const MiqtVirtualQProcess*>(self)->QProcess::size();
+
+	qint64 _ret = ( (const MiqtVirtualQProcess*)(self) )->QProcess::size();
 	return static_cast<long long>(_ret);
+
 }
 
 bool QProcess_override_virtual_seek(void* self, intptr_t slot) {
@@ -1243,13 +1307,15 @@ bool QProcess_override_virtual_seek(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__seek = slot;
 	return true;
 }
 
 bool QProcess_virtualbase_seek(void* self, long long pos) {
-	return static_cast<MiqtVirtualQProcess*>(self)->QProcess::seek(static_cast<qint64>(pos));
+
+	return ( (MiqtVirtualQProcess*)(self) )->QProcess::seek(static_cast<qint64>(pos));
+
 }
 
 bool QProcess_override_virtual_atEnd(void* self, intptr_t slot) {
@@ -1257,13 +1323,15 @@ bool QProcess_override_virtual_atEnd(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__atEnd = slot;
 	return true;
 }
 
 bool QProcess_virtualbase_atEnd(const void* self) {
-	return static_cast<const MiqtVirtualQProcess*>(self)->QProcess::atEnd();
+
+	return ( (const MiqtVirtualQProcess*)(self) )->QProcess::atEnd();
+
 }
 
 bool QProcess_override_virtual_reset(void* self, intptr_t slot) {
@@ -1271,13 +1339,15 @@ bool QProcess_override_virtual_reset(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__reset = slot;
 	return true;
 }
 
 bool QProcess_virtualbase_reset(void* self) {
-	return static_cast<MiqtVirtualQProcess*>(self)->QProcess::reset();
+
+	return ( (MiqtVirtualQProcess*)(self) )->QProcess::reset();
+
 }
 
 bool QProcess_override_virtual_bytesAvailable(void* self, intptr_t slot) {
@@ -1285,14 +1355,16 @@ bool QProcess_override_virtual_bytesAvailable(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__bytesAvailable = slot;
 	return true;
 }
 
 long long QProcess_virtualbase_bytesAvailable(const void* self) {
-	qint64 _ret = static_cast<const MiqtVirtualQProcess*>(self)->QProcess::bytesAvailable();
+
+	qint64 _ret = ( (const MiqtVirtualQProcess*)(self) )->QProcess::bytesAvailable();
 	return static_cast<long long>(_ret);
+
 }
 
 bool QProcess_override_virtual_canReadLine(void* self, intptr_t slot) {
@@ -1300,13 +1372,15 @@ bool QProcess_override_virtual_canReadLine(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__canReadLine = slot;
 	return true;
 }
 
 bool QProcess_virtualbase_canReadLine(const void* self) {
-	return static_cast<const MiqtVirtualQProcess*>(self)->QProcess::canReadLine();
+
+	return ( (const MiqtVirtualQProcess*)(self) )->QProcess::canReadLine();
+
 }
 
 bool QProcess_override_virtual_readLineData(void* self, intptr_t slot) {
@@ -1314,14 +1388,16 @@ bool QProcess_override_virtual_readLineData(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__readLineData = slot;
 	return true;
 }
 
 long long QProcess_virtualbase_readLineData(void* self, char* data, long long maxlen) {
-	qint64 _ret = static_cast<MiqtVirtualQProcess*>(self)->QProcess::readLineData(data, static_cast<qint64>(maxlen));
+
+	qint64 _ret = ( (MiqtVirtualQProcess*)(self) )->QProcess::readLineData(data, static_cast<qint64>(maxlen));
 	return static_cast<long long>(_ret);
+
 }
 
 bool QProcess_override_virtual_skipData(void* self, intptr_t slot) {
@@ -1329,14 +1405,16 @@ bool QProcess_override_virtual_skipData(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__skipData = slot;
 	return true;
 }
 
 long long QProcess_virtualbase_skipData(void* self, long long maxSize) {
-	qint64 _ret = static_cast<MiqtVirtualQProcess*>(self)->QProcess::skipData(static_cast<qint64>(maxSize));
+
+	qint64 _ret = ( (MiqtVirtualQProcess*)(self) )->QProcess::skipData(static_cast<qint64>(maxSize));
 	return static_cast<long long>(_ret);
+
 }
 
 bool QProcess_override_virtual_event(void* self, intptr_t slot) {
@@ -1344,13 +1422,15 @@ bool QProcess_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QProcess_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQProcess*>(self)->QProcess::event(event);
+
+	return ( (MiqtVirtualQProcess*)(self) )->QProcess::event(event);
+
 }
 
 bool QProcess_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -1358,13 +1438,15 @@ bool QProcess_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QProcess_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQProcess*>(self)->QProcess::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQProcess*)(self) )->QProcess::eventFilter(watched, event);
+
 }
 
 bool QProcess_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -1372,13 +1454,15 @@ bool QProcess_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QProcess_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQProcess*>(self)->QProcess::timerEvent(event);
+
+	( (MiqtVirtualQProcess*)(self) )->QProcess::timerEvent(event);
+
 }
 
 bool QProcess_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -1386,13 +1470,15 @@ bool QProcess_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QProcess_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQProcess*>(self)->QProcess::childEvent(event);
+
+	( (MiqtVirtualQProcess*)(self) )->QProcess::childEvent(event);
+
 }
 
 bool QProcess_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -1400,13 +1486,15 @@ bool QProcess_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QProcess_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQProcess*>(self)->QProcess::customEvent(event);
+
+	( (MiqtVirtualQProcess*)(self) )->QProcess::customEvent(event);
+
 }
 
 bool QProcess_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -1414,13 +1502,15 @@ bool QProcess_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QProcess_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQProcess*>(self)->QProcess::connectNotify(*signal);
+
+	( (MiqtVirtualQProcess*)(self) )->QProcess::connectNotify(*signal);
+
 }
 
 bool QProcess_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -1428,13 +1518,15 @@ bool QProcess_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QProcess_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQProcess*>(self)->QProcess::disconnectNotify(*signal);
+
+	( (MiqtVirtualQProcess*)(self) )->QProcess::disconnectNotify(*signal);
+
 }
 
 void QProcess_protectedbase_setProcessState(bool* _dynamic_cast_ok, void* self, int state) {
@@ -1443,9 +1535,11 @@ void QProcess_protectedbase_setProcessState(bool* _dynamic_cast_ok, void* self, 
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setProcessState(static_cast<MiqtVirtualQProcess::ProcessState>(state));
+
 }
 
 void QProcess_protectedbase_setOpenMode(bool* _dynamic_cast_ok, void* self, int openMode) {
@@ -1454,9 +1548,11 @@ void QProcess_protectedbase_setOpenMode(bool* _dynamic_cast_ok, void* self, int 
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setOpenMode(static_cast<MiqtVirtualQProcess::OpenMode>(openMode));
+
 }
 
 void QProcess_protectedbase_setErrorString(bool* _dynamic_cast_ok, void* self, struct miqt_string errorString) {
@@ -1465,10 +1561,12 @@ void QProcess_protectedbase_setErrorString(bool* _dynamic_cast_ok, void* self, s
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
-		QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
+			QString errorString_QString = QString::fromUtf8(errorString.data, errorString.len);
+
 	self_cast->setErrorString(errorString_QString);
+
 }
 
 QObject* QProcess_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -1477,9 +1575,11 @@ QObject* QProcess_protectedbase_sender(bool* _dynamic_cast_ok, const void* self)
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QProcess_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -1488,9 +1588,11 @@ int QProcess_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void*
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QProcess_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -1499,9 +1601,11 @@ int QProcess_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, c
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QProcess_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -1510,35 +1614,11 @@ bool QProcess_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
-}
 
-void QProcess_connect_started(QProcess* self, intptr_t slot) {
-	QProcess::connect(self, &QProcess::started, self, [=]() {
-		miqt_exec_callback_QProcess_started(slot);
-	});
-}
-
-void QProcess_connect_stateChanged(QProcess* self, intptr_t slot) {
-	QProcess::connect(self, &QProcess::stateChanged, self, [=](QProcess::ProcessState state) {
-		QProcess::ProcessState state_ret = state;
-		int sigval1 = static_cast<int>(state_ret);
-		miqt_exec_callback_QProcess_stateChanged(slot, sigval1);
-	});
-}
-
-void QProcess_connect_readyReadStandardOutput(QProcess* self, intptr_t slot) {
-	QProcess::connect(self, &QProcess::readyReadStandardOutput, self, [=]() {
-		miqt_exec_callback_QProcess_readyReadStandardOutput(slot);
-	});
-}
-
-void QProcess_connect_readyReadStandardError(QProcess* self, intptr_t slot) {
-	QProcess::connect(self, &QProcess::readyReadStandardError, self, [=]() {
-		miqt_exec_callback_QProcess_readyReadStandardError(slot);
-	});
 }
 
 void QProcess_delete(QProcess* self) {

@@ -39,8 +39,8 @@ void miqt_exec_callback_QLineSeries_disconnectNotify(QLineSeries*, intptr_t, QMe
 class MiqtVirtualQLineSeries final : public QLineSeries {
 public:
 
-	MiqtVirtualQLineSeries(): QLineSeries() {}
-	MiqtVirtualQLineSeries(QObject* parent): QLineSeries(parent) {}
+	MiqtVirtualQLineSeries(): QLineSeries() {};
+	MiqtVirtualQLineSeries(QObject* parent): QLineSeries(parent) {};
 
 	virtual ~MiqtVirtualQLineSeries() override = default;
 
@@ -52,8 +52,10 @@ public:
 		if (handle__type == 0) {
 			return QLineSeries::type();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QLineSeries_type(this, handle__type);
+
 		return static_cast<QAbstractSeries::SeriesType>(callback_return_value);
 	}
 
@@ -68,12 +70,14 @@ public:
 			QLineSeries::setPen(pen);
 			return;
 		}
-
+		
 		const QPen& pen_ret = pen;
 		// Cast returned reference into pointer
 		QPen* sigval1 = const_cast<QPen*>(&pen_ret);
+
 		miqt_exec_callback_QLineSeries_setPen(this, handle__setPen, sigval1);
 
+		
 	}
 
 	friend void QLineSeries_virtualbase_setPen(void* self, QPen* pen);
@@ -87,12 +91,14 @@ public:
 			QLineSeries::setBrush(brush);
 			return;
 		}
-
+		
 		const QBrush& brush_ret = brush;
 		// Cast returned reference into pointer
 		QBrush* sigval1 = const_cast<QBrush*>(&brush_ret);
+
 		miqt_exec_callback_QLineSeries_setBrush(this, handle__setBrush, sigval1);
 
+		
 	}
 
 	friend void QLineSeries_virtualbase_setBrush(void* self, QBrush* brush);
@@ -106,12 +112,14 @@ public:
 			QLineSeries::setColor(color);
 			return;
 		}
-
+		
 		const QColor& color_ret = color;
 		// Cast returned reference into pointer
 		QColor* sigval1 = const_cast<QColor*>(&color_ret);
+
 		miqt_exec_callback_QLineSeries_setColor(this, handle__setColor, sigval1);
 
+		
 	}
 
 	friend void QLineSeries_virtualbase_setColor(void* self, QColor* color);
@@ -124,8 +132,10 @@ public:
 		if (handle__color == 0) {
 			return QLineSeries::color();
 		}
+		
 
 		QColor* callback_return_value = miqt_exec_callback_QLineSeries_color(this, handle__color);
+
 		return *callback_return_value;
 	}
 
@@ -139,9 +149,11 @@ public:
 		if (handle__event == 0) {
 			return QLineSeries::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QLineSeries_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -155,10 +167,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QLineSeries::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QLineSeries_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -173,10 +187,12 @@ public:
 			QLineSeries::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QLineSeries_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QLineSeries_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -190,10 +206,12 @@ public:
 			QLineSeries::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QLineSeries_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QLineSeries_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -207,10 +225,12 @@ public:
 			QLineSeries::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QLineSeries_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QLineSeries_virtualbase_customEvent(void* self, QEvent* event);
@@ -224,12 +244,14 @@ public:
 			QLineSeries::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QLineSeries_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QLineSeries_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -243,12 +265,14 @@ public:
 			QLineSeries::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QLineSeries_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QLineSeries_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -261,11 +285,11 @@ public:
 };
 
 QLineSeries* QLineSeries_new() {
-	return new (std::nothrow) MiqtVirtualQLineSeries();
+	return new MiqtVirtualQLineSeries();
 }
 
 QLineSeries* QLineSeries_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQLineSeries(parent);
+	return new MiqtVirtualQLineSeries(parent);
 }
 
 void QLineSeries_virtbase(QLineSeries* src, QXYSeries** outptr_QXYSeries) {
@@ -323,14 +347,16 @@ bool QLineSeries_override_virtual_type(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__type = slot;
 	return true;
 }
 
 int QLineSeries_virtualbase_type(const void* self) {
-	MiqtVirtualQLineSeries::SeriesType _ret = static_cast<const MiqtVirtualQLineSeries*>(self)->QLineSeries::type();
+
+	MiqtVirtualQLineSeries::SeriesType _ret = ( (const MiqtVirtualQLineSeries*)(self) )->QLineSeries::type();
 	return static_cast<int>(_ret);
+
 }
 
 bool QLineSeries_override_virtual_setPen(void* self, intptr_t slot) {
@@ -338,13 +364,15 @@ bool QLineSeries_override_virtual_setPen(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setPen = slot;
 	return true;
 }
 
 void QLineSeries_virtualbase_setPen(void* self, QPen* pen) {
-	static_cast<MiqtVirtualQLineSeries*>(self)->QLineSeries::setPen(*pen);
+
+	( (MiqtVirtualQLineSeries*)(self) )->QLineSeries::setPen(*pen);
+
 }
 
 bool QLineSeries_override_virtual_setBrush(void* self, intptr_t slot) {
@@ -352,13 +380,15 @@ bool QLineSeries_override_virtual_setBrush(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setBrush = slot;
 	return true;
 }
 
 void QLineSeries_virtualbase_setBrush(void* self, QBrush* brush) {
-	static_cast<MiqtVirtualQLineSeries*>(self)->QLineSeries::setBrush(*brush);
+
+	( (MiqtVirtualQLineSeries*)(self) )->QLineSeries::setBrush(*brush);
+
 }
 
 bool QLineSeries_override_virtual_setColor(void* self, intptr_t slot) {
@@ -366,13 +396,15 @@ bool QLineSeries_override_virtual_setColor(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setColor = slot;
 	return true;
 }
 
 void QLineSeries_virtualbase_setColor(void* self, QColor* color) {
-	static_cast<MiqtVirtualQLineSeries*>(self)->QLineSeries::setColor(*color);
+
+	( (MiqtVirtualQLineSeries*)(self) )->QLineSeries::setColor(*color);
+
 }
 
 bool QLineSeries_override_virtual_color(void* self, intptr_t slot) {
@@ -380,13 +412,15 @@ bool QLineSeries_override_virtual_color(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__color = slot;
 	return true;
 }
 
 QColor* QLineSeries_virtualbase_color(const void* self) {
-	return new QColor(static_cast<const MiqtVirtualQLineSeries*>(self)->QLineSeries::color());
+
+	return new QColor(( (const MiqtVirtualQLineSeries*)(self) )->QLineSeries::color());
+
 }
 
 bool QLineSeries_override_virtual_event(void* self, intptr_t slot) {
@@ -394,13 +428,15 @@ bool QLineSeries_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QLineSeries_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQLineSeries*>(self)->QLineSeries::event(event);
+
+	return ( (MiqtVirtualQLineSeries*)(self) )->QLineSeries::event(event);
+
 }
 
 bool QLineSeries_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -408,13 +444,15 @@ bool QLineSeries_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QLineSeries_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQLineSeries*>(self)->QLineSeries::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQLineSeries*)(self) )->QLineSeries::eventFilter(watched, event);
+
 }
 
 bool QLineSeries_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -422,13 +460,15 @@ bool QLineSeries_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QLineSeries_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQLineSeries*>(self)->QLineSeries::timerEvent(event);
+
+	( (MiqtVirtualQLineSeries*)(self) )->QLineSeries::timerEvent(event);
+
 }
 
 bool QLineSeries_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -436,13 +476,15 @@ bool QLineSeries_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QLineSeries_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQLineSeries*>(self)->QLineSeries::childEvent(event);
+
+	( (MiqtVirtualQLineSeries*)(self) )->QLineSeries::childEvent(event);
+
 }
 
 bool QLineSeries_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -450,13 +492,15 @@ bool QLineSeries_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QLineSeries_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQLineSeries*>(self)->QLineSeries::customEvent(event);
+
+	( (MiqtVirtualQLineSeries*)(self) )->QLineSeries::customEvent(event);
+
 }
 
 bool QLineSeries_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -464,13 +508,15 @@ bool QLineSeries_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QLineSeries_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQLineSeries*>(self)->QLineSeries::connectNotify(*signal);
+
+	( (MiqtVirtualQLineSeries*)(self) )->QLineSeries::connectNotify(*signal);
+
 }
 
 bool QLineSeries_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -478,13 +524,15 @@ bool QLineSeries_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QLineSeries_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQLineSeries*>(self)->QLineSeries::disconnectNotify(*signal);
+
+	( (MiqtVirtualQLineSeries*)(self) )->QLineSeries::disconnectNotify(*signal);
+
 }
 
 QObject* QLineSeries_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -493,9 +541,11 @@ QObject* QLineSeries_protectedbase_sender(bool* _dynamic_cast_ok, const void* se
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QLineSeries_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -504,9 +554,11 @@ int QLineSeries_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const vo
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QLineSeries_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -515,9 +567,11 @@ int QLineSeries_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QLineSeries_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -526,9 +580,11 @@ bool QLineSeries_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const v
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QLineSeries_delete(QLineSeries* self) {

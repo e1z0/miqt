@@ -44,6 +44,7 @@ class QWebEngineNavigationRequest;
 class QWebEngineNewWindowRequest;
 class QWebEnginePage;
 class QWebEngineProfile;
+class QWebEngineQuotaRequest;
 class QWebEngineRegisterProtocolHandlerRequest;
 class QWebEngineScriptCollection;
 class QWebEngineSettings;
@@ -78,6 +79,7 @@ typedef struct QWebEngineNavigationRequest QWebEngineNavigationRequest;
 typedef struct QWebEngineNewWindowRequest QWebEngineNewWindowRequest;
 typedef struct QWebEnginePage QWebEnginePage;
 typedef struct QWebEngineProfile QWebEngineProfile;
+typedef struct QWebEngineQuotaRequest QWebEngineQuotaRequest;
 typedef struct QWebEngineRegisterProtocolHandlerRequest QWebEngineRegisterProtocolHandlerRequest;
 typedef struct QWebEngineScriptCollection QWebEngineScriptCollection;
 typedef struct QWebEngineSettings QWebEngineSettings;
@@ -162,6 +164,8 @@ void QWebEnginePage_featurePermissionRequestCanceled(QWebEnginePage* self, QUrl*
 void QWebEnginePage_connect_featurePermissionRequestCanceled(QWebEnginePage* self, intptr_t slot);
 void QWebEnginePage_fullScreenRequested(QWebEnginePage* self, QWebEngineFullScreenRequest* fullScreenRequest);
 void QWebEnginePage_connect_fullScreenRequested(QWebEnginePage* self, intptr_t slot);
+void QWebEnginePage_quotaRequested(QWebEnginePage* self, QWebEngineQuotaRequest* quotaRequest);
+void QWebEnginePage_connect_quotaRequested(QWebEnginePage* self, intptr_t slot);
 void QWebEnginePage_registerProtocolHandlerRequested(QWebEnginePage* self, QWebEngineRegisterProtocolHandlerRequest* request);
 void QWebEnginePage_connect_registerProtocolHandlerRequested(QWebEnginePage* self, intptr_t slot);
 void QWebEnginePage_fileSystemAccessRequested(QWebEnginePage* self, QWebEngineFileSystemAccessRequest* request);
@@ -228,7 +232,6 @@ void QWebEnginePage_setWebChannel2(QWebEnginePage* self, QWebChannel* param1, un
 void QWebEnginePage_save2(const QWebEnginePage* self, struct miqt_string filePath, int format);
 void QWebEnginePage_printToPdf2(QWebEnginePage* self, struct miqt_string filePath, QPageLayout* layout);
 void QWebEnginePage_printToPdf3(QWebEnginePage* self, struct miqt_string filePath, QPageLayout* layout, QPageRanges* ranges);
-
 bool QWebEnginePage_override_virtual_triggerAction(void* self, intptr_t slot);
 void QWebEnginePage_virtualbase_triggerAction(void* self, int action, bool checked);
 bool QWebEnginePage_override_virtual_event(void* self, intptr_t slot);
@@ -257,12 +260,10 @@ bool QWebEnginePage_override_virtual_connectNotify(void* self, intptr_t slot);
 void QWebEnginePage_virtualbase_connectNotify(void* self, QMetaMethod* signal);
 bool QWebEnginePage_override_virtual_disconnectNotify(void* self, intptr_t slot);
 void QWebEnginePage_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
-
 QObject* QWebEnginePage_protectedbase_sender(bool* _dynamic_cast_ok, const void* self);
 int QWebEnginePage_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self);
 int QWebEnginePage_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal);
 bool QWebEnginePage_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal);
-
 void QWebEnginePage_delete(QWebEnginePage* self);
 
 #ifdef __cplusplus

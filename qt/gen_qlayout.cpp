@@ -55,8 +55,8 @@ QSpacerItem* miqt_exec_callback_QLayout_spacerItem(QLayout*, intptr_t);
 class MiqtVirtualQLayout final : public QLayout {
 public:
 
-	MiqtVirtualQLayout(QWidget* parent): QLayout(parent) {}
-	MiqtVirtualQLayout(): QLayout() {}
+	MiqtVirtualQLayout(QWidget* parent): QLayout(parent) {};
+	MiqtVirtualQLayout(): QLayout() {};
 
 	virtual ~MiqtVirtualQLayout() override = default;
 
@@ -69,9 +69,11 @@ public:
 			QLayout::invalidate();
 			return;
 		}
+		
 
 		miqt_exec_callback_QLayout_invalidate(this, handle__invalidate);
 
+		
 	}
 
 	friend void QLayout_virtualbase_invalidate(void* self);
@@ -84,8 +86,10 @@ public:
 		if (handle__geometry == 0) {
 			return QLayout::geometry();
 		}
+		
 
 		QRect* callback_return_value = miqt_exec_callback_QLayout_geometry(this, handle__geometry);
+
 		return *callback_return_value;
 	}
 
@@ -99,10 +103,12 @@ public:
 		if (handle__addItem == 0) {
 			return; // Pure virtual, there is no base we can call
 		}
-
+		
 		QLayoutItem* sigval1 = param1;
+
 		miqt_exec_callback_QLayout_addItem(this, handle__addItem, sigval1);
 
+		
 	}
 
 	// cgo.Handle value for overwritten implementation
@@ -113,8 +119,10 @@ public:
 		if (handle__expandingDirections == 0) {
 			return QLayout::expandingDirections();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QLayout_expandingDirections(this, handle__expandingDirections);
+
 		return static_cast<Qt::Orientations>(callback_return_value);
 	}
 
@@ -128,8 +136,10 @@ public:
 		if (handle__minimumSize == 0) {
 			return QLayout::minimumSize();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_QLayout_minimumSize(this, handle__minimumSize);
+
 		return *callback_return_value;
 	}
 
@@ -143,8 +153,10 @@ public:
 		if (handle__maximumSize == 0) {
 			return QLayout::maximumSize();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_QLayout_maximumSize(this, handle__maximumSize);
+
 		return *callback_return_value;
 	}
 
@@ -159,12 +171,14 @@ public:
 			QLayout::setGeometry(geometry);
 			return;
 		}
-
+		
 		const QRect& geometry_ret = geometry;
 		// Cast returned reference into pointer
 		QRect* sigval1 = const_cast<QRect*>(&geometry_ret);
+
 		miqt_exec_callback_QLayout_setGeometry(this, handle__setGeometry, sigval1);
 
+		
 	}
 
 	friend void QLayout_virtualbase_setGeometry(void* self, QRect* geometry);
@@ -177,9 +191,11 @@ public:
 		if (handle__itemAt == 0) {
 			return nullptr; // Pure virtual, there is no base we can call
 		}
-
+		
 		int sigval1 = index;
+
 		QLayoutItem* callback_return_value = miqt_exec_callback_QLayout_itemAt(this, handle__itemAt, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -191,9 +207,11 @@ public:
 		if (handle__takeAt == 0) {
 			return nullptr; // Pure virtual, there is no base we can call
 		}
-
+		
 		int sigval1 = index;
+
 		QLayoutItem* callback_return_value = miqt_exec_callback_QLayout_takeAt(this, handle__takeAt, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -205,9 +223,11 @@ public:
 		if (handle__indexOf == 0) {
 			return QLayout::indexOf(param1);
 		}
-
+		
 		QWidget* sigval1 = param1;
+
 		int callback_return_value = miqt_exec_callback_QLayout_indexOf(this, handle__indexOf, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -221,8 +241,10 @@ public:
 		if (handle__count == 0) {
 			return 0; // Pure virtual, there is no base we can call
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QLayout_count(this, handle__count);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -234,8 +256,10 @@ public:
 		if (handle__isEmpty == 0) {
 			return QLayout::isEmpty();
 		}
+		
 
 		bool callback_return_value = miqt_exec_callback_QLayout_isEmpty(this, handle__isEmpty);
+
 		return callback_return_value;
 	}
 
@@ -249,8 +273,10 @@ public:
 		if (handle__controlTypes == 0) {
 			return QLayout::controlTypes();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QLayout_controlTypes(this, handle__controlTypes);
+
 		return static_cast<QSizePolicy::ControlTypes>(callback_return_value);
 	}
 
@@ -264,8 +290,10 @@ public:
 		if (handle__layout == 0) {
 			return QLayout::layout();
 		}
+		
 
 		QLayout* callback_return_value = miqt_exec_callback_QLayout_layout(this, handle__layout);
+
 		return callback_return_value;
 	}
 
@@ -280,10 +308,12 @@ public:
 			QLayout::childEvent(e);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = e;
+
 		miqt_exec_callback_QLayout_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QLayout_virtualbase_childEvent(void* self, QChildEvent* e);
@@ -296,9 +326,11 @@ public:
 		if (handle__event == 0) {
 			return QLayout::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QLayout_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -312,10 +344,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QLayout::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QLayout_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -330,10 +364,12 @@ public:
 			QLayout::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QLayout_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QLayout_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -347,10 +383,12 @@ public:
 			QLayout::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QLayout_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QLayout_virtualbase_customEvent(void* self, QEvent* event);
@@ -364,12 +402,14 @@ public:
 			QLayout::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QLayout_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QLayout_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -383,12 +423,14 @@ public:
 			QLayout::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QLayout_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QLayout_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -401,8 +443,10 @@ public:
 		if (handle__sizeHint == 0) {
 			return QSize(); // Pure virtual, there is no base we can call
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_QLayout_sizeHint(this, handle__sizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -414,8 +458,10 @@ public:
 		if (handle__hasHeightForWidth == 0) {
 			return QLayout::hasHeightForWidth();
 		}
+		
 
 		bool callback_return_value = miqt_exec_callback_QLayout_hasHeightForWidth(this, handle__hasHeightForWidth);
+
 		return callback_return_value;
 	}
 
@@ -429,9 +475,11 @@ public:
 		if (handle__heightForWidth == 0) {
 			return QLayout::heightForWidth(param1);
 		}
-
+		
 		int sigval1 = param1;
+
 		int callback_return_value = miqt_exec_callback_QLayout_heightForWidth(this, handle__heightForWidth, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -445,9 +493,11 @@ public:
 		if (handle__minimumHeightForWidth == 0) {
 			return QLayout::minimumHeightForWidth(param1);
 		}
-
+		
 		int sigval1 = param1;
+
 		int callback_return_value = miqt_exec_callback_QLayout_minimumHeightForWidth(this, handle__minimumHeightForWidth, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -461,8 +511,10 @@ public:
 		if (handle__widget == 0) {
 			return QLayout::widget();
 		}
+		
 
 		QWidget* callback_return_value = miqt_exec_callback_QLayout_widget(this, handle__widget);
+
 		return callback_return_value;
 	}
 
@@ -476,8 +528,10 @@ public:
 		if (handle__spacerItem == 0) {
 			return QLayout::spacerItem();
 		}
+		
 
 		QSpacerItem* callback_return_value = miqt_exec_callback_QLayout_spacerItem(this, handle__spacerItem);
+
 		return callback_return_value;
 	}
 
@@ -496,11 +550,11 @@ public:
 };
 
 QLayout* QLayout_new(QWidget* parent) {
-	return new (std::nothrow) MiqtVirtualQLayout(parent);
+	return new MiqtVirtualQLayout(parent);
 }
 
 QLayout* QLayout_new2() {
-	return new (std::nothrow) MiqtVirtualQLayout();
+	return new MiqtVirtualQLayout();
 }
 
 void QLayout_virtbase(QLayout* src, QObject** outptr_QObject, QLayoutItem** outptr_QLayoutItem) {
@@ -770,13 +824,15 @@ bool QLayout_override_virtual_invalidate(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__invalidate = slot;
 	return true;
 }
 
 void QLayout_virtualbase_invalidate(void* self) {
-	static_cast<MiqtVirtualQLayout*>(self)->QLayout::invalidate();
+
+	( (MiqtVirtualQLayout*)(self) )->QLayout::invalidate();
+
 }
 
 bool QLayout_override_virtual_geometry(void* self, intptr_t slot) {
@@ -784,13 +840,15 @@ bool QLayout_override_virtual_geometry(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__geometry = slot;
 	return true;
 }
 
 QRect* QLayout_virtualbase_geometry(const void* self) {
-	return new QRect(static_cast<const MiqtVirtualQLayout*>(self)->QLayout::geometry());
+
+	return new QRect(( (const MiqtVirtualQLayout*)(self) )->QLayout::geometry());
+
 }
 
 bool QLayout_override_virtual_addItem(void* self, intptr_t slot) {
@@ -798,7 +856,7 @@ bool QLayout_override_virtual_addItem(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__addItem = slot;
 	return true;
 }
@@ -808,14 +866,16 @@ bool QLayout_override_virtual_expandingDirections(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__expandingDirections = slot;
 	return true;
 }
 
 int QLayout_virtualbase_expandingDirections(const void* self) {
-	Qt::Orientations _ret = static_cast<const MiqtVirtualQLayout*>(self)->QLayout::expandingDirections();
+
+	Qt::Orientations _ret = ( (const MiqtVirtualQLayout*)(self) )->QLayout::expandingDirections();
 	return static_cast<int>(_ret);
+
 }
 
 bool QLayout_override_virtual_minimumSize(void* self, intptr_t slot) {
@@ -823,13 +883,15 @@ bool QLayout_override_virtual_minimumSize(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__minimumSize = slot;
 	return true;
 }
 
 QSize* QLayout_virtualbase_minimumSize(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualQLayout*>(self)->QLayout::minimumSize());
+
+	return new QSize(( (const MiqtVirtualQLayout*)(self) )->QLayout::minimumSize());
+
 }
 
 bool QLayout_override_virtual_maximumSize(void* self, intptr_t slot) {
@@ -837,13 +899,15 @@ bool QLayout_override_virtual_maximumSize(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__maximumSize = slot;
 	return true;
 }
 
 QSize* QLayout_virtualbase_maximumSize(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualQLayout*>(self)->QLayout::maximumSize());
+
+	return new QSize(( (const MiqtVirtualQLayout*)(self) )->QLayout::maximumSize());
+
 }
 
 bool QLayout_override_virtual_setGeometry(void* self, intptr_t slot) {
@@ -851,13 +915,15 @@ bool QLayout_override_virtual_setGeometry(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setGeometry = slot;
 	return true;
 }
 
 void QLayout_virtualbase_setGeometry(void* self, QRect* geometry) {
-	static_cast<MiqtVirtualQLayout*>(self)->QLayout::setGeometry(*geometry);
+
+	( (MiqtVirtualQLayout*)(self) )->QLayout::setGeometry(*geometry);
+
 }
 
 bool QLayout_override_virtual_itemAt(void* self, intptr_t slot) {
@@ -865,7 +931,7 @@ bool QLayout_override_virtual_itemAt(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__itemAt = slot;
 	return true;
 }
@@ -875,7 +941,7 @@ bool QLayout_override_virtual_takeAt(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__takeAt = slot;
 	return true;
 }
@@ -885,13 +951,15 @@ bool QLayout_override_virtual_indexOf(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__indexOf = slot;
 	return true;
 }
 
 int QLayout_virtualbase_indexOf(const void* self, QWidget* param1) {
-	return static_cast<const MiqtVirtualQLayout*>(self)->QLayout::indexOf(param1);
+
+	return ( (const MiqtVirtualQLayout*)(self) )->QLayout::indexOf(param1);
+
 }
 
 bool QLayout_override_virtual_count(void* self, intptr_t slot) {
@@ -899,7 +967,7 @@ bool QLayout_override_virtual_count(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__count = slot;
 	return true;
 }
@@ -909,13 +977,15 @@ bool QLayout_override_virtual_isEmpty(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__isEmpty = slot;
 	return true;
 }
 
 bool QLayout_virtualbase_isEmpty(const void* self) {
-	return static_cast<const MiqtVirtualQLayout*>(self)->QLayout::isEmpty();
+
+	return ( (const MiqtVirtualQLayout*)(self) )->QLayout::isEmpty();
+
 }
 
 bool QLayout_override_virtual_controlTypes(void* self, intptr_t slot) {
@@ -923,14 +993,16 @@ bool QLayout_override_virtual_controlTypes(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__controlTypes = slot;
 	return true;
 }
 
 int QLayout_virtualbase_controlTypes(const void* self) {
-	QSizePolicy::ControlTypes _ret = static_cast<const MiqtVirtualQLayout*>(self)->QLayout::controlTypes();
+
+	QSizePolicy::ControlTypes _ret = ( (const MiqtVirtualQLayout*)(self) )->QLayout::controlTypes();
 	return static_cast<int>(_ret);
+
 }
 
 bool QLayout_override_virtual_layout(void* self, intptr_t slot) {
@@ -938,13 +1010,15 @@ bool QLayout_override_virtual_layout(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__layout = slot;
 	return true;
 }
 
 QLayout* QLayout_virtualbase_layout(void* self) {
-	return static_cast<MiqtVirtualQLayout*>(self)->QLayout::layout();
+
+	return ( (MiqtVirtualQLayout*)(self) )->QLayout::layout();
+
 }
 
 bool QLayout_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -952,13 +1026,15 @@ bool QLayout_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QLayout_virtualbase_childEvent(void* self, QChildEvent* e) {
-	static_cast<MiqtVirtualQLayout*>(self)->QLayout::childEvent(e);
+
+	( (MiqtVirtualQLayout*)(self) )->QLayout::childEvent(e);
+
 }
 
 bool QLayout_override_virtual_event(void* self, intptr_t slot) {
@@ -966,13 +1042,15 @@ bool QLayout_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QLayout_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQLayout*>(self)->QLayout::event(event);
+
+	return ( (MiqtVirtualQLayout*)(self) )->QLayout::event(event);
+
 }
 
 bool QLayout_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -980,13 +1058,15 @@ bool QLayout_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QLayout_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQLayout*>(self)->QLayout::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQLayout*)(self) )->QLayout::eventFilter(watched, event);
+
 }
 
 bool QLayout_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -994,13 +1074,15 @@ bool QLayout_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QLayout_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQLayout*>(self)->QLayout::timerEvent(event);
+
+	( (MiqtVirtualQLayout*)(self) )->QLayout::timerEvent(event);
+
 }
 
 bool QLayout_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -1008,13 +1090,15 @@ bool QLayout_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QLayout_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQLayout*>(self)->QLayout::customEvent(event);
+
+	( (MiqtVirtualQLayout*)(self) )->QLayout::customEvent(event);
+
 }
 
 bool QLayout_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -1022,13 +1106,15 @@ bool QLayout_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QLayout_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQLayout*>(self)->QLayout::connectNotify(*signal);
+
+	( (MiqtVirtualQLayout*)(self) )->QLayout::connectNotify(*signal);
+
 }
 
 bool QLayout_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -1036,13 +1122,15 @@ bool QLayout_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QLayout_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQLayout*>(self)->QLayout::disconnectNotify(*signal);
+
+	( (MiqtVirtualQLayout*)(self) )->QLayout::disconnectNotify(*signal);
+
 }
 
 bool QLayout_override_virtual_sizeHint(void* self, intptr_t slot) {
@@ -1050,7 +1138,7 @@ bool QLayout_override_virtual_sizeHint(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sizeHint = slot;
 	return true;
 }
@@ -1060,13 +1148,15 @@ bool QLayout_override_virtual_hasHeightForWidth(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hasHeightForWidth = slot;
 	return true;
 }
 
 bool QLayout_virtualbase_hasHeightForWidth(const void* self) {
-	return static_cast<const MiqtVirtualQLayout*>(self)->QLayout::hasHeightForWidth();
+
+	return ( (const MiqtVirtualQLayout*)(self) )->QLayout::hasHeightForWidth();
+
 }
 
 bool QLayout_override_virtual_heightForWidth(void* self, intptr_t slot) {
@@ -1074,13 +1164,15 @@ bool QLayout_override_virtual_heightForWidth(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__heightForWidth = slot;
 	return true;
 }
 
 int QLayout_virtualbase_heightForWidth(const void* self, int param1) {
-	return static_cast<const MiqtVirtualQLayout*>(self)->QLayout::heightForWidth(static_cast<int>(param1));
+
+	return ( (const MiqtVirtualQLayout*)(self) )->QLayout::heightForWidth(static_cast<int>(param1));
+
 }
 
 bool QLayout_override_virtual_minimumHeightForWidth(void* self, intptr_t slot) {
@@ -1088,13 +1180,15 @@ bool QLayout_override_virtual_minimumHeightForWidth(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__minimumHeightForWidth = slot;
 	return true;
 }
 
 int QLayout_virtualbase_minimumHeightForWidth(const void* self, int param1) {
-	return static_cast<const MiqtVirtualQLayout*>(self)->QLayout::minimumHeightForWidth(static_cast<int>(param1));
+
+	return ( (const MiqtVirtualQLayout*)(self) )->QLayout::minimumHeightForWidth(static_cast<int>(param1));
+
 }
 
 bool QLayout_override_virtual_widget(void* self, intptr_t slot) {
@@ -1102,13 +1196,15 @@ bool QLayout_override_virtual_widget(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__widget = slot;
 	return true;
 }
 
 QWidget* QLayout_virtualbase_widget(void* self) {
-	return static_cast<MiqtVirtualQLayout*>(self)->QLayout::widget();
+
+	return ( (MiqtVirtualQLayout*)(self) )->QLayout::widget();
+
 }
 
 bool QLayout_override_virtual_spacerItem(void* self, intptr_t slot) {
@@ -1116,13 +1212,15 @@ bool QLayout_override_virtual_spacerItem(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__spacerItem = slot;
 	return true;
 }
 
 QSpacerItem* QLayout_virtualbase_spacerItem(void* self) {
-	return static_cast<MiqtVirtualQLayout*>(self)->QLayout::spacerItem();
+
+	return ( (MiqtVirtualQLayout*)(self) )->QLayout::spacerItem();
+
 }
 
 void QLayout_protectedbase_widgetEvent(bool* _dynamic_cast_ok, void* self, QEvent* param1) {
@@ -1131,9 +1229,11 @@ void QLayout_protectedbase_widgetEvent(bool* _dynamic_cast_ok, void* self, QEven
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->widgetEvent(param1);
+
 }
 
 void QLayout_protectedbase_addChildLayout(bool* _dynamic_cast_ok, void* self, QLayout* l) {
@@ -1142,9 +1242,11 @@ void QLayout_protectedbase_addChildLayout(bool* _dynamic_cast_ok, void* self, QL
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->addChildLayout(l);
+
 }
 
 void QLayout_protectedbase_addChildWidget(bool* _dynamic_cast_ok, void* self, QWidget* w) {
@@ -1153,9 +1255,11 @@ void QLayout_protectedbase_addChildWidget(bool* _dynamic_cast_ok, void* self, QW
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->addChildWidget(w);
+
 }
 
 bool QLayout_protectedbase_adoptLayout(bool* _dynamic_cast_ok, void* self, QLayout* layout) {
@@ -1164,9 +1268,11 @@ bool QLayout_protectedbase_adoptLayout(bool* _dynamic_cast_ok, void* self, QLayo
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->adoptLayout(layout);
+
 }
 
 QRect* QLayout_protectedbase_alignmentRect(bool* _dynamic_cast_ok, const void* self, QRect* param1) {
@@ -1175,9 +1281,11 @@ QRect* QLayout_protectedbase_alignmentRect(bool* _dynamic_cast_ok, const void* s
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return new QRect(self_cast->alignmentRect(*param1));
+
 }
 
 QObject* QLayout_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -1186,9 +1294,11 @@ QObject* QLayout_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) 
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QLayout_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -1197,9 +1307,11 @@ int QLayout_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QLayout_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -1208,9 +1320,11 @@ int QLayout_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, co
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QLayout_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -1219,9 +1333,11 @@ bool QLayout_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void*
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QLayout_delete(QLayout* self) {

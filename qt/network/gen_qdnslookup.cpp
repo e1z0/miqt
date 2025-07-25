@@ -39,11 +39,11 @@ void miqt_exec_callback_QDnsLookup_disconnectNotify(QDnsLookup*, intptr_t, QMeta
 #endif
 
 QDnsDomainNameRecord* QDnsDomainNameRecord_new() {
-	return new (std::nothrow) QDnsDomainNameRecord();
+	return new QDnsDomainNameRecord();
 }
 
 QDnsDomainNameRecord* QDnsDomainNameRecord_new2(QDnsDomainNameRecord* other) {
-	return new (std::nothrow) QDnsDomainNameRecord(*other);
+	return new QDnsDomainNameRecord(*other);
 }
 
 void QDnsDomainNameRecord_operatorAssign(QDnsDomainNameRecord* self, QDnsDomainNameRecord* other) {
@@ -86,11 +86,11 @@ void QDnsDomainNameRecord_delete(QDnsDomainNameRecord* self) {
 }
 
 QDnsHostAddressRecord* QDnsHostAddressRecord_new() {
-	return new (std::nothrow) QDnsHostAddressRecord();
+	return new QDnsHostAddressRecord();
 }
 
 QDnsHostAddressRecord* QDnsHostAddressRecord_new2(QDnsHostAddressRecord* other) {
-	return new (std::nothrow) QDnsHostAddressRecord(*other);
+	return new QDnsHostAddressRecord(*other);
 }
 
 void QDnsHostAddressRecord_operatorAssign(QDnsHostAddressRecord* self, QDnsHostAddressRecord* other) {
@@ -126,11 +126,11 @@ void QDnsHostAddressRecord_delete(QDnsHostAddressRecord* self) {
 }
 
 QDnsMailExchangeRecord* QDnsMailExchangeRecord_new() {
-	return new (std::nothrow) QDnsMailExchangeRecord();
+	return new QDnsMailExchangeRecord();
 }
 
 QDnsMailExchangeRecord* QDnsMailExchangeRecord_new2(QDnsMailExchangeRecord* other) {
-	return new (std::nothrow) QDnsMailExchangeRecord(*other);
+	return new QDnsMailExchangeRecord(*other);
 }
 
 void QDnsMailExchangeRecord_operatorAssign(QDnsMailExchangeRecord* self, QDnsMailExchangeRecord* other) {
@@ -178,11 +178,11 @@ void QDnsMailExchangeRecord_delete(QDnsMailExchangeRecord* self) {
 }
 
 QDnsServiceRecord* QDnsServiceRecord_new() {
-	return new (std::nothrow) QDnsServiceRecord();
+	return new QDnsServiceRecord();
 }
 
 QDnsServiceRecord* QDnsServiceRecord_new2(QDnsServiceRecord* other) {
-	return new (std::nothrow) QDnsServiceRecord(*other);
+	return new QDnsServiceRecord(*other);
 }
 
 void QDnsServiceRecord_operatorAssign(QDnsServiceRecord* self, QDnsServiceRecord* other) {
@@ -240,11 +240,11 @@ void QDnsServiceRecord_delete(QDnsServiceRecord* self) {
 }
 
 QDnsTextRecord* QDnsTextRecord_new() {
-	return new (std::nothrow) QDnsTextRecord();
+	return new QDnsTextRecord();
 }
 
 QDnsTextRecord* QDnsTextRecord_new2(QDnsTextRecord* other) {
-	return new (std::nothrow) QDnsTextRecord(*other);
+	return new QDnsTextRecord(*other);
 }
 
 void QDnsTextRecord_operatorAssign(QDnsTextRecord* self, QDnsTextRecord* other) {
@@ -296,12 +296,12 @@ void QDnsTextRecord_delete(QDnsTextRecord* self) {
 class MiqtVirtualQDnsLookup final : public QDnsLookup {
 public:
 
-	MiqtVirtualQDnsLookup(): QDnsLookup() {}
-	MiqtVirtualQDnsLookup(QDnsLookup::Type type, const QString& name): QDnsLookup(type, name) {}
-	MiqtVirtualQDnsLookup(QDnsLookup::Type type, const QString& name, const QHostAddress& nameserver): QDnsLookup(type, name, nameserver) {}
-	MiqtVirtualQDnsLookup(QObject* parent): QDnsLookup(parent) {}
-	MiqtVirtualQDnsLookup(QDnsLookup::Type type, const QString& name, QObject* parent): QDnsLookup(type, name, parent) {}
-	MiqtVirtualQDnsLookup(QDnsLookup::Type type, const QString& name, const QHostAddress& nameserver, QObject* parent): QDnsLookup(type, name, nameserver, parent) {}
+	MiqtVirtualQDnsLookup(): QDnsLookup() {};
+	MiqtVirtualQDnsLookup(QDnsLookup::Type type, const QString& name): QDnsLookup(type, name) {};
+	MiqtVirtualQDnsLookup(QDnsLookup::Type type, const QString& name, const QHostAddress& nameserver): QDnsLookup(type, name, nameserver) {};
+	MiqtVirtualQDnsLookup(QObject* parent): QDnsLookup(parent) {};
+	MiqtVirtualQDnsLookup(QDnsLookup::Type type, const QString& name, QObject* parent): QDnsLookup(type, name, parent) {};
+	MiqtVirtualQDnsLookup(QDnsLookup::Type type, const QString& name, const QHostAddress& nameserver, QObject* parent): QDnsLookup(type, name, nameserver, parent) {};
 
 	virtual ~MiqtVirtualQDnsLookup() override = default;
 
@@ -313,9 +313,11 @@ public:
 		if (handle__event == 0) {
 			return QDnsLookup::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QDnsLookup_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -329,10 +331,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QDnsLookup::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QDnsLookup_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -347,10 +351,12 @@ public:
 			QDnsLookup::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QDnsLookup_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QDnsLookup_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -364,10 +370,12 @@ public:
 			QDnsLookup::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QDnsLookup_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QDnsLookup_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -381,10 +389,12 @@ public:
 			QDnsLookup::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QDnsLookup_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QDnsLookup_virtualbase_customEvent(void* self, QEvent* event);
@@ -398,12 +408,14 @@ public:
 			QDnsLookup::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QDnsLookup_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QDnsLookup_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -417,12 +429,14 @@ public:
 			QDnsLookup::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QDnsLookup_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QDnsLookup_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -435,31 +449,31 @@ public:
 };
 
 QDnsLookup* QDnsLookup_new() {
-	return new (std::nothrow) MiqtVirtualQDnsLookup();
+	return new MiqtVirtualQDnsLookup();
 }
 
 QDnsLookup* QDnsLookup_new2(int type, struct miqt_string name) {
 	QString name_QString = QString::fromUtf8(name.data, name.len);
-	return new (std::nothrow) MiqtVirtualQDnsLookup(static_cast<QDnsLookup::Type>(type), name_QString);
+	return new MiqtVirtualQDnsLookup(static_cast<QDnsLookup::Type>(type), name_QString);
 }
 
 QDnsLookup* QDnsLookup_new3(int type, struct miqt_string name, QHostAddress* nameserver) {
 	QString name_QString = QString::fromUtf8(name.data, name.len);
-	return new (std::nothrow) MiqtVirtualQDnsLookup(static_cast<QDnsLookup::Type>(type), name_QString, *nameserver);
+	return new MiqtVirtualQDnsLookup(static_cast<QDnsLookup::Type>(type), name_QString, *nameserver);
 }
 
 QDnsLookup* QDnsLookup_new4(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQDnsLookup(parent);
+	return new MiqtVirtualQDnsLookup(parent);
 }
 
 QDnsLookup* QDnsLookup_new5(int type, struct miqt_string name, QObject* parent) {
 	QString name_QString = QString::fromUtf8(name.data, name.len);
-	return new (std::nothrow) MiqtVirtualQDnsLookup(static_cast<QDnsLookup::Type>(type), name_QString, parent);
+	return new MiqtVirtualQDnsLookup(static_cast<QDnsLookup::Type>(type), name_QString, parent);
 }
 
 QDnsLookup* QDnsLookup_new6(int type, struct miqt_string name, QHostAddress* nameserver, QObject* parent) {
 	QString name_QString = QString::fromUtf8(name.data, name.len);
-	return new (std::nothrow) MiqtVirtualQDnsLookup(static_cast<QDnsLookup::Type>(type), name_QString, *nameserver, parent);
+	return new MiqtVirtualQDnsLookup(static_cast<QDnsLookup::Type>(type), name_QString, *nameserver, parent);
 }
 
 void QDnsLookup_virtbase(QDnsLookup* src, QObject** outptr_QObject) {
@@ -653,7 +667,7 @@ void QDnsLookup_finished(QDnsLookup* self) {
 }
 
 void QDnsLookup_connect_finished(QDnsLookup* self, intptr_t slot) {
-	QDnsLookup::connect(self, static_cast<void (QDnsLookup::*)()>(&QDnsLookup::finished), self, [=]() {
+	MiqtVirtualQDnsLookup::connect(self, static_cast<void (QDnsLookup::*)()>(&QDnsLookup::finished), self, [=]() {
 		miqt_exec_callback_QDnsLookup_finished(slot);
 	});
 }
@@ -664,7 +678,7 @@ void QDnsLookup_nameChanged(QDnsLookup* self, struct miqt_string name) {
 }
 
 void QDnsLookup_connect_nameChanged(QDnsLookup* self, intptr_t slot) {
-	QDnsLookup::connect(self, static_cast<void (QDnsLookup::*)(const QString&)>(&QDnsLookup::nameChanged), self, [=](const QString& name) {
+	MiqtVirtualQDnsLookup::connect(self, static_cast<void (QDnsLookup::*)(const QString&)>(&QDnsLookup::nameChanged), self, [=](const QString& name) {
 		const QString name_ret = name;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray name_b = name_ret.toUtf8();
@@ -682,7 +696,7 @@ void QDnsLookup_typeChanged(QDnsLookup* self, int type) {
 }
 
 void QDnsLookup_connect_typeChanged(QDnsLookup* self, intptr_t slot) {
-	QDnsLookup::connect(self, static_cast<void (QDnsLookup::*)(QDnsLookup::Type)>(&QDnsLookup::typeChanged), self, [=](QDnsLookup::Type type) {
+	MiqtVirtualQDnsLookup::connect(self, static_cast<void (QDnsLookup::*)(QDnsLookup::Type)>(&QDnsLookup::typeChanged), self, [=](QDnsLookup::Type type) {
 		QDnsLookup::Type type_ret = type;
 		int sigval1 = static_cast<int>(type_ret);
 		miqt_exec_callback_QDnsLookup_typeChanged(slot, sigval1);
@@ -694,7 +708,7 @@ void QDnsLookup_nameserverChanged(QDnsLookup* self, QHostAddress* nameserver) {
 }
 
 void QDnsLookup_connect_nameserverChanged(QDnsLookup* self, intptr_t slot) {
-	QDnsLookup::connect(self, static_cast<void (QDnsLookup::*)(const QHostAddress&)>(&QDnsLookup::nameserverChanged), self, [=](const QHostAddress& nameserver) {
+	MiqtVirtualQDnsLookup::connect(self, static_cast<void (QDnsLookup::*)(const QHostAddress&)>(&QDnsLookup::nameserverChanged), self, [=](const QHostAddress& nameserver) {
 		const QHostAddress& nameserver_ret = nameserver;
 		// Cast returned reference into pointer
 		QHostAddress* sigval1 = const_cast<QHostAddress*>(&nameserver_ret);
@@ -751,13 +765,15 @@ bool QDnsLookup_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QDnsLookup_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQDnsLookup*>(self)->QDnsLookup::event(event);
+
+	return ( (MiqtVirtualQDnsLookup*)(self) )->QDnsLookup::event(event);
+
 }
 
 bool QDnsLookup_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -765,13 +781,15 @@ bool QDnsLookup_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QDnsLookup_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQDnsLookup*>(self)->QDnsLookup::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQDnsLookup*)(self) )->QDnsLookup::eventFilter(watched, event);
+
 }
 
 bool QDnsLookup_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -779,13 +797,15 @@ bool QDnsLookup_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QDnsLookup_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQDnsLookup*>(self)->QDnsLookup::timerEvent(event);
+
+	( (MiqtVirtualQDnsLookup*)(self) )->QDnsLookup::timerEvent(event);
+
 }
 
 bool QDnsLookup_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -793,13 +813,15 @@ bool QDnsLookup_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QDnsLookup_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQDnsLookup*>(self)->QDnsLookup::childEvent(event);
+
+	( (MiqtVirtualQDnsLookup*)(self) )->QDnsLookup::childEvent(event);
+
 }
 
 bool QDnsLookup_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -807,13 +829,15 @@ bool QDnsLookup_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QDnsLookup_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQDnsLookup*>(self)->QDnsLookup::customEvent(event);
+
+	( (MiqtVirtualQDnsLookup*)(self) )->QDnsLookup::customEvent(event);
+
 }
 
 bool QDnsLookup_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -821,13 +845,15 @@ bool QDnsLookup_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QDnsLookup_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQDnsLookup*>(self)->QDnsLookup::connectNotify(*signal);
+
+	( (MiqtVirtualQDnsLookup*)(self) )->QDnsLookup::connectNotify(*signal);
+
 }
 
 bool QDnsLookup_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -835,13 +861,15 @@ bool QDnsLookup_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QDnsLookup_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQDnsLookup*>(self)->QDnsLookup::disconnectNotify(*signal);
+
+	( (MiqtVirtualQDnsLookup*)(self) )->QDnsLookup::disconnectNotify(*signal);
+
 }
 
 QObject* QDnsLookup_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -850,9 +878,11 @@ QObject* QDnsLookup_protectedbase_sender(bool* _dynamic_cast_ok, const void* sel
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QDnsLookup_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -861,9 +891,11 @@ int QDnsLookup_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const voi
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QDnsLookup_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -872,9 +904,11 @@ int QDnsLookup_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self,
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QDnsLookup_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -883,9 +917,11 @@ bool QDnsLookup_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const vo
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QDnsLookup_delete(QDnsLookup* self) {

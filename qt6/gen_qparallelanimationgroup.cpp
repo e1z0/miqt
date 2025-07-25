@@ -35,8 +35,8 @@ void miqt_exec_callback_QParallelAnimationGroup_disconnectNotify(QParallelAnimat
 class MiqtVirtualQParallelAnimationGroup final : public QParallelAnimationGroup {
 public:
 
-	MiqtVirtualQParallelAnimationGroup(): QParallelAnimationGroup() {}
-	MiqtVirtualQParallelAnimationGroup(QObject* parent): QParallelAnimationGroup(parent) {}
+	MiqtVirtualQParallelAnimationGroup(): QParallelAnimationGroup() {};
+	MiqtVirtualQParallelAnimationGroup(QObject* parent): QParallelAnimationGroup(parent) {};
 
 	virtual ~MiqtVirtualQParallelAnimationGroup() override = default;
 
@@ -48,8 +48,10 @@ public:
 		if (handle__duration == 0) {
 			return QParallelAnimationGroup::duration();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QParallelAnimationGroup_duration(this, handle__duration);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -63,9 +65,11 @@ public:
 		if (handle__event == 0) {
 			return QParallelAnimationGroup::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QParallelAnimationGroup_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -80,10 +84,12 @@ public:
 			QParallelAnimationGroup::updateCurrentTime(currentTime);
 			return;
 		}
-
+		
 		int sigval1 = currentTime;
+
 		miqt_exec_callback_QParallelAnimationGroup_updateCurrentTime(this, handle__updateCurrentTime, sigval1);
 
+		
 	}
 
 	friend void QParallelAnimationGroup_virtualbase_updateCurrentTime(void* self, int currentTime);
@@ -97,13 +103,15 @@ public:
 			QParallelAnimationGroup::updateState(newState, oldState);
 			return;
 		}
-
+		
 		QAbstractAnimation::State newState_ret = newState;
 		int sigval1 = static_cast<int>(newState_ret);
 		QAbstractAnimation::State oldState_ret = oldState;
 		int sigval2 = static_cast<int>(oldState_ret);
+
 		miqt_exec_callback_QParallelAnimationGroup_updateState(this, handle__updateState, sigval1, sigval2);
 
+		
 	}
 
 	friend void QParallelAnimationGroup_virtualbase_updateState(void* self, int newState, int oldState);
@@ -117,11 +125,13 @@ public:
 			QParallelAnimationGroup::updateDirection(direction);
 			return;
 		}
-
+		
 		QAbstractAnimation::Direction direction_ret = direction;
 		int sigval1 = static_cast<int>(direction_ret);
+
 		miqt_exec_callback_QParallelAnimationGroup_updateDirection(this, handle__updateDirection, sigval1);
 
+		
 	}
 
 	friend void QParallelAnimationGroup_virtualbase_updateDirection(void* self, int direction);
@@ -134,10 +144,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QParallelAnimationGroup::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QParallelAnimationGroup_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -152,10 +164,12 @@ public:
 			QParallelAnimationGroup::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QParallelAnimationGroup_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QParallelAnimationGroup_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -169,10 +183,12 @@ public:
 			QParallelAnimationGroup::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QParallelAnimationGroup_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QParallelAnimationGroup_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -186,10 +202,12 @@ public:
 			QParallelAnimationGroup::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QParallelAnimationGroup_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QParallelAnimationGroup_virtualbase_customEvent(void* self, QEvent* event);
@@ -203,12 +221,14 @@ public:
 			QParallelAnimationGroup::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QParallelAnimationGroup_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QParallelAnimationGroup_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -222,12 +242,14 @@ public:
 			QParallelAnimationGroup::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QParallelAnimationGroup_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QParallelAnimationGroup_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -240,11 +262,11 @@ public:
 };
 
 QParallelAnimationGroup* QParallelAnimationGroup_new() {
-	return new (std::nothrow) MiqtVirtualQParallelAnimationGroup();
+	return new MiqtVirtualQParallelAnimationGroup();
 }
 
 QParallelAnimationGroup* QParallelAnimationGroup_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQParallelAnimationGroup(parent);
+	return new MiqtVirtualQParallelAnimationGroup(parent);
 }
 
 void QParallelAnimationGroup_virtbase(QParallelAnimationGroup* src, QAnimationGroup** outptr_QAnimationGroup) {
@@ -301,13 +323,15 @@ bool QParallelAnimationGroup_override_virtual_duration(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__duration = slot;
 	return true;
 }
 
 int QParallelAnimationGroup_virtualbase_duration(const void* self) {
-	return static_cast<const MiqtVirtualQParallelAnimationGroup*>(self)->QParallelAnimationGroup::duration();
+
+	return ( (const MiqtVirtualQParallelAnimationGroup*)(self) )->QParallelAnimationGroup::duration();
+
 }
 
 bool QParallelAnimationGroup_override_virtual_event(void* self, intptr_t slot) {
@@ -315,13 +339,15 @@ bool QParallelAnimationGroup_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QParallelAnimationGroup_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQParallelAnimationGroup*>(self)->QParallelAnimationGroup::event(event);
+
+	return ( (MiqtVirtualQParallelAnimationGroup*)(self) )->QParallelAnimationGroup::event(event);
+
 }
 
 bool QParallelAnimationGroup_override_virtual_updateCurrentTime(void* self, intptr_t slot) {
@@ -329,13 +355,15 @@ bool QParallelAnimationGroup_override_virtual_updateCurrentTime(void* self, intp
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__updateCurrentTime = slot;
 	return true;
 }
 
 void QParallelAnimationGroup_virtualbase_updateCurrentTime(void* self, int currentTime) {
-	static_cast<MiqtVirtualQParallelAnimationGroup*>(self)->QParallelAnimationGroup::updateCurrentTime(static_cast<int>(currentTime));
+
+	( (MiqtVirtualQParallelAnimationGroup*)(self) )->QParallelAnimationGroup::updateCurrentTime(static_cast<int>(currentTime));
+
 }
 
 bool QParallelAnimationGroup_override_virtual_updateState(void* self, intptr_t slot) {
@@ -343,13 +371,15 @@ bool QParallelAnimationGroup_override_virtual_updateState(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__updateState = slot;
 	return true;
 }
 
 void QParallelAnimationGroup_virtualbase_updateState(void* self, int newState, int oldState) {
-	static_cast<MiqtVirtualQParallelAnimationGroup*>(self)->QParallelAnimationGroup::updateState(static_cast<MiqtVirtualQParallelAnimationGroup::State>(newState), static_cast<MiqtVirtualQParallelAnimationGroup::State>(oldState));
+
+	( (MiqtVirtualQParallelAnimationGroup*)(self) )->QParallelAnimationGroup::updateState(static_cast<MiqtVirtualQParallelAnimationGroup::State>(newState), static_cast<MiqtVirtualQParallelAnimationGroup::State>(oldState));
+
 }
 
 bool QParallelAnimationGroup_override_virtual_updateDirection(void* self, intptr_t slot) {
@@ -357,13 +387,15 @@ bool QParallelAnimationGroup_override_virtual_updateDirection(void* self, intptr
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__updateDirection = slot;
 	return true;
 }
 
 void QParallelAnimationGroup_virtualbase_updateDirection(void* self, int direction) {
-	static_cast<MiqtVirtualQParallelAnimationGroup*>(self)->QParallelAnimationGroup::updateDirection(static_cast<MiqtVirtualQParallelAnimationGroup::Direction>(direction));
+
+	( (MiqtVirtualQParallelAnimationGroup*)(self) )->QParallelAnimationGroup::updateDirection(static_cast<MiqtVirtualQParallelAnimationGroup::Direction>(direction));
+
 }
 
 bool QParallelAnimationGroup_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -371,13 +403,15 @@ bool QParallelAnimationGroup_override_virtual_eventFilter(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QParallelAnimationGroup_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQParallelAnimationGroup*>(self)->QParallelAnimationGroup::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQParallelAnimationGroup*)(self) )->QParallelAnimationGroup::eventFilter(watched, event);
+
 }
 
 bool QParallelAnimationGroup_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -385,13 +419,15 @@ bool QParallelAnimationGroup_override_virtual_timerEvent(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QParallelAnimationGroup_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQParallelAnimationGroup*>(self)->QParallelAnimationGroup::timerEvent(event);
+
+	( (MiqtVirtualQParallelAnimationGroup*)(self) )->QParallelAnimationGroup::timerEvent(event);
+
 }
 
 bool QParallelAnimationGroup_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -399,13 +435,15 @@ bool QParallelAnimationGroup_override_virtual_childEvent(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QParallelAnimationGroup_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQParallelAnimationGroup*>(self)->QParallelAnimationGroup::childEvent(event);
+
+	( (MiqtVirtualQParallelAnimationGroup*)(self) )->QParallelAnimationGroup::childEvent(event);
+
 }
 
 bool QParallelAnimationGroup_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -413,13 +451,15 @@ bool QParallelAnimationGroup_override_virtual_customEvent(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QParallelAnimationGroup_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQParallelAnimationGroup*>(self)->QParallelAnimationGroup::customEvent(event);
+
+	( (MiqtVirtualQParallelAnimationGroup*)(self) )->QParallelAnimationGroup::customEvent(event);
+
 }
 
 bool QParallelAnimationGroup_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -427,13 +467,15 @@ bool QParallelAnimationGroup_override_virtual_connectNotify(void* self, intptr_t
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QParallelAnimationGroup_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQParallelAnimationGroup*>(self)->QParallelAnimationGroup::connectNotify(*signal);
+
+	( (MiqtVirtualQParallelAnimationGroup*)(self) )->QParallelAnimationGroup::connectNotify(*signal);
+
 }
 
 bool QParallelAnimationGroup_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -441,13 +483,15 @@ bool QParallelAnimationGroup_override_virtual_disconnectNotify(void* self, intpt
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QParallelAnimationGroup_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQParallelAnimationGroup*>(self)->QParallelAnimationGroup::disconnectNotify(*signal);
+
+	( (MiqtVirtualQParallelAnimationGroup*)(self) )->QParallelAnimationGroup::disconnectNotify(*signal);
+
 }
 
 QObject* QParallelAnimationGroup_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -456,9 +500,11 @@ QObject* QParallelAnimationGroup_protectedbase_sender(bool* _dynamic_cast_ok, co
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QParallelAnimationGroup_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -467,9 +513,11 @@ int QParallelAnimationGroup_protectedbase_senderSignalIndex(bool* _dynamic_cast_
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QParallelAnimationGroup_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -478,9 +526,11 @@ int QParallelAnimationGroup_protectedbase_receivers(bool* _dynamic_cast_ok, cons
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QParallelAnimationGroup_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -489,9 +539,11 @@ bool QParallelAnimationGroup_protectedbase_isSignalConnected(bool* _dynamic_cast
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QParallelAnimationGroup_delete(QParallelAnimationGroup* self) {

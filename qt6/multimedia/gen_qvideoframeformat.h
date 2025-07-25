@@ -63,7 +63,6 @@ void QVideoFrameFormat_setMaxLuminance(QVideoFrameFormat* self, float lum);
 int QVideoFrameFormat_pixelFormatFromImageFormat(int format);
 int QVideoFrameFormat_imageFormatFromPixelFormat(int format);
 struct miqt_string QVideoFrameFormat_pixelFormatToString(int pixelFormat);
-
 void QVideoFrameFormat_delete(QVideoFrameFormat* self);
 
 #ifdef __cplusplus

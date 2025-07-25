@@ -22,15 +22,15 @@ extern "C" {
 #endif
 
 QPainterPath* QPainterPath_new() {
-	return new (std::nothrow) QPainterPath();
+	return new QPainterPath();
 }
 
 QPainterPath* QPainterPath_new2(QPointF* startPoint) {
-	return new (std::nothrow) QPainterPath(*startPoint);
+	return new QPainterPath(*startPoint);
 }
 
 QPainterPath* QPainterPath_new3(QPainterPath* other) {
-	return new (std::nothrow) QPainterPath(*other);
+	return new QPainterPath(*other);
 }
 
 void QPainterPath_operatorAssign(QPainterPath* self, QPainterPath* other) {
@@ -329,11 +329,11 @@ void QPainterPath_delete(QPainterPath* self) {
 }
 
 QPainterPathStroker* QPainterPathStroker_new() {
-	return new (std::nothrow) QPainterPathStroker();
+	return new QPainterPathStroker();
 }
 
 QPainterPathStroker* QPainterPathStroker_new2(QPen* pen) {
-	return new (std::nothrow) QPainterPathStroker(*pen);
+	return new QPainterPathStroker(*pen);
 }
 
 void QPainterPathStroker_setWidth(QPainterPathStroker* self, double width) {

@@ -771,7 +771,11 @@ func emitBindingHeader(src *CppParsedHeader, filename string, packageName string
 
 	includeGuard := "MIQT_" + strings.ToUpper(strings.Replace(strings.Replace(packageName, `/`, `_`, -1), `-`, `_`, -1)) + "_GEN_" + strings.ToUpper(strings.Replace(strings.Replace(filename, `.`, `_`, -1), `-`, `_`, -1))
 
-	bindingInclude := strings.Repeat(`../`, strings.Count(packageName, `/`)) + "../libmiqt/libmiqt.h"
+	bindingInclude := "../libmiqt/libmiqt.h"
+
+	if strings.Contains(packageName, `/`) {
+		bindingInclude = "../" + bindingInclude
+	}
 
 	ret.WriteString(`#pragma once
 #ifndef ` + includeGuard + `
@@ -796,11 +800,7 @@ extern "C" {
 		ret.WriteString("// Based on the macro from Qt (LGPL v3), see https://www.qt.io/qt-licensing\n" +
 			"// Macro is trivial and used here under fair use\n" +
 			"// Usage does not imply derivation\n" +
-			"#ifndef QT_VERSION_CHECK\n" +
-			"#define QT_VERSION_CHECK(major, minor, patch) ((major<<16)|(minor<<8)|(patch))\n" +
-			"#endif\n" +
-			"\n",
-		)
+			"#define QT_VERSION_CHECK(major, minor, patch) ((major<<16)|(minor<<8)|(patch))\n\n")
 	}
 
 	foundTypesList := getReferencedTypes(src)
@@ -881,33 +881,19 @@ extern "C" {
 			}
 		}
 
-		if len(c.Methods) > 0 {
-			ret.WriteString("\n")
-		}
-
 		for _, m := range virtualMethods {
 			ret.WriteString(fmt.Sprintf("bool %s(%s* self, intptr_t slot);\n", cabiOverrideVirtualName(c, m), "void" /*methodPrefixName*/))
 
 			ret.WriteString(fmt.Sprintf("%s %s(%s);\n", m.ReturnType.RenderTypeCabi(), cabiVirtualBaseName(c, m), emitParametersCabi(m, ifv(m.IsConst, "const ", "")+"void" /*className*/ +"*")))
 		}
-		if len(virtualMethods) > 0 {
-			ret.WriteString("\n")
 
+		if len(virtualMethods) > 0 {
 			for _, m := range protectedMethods {
 				ret.WriteString(fmt.Sprintf("%s %s(bool* _dynamic_cast_ok, %s);\n", m.ReturnType.RenderTypeCabi(), cabiProtectedBaseName(c, m), emitParametersCabi(m, ifv(m.IsConst, "const ", "")+"void" /*className*/ +"*")))
 			}
-			if len(protectedMethods) > 0 {
-				ret.WriteString("\n")
-			}
 		}
 
-		for _, m := range c.PrivateSignals {
-			ret.WriteString(fmt.Sprintf("%s %s(%s* self, intptr_t slot);\n", m.ReturnType.RenderTypeCabi(), cabiConnectName(c, m), className))
-		}
-		if len(c.PrivateSignals) > 0 {
-			ret.WriteString("\n")
-		}
-
+		// delete
 		if c.CanDelete {
 			ret.WriteString(fmt.Sprintf("void %s(%s* self);\n", cabiDeleteName(c), className))
 		}
@@ -925,6 +911,11 @@ extern "C" {
 	return ret.String(), nil
 }
 
+func fullyQualifiedConstructor(className string) string {
+	parts := strings.Split(className, `::`)
+	return className + "::" + parts[len(parts)-1]
+}
+
 func emitParametersCabiConstructor(c *CppClass, ctor *CppMethod) string {
 
 	slist := make([]string, 0, len(ctor.Parameters))
@@ -937,6 +928,8 @@ func emitParametersCabiConstructor(c *CppClass, ctor *CppMethod) string {
 
 func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 	ret := strings.Builder{}
+
+	importedHeaders := make(map[string]struct{})
 
 	for _, ref := range getReferencedTypes(src) {
 
@@ -956,7 +949,29 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 			continue
 		}
 
+		if cinfo, ok := KnownClassnames[ref]; ok && len(cinfo.HeaderFile) > 0 {
+			// We know exactly which header file we actually found it in
+			// For core Qt classes, #include the <className> directly, as Qt
+			// has helper mini-headers for almost all types which work even
+			// if the headers are restructured in different Qt versions
+			// But for some subpackages they don't offer this
+
+			if cinfo.PackageName == "qt/qtermwidget" {
+				// Wanted
+				ref = cinfo.HeaderFile
+			} else {
+				// Not wanted
+			}
+		}
+
+		// The transform above can cause duplicate imports. Only import them once
+		// Headers usually have #pragma once or equivalent, but this is courteous
+		if _, ok := importedHeaders[ref]; ok {
+			continue
+		}
+
 		ret.WriteString(`#include <` + ref + ">\n")
+		importedHeaders[ref] = struct{}{}
 	}
 
 	ret.WriteString(`#include <` + filename + ">\n")
@@ -983,9 +998,7 @@ extern "C" {
 `)
 
 	for _, c := range src.Classes {
-		methodsAndPrivateSignals := append(c.Methods, c.PrivateSignals...)
-
-		for _, m := range methodsAndPrivateSignals {
+		for _, m := range c.Methods {
 			if m.IsSignal {
 				callback := "void " + cabiCallbackName(c, m) + "(intptr_t"
 
@@ -1016,34 +1029,37 @@ extern "C" {
 `)
 
 	for _, c := range src.Classes {
-		className := cabiClassName(c.ClassName)
+
+		methodPrefixName := cabiClassName(c.ClassName)
+		cppClassName := c.ClassName
 		virtualMethods := c.VirtualMethods()
 		protectedMethods := c.ProtectedMethods()
 
 		if len(virtualMethods) > 0 {
-			subclassName := cppSubclassName(c)
 
-			ret.WriteString("class " + subclassName + " final : public " + c.ClassName + " {\n" +
+			overriddenClassName := cppSubclassName(c)
+
+			ret.WriteString("class " + overriddenClassName + " final : public " + cppClassName + " {\n" +
 				"public:\n" +
 				"\n",
 			)
 
 			for _, ctor := range c.Ctors {
-				ret.WriteString("\t" + subclassName + "(" + emitParametersCpp(ctor) + "): " + c.ClassName + "(" + emitParameterNames(ctor) + ") {}\n")
+				ret.WriteString("\t" + overriddenClassName + "(" + emitParametersCpp(ctor) + "): " + cppClassName + "(" + emitParameterNames(ctor) + ") {};\n")
 			}
 			ret.WriteString("\n")
 
 			if !c.CanDelete {
 				ret.WriteString(
 					"private:\n" +
-						"\tvirtual ~" + subclassName + "();\n" + //  = delete;\n" +
+						"\tvirtual ~" + overriddenClassName + "();\n" + //  = delete;\n" +
 						"\n" +
 						"public:\n" +
 						"\n",
 				)
 			} else {
 				ret.WriteString(
-					"\tvirtual ~" + subclassName + "() override = default;\n" +
+					"\tvirtual ~" + overriddenClassName + "() override = default;\n" +
 						"\n",
 				)
 			}
@@ -1086,7 +1102,7 @@ extern "C" {
 							ret.WriteString("\t\t\treturn " + getCppZeroValue(m.ReturnType) + "; // Pure virtual, there is no base we can call\n")
 						}
 					} else {
-						ret.WriteString("\t\t\t" + maybeReturn + c.ClassName + "::" + m.CppCallTarget() + "(" + emitParameterNames(m) + ");\n")
+						ret.WriteString("\t\t\t" + maybeReturn + methodPrefixName + "::" + m.CppCallTarget() + "(" + emitParameterNames(m) + ");\n")
 
 						if m.ReturnType.Void() {
 							ret.WriteString("\t\t\treturn;\n")
@@ -1106,11 +1122,11 @@ extern "C" {
 					}
 
 					ret.WriteString(
-						"\n" +
-							signalCode +
+						"\t\t\n" +
+							signalCode + "\n" +
 							"\t\t" + maybeReturn2 + cabiCallbackName(c, m) + "(" + strings.Join(paramArgs, `, `) + ");\n" +
-							returnTransformP +
-							ifv(maybeReturn == "", "", "\t\treturn "+returnTransformF+";") + "\n" +
+							returnTransformP + "\n" +
+							"\t\t" + ifv(maybeReturn == "", "", "return "+returnTransformF+";") + "\n" +
 							"\t}\n" +
 
 							"\n",
@@ -1156,6 +1172,8 @@ extern "C" {
 			ret.WriteString(
 				"};\n" +
 					"\n")
+
+			cppClassName = overriddenClassName
 		}
 
 		for i, ctor := range c.Ctors {
@@ -1163,27 +1181,25 @@ extern "C" {
 			preamble, forwarding := emitParametersCABI2CppForwarding(ctor.Parameters, "\t")
 
 			ret.WriteString(
-				className + "* " + cabiNewName(c, i) + "(" + emitParametersCabi(ctor, "") + ") {\n",
+				cabiClassName(c.ClassName) + "* " + cabiNewName(c, i) + "(" + emitParametersCabiConstructor(&c, &ctor) + ") {\n",
 			)
 
-			if ctor.RequireCpp != nil {
+			if ctor.LinuxOnly {
 				ret.WriteString(
-					"#if " + *ctor.RequireCpp + "\n",
+					"#ifndef Q_OS_LINUX\n" +
+						"\treturn nullptr;\n" +
+						"#else\n",
 				)
 			}
 
 			ret.WriteString(
 				preamble +
-					"\treturn new (std::nothrow) " +
-					ifv(len(virtualMethods) > 0, cppSubclassName(c), c.ClassName) +
-					"(" + forwarding + ");\n",
+					"\treturn new " + cppClassName + "(" + forwarding + ");\n",
 			)
 
-			if ctor.RequireCpp != nil {
+			if ctor.LinuxOnly {
 				ret.WriteString(
-					"#else\n" +
-						"\treturn nullptr;\n" +
-						"#endif\n",
+					"#endif\n",
 				)
 			}
 
@@ -1199,7 +1215,7 @@ extern "C" {
 		// need the base pointers to call base methods from CGO
 		if len(c.DirectInheritClassInfo()) > 0 {
 			ret.WriteString(
-				"void " + cabiVirtBaseName(c) + "(" + className + "* src",
+				"void " + cabiVirtBaseName(c) + "(" + methodPrefixName + "* src",
 			)
 			for _, baseClass := range c.DirectInheritClassInfo() {
 				ret.WriteString(", " + baseClass.Class.ClassName + "** outptr_" + cabiClassName(baseClass.Class.ClassName))
@@ -1244,37 +1260,30 @@ extern "C" {
 				callTarget = "(*self " + operator + " " + forwarding + ")"
 			}
 
-			if m.RequireCpp != nil {
-				var unavailableRetn string
-				if retnCabi := m.ReturnType.RenderTypeCabi(); retnCabi == "void" {
-					unavailableRetn = "\treturn;\n"
-				} else {
-					unavailableRetn = "\t" + retnCabi + " _ret_unavailable;\n" +
-						"\treturn _ret_unavailable;\n"
-				}
-
+			if m.LinuxOnly {
 				ret.WriteString(fmt.Sprintf(
 					"%s %s_%s(%s) {\n"+
-						"#if "+*m.RequireCpp+"\n"+
+						"#ifdef Q_OS_LINUX\n"+
 						"%s"+
 						"%s"+
 						"#else\n"+
-						"%s"+
+						"\t%s _ret_invalidOS;\n"+
+						"\treturn _ret_invalidOS;\n"+
 						"#endif\n"+
 						"}\n"+
 						"\n",
-					m.ReturnType.RenderTypeCabi(), className, m.SafeMethodName(), emitParametersCabi(m, ifv(m.IsConst, "const ", "")+className+"*"),
+					m.ReturnType.RenderTypeCabi(), methodPrefixName, m.SafeMethodName(), emitParametersCabi(m, ifv(m.IsConst, "const ", "")+methodPrefixName+"*"),
 					preamble,
 					emitAssignCppToCabi("\treturn ", m.ReturnType, callTarget),
-					unavailableRetn,
+					m.ReturnType.RenderTypeCabi(),
 				))
 
 			} else if m.BecomesNonConstInVersion != nil {
 
-				nonConstCallTarget := "const_cast<" + c.ClassName + "*>(self)->" + m.CppCallTarget() + "(" + forwarding + ")"
+				nonConstCallTarget := "const_cast<" + methodPrefixName + "*>(self)->" + m.CppCallTarget() + "(" + forwarding + ")"
 
 				ret.WriteString("" +
-					m.ReturnType.RenderTypeCabi() + " " + className + "_" + m.SafeMethodName() + "(" + emitParametersCabi(m, ifv(m.IsConst, "const ", "")+className+"*") + ") {\n" +
+					m.ReturnType.RenderTypeCabi() + " " + methodPrefixName + "_" + m.SafeMethodName() + "(" + emitParametersCabi(m, ifv(m.IsConst, "const ", "")+methodPrefixName+"*") + ") {\n" +
 					preamble + "\n" +
 					"// This method was changed from const to non-const in Qt " + *m.BecomesNonConstInVersion + "\n" +
 					"#if QT_VERSION < QT_VERSION_CHECK(" + strings.Replace(*m.BecomesNonConstInVersion, `.`, `,`, -1) + ",0)\n" +
@@ -1291,9 +1300,9 @@ extern "C" {
 				ret.WriteString("" +
 					"// This method's return type was changed from non-const to const in Qt " + *m.ReturnType.BecomesConstInVersion + "\n" +
 					"#if QT_VERSION >= QT_VERSION_CHECK(" + strings.Replace(*m.ReturnType.BecomesConstInVersion, `.`, `,`, -1) + ",0)\n" +
-					"const " + m.ReturnType.RenderTypeCabi() + " " + className + "_" + m.SafeMethodName() + "(" + emitParametersCabi(m, ifv(m.IsConst, "const ", "")+className+"*") + ") {\n" +
+					"const " + m.ReturnType.RenderTypeCabi() + " " + methodPrefixName + "_" + m.SafeMethodName() + "(" + emitParametersCabi(m, ifv(m.IsConst, "const ", "")+methodPrefixName+"*") + ") {\n" +
 					"#else\n" +
-					m.ReturnType.RenderTypeCabi() + " " + className + "_" + m.SafeMethodName() + "(" + emitParametersCabi(m, ifv(m.IsConst, "const ", "")+className+"*") + ") {\n" +
+					m.ReturnType.RenderTypeCabi() + " " + methodPrefixName + "_" + m.SafeMethodName() + "(" + emitParametersCabi(m, ifv(m.IsConst, "const ", "")+methodPrefixName+"*") + ") {\n" +
 					"#endif\n" +
 					preamble + "\n" +
 					emitAssignCppToCabi("\treturn ", m.ReturnType, callTarget) +
@@ -1308,7 +1317,7 @@ extern "C" {
 						"%s"+
 						"}\n"+
 						"\n",
-					m.ReturnType.RenderTypeCabi(), className, m.SafeMethodName(), emitParametersCabi(m, ifv(m.IsConst, "const ", "")+className+"*"),
+					m.ReturnType.RenderTypeCabi(), methodPrefixName, m.SafeMethodName(), emitParametersCabi(m, ifv(m.IsConst, "const ", "")+methodPrefixName+"*"),
 					preamble,
 					emitAssignCppToCabi("\treturn ", m.ReturnType, callTarget),
 				))
@@ -1334,8 +1343,8 @@ extern "C" {
 				signalCode += "\t\t" + cabiCallbackName(c, m) + "(" + strings.Join(paramArgs, `, `) + ");\n"
 
 				ret.WriteString(
-					`void ` + cabiConnectName(c, m) + `(` + className + `* self, intptr_t slot) {` + "\n" +
-						"\t" + className + `::connect(self, ` + exactSignal + `, self, [=](` + emitParametersCpp(m) + `) {` + "\n" +
+					`void ` + cabiConnectName(c, m) + `(` + methodPrefixName + `* self, intptr_t slot) {` + "\n" +
+						"\t" + cppClassName + `::connect(self, ` + exactSignal + `, self, [=](` + emitParametersCpp(m) + `) {` + "\n" +
 						signalCode +
 						"\t});\n" +
 						"}\n" +
@@ -1374,109 +1383,88 @@ extern "C" {
 			return ret
 		}
 
+		// Virtual override helpers
+		for _, m := range virtualMethods {
+
+			// Virtual methods: Allow overriding
+			// (Never use a const self*)
+			// The pointer that we are passed is the base type, not the subclassed
+			// type. First cast the void* to the base type, and only then,
+			// upclass it
+
+			ret.WriteString(
+				`bool ` + cabiOverrideVirtualName(c, m) + `(void* self, intptr_t slot) {` + "\n" +
+					"\t" + cppClassName + "* self_cast = dynamic_cast<" + cppClassName + "*>( (" + cabiClassName(c.ClassName) + "*)(self) );\n" +
+					"\tif (self_cast == nullptr) {\n" +
+					"\t\treturn false;\n" +
+					"\t}\n" +
+					"\t\n" +
+					"\tself_cast->handle__" + m.SafeMethodName() + " = slot;\n" +
+					"\treturn true;\n" +
+					"}\n" +
+					"\n",
+			)
+
+			// 2. Add CABI function to call the base method
+
+			if !m.IsPureVirtual {
+				// This is not generally exposed in the Go binding, but when overriding
+				// the method, allows Go code to call super().
+
+				// This calls the target Qt C++ method directly using fully
+				// qualified syntax (`MiqtSubclass->QFoo::Bar()`). This method
+				// takes and returns CABI types.
+
+				var parametersCabi []string
+				for _, p := range m.Parameters {
+					parametersCabi = append(parametersCabi, p.RenderTypeCabi()+" "+p.cParameterName())
+				}
+				vbpreamble, vbforwarding := emitParametersCABI2CppForwarding(m.Parameters, "\t")
+
+				callTarget := "( (" + ifv(m.IsConst, "const ", "") + cppClassName + "*)(self) )->" + c.ClassName + "::" + m.CppCallTarget() + "(" + vbforwarding + ")"
+
+				ret.WriteString(
+					m.ReturnType.RenderTypeCabi() + " " + cabiVirtualBaseName(c, m) + "(" + emitParametersCabi(m, ifv(m.IsConst, "const ", "")+"void*") + ") {\n" +
+						vbpreamble + "\n" +
+						fixupProtectedReferences(emitAssignCppToCabi("\treturn ", m.ReturnType, callTarget)) + "\n" +
+						"}\n" +
+						"\n",
+				)
+
+			}
+
+		}
+
 		if len(virtualMethods) > 0 {
 			// This is a subclassed class. In that case, we allow calling
 			// protected methods
 			// This is a standalone function, but it can access the protected
 			// method via a friend declaration
 
-			subclassName := cppSubclassName(c)
-
-			// Virtual override helpers
-			for _, m := range virtualMethods {
-
-				// Virtual methods: Allow overriding
-				// (Never use a const self*)
-				// The pointer that we are passed is the base type, not the subclassed
-				// type. First cast the void* to the base type, and only then,
-				// upclass it
-
-				ret.WriteString(
-					`bool ` + cabiOverrideVirtualName(c, m) + `(void* self, intptr_t slot) {` + "\n" +
-						"\t" + subclassName + "* self_cast = dynamic_cast<" + subclassName + "*>( (" + c.ClassName + "*)(self) );\n" +
-						"\tif (self_cast == nullptr) {\n" +
-						"\t\treturn false;\n" +
-						"\t}\n" +
-						"\n" +
-						"\tself_cast->handle__" + m.SafeMethodName() + " = slot;\n" +
-						"\treturn true;\n" +
-						"}\n" +
-						"\n",
-				)
-
-				// 2. Add CABI function to call the base method
-
-				if !m.IsPureVirtual {
-					// This is not generally exposed in the Go binding, but when overriding
-					// the method, allows Go code to call super().
-
-					// This calls the target Qt C++ method directly using fully
-					// qualified syntax (`MiqtSubclass->QFoo::Bar()`). This method
-					// takes and returns CABI types.
-
-					vbpreamble, vbforwarding := emitParametersCABI2CppForwarding(m.Parameters, "\t")
-
-					callTarget := "static_cast<" + ifv(m.IsConst, "const ", "") + subclassName + "*>(self)->" + c.ClassName + "::" + m.CppCallTarget() + "(" + vbforwarding + ")"
-
-					ret.WriteString(
-						m.ReturnType.RenderTypeCabi() + " " + cabiVirtualBaseName(c, m) + "(" + emitParametersCabi(m, ifv(m.IsConst, "const ", "")+"void*") + ") {\n" +
-							vbpreamble +
-							fixupProtectedReferences(emitAssignCppToCabi("\treturn ", m.ReturnType, callTarget)) +
-							"}\n" +
-							"\n",
-					)
-
-				}
-			}
-
 			for _, m := range protectedMethods {
 
 				vbpreamble, vbforwarding := emitParametersCABI2CppForwarding(m.Parameters, "\t\t")
 				vbCallTarget := "self_cast->" + m.CppCallTarget() + "(" + vbforwarding + ")"
 
+				//
+
 				ret.WriteString(
 					m.ReturnType.RenderTypeCabi() + " " + cabiProtectedBaseName(c, m) + "(bool* _dynamic_cast_ok, " + emitParametersCabi(m, ifv(m.IsConst, "const ", "")+"void*") + ") {\n" +
 
-						"\t" + subclassName + "* self_cast = dynamic_cast<" + subclassName + "*>( (" + c.ClassName + "*)(self) );\n" +
+						"\t" + cppClassName + "* self_cast = dynamic_cast<" + cppClassName + "*>( (" + cabiClassName(c.ClassName) + "*)(self) );\n" +
 						"\tif (self_cast == nullptr) {\n" +
 						"\t\t*_dynamic_cast_ok = false;\n" +
 						"\t\treturn " + getCabiZeroValue(m.ReturnType) + ";\n" +
 						"\t}\n" +
-						"\n" +
+						"\t\n" +
 						"\t*_dynamic_cast_ok = true;\n" +
-						vbpreamble +
-						fixupProtectedReferences(emitAssignCppToCabi("\treturn ", m.ReturnType, vbCallTarget)) +
+						"\t" + vbpreamble + "\n" +
+						fixupProtectedReferences(emitAssignCppToCabi("\treturn ", m.ReturnType, vbCallTarget)) + "\n" +
 						"}\n" +
 						"\n",
 				)
 
 			}
-		}
-
-		for _, m := range c.PrivateSignals {
-			exactSignal := `&` + c.ClassName + `::` + m.CppCallTarget()
-
-			paramArgs := []string{"slot"}
-			paramArgDefs := []string{"intptr_t cb"}
-
-			var signalCode string
-
-			for i, p := range m.Parameters {
-				signalCode += emitAssignCppToCabi(fmt.Sprintf("\t\t%s sigval%d = ", p.RenderTypeCabi(), i+1), p, p.cParameterName())
-				paramArgs = append(paramArgs, fmt.Sprintf("sigval%d", i+1))
-				paramArgDefs = append(paramArgDefs, p.RenderTypeCabi()+" "+p.cParameterName())
-			}
-
-			signalCode += "\t\t" + cabiCallbackName(c, m) + "(" + strings.Join(paramArgs, `, `) + ");\n"
-
-			ret.WriteString(
-				`void ` + cabiConnectName(c, m) + `(` + className + `* self, intptr_t slot) {` + "\n" +
-					"\t" + className + `::connect(self, ` + exactSignal + `, self, [=](` + emitParametersCpp(m) + `) {` + "\n" +
-					signalCode +
-					"\t});\n" +
-					"}\n" +
-					"\n",
-			)
 		}
 
 		// Delete
@@ -1484,7 +1472,7 @@ extern "C" {
 		// we can delete from the self ptr without any dynamic_cast<>
 		if c.CanDelete {
 			ret.WriteString(
-				"void " + cabiDeleteName(c) + "(" + className + "* self) {\n" +
+				"void " + cabiDeleteName(c) + "(" + methodPrefixName + "* self) {\n" +
 					"\tdelete self;\n" +
 					"}\n" +
 					"\n",

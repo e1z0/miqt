@@ -35,7 +35,7 @@ void miqt_exec_callback_QsciAPIs_disconnectNotify(QsciAPIs*, intptr_t, QMetaMeth
 class MiqtVirtualQsciAPIs final : public QsciAPIs {
 public:
 
-	MiqtVirtualQsciAPIs(QsciLexer* lexer): QsciAPIs(lexer) {}
+	MiqtVirtualQsciAPIs(QsciLexer* lexer): QsciAPIs(lexer) {};
 
 	virtual ~MiqtVirtualQsciAPIs() override = default;
 
@@ -48,7 +48,7 @@ public:
 			QsciAPIs::updateAutoCompletionList(context, list);
 			return;
 		}
-
+		
 		const QStringList& context_ret = context;
 		// Convert QList<> from C++ memory to manually-managed C memory
 		struct miqt_string* context_arr = static_cast<struct miqt_string*>(malloc(sizeof(struct miqt_string) * context_ret.length()));
@@ -83,8 +83,10 @@ public:
 		list_out.len = list_ret.length();
 		list_out.data = static_cast<void*>(list_arr);
 		struct miqt_array /* of struct miqt_string */  sigval2 = list_out;
+
 		miqt_exec_callback_QsciAPIs_updateAutoCompletionList(this, handle__updateAutoCompletionList, sigval1, sigval2);
 
+		
 	}
 
 	friend void QsciAPIs_virtualbase_updateAutoCompletionList(void* self, struct miqt_array /* of struct miqt_string */  context, struct miqt_array /* of struct miqt_string */  list);
@@ -98,7 +100,7 @@ public:
 			QsciAPIs::autoCompletionSelected(sel);
 			return;
 		}
-
+		
 		const QString sel_ret = sel;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray sel_b = sel_ret.toUtf8();
@@ -107,8 +109,10 @@ public:
 		sel_ms.data = static_cast<char*>(malloc(sel_ms.len));
 		memcpy(sel_ms.data, sel_b.data(), sel_ms.len);
 		struct miqt_string sigval1 = sel_ms;
+
 		miqt_exec_callback_QsciAPIs_autoCompletionSelected(this, handle__autoCompletionSelected, sigval1);
 
+		
 	}
 
 	friend void QsciAPIs_virtualbase_autoCompletionSelected(void* self, struct miqt_string sel);
@@ -121,7 +125,7 @@ public:
 		if (handle__callTips == 0) {
 			return QsciAPIs::callTips(context, commas, style, shifts);
 		}
-
+		
 		const QStringList& context_ret = context;
 		// Convert QList<> from C++ memory to manually-managed C memory
 		struct miqt_string* context_arr = static_cast<struct miqt_string*>(malloc(sizeof(struct miqt_string) * context_ret.length()));
@@ -152,6 +156,7 @@ public:
 		shifts_out.len = shifts_ret.length();
 		shifts_out.data = static_cast<void*>(shifts_arr);
 		struct miqt_array /* of int */  sigval4 = shifts_out;
+
 		struct miqt_array /* of struct miqt_string */  callback_return_value = miqt_exec_callback_QsciAPIs_callTips(this, handle__callTips, sigval1, sigval2, sigval3, sigval4);
 		QStringList callback_return_value_QList;
 		callback_return_value_QList.reserve(callback_return_value.len);
@@ -160,6 +165,7 @@ public:
 			QString callback_return_value_arr_i_QString = QString::fromUtf8(callback_return_value_arr[i].data, callback_return_value_arr[i].len);
 			callback_return_value_QList.push_back(callback_return_value_arr_i_QString);
 		}
+
 		return callback_return_value_QList;
 	}
 
@@ -173,9 +179,11 @@ public:
 		if (handle__event == 0) {
 			return QsciAPIs::event(e);
 		}
-
+		
 		QEvent* sigval1 = e;
+
 		bool callback_return_value = miqt_exec_callback_QsciAPIs_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -189,10 +197,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QsciAPIs::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QsciAPIs_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -207,10 +217,12 @@ public:
 			QsciAPIs::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QsciAPIs_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QsciAPIs_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -224,10 +236,12 @@ public:
 			QsciAPIs::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QsciAPIs_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QsciAPIs_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -241,10 +255,12 @@ public:
 			QsciAPIs::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QsciAPIs_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QsciAPIs_virtualbase_customEvent(void* self, QEvent* event);
@@ -258,12 +274,14 @@ public:
 			QsciAPIs::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QsciAPIs_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QsciAPIs_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -277,12 +295,14 @@ public:
 			QsciAPIs::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QsciAPIs_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QsciAPIs_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -295,7 +315,7 @@ public:
 };
 
 QsciAPIs* QsciAPIs_new(QsciLexer* lexer) {
-	return new (std::nothrow) MiqtVirtualQsciAPIs(lexer);
+	return new MiqtVirtualQsciAPIs(lexer);
 }
 
 void QsciAPIs_virtbase(QsciAPIs* src, QsciAbstractAPIs** outptr_QsciAbstractAPIs) {
@@ -467,7 +487,7 @@ void QsciAPIs_apiPreparationCancelled(QsciAPIs* self) {
 }
 
 void QsciAPIs_connect_apiPreparationCancelled(QsciAPIs* self, intptr_t slot) {
-	QsciAPIs::connect(self, static_cast<void (QsciAPIs::*)()>(&QsciAPIs::apiPreparationCancelled), self, [=]() {
+	MiqtVirtualQsciAPIs::connect(self, static_cast<void (QsciAPIs::*)()>(&QsciAPIs::apiPreparationCancelled), self, [=]() {
 		miqt_exec_callback_QsciAPIs_apiPreparationCancelled(slot);
 	});
 }
@@ -477,7 +497,7 @@ void QsciAPIs_apiPreparationStarted(QsciAPIs* self) {
 }
 
 void QsciAPIs_connect_apiPreparationStarted(QsciAPIs* self, intptr_t slot) {
-	QsciAPIs::connect(self, static_cast<void (QsciAPIs::*)()>(&QsciAPIs::apiPreparationStarted), self, [=]() {
+	MiqtVirtualQsciAPIs::connect(self, static_cast<void (QsciAPIs::*)()>(&QsciAPIs::apiPreparationStarted), self, [=]() {
 		miqt_exec_callback_QsciAPIs_apiPreparationStarted(slot);
 	});
 }
@@ -487,7 +507,7 @@ void QsciAPIs_apiPreparationFinished(QsciAPIs* self) {
 }
 
 void QsciAPIs_connect_apiPreparationFinished(QsciAPIs* self, intptr_t slot) {
-	QsciAPIs::connect(self, static_cast<void (QsciAPIs::*)()>(&QsciAPIs::apiPreparationFinished), self, [=]() {
+	MiqtVirtualQsciAPIs::connect(self, static_cast<void (QsciAPIs::*)()>(&QsciAPIs::apiPreparationFinished), self, [=]() {
 		miqt_exec_callback_QsciAPIs_apiPreparationFinished(slot);
 	});
 }
@@ -556,7 +576,7 @@ bool QsciAPIs_override_virtual_updateAutoCompletionList(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__updateAutoCompletionList = slot;
 	return true;
 }
@@ -576,7 +596,9 @@ void QsciAPIs_virtualbase_updateAutoCompletionList(void* self, struct miqt_array
 		QString list_arr_i_QString = QString::fromUtf8(list_arr[i].data, list_arr[i].len);
 		list_QList.push_back(list_arr_i_QString);
 	}
-	static_cast<MiqtVirtualQsciAPIs*>(self)->QsciAPIs::updateAutoCompletionList(context_QList, list_QList);
+
+	( (MiqtVirtualQsciAPIs*)(self) )->QsciAPIs::updateAutoCompletionList(context_QList, list_QList);
+
 }
 
 bool QsciAPIs_override_virtual_autoCompletionSelected(void* self, intptr_t slot) {
@@ -584,14 +606,16 @@ bool QsciAPIs_override_virtual_autoCompletionSelected(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__autoCompletionSelected = slot;
 	return true;
 }
 
 void QsciAPIs_virtualbase_autoCompletionSelected(void* self, struct miqt_string sel) {
 	QString sel_QString = QString::fromUtf8(sel.data, sel.len);
-	static_cast<MiqtVirtualQsciAPIs*>(self)->QsciAPIs::autoCompletionSelected(sel_QString);
+
+	( (MiqtVirtualQsciAPIs*)(self) )->QsciAPIs::autoCompletionSelected(sel_QString);
+
 }
 
 bool QsciAPIs_override_virtual_callTips(void* self, intptr_t slot) {
@@ -599,7 +623,7 @@ bool QsciAPIs_override_virtual_callTips(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__callTips = slot;
 	return true;
 }
@@ -618,7 +642,8 @@ struct miqt_array /* of struct miqt_string */  QsciAPIs_virtualbase_callTips(voi
 	for(size_t i = 0; i < shifts.len; ++i) {
 		shifts_QList.push_back(static_cast<int>(shifts_arr[i]));
 	}
-	QStringList _ret = static_cast<MiqtVirtualQsciAPIs*>(self)->QsciAPIs::callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
+
+	QStringList _ret = ( (MiqtVirtualQsciAPIs*)(self) )->QsciAPIs::callTips(context_QList, static_cast<int>(commas), static_cast<QsciScintilla::CallTipsStyle>(style), shifts_QList);
 	// Convert QList<> from C++ memory to manually-managed C memory
 	struct miqt_string* _arr = static_cast<struct miqt_string*>(malloc(sizeof(struct miqt_string) * _ret.length()));
 	for (size_t i = 0, e = _ret.length(); i < e; ++i) {
@@ -635,6 +660,7 @@ struct miqt_array /* of struct miqt_string */  QsciAPIs_virtualbase_callTips(voi
 	_out.len = _ret.length();
 	_out.data = static_cast<void*>(_arr);
 	return _out;
+
 }
 
 bool QsciAPIs_override_virtual_event(void* self, intptr_t slot) {
@@ -642,13 +668,15 @@ bool QsciAPIs_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QsciAPIs_virtualbase_event(void* self, QEvent* e) {
-	return static_cast<MiqtVirtualQsciAPIs*>(self)->QsciAPIs::event(e);
+
+	return ( (MiqtVirtualQsciAPIs*)(self) )->QsciAPIs::event(e);
+
 }
 
 bool QsciAPIs_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -656,13 +684,15 @@ bool QsciAPIs_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QsciAPIs_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQsciAPIs*>(self)->QsciAPIs::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQsciAPIs*)(self) )->QsciAPIs::eventFilter(watched, event);
+
 }
 
 bool QsciAPIs_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -670,13 +700,15 @@ bool QsciAPIs_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QsciAPIs_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQsciAPIs*>(self)->QsciAPIs::timerEvent(event);
+
+	( (MiqtVirtualQsciAPIs*)(self) )->QsciAPIs::timerEvent(event);
+
 }
 
 bool QsciAPIs_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -684,13 +716,15 @@ bool QsciAPIs_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QsciAPIs_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQsciAPIs*>(self)->QsciAPIs::childEvent(event);
+
+	( (MiqtVirtualQsciAPIs*)(self) )->QsciAPIs::childEvent(event);
+
 }
 
 bool QsciAPIs_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -698,13 +732,15 @@ bool QsciAPIs_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QsciAPIs_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQsciAPIs*>(self)->QsciAPIs::customEvent(event);
+
+	( (MiqtVirtualQsciAPIs*)(self) )->QsciAPIs::customEvent(event);
+
 }
 
 bool QsciAPIs_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -712,13 +748,15 @@ bool QsciAPIs_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QsciAPIs_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQsciAPIs*>(self)->QsciAPIs::connectNotify(*signal);
+
+	( (MiqtVirtualQsciAPIs*)(self) )->QsciAPIs::connectNotify(*signal);
+
 }
 
 bool QsciAPIs_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -726,13 +764,15 @@ bool QsciAPIs_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QsciAPIs_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQsciAPIs*>(self)->QsciAPIs::disconnectNotify(*signal);
+
+	( (MiqtVirtualQsciAPIs*)(self) )->QsciAPIs::disconnectNotify(*signal);
+
 }
 
 QObject* QsciAPIs_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -741,9 +781,11 @@ QObject* QsciAPIs_protectedbase_sender(bool* _dynamic_cast_ok, const void* self)
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QsciAPIs_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -752,9 +794,11 @@ int QsciAPIs_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void*
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QsciAPIs_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -763,9 +807,11 @@ int QsciAPIs_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, c
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QsciAPIs_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -774,9 +820,11 @@ bool QsciAPIs_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QsciAPIs_delete(QsciAPIs* self) {

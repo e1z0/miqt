@@ -11,7 +11,7 @@ extern "C" {
 #endif
 
 QElapsedTimer* QElapsedTimer_new() {
-	return new (std::nothrow) QElapsedTimer();
+	return new QElapsedTimer();
 }
 
 int QElapsedTimer_clockType() {

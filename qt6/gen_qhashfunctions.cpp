@@ -11,11 +11,11 @@ extern "C" {
 #endif
 
 QHashSeed* QHashSeed_new() {
-	return new (std::nothrow) QHashSeed();
+	return new QHashSeed();
 }
 
 QHashSeed* QHashSeed_new2(size_t d) {
-	return new (std::nothrow) QHashSeed(static_cast<size_t>(d));
+	return new QHashSeed(static_cast<size_t>(d));
 }
 
 QHashSeed* QHashSeed_globalSeed() {

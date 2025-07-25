@@ -75,7 +75,6 @@ QJsonObject__const_iterator* QJsonObject_findWithKey(const QJsonObject* self, st
 QJsonObject__const_iterator* QJsonObject_constFind(const QJsonObject* self, struct miqt_string key);
 QJsonObject__iterator* QJsonObject_insert(QJsonObject* self, struct miqt_string key, QJsonValue* value);
 bool QJsonObject_empty(const QJsonObject* self);
-
 void QJsonObject_delete(QJsonObject* self);
 
 QJsonObject__iterator* QJsonObject__iterator_new();
@@ -107,7 +106,6 @@ bool QJsonObject__iterator_operatorLesserWithOther(const QJsonObject__iterator* 
 bool QJsonObject__iterator_operatorLesserOrEqualWithOther(const QJsonObject__iterator* self, QJsonObject__const_iterator* other);
 bool QJsonObject__iterator_operatorGreaterWithOther(const QJsonObject__iterator* self, QJsonObject__const_iterator* other);
 bool QJsonObject__iterator_operatorGreaterOrEqualWithOther(const QJsonObject__iterator* self, QJsonObject__const_iterator* other);
-
 void QJsonObject__iterator_delete(QJsonObject__iterator* self);
 
 QJsonObject__const_iterator* QJsonObject__const_iterator_new();
@@ -140,7 +138,6 @@ bool QJsonObject__const_iterator_operatorLesserWithOther(const QJsonObject__cons
 bool QJsonObject__const_iterator_operatorLesserOrEqualWithOther(const QJsonObject__const_iterator* self, QJsonObject__iterator* other);
 bool QJsonObject__const_iterator_operatorGreaterWithOther(const QJsonObject__const_iterator* self, QJsonObject__iterator* other);
 bool QJsonObject__const_iterator_operatorGreaterOrEqualWithOther(const QJsonObject__const_iterator* self, QJsonObject__iterator* other);
-
 void QJsonObject__const_iterator_delete(QJsonObject__const_iterator* self);
 
 #ifdef __cplusplus

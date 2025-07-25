@@ -31,7 +31,6 @@ QUrl* QWebEngineFileSystemAccessRequest_origin(const QWebEngineFileSystemAccessR
 QUrl* QWebEngineFileSystemAccessRequest_filePath(const QWebEngineFileSystemAccessRequest* self);
 int QWebEngineFileSystemAccessRequest_handleType(const QWebEngineFileSystemAccessRequest* self);
 int QWebEngineFileSystemAccessRequest_accessFlags(const QWebEngineFileSystemAccessRequest* self);
-
 void QWebEngineFileSystemAccessRequest_delete(QWebEngineFileSystemAccessRequest* self);
 
 #ifdef __cplusplus

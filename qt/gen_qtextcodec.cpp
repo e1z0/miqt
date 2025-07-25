@@ -221,11 +221,11 @@ QTextEncoder* QTextCodec_makeEncoderWithFlags(const QTextCodec* self, int flags)
 }
 
 QTextEncoder* QTextEncoder_new(QTextCodec* codec) {
-	return new (std::nothrow) QTextEncoder(codec);
+	return new QTextEncoder(codec);
 }
 
 QTextEncoder* QTextEncoder_new2(QTextCodec* codec, int flags) {
-	return new (std::nothrow) QTextEncoder(codec, static_cast<QTextCodec::ConversionFlags>(flags));
+	return new QTextEncoder(codec, static_cast<QTextCodec::ConversionFlags>(flags));
 }
 
 struct miqt_string QTextEncoder_fromUnicode(QTextEncoder* self, struct miqt_string str) {
@@ -256,11 +256,11 @@ void QTextEncoder_delete(QTextEncoder* self) {
 }
 
 QTextDecoder* QTextDecoder_new(QTextCodec* codec) {
-	return new (std::nothrow) QTextDecoder(codec);
+	return new QTextDecoder(codec);
 }
 
 QTextDecoder* QTextDecoder_new2(QTextCodec* codec, int flags) {
-	return new (std::nothrow) QTextDecoder(codec, static_cast<QTextCodec::ConversionFlags>(flags));
+	return new QTextDecoder(codec, static_cast<QTextCodec::ConversionFlags>(flags));
 }
 
 struct miqt_string QTextDecoder_toUnicode(QTextDecoder* self, const char* chars, int len) {
@@ -299,11 +299,11 @@ void QTextDecoder_delete(QTextDecoder* self) {
 }
 
 QTextCodec__ConverterState* QTextCodec__ConverterState_new() {
-	return new (std::nothrow) QTextCodec::ConverterState();
+	return new QTextCodec::ConverterState();
 }
 
 QTextCodec__ConverterState* QTextCodec__ConverterState_new2(int f) {
-	return new (std::nothrow) QTextCodec::ConverterState(static_cast<QTextCodec::ConversionFlags>(f));
+	return new QTextCodec::ConverterState(static_cast<QTextCodec::ConversionFlags>(f));
 }
 
 void QTextCodec__ConverterState_delete(QTextCodec__ConverterState* self) {

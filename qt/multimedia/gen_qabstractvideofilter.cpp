@@ -46,8 +46,8 @@ void QVideoFilterRunnable_delete(QVideoFilterRunnable* self) {
 class MiqtVirtualQAbstractVideoFilter final : public QAbstractVideoFilter {
 public:
 
-	MiqtVirtualQAbstractVideoFilter(): QAbstractVideoFilter() {}
-	MiqtVirtualQAbstractVideoFilter(QObject* parent): QAbstractVideoFilter(parent) {}
+	MiqtVirtualQAbstractVideoFilter(): QAbstractVideoFilter() {};
+	MiqtVirtualQAbstractVideoFilter(QObject* parent): QAbstractVideoFilter(parent) {};
 
 	virtual ~MiqtVirtualQAbstractVideoFilter() override = default;
 
@@ -59,8 +59,10 @@ public:
 		if (handle__createFilterRunnable == 0) {
 			return nullptr; // Pure virtual, there is no base we can call
 		}
+		
 
 		QVideoFilterRunnable* callback_return_value = miqt_exec_callback_QAbstractVideoFilter_createFilterRunnable(this, handle__createFilterRunnable);
+
 		return callback_return_value;
 	}
 
@@ -72,9 +74,11 @@ public:
 		if (handle__event == 0) {
 			return QAbstractVideoFilter::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QAbstractVideoFilter_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -88,10 +92,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QAbstractVideoFilter::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QAbstractVideoFilter_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -106,10 +112,12 @@ public:
 			QAbstractVideoFilter::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractVideoFilter_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractVideoFilter_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -123,10 +131,12 @@ public:
 			QAbstractVideoFilter::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractVideoFilter_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractVideoFilter_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -140,10 +150,12 @@ public:
 			QAbstractVideoFilter::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractVideoFilter_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractVideoFilter_virtualbase_customEvent(void* self, QEvent* event);
@@ -157,12 +169,14 @@ public:
 			QAbstractVideoFilter::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QAbstractVideoFilter_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QAbstractVideoFilter_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -176,12 +190,14 @@ public:
 			QAbstractVideoFilter::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QAbstractVideoFilter_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QAbstractVideoFilter_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -194,11 +210,11 @@ public:
 };
 
 QAbstractVideoFilter* QAbstractVideoFilter_new() {
-	return new (std::nothrow) MiqtVirtualQAbstractVideoFilter();
+	return new MiqtVirtualQAbstractVideoFilter();
 }
 
 QAbstractVideoFilter* QAbstractVideoFilter_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQAbstractVideoFilter(parent);
+	return new MiqtVirtualQAbstractVideoFilter(parent);
 }
 
 void QAbstractVideoFilter_virtbase(QAbstractVideoFilter* src, QObject** outptr_QObject) {
@@ -252,7 +268,7 @@ void QAbstractVideoFilter_activeChanged(QAbstractVideoFilter* self) {
 }
 
 void QAbstractVideoFilter_connect_activeChanged(QAbstractVideoFilter* self, intptr_t slot) {
-	QAbstractVideoFilter::connect(self, static_cast<void (QAbstractVideoFilter::*)()>(&QAbstractVideoFilter::activeChanged), self, [=]() {
+	MiqtVirtualQAbstractVideoFilter::connect(self, static_cast<void (QAbstractVideoFilter::*)()>(&QAbstractVideoFilter::activeChanged), self, [=]() {
 		miqt_exec_callback_QAbstractVideoFilter_activeChanged(slot);
 	});
 }
@@ -306,7 +322,7 @@ bool QAbstractVideoFilter_override_virtual_createFilterRunnable(void* self, intp
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__createFilterRunnable = slot;
 	return true;
 }
@@ -316,13 +332,15 @@ bool QAbstractVideoFilter_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QAbstractVideoFilter_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQAbstractVideoFilter*>(self)->QAbstractVideoFilter::event(event);
+
+	return ( (MiqtVirtualQAbstractVideoFilter*)(self) )->QAbstractVideoFilter::event(event);
+
 }
 
 bool QAbstractVideoFilter_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -330,13 +348,15 @@ bool QAbstractVideoFilter_override_virtual_eventFilter(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QAbstractVideoFilter_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQAbstractVideoFilter*>(self)->QAbstractVideoFilter::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQAbstractVideoFilter*)(self) )->QAbstractVideoFilter::eventFilter(watched, event);
+
 }
 
 bool QAbstractVideoFilter_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -344,13 +364,15 @@ bool QAbstractVideoFilter_override_virtual_timerEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QAbstractVideoFilter_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQAbstractVideoFilter*>(self)->QAbstractVideoFilter::timerEvent(event);
+
+	( (MiqtVirtualQAbstractVideoFilter*)(self) )->QAbstractVideoFilter::timerEvent(event);
+
 }
 
 bool QAbstractVideoFilter_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -358,13 +380,15 @@ bool QAbstractVideoFilter_override_virtual_childEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QAbstractVideoFilter_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQAbstractVideoFilter*>(self)->QAbstractVideoFilter::childEvent(event);
+
+	( (MiqtVirtualQAbstractVideoFilter*)(self) )->QAbstractVideoFilter::childEvent(event);
+
 }
 
 bool QAbstractVideoFilter_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -372,13 +396,15 @@ bool QAbstractVideoFilter_override_virtual_customEvent(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QAbstractVideoFilter_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQAbstractVideoFilter*>(self)->QAbstractVideoFilter::customEvent(event);
+
+	( (MiqtVirtualQAbstractVideoFilter*)(self) )->QAbstractVideoFilter::customEvent(event);
+
 }
 
 bool QAbstractVideoFilter_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -386,13 +412,15 @@ bool QAbstractVideoFilter_override_virtual_connectNotify(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QAbstractVideoFilter_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQAbstractVideoFilter*>(self)->QAbstractVideoFilter::connectNotify(*signal);
+
+	( (MiqtVirtualQAbstractVideoFilter*)(self) )->QAbstractVideoFilter::connectNotify(*signal);
+
 }
 
 bool QAbstractVideoFilter_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -400,13 +428,15 @@ bool QAbstractVideoFilter_override_virtual_disconnectNotify(void* self, intptr_t
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QAbstractVideoFilter_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQAbstractVideoFilter*>(self)->QAbstractVideoFilter::disconnectNotify(*signal);
+
+	( (MiqtVirtualQAbstractVideoFilter*)(self) )->QAbstractVideoFilter::disconnectNotify(*signal);
+
 }
 
 QObject* QAbstractVideoFilter_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -415,9 +445,11 @@ QObject* QAbstractVideoFilter_protectedbase_sender(bool* _dynamic_cast_ok, const
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QAbstractVideoFilter_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -426,9 +458,11 @@ int QAbstractVideoFilter_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok,
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QAbstractVideoFilter_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -437,9 +471,11 @@ int QAbstractVideoFilter_protectedbase_receivers(bool* _dynamic_cast_ok, const v
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QAbstractVideoFilter_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -448,9 +484,11 @@ bool QAbstractVideoFilter_protectedbase_isSignalConnected(bool* _dynamic_cast_ok
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QAbstractVideoFilter_delete(QAbstractVideoFilter* self) {

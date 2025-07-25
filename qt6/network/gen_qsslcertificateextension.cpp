@@ -15,11 +15,11 @@ extern "C" {
 #endif
 
 QSslCertificateExtension* QSslCertificateExtension_new() {
-	return new (std::nothrow) QSslCertificateExtension();
+	return new QSslCertificateExtension();
 }
 
 QSslCertificateExtension* QSslCertificateExtension_new2(QSslCertificateExtension* other) {
-	return new (std::nothrow) QSslCertificateExtension(*other);
+	return new QSslCertificateExtension(*other);
 }
 
 void QSslCertificateExtension_operatorAssign(QSslCertificateExtension* self, QSslCertificateExtension* other) {

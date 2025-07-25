@@ -26,8 +26,8 @@ void miqt_exec_callback_QQmlIncubationController_incubatingObjectCountChanged(QQ
 class MiqtVirtualQQmlIncubator final : public QQmlIncubator {
 public:
 
-	MiqtVirtualQQmlIncubator(): QQmlIncubator() {}
-	MiqtVirtualQQmlIncubator(QQmlIncubator::IncubationMode param1): QQmlIncubator(param1) {}
+	MiqtVirtualQQmlIncubator(): QQmlIncubator() {};
+	MiqtVirtualQQmlIncubator(QQmlIncubator::IncubationMode param1): QQmlIncubator(param1) {};
 
 	virtual ~MiqtVirtualQQmlIncubator() override = default;
 
@@ -40,11 +40,13 @@ public:
 			QQmlIncubator::statusChanged(param1);
 			return;
 		}
-
+		
 		QQmlIncubator::Status param1_ret = param1;
 		int sigval1 = static_cast<int>(param1_ret);
+
 		miqt_exec_callback_QQmlIncubator_statusChanged(this, handle__statusChanged, sigval1);
 
+		
 	}
 
 	friend void QQmlIncubator_virtualbase_statusChanged(void* self, int param1);
@@ -58,10 +60,12 @@ public:
 			QQmlIncubator::setInitialState(initialState);
 			return;
 		}
-
+		
 		QObject* sigval1 = initialState;
+
 		miqt_exec_callback_QQmlIncubator_setInitialState(this, handle__setInitialState, sigval1);
 
+		
 	}
 
 	friend void QQmlIncubator_virtualbase_setInitialState(void* self, QObject* initialState);
@@ -69,11 +73,11 @@ public:
 };
 
 QQmlIncubator* QQmlIncubator_new() {
-	return new (std::nothrow) MiqtVirtualQQmlIncubator();
+	return new MiqtVirtualQQmlIncubator();
 }
 
 QQmlIncubator* QQmlIncubator_new2(int param1) {
-	return new (std::nothrow) MiqtVirtualQQmlIncubator(static_cast<QQmlIncubator::IncubationMode>(param1));
+	return new MiqtVirtualQQmlIncubator(static_cast<QQmlIncubator::IncubationMode>(param1));
 }
 
 void QQmlIncubator_clear(QQmlIncubator* self) {
@@ -143,13 +147,15 @@ bool QQmlIncubator_override_virtual_statusChanged(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__statusChanged = slot;
 	return true;
 }
 
 void QQmlIncubator_virtualbase_statusChanged(void* self, int param1) {
-	static_cast<MiqtVirtualQQmlIncubator*>(self)->QQmlIncubator::statusChanged(static_cast<MiqtVirtualQQmlIncubator::Status>(param1));
+
+	( (MiqtVirtualQQmlIncubator*)(self) )->QQmlIncubator::statusChanged(static_cast<MiqtVirtualQQmlIncubator::Status>(param1));
+
 }
 
 bool QQmlIncubator_override_virtual_setInitialState(void* self, intptr_t slot) {
@@ -157,13 +163,15 @@ bool QQmlIncubator_override_virtual_setInitialState(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setInitialState = slot;
 	return true;
 }
 
 void QQmlIncubator_virtualbase_setInitialState(void* self, QObject* initialState) {
-	static_cast<MiqtVirtualQQmlIncubator*>(self)->QQmlIncubator::setInitialState(initialState);
+
+	( (MiqtVirtualQQmlIncubator*)(self) )->QQmlIncubator::setInitialState(initialState);
+
 }
 
 void QQmlIncubator_delete(QQmlIncubator* self) {
@@ -173,7 +181,7 @@ void QQmlIncubator_delete(QQmlIncubator* self) {
 class MiqtVirtualQQmlIncubationController final : public QQmlIncubationController {
 public:
 
-	MiqtVirtualQQmlIncubationController(): QQmlIncubationController() {}
+	MiqtVirtualQQmlIncubationController(): QQmlIncubationController() {};
 
 	virtual ~MiqtVirtualQQmlIncubationController() override = default;
 
@@ -186,10 +194,12 @@ public:
 			QQmlIncubationController::incubatingObjectCountChanged(param1);
 			return;
 		}
-
+		
 		int sigval1 = param1;
+
 		miqt_exec_callback_QQmlIncubationController_incubatingObjectCountChanged(this, handle__incubatingObjectCountChanged, sigval1);
 
+		
 	}
 
 	friend void QQmlIncubationController_virtualbase_incubatingObjectCountChanged(void* self, int param1);
@@ -197,7 +207,7 @@ public:
 };
 
 QQmlIncubationController* QQmlIncubationController_new() {
-	return new (std::nothrow) MiqtVirtualQQmlIncubationController();
+	return new MiqtVirtualQQmlIncubationController();
 }
 
 QQmlEngine* QQmlIncubationController_engine(const QQmlIncubationController* self) {
@@ -217,13 +227,15 @@ bool QQmlIncubationController_override_virtual_incubatingObjectCountChanged(void
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__incubatingObjectCountChanged = slot;
 	return true;
 }
 
 void QQmlIncubationController_virtualbase_incubatingObjectCountChanged(void* self, int param1) {
-	static_cast<MiqtVirtualQQmlIncubationController*>(self)->QQmlIncubationController::incubatingObjectCountChanged(static_cast<int>(param1));
+
+	( (MiqtVirtualQQmlIncubationController*)(self) )->QQmlIncubationController::incubatingObjectCountChanged(static_cast<int>(param1));
+
 }
 
 void QQmlIncubationController_delete(QQmlIncubationController* self) {

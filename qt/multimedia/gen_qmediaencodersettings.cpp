@@ -19,11 +19,11 @@ extern "C" {
 #endif
 
 QAudioEncoderSettings* QAudioEncoderSettings_new() {
-	return new (std::nothrow) QAudioEncoderSettings();
+	return new QAudioEncoderSettings();
 }
 
 QAudioEncoderSettings* QAudioEncoderSettings_new2(QAudioEncoderSettings* other) {
-	return new (std::nothrow) QAudioEncoderSettings(*other);
+	return new QAudioEncoderSettings(*other);
 }
 
 void QAudioEncoderSettings_operatorAssign(QAudioEncoderSettings* self, QAudioEncoderSettings* other) {
@@ -151,11 +151,11 @@ void QAudioEncoderSettings_delete(QAudioEncoderSettings* self) {
 }
 
 QVideoEncoderSettings* QVideoEncoderSettings_new() {
-	return new (std::nothrow) QVideoEncoderSettings();
+	return new QVideoEncoderSettings();
 }
 
 QVideoEncoderSettings* QVideoEncoderSettings_new2(QVideoEncoderSettings* other) {
-	return new (std::nothrow) QVideoEncoderSettings(*other);
+	return new QVideoEncoderSettings(*other);
 }
 
 void QVideoEncoderSettings_operatorAssign(QVideoEncoderSettings* self, QVideoEncoderSettings* other) {
@@ -288,11 +288,11 @@ void QVideoEncoderSettings_delete(QVideoEncoderSettings* self) {
 }
 
 QImageEncoderSettings* QImageEncoderSettings_new() {
-	return new (std::nothrow) QImageEncoderSettings();
+	return new QImageEncoderSettings();
 }
 
 QImageEncoderSettings* QImageEncoderSettings_new2(QImageEncoderSettings* other) {
-	return new (std::nothrow) QImageEncoderSettings(*other);
+	return new QImageEncoderSettings(*other);
 }
 
 void QImageEncoderSettings_operatorAssign(QImageEncoderSettings* self, QImageEncoderSettings* other) {

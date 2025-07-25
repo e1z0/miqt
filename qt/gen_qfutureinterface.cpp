@@ -17,15 +17,15 @@ extern "C" {
 #endif
 
 QFutureInterfaceBase* QFutureInterfaceBase_new() {
-	return new (std::nothrow) QFutureInterfaceBase();
+	return new QFutureInterfaceBase();
 }
 
 QFutureInterfaceBase* QFutureInterfaceBase_new2(QFutureInterfaceBase* other) {
-	return new (std::nothrow) QFutureInterfaceBase(*other);
+	return new QFutureInterfaceBase(*other);
 }
 
 QFutureInterfaceBase* QFutureInterfaceBase_new3(int initialState) {
-	return new (std::nothrow) QFutureInterfaceBase(static_cast<QFutureInterfaceBase::State>(initialState));
+	return new QFutureInterfaceBase(static_cast<QFutureInterfaceBase::State>(initialState));
 }
 
 void QFutureInterfaceBase_reportStarted(QFutureInterfaceBase* self) {

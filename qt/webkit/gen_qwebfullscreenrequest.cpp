@@ -13,11 +13,11 @@ extern "C" {
 #endif
 
 QWebFullScreenRequest* QWebFullScreenRequest_new() {
-	return new (std::nothrow) QWebFullScreenRequest();
+	return new QWebFullScreenRequest();
 }
 
 QWebFullScreenRequest* QWebFullScreenRequest_new2(QWebFullScreenRequest* param1) {
-	return new (std::nothrow) QWebFullScreenRequest(*param1);
+	return new QWebFullScreenRequest(*param1);
 }
 
 void QWebFullScreenRequest_accept(QWebFullScreenRequest* self) {

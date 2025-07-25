@@ -140,11 +140,9 @@ struct miqt_string QTermWidget_selectedText(QTermWidget* self);
 void QTermWidget_setMonitorActivity(QTermWidget* self, bool monitorActivity);
 void QTermWidget_setMonitorSilence(QTermWidget* self, bool monitorSilence);
 void QTermWidget_setSilenceTimeout(QTermWidget* self, int seconds);
-Filter::HotSpot* QTermWidget_getHotSpotAt(const QTermWidget* self, QPoint* pos);
-Filter::HotSpot* QTermWidget_getHotSpotAt2(const QTermWidget* self, int row, int column);
 struct miqt_array /* of QAction* */  QTermWidget_filterActions(QTermWidget* self, QPoint* position);
 int QTermWidget_getPtySlaveFd(const QTermWidget* self);
-void QTermWidget_setKeyboardCursorShape(QTermWidget* self, Konsole::Emulation::KeyboardCursorShape shape);
+void QTermWidget_setKeyboardCursorShape(QTermWidget* self, int shape);
 void QTermWidget_setBlinkingCursor(QTermWidget* self, bool blink);
 void QTermWidget_setBidiEnabled(QTermWidget* self, bool enabled);
 bool QTermWidget_isBidiEnabled(QTermWidget* self);
@@ -199,7 +197,6 @@ struct miqt_string QTermWidget_tr3(const char* s, const char* c, int n);
 struct miqt_string QTermWidget_trUtf82(const char* s, const char* c);
 struct miqt_string QTermWidget_trUtf83(const char* s, const char* c, int n);
 struct miqt_string QTermWidget_selectedTextWithPreserveLineBreaks(QTermWidget* self, bool preserveLineBreaks);
-
 bool QTermWidget_override_virtual_resizeEvent(void* self, intptr_t slot);
 void QTermWidget_virtualbase_resizeEvent(void* self, QResizeEvent* param1);
 bool QTermWidget_override_virtual_keyPressEvent(void* self, intptr_t slot);
@@ -294,7 +291,6 @@ bool QTermWidget_override_virtual_connectNotify(void* self, intptr_t slot);
 void QTermWidget_virtualbase_connectNotify(void* self, QMetaMethod* signal);
 bool QTermWidget_override_virtual_disconnectNotify(void* self, intptr_t slot);
 void QTermWidget_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
-
 void QTermWidget_protectedbase_sessionFinished(bool* _dynamic_cast_ok, void* self);
 void QTermWidget_protectedbase_selectionChanged(bool* _dynamic_cast_ok, void* self, bool textSelected);
 void QTermWidget_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* self);
@@ -306,7 +302,6 @@ QObject* QTermWidget_protectedbase_sender(bool* _dynamic_cast_ok, const void* se
 int QTermWidget_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self);
 int QTermWidget_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal);
 bool QTermWidget_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal);
-
 void QTermWidget_delete(QTermWidget* self);
 
 #ifdef __cplusplus

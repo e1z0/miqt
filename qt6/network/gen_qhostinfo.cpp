@@ -16,15 +16,15 @@ extern "C" {
 #endif
 
 QHostInfo* QHostInfo_new() {
-	return new (std::nothrow) QHostInfo();
+	return new QHostInfo();
 }
 
 QHostInfo* QHostInfo_new2(QHostInfo* d) {
-	return new (std::nothrow) QHostInfo(*d);
+	return new QHostInfo(*d);
 }
 
 QHostInfo* QHostInfo_new3(int lookupId) {
-	return new (std::nothrow) QHostInfo(static_cast<int>(lookupId));
+	return new QHostInfo(static_cast<int>(lookupId));
 }
 
 void QHostInfo_operatorAssign(QHostInfo* self, QHostInfo* d) {

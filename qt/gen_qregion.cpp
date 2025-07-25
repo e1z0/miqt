@@ -16,31 +16,31 @@ extern "C" {
 #endif
 
 QRegion* QRegion_new() {
-	return new (std::nothrow) QRegion();
+	return new QRegion();
 }
 
 QRegion* QRegion_new2(int x, int y, int w, int h) {
-	return new (std::nothrow) QRegion(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h));
+	return new QRegion(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h));
 }
 
 QRegion* QRegion_new3(QRect* r) {
-	return new (std::nothrow) QRegion(*r);
+	return new QRegion(*r);
 }
 
 QRegion* QRegion_new4(QRegion* region) {
-	return new (std::nothrow) QRegion(*region);
+	return new QRegion(*region);
 }
 
 QRegion* QRegion_new5(QBitmap* bitmap) {
-	return new (std::nothrow) QRegion(*bitmap);
+	return new QRegion(*bitmap);
 }
 
 QRegion* QRegion_new6(int x, int y, int w, int h, int t) {
-	return new (std::nothrow) QRegion(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), static_cast<QRegion::RegionType>(t));
+	return new QRegion(static_cast<int>(x), static_cast<int>(y), static_cast<int>(w), static_cast<int>(h), static_cast<QRegion::RegionType>(t));
 }
 
 QRegion* QRegion_new7(QRect* r, int t) {
-	return new (std::nothrow) QRegion(*r, static_cast<QRegion::RegionType>(t));
+	return new QRegion(*r, static_cast<QRegion::RegionType>(t));
 }
 
 void QRegion_operatorAssign(QRegion* self, QRegion* param1) {

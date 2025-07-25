@@ -9,7 +9,7 @@ package qtermwidget
 import "C"
 
 import (
-	"github.com/e1z0/miqt/qt"
+	"github.com/mappu/miqt/qt"
 	"runtime"
 	"runtime/cgo"
 	"unsafe"
@@ -354,14 +354,6 @@ func (this *QTermWidget) SetSilenceTimeout(seconds int) {
 	C.QTermWidget_setSilenceTimeout(this.h, (C.int)(seconds))
 }
 
-func (this *QTermWidget) GetHotSpotAt(pos *qt.QPoint) *Filter__HotSpot {
-	int /* TODO  */
-}
-
-func (this *QTermWidget) GetHotSpotAt2(row int, column int) *Filter__HotSpot {
-	int /* TODO  */
-}
-
 func (this *QTermWidget) FilterActions(position *qt.QPoint) []*qt.QAction {
 	var _ma C.struct_miqt_array = C.QTermWidget_filterActions(this.h, (*C.QPoint)(position.UnsafePointer()))
 	_ret := make([]*qt.QAction, int(_ma.len))
@@ -377,7 +369,7 @@ func (this *QTermWidget) GetPtySlaveFd() int {
 }
 
 func (this *QTermWidget) SetKeyboardCursorShape(shape Konsole__Emulation__KeyboardCursorShape) {
-	C.QTermWidget_setKeyboardCursorShape(this.h, shape)
+	C.QTermWidget_setKeyboardCursorShape(this.h, (C.int)(shape))
 }
 
 func (this *QTermWidget) SetBlinkingCursor(blink bool) {

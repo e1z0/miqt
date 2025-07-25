@@ -9,7 +9,7 @@ package multimedia
 import "C"
 
 import (
-	"github.com/e1z0/miqt/qt"
+	"github.com/mappu/miqt/qt"
 	"unsafe"
 )
 

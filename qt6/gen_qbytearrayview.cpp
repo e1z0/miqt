@@ -12,11 +12,11 @@ extern "C" {
 #endif
 
 QByteArrayView* QByteArrayView_new() {
-	return new (std::nothrow) QByteArrayView();
+	return new QByteArrayView();
 }
 
 QByteArrayView* QByteArrayView_new2(QByteArrayView* param1) {
-	return new (std::nothrow) QByteArrayView(*param1);
+	return new QByteArrayView(*param1);
 }
 
 struct miqt_string QByteArrayView_toByteArray(const QByteArrayView* self) {

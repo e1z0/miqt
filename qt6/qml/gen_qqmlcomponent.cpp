@@ -43,18 +43,18 @@ void miqt_exec_callback_QQmlComponent_disconnectNotify(QQmlComponent*, intptr_t,
 class MiqtVirtualQQmlComponent final : public QQmlComponent {
 public:
 
-	MiqtVirtualQQmlComponent(): QQmlComponent() {}
-	MiqtVirtualQQmlComponent(QQmlEngine* param1): QQmlComponent(param1) {}
-	MiqtVirtualQQmlComponent(QQmlEngine* param1, const QString& fileName): QQmlComponent(param1, fileName) {}
-	MiqtVirtualQQmlComponent(QQmlEngine* param1, const QString& fileName, QQmlComponent::CompilationMode mode): QQmlComponent(param1, fileName, mode) {}
-	MiqtVirtualQQmlComponent(QQmlEngine* param1, const QUrl& url): QQmlComponent(param1, url) {}
-	MiqtVirtualQQmlComponent(QQmlEngine* param1, const QUrl& url, QQmlComponent::CompilationMode mode): QQmlComponent(param1, url, mode) {}
-	MiqtVirtualQQmlComponent(QObject* parent): QQmlComponent(parent) {}
-	MiqtVirtualQQmlComponent(QQmlEngine* param1, QObject* parent): QQmlComponent(param1, parent) {}
-	MiqtVirtualQQmlComponent(QQmlEngine* param1, const QString& fileName, QObject* parent): QQmlComponent(param1, fileName, parent) {}
-	MiqtVirtualQQmlComponent(QQmlEngine* param1, const QString& fileName, QQmlComponent::CompilationMode mode, QObject* parent): QQmlComponent(param1, fileName, mode, parent) {}
-	MiqtVirtualQQmlComponent(QQmlEngine* param1, const QUrl& url, QObject* parent): QQmlComponent(param1, url, parent) {}
-	MiqtVirtualQQmlComponent(QQmlEngine* param1, const QUrl& url, QQmlComponent::CompilationMode mode, QObject* parent): QQmlComponent(param1, url, mode, parent) {}
+	MiqtVirtualQQmlComponent(): QQmlComponent() {};
+	MiqtVirtualQQmlComponent(QQmlEngine* param1): QQmlComponent(param1) {};
+	MiqtVirtualQQmlComponent(QQmlEngine* param1, const QString& fileName): QQmlComponent(param1, fileName) {};
+	MiqtVirtualQQmlComponent(QQmlEngine* param1, const QString& fileName, QQmlComponent::CompilationMode mode): QQmlComponent(param1, fileName, mode) {};
+	MiqtVirtualQQmlComponent(QQmlEngine* param1, const QUrl& url): QQmlComponent(param1, url) {};
+	MiqtVirtualQQmlComponent(QQmlEngine* param1, const QUrl& url, QQmlComponent::CompilationMode mode): QQmlComponent(param1, url, mode) {};
+	MiqtVirtualQQmlComponent(QObject* parent): QQmlComponent(parent) {};
+	MiqtVirtualQQmlComponent(QQmlEngine* param1, QObject* parent): QQmlComponent(param1, parent) {};
+	MiqtVirtualQQmlComponent(QQmlEngine* param1, const QString& fileName, QObject* parent): QQmlComponent(param1, fileName, parent) {};
+	MiqtVirtualQQmlComponent(QQmlEngine* param1, const QString& fileName, QQmlComponent::CompilationMode mode, QObject* parent): QQmlComponent(param1, fileName, mode, parent) {};
+	MiqtVirtualQQmlComponent(QQmlEngine* param1, const QUrl& url, QObject* parent): QQmlComponent(param1, url, parent) {};
+	MiqtVirtualQQmlComponent(QQmlEngine* param1, const QUrl& url, QQmlComponent::CompilationMode mode, QObject* parent): QQmlComponent(param1, url, mode, parent) {};
 
 	virtual ~MiqtVirtualQQmlComponent() override = default;
 
@@ -66,9 +66,11 @@ public:
 		if (handle__create == 0) {
 			return QQmlComponent::create(context);
 		}
-
+		
 		QQmlContext* sigval1 = context;
+
 		QObject* callback_return_value = miqt_exec_callback_QQmlComponent_create(this, handle__create, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -82,9 +84,11 @@ public:
 		if (handle__beginCreate == 0) {
 			return QQmlComponent::beginCreate(param1);
 		}
-
+		
 		QQmlContext* sigval1 = param1;
+
 		QObject* callback_return_value = miqt_exec_callback_QQmlComponent_beginCreate(this, handle__beginCreate, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -99,9 +103,11 @@ public:
 			QQmlComponent::completeCreate();
 			return;
 		}
+		
 
 		miqt_exec_callback_QQmlComponent_completeCreate(this, handle__completeCreate);
 
+		
 	}
 
 	friend void QQmlComponent_virtualbase_completeCreate(void* self);
@@ -114,9 +120,11 @@ public:
 		if (handle__event == 0) {
 			return QQmlComponent::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QQmlComponent_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -130,10 +138,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QQmlComponent::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QQmlComponent_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -148,10 +158,12 @@ public:
 			QQmlComponent::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QQmlComponent_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QQmlComponent_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -165,10 +177,12 @@ public:
 			QQmlComponent::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QQmlComponent_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QQmlComponent_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -182,10 +196,12 @@ public:
 			QQmlComponent::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QQmlComponent_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QQmlComponent_virtualbase_customEvent(void* self, QEvent* event);
@@ -199,12 +215,14 @@ public:
 			QQmlComponent::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QQmlComponent_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QQmlComponent_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -218,12 +236,14 @@ public:
 			QQmlComponent::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QQmlComponent_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QQmlComponent_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -239,55 +259,55 @@ public:
 };
 
 QQmlComponent* QQmlComponent_new() {
-	return new (std::nothrow) MiqtVirtualQQmlComponent();
+	return new MiqtVirtualQQmlComponent();
 }
 
 QQmlComponent* QQmlComponent_new2(QQmlEngine* param1) {
-	return new (std::nothrow) MiqtVirtualQQmlComponent(param1);
+	return new MiqtVirtualQQmlComponent(param1);
 }
 
 QQmlComponent* QQmlComponent_new3(QQmlEngine* param1, struct miqt_string fileName) {
 	QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-	return new (std::nothrow) MiqtVirtualQQmlComponent(param1, fileName_QString);
+	return new MiqtVirtualQQmlComponent(param1, fileName_QString);
 }
 
 QQmlComponent* QQmlComponent_new4(QQmlEngine* param1, struct miqt_string fileName, int mode) {
 	QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-	return new (std::nothrow) MiqtVirtualQQmlComponent(param1, fileName_QString, static_cast<QQmlComponent::CompilationMode>(mode));
+	return new MiqtVirtualQQmlComponent(param1, fileName_QString, static_cast<QQmlComponent::CompilationMode>(mode));
 }
 
 QQmlComponent* QQmlComponent_new5(QQmlEngine* param1, QUrl* url) {
-	return new (std::nothrow) MiqtVirtualQQmlComponent(param1, *url);
+	return new MiqtVirtualQQmlComponent(param1, *url);
 }
 
 QQmlComponent* QQmlComponent_new6(QQmlEngine* param1, QUrl* url, int mode) {
-	return new (std::nothrow) MiqtVirtualQQmlComponent(param1, *url, static_cast<QQmlComponent::CompilationMode>(mode));
+	return new MiqtVirtualQQmlComponent(param1, *url, static_cast<QQmlComponent::CompilationMode>(mode));
 }
 
 QQmlComponent* QQmlComponent_new7(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQQmlComponent(parent);
+	return new MiqtVirtualQQmlComponent(parent);
 }
 
 QQmlComponent* QQmlComponent_new8(QQmlEngine* param1, QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQQmlComponent(param1, parent);
+	return new MiqtVirtualQQmlComponent(param1, parent);
 }
 
 QQmlComponent* QQmlComponent_new9(QQmlEngine* param1, struct miqt_string fileName, QObject* parent) {
 	QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-	return new (std::nothrow) MiqtVirtualQQmlComponent(param1, fileName_QString, parent);
+	return new MiqtVirtualQQmlComponent(param1, fileName_QString, parent);
 }
 
 QQmlComponent* QQmlComponent_new10(QQmlEngine* param1, struct miqt_string fileName, int mode, QObject* parent) {
 	QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-	return new (std::nothrow) MiqtVirtualQQmlComponent(param1, fileName_QString, static_cast<QQmlComponent::CompilationMode>(mode), parent);
+	return new MiqtVirtualQQmlComponent(param1, fileName_QString, static_cast<QQmlComponent::CompilationMode>(mode), parent);
 }
 
 QQmlComponent* QQmlComponent_new11(QQmlEngine* param1, QUrl* url, QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQQmlComponent(param1, *url, parent);
+	return new MiqtVirtualQQmlComponent(param1, *url, parent);
 }
 
 QQmlComponent* QQmlComponent_new12(QQmlEngine* param1, QUrl* url, int mode, QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQQmlComponent(param1, *url, static_cast<QQmlComponent::CompilationMode>(mode), parent);
+	return new MiqtVirtualQQmlComponent(param1, *url, static_cast<QQmlComponent::CompilationMode>(mode), parent);
 }
 
 void QQmlComponent_virtbase(QQmlComponent* src, QObject** outptr_QObject) {
@@ -435,7 +455,7 @@ void QQmlComponent_statusChanged(QQmlComponent* self, int param1) {
 }
 
 void QQmlComponent_connect_statusChanged(QQmlComponent* self, intptr_t slot) {
-	QQmlComponent::connect(self, static_cast<void (QQmlComponent::*)(QQmlComponent::Status)>(&QQmlComponent::statusChanged), self, [=](QQmlComponent::Status param1) {
+	MiqtVirtualQQmlComponent::connect(self, static_cast<void (QQmlComponent::*)(QQmlComponent::Status)>(&QQmlComponent::statusChanged), self, [=](QQmlComponent::Status param1) {
 		QQmlComponent::Status param1_ret = param1;
 		int sigval1 = static_cast<int>(param1_ret);
 		miqt_exec_callback_QQmlComponent_statusChanged(slot, sigval1);
@@ -447,7 +467,7 @@ void QQmlComponent_progressChanged(QQmlComponent* self, double param1) {
 }
 
 void QQmlComponent_connect_progressChanged(QQmlComponent* self, intptr_t slot) {
-	QQmlComponent::connect(self, static_cast<void (QQmlComponent::*)(qreal)>(&QQmlComponent::progressChanged), self, [=](qreal param1) {
+	MiqtVirtualQQmlComponent::connect(self, static_cast<void (QQmlComponent::*)(qreal)>(&QQmlComponent::progressChanged), self, [=](qreal param1) {
 		qreal param1_ret = param1;
 		double sigval1 = static_cast<double>(param1_ret);
 		miqt_exec_callback_QQmlComponent_progressChanged(slot, sigval1);
@@ -500,13 +520,15 @@ bool QQmlComponent_override_virtual_create(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__create = slot;
 	return true;
 }
 
 QObject* QQmlComponent_virtualbase_create(void* self, QQmlContext* context) {
-	return static_cast<MiqtVirtualQQmlComponent*>(self)->QQmlComponent::create(context);
+
+	return ( (MiqtVirtualQQmlComponent*)(self) )->QQmlComponent::create(context);
+
 }
 
 bool QQmlComponent_override_virtual_beginCreate(void* self, intptr_t slot) {
@@ -514,13 +536,15 @@ bool QQmlComponent_override_virtual_beginCreate(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__beginCreate = slot;
 	return true;
 }
 
 QObject* QQmlComponent_virtualbase_beginCreate(void* self, QQmlContext* param1) {
-	return static_cast<MiqtVirtualQQmlComponent*>(self)->QQmlComponent::beginCreate(param1);
+
+	return ( (MiqtVirtualQQmlComponent*)(self) )->QQmlComponent::beginCreate(param1);
+
 }
 
 bool QQmlComponent_override_virtual_completeCreate(void* self, intptr_t slot) {
@@ -528,13 +552,15 @@ bool QQmlComponent_override_virtual_completeCreate(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__completeCreate = slot;
 	return true;
 }
 
 void QQmlComponent_virtualbase_completeCreate(void* self) {
-	static_cast<MiqtVirtualQQmlComponent*>(self)->QQmlComponent::completeCreate();
+
+	( (MiqtVirtualQQmlComponent*)(self) )->QQmlComponent::completeCreate();
+
 }
 
 bool QQmlComponent_override_virtual_event(void* self, intptr_t slot) {
@@ -542,13 +568,15 @@ bool QQmlComponent_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QQmlComponent_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQQmlComponent*>(self)->QQmlComponent::event(event);
+
+	return ( (MiqtVirtualQQmlComponent*)(self) )->QQmlComponent::event(event);
+
 }
 
 bool QQmlComponent_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -556,13 +584,15 @@ bool QQmlComponent_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QQmlComponent_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQQmlComponent*>(self)->QQmlComponent::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQQmlComponent*)(self) )->QQmlComponent::eventFilter(watched, event);
+
 }
 
 bool QQmlComponent_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -570,13 +600,15 @@ bool QQmlComponent_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QQmlComponent_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQQmlComponent*>(self)->QQmlComponent::timerEvent(event);
+
+	( (MiqtVirtualQQmlComponent*)(self) )->QQmlComponent::timerEvent(event);
+
 }
 
 bool QQmlComponent_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -584,13 +616,15 @@ bool QQmlComponent_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QQmlComponent_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQQmlComponent*>(self)->QQmlComponent::childEvent(event);
+
+	( (MiqtVirtualQQmlComponent*)(self) )->QQmlComponent::childEvent(event);
+
 }
 
 bool QQmlComponent_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -598,13 +632,15 @@ bool QQmlComponent_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QQmlComponent_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQQmlComponent*>(self)->QQmlComponent::customEvent(event);
+
+	( (MiqtVirtualQQmlComponent*)(self) )->QQmlComponent::customEvent(event);
+
 }
 
 bool QQmlComponent_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -612,13 +648,15 @@ bool QQmlComponent_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QQmlComponent_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQQmlComponent*>(self)->QQmlComponent::connectNotify(*signal);
+
+	( (MiqtVirtualQQmlComponent*)(self) )->QQmlComponent::connectNotify(*signal);
+
 }
 
 bool QQmlComponent_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -626,13 +664,15 @@ bool QQmlComponent_override_virtual_disconnectNotify(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QQmlComponent_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQQmlComponent*>(self)->QQmlComponent::disconnectNotify(*signal);
+
+	( (MiqtVirtualQQmlComponent*)(self) )->QQmlComponent::disconnectNotify(*signal);
+
 }
 
 QObject* QQmlComponent_protectedbase_createObject2(bool* _dynamic_cast_ok, void* self) {
@@ -641,9 +681,11 @@ QObject* QQmlComponent_protectedbase_createObject2(bool* _dynamic_cast_ok, void*
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->createObject();
+
 }
 
 QObject* QQmlComponent_protectedbase_createObjectWithParent(bool* _dynamic_cast_ok, void* self, QObject* parent) {
@@ -652,9 +694,11 @@ QObject* QQmlComponent_protectedbase_createObjectWithParent(bool* _dynamic_cast_
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->createObject(parent);
+
 }
 
 QObject* QQmlComponent_protectedbase_createObject3(bool* _dynamic_cast_ok, void* self, QObject* parent, struct miqt_map /* of struct miqt_string to QVariant* */  properties) {
@@ -663,16 +707,18 @@ QObject* QQmlComponent_protectedbase_createObject3(bool* _dynamic_cast_ok, void*
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
-		QVariantMap properties_QMap;
+			QVariantMap properties_QMap;
 		struct miqt_string* properties_karr = static_cast<struct miqt_string*>(properties.keys);
 		QVariant** properties_varr = static_cast<QVariant**>(properties.values);
 		for(size_t i = 0; i < properties.len; ++i) {
 			QString properties_karr_i_QString = QString::fromUtf8(properties_karr[i].data, properties_karr[i].len);
 			properties_QMap[properties_karr_i_QString] = *(properties_varr[i]);
 		}
+
 	return self_cast->createObject(parent, properties_QMap);
+
 }
 
 QObject* QQmlComponent_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -681,9 +727,11 @@ QObject* QQmlComponent_protectedbase_sender(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QQmlComponent_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -692,9 +740,11 @@ int QQmlComponent_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QQmlComponent_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -703,9 +753,11 @@ int QQmlComponent_protectedbase_receivers(bool* _dynamic_cast_ok, const void* se
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QQmlComponent_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -714,9 +766,11 @@ bool QQmlComponent_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QQmlComponent_delete(QQmlComponent* self) {

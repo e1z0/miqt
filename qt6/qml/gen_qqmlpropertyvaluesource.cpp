@@ -15,7 +15,7 @@ void miqt_exec_callback_QQmlPropertyValueSource_setTarget(QQmlPropertyValueSourc
 class MiqtVirtualQQmlPropertyValueSource final : public QQmlPropertyValueSource {
 public:
 
-	MiqtVirtualQQmlPropertyValueSource(): QQmlPropertyValueSource() {}
+	MiqtVirtualQQmlPropertyValueSource(): QQmlPropertyValueSource() {};
 
 	virtual ~MiqtVirtualQQmlPropertyValueSource() override = default;
 
@@ -27,18 +27,20 @@ public:
 		if (handle__setTarget == 0) {
 			return; // Pure virtual, there is no base we can call
 		}
-
+		
 		const QQmlProperty& target_ret = target;
 		// Cast returned reference into pointer
 		QQmlProperty* sigval1 = const_cast<QQmlProperty*>(&target_ret);
+
 		miqt_exec_callback_QQmlPropertyValueSource_setTarget(this, handle__setTarget, sigval1);
 
+		
 	}
 
 };
 
 QQmlPropertyValueSource* QQmlPropertyValueSource_new() {
-	return new (std::nothrow) MiqtVirtualQQmlPropertyValueSource();
+	return new MiqtVirtualQQmlPropertyValueSource();
 }
 
 void QQmlPropertyValueSource_setTarget(QQmlPropertyValueSource* self, QQmlProperty* target) {
@@ -54,7 +56,7 @@ bool QQmlPropertyValueSource_override_virtual_setTarget(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setTarget = slot;
 	return true;
 }

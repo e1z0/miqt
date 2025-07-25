@@ -40,7 +40,6 @@ typedef struct QVideoSurfaceFormat QVideoSurfaceFormat;
 
 QVideoFrame* QVideoFilterRunnable_run(QVideoFilterRunnable* self, QVideoFrame* input, QVideoSurfaceFormat* surfaceFormat, int flags);
 void QVideoFilterRunnable_operatorAssign(QVideoFilterRunnable* self, QVideoFilterRunnable* param1);
-
 void QVideoFilterRunnable_delete(QVideoFilterRunnable* self);
 
 QAbstractVideoFilter* QAbstractVideoFilter_new();
@@ -59,7 +58,6 @@ struct miqt_string QAbstractVideoFilter_tr2(const char* s, const char* c);
 struct miqt_string QAbstractVideoFilter_tr3(const char* s, const char* c, int n);
 struct miqt_string QAbstractVideoFilter_trUtf82(const char* s, const char* c);
 struct miqt_string QAbstractVideoFilter_trUtf83(const char* s, const char* c, int n);
-
 bool QAbstractVideoFilter_override_virtual_createFilterRunnable(void* self, intptr_t slot);
 QVideoFilterRunnable* QAbstractVideoFilter_virtualbase_createFilterRunnable(void* self);
 bool QAbstractVideoFilter_override_virtual_event(void* self, intptr_t slot);
@@ -76,12 +74,10 @@ bool QAbstractVideoFilter_override_virtual_connectNotify(void* self, intptr_t sl
 void QAbstractVideoFilter_virtualbase_connectNotify(void* self, QMetaMethod* signal);
 bool QAbstractVideoFilter_override_virtual_disconnectNotify(void* self, intptr_t slot);
 void QAbstractVideoFilter_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
-
 QObject* QAbstractVideoFilter_protectedbase_sender(bool* _dynamic_cast_ok, const void* self);
 int QAbstractVideoFilter_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self);
 int QAbstractVideoFilter_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal);
 bool QAbstractVideoFilter_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal);
-
 void QAbstractVideoFilter_delete(QAbstractVideoFilter* self);
 
 #ifdef __cplusplus

@@ -46,11 +46,11 @@ void miqt_exec_callback_QWebFrame_pageChanged(intptr_t);
 #endif
 
 QWebHitTestResult* QWebHitTestResult_new() {
-	return new (std::nothrow) QWebHitTestResult();
+	return new QWebHitTestResult();
 }
 
 QWebHitTestResult* QWebHitTestResult_new2(QWebHitTestResult* other) {
-	return new (std::nothrow) QWebHitTestResult(*other);
+	return new QWebHitTestResult(*other);
 }
 
 void QWebHitTestResult_operatorAssign(QWebHitTestResult* self, QWebHitTestResult* other) {

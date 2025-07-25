@@ -43,12 +43,12 @@ void miqt_exec_callback_QAction_disconnectNotify(QAction*, intptr_t, QMetaMethod
 class MiqtVirtualQAction final : public QAction {
 public:
 
-	MiqtVirtualQAction(): QAction() {}
-	MiqtVirtualQAction(const QString& text): QAction(text) {}
-	MiqtVirtualQAction(const QIcon& icon, const QString& text): QAction(icon, text) {}
-	MiqtVirtualQAction(QObject* parent): QAction(parent) {}
-	MiqtVirtualQAction(const QString& text, QObject* parent): QAction(text, parent) {}
-	MiqtVirtualQAction(const QIcon& icon, const QString& text, QObject* parent): QAction(icon, text, parent) {}
+	MiqtVirtualQAction(): QAction() {};
+	MiqtVirtualQAction(const QString& text): QAction(text) {};
+	MiqtVirtualQAction(const QIcon& icon, const QString& text): QAction(icon, text) {};
+	MiqtVirtualQAction(QObject* parent): QAction(parent) {};
+	MiqtVirtualQAction(const QString& text, QObject* parent): QAction(text, parent) {};
+	MiqtVirtualQAction(const QIcon& icon, const QString& text, QObject* parent): QAction(icon, text, parent) {};
 
 	virtual ~MiqtVirtualQAction() override = default;
 
@@ -60,9 +60,11 @@ public:
 		if (handle__event == 0) {
 			return QAction::event(param1);
 		}
-
+		
 		QEvent* sigval1 = param1;
+
 		bool callback_return_value = miqt_exec_callback_QAction_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -76,10 +78,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QAction::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QAction_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -94,10 +98,12 @@ public:
 			QAction::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QAction_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QAction_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -111,10 +117,12 @@ public:
 			QAction::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QAction_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QAction_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -128,10 +136,12 @@ public:
 			QAction::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QAction_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QAction_virtualbase_customEvent(void* self, QEvent* event);
@@ -145,12 +155,14 @@ public:
 			QAction::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QAction_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QAction_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -164,12 +176,14 @@ public:
 			QAction::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QAction_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QAction_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -182,31 +196,31 @@ public:
 };
 
 QAction* QAction_new() {
-	return new (std::nothrow) MiqtVirtualQAction();
+	return new MiqtVirtualQAction();
 }
 
 QAction* QAction_new2(struct miqt_string text) {
 	QString text_QString = QString::fromUtf8(text.data, text.len);
-	return new (std::nothrow) MiqtVirtualQAction(text_QString);
+	return new MiqtVirtualQAction(text_QString);
 }
 
 QAction* QAction_new3(QIcon* icon, struct miqt_string text) {
 	QString text_QString = QString::fromUtf8(text.data, text.len);
-	return new (std::nothrow) MiqtVirtualQAction(*icon, text_QString);
+	return new MiqtVirtualQAction(*icon, text_QString);
 }
 
 QAction* QAction_new4(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQAction(parent);
+	return new MiqtVirtualQAction(parent);
 }
 
 QAction* QAction_new5(struct miqt_string text, QObject* parent) {
 	QString text_QString = QString::fromUtf8(text.data, text.len);
-	return new (std::nothrow) MiqtVirtualQAction(text_QString, parent);
+	return new MiqtVirtualQAction(text_QString, parent);
 }
 
 QAction* QAction_new6(QIcon* icon, struct miqt_string text, QObject* parent) {
 	QString text_QString = QString::fromUtf8(text.data, text.len);
-	return new (std::nothrow) MiqtVirtualQAction(*icon, text_QString, parent);
+	return new MiqtVirtualQAction(*icon, text_QString, parent);
 }
 
 void QAction_virtbase(QAction* src, QObject** outptr_QObject) {
@@ -548,7 +562,7 @@ void QAction_changed(QAction* self) {
 }
 
 void QAction_connect_changed(QAction* self, intptr_t slot) {
-	QAction::connect(self, static_cast<void (QAction::*)()>(&QAction::changed), self, [=]() {
+	MiqtVirtualQAction::connect(self, static_cast<void (QAction::*)()>(&QAction::changed), self, [=]() {
 		miqt_exec_callback_QAction_changed(slot);
 	});
 }
@@ -558,7 +572,7 @@ void QAction_triggered(QAction* self) {
 }
 
 void QAction_connect_triggered(QAction* self, intptr_t slot) {
-	QAction::connect(self, static_cast<void (QAction::*)(bool)>(&QAction::triggered), self, [=]() {
+	MiqtVirtualQAction::connect(self, static_cast<void (QAction::*)(bool)>(&QAction::triggered), self, [=]() {
 		miqt_exec_callback_QAction_triggered(slot);
 	});
 }
@@ -568,7 +582,7 @@ void QAction_hovered(QAction* self) {
 }
 
 void QAction_connect_hovered(QAction* self, intptr_t slot) {
-	QAction::connect(self, static_cast<void (QAction::*)()>(&QAction::hovered), self, [=]() {
+	MiqtVirtualQAction::connect(self, static_cast<void (QAction::*)()>(&QAction::hovered), self, [=]() {
 		miqt_exec_callback_QAction_hovered(slot);
 	});
 }
@@ -578,7 +592,7 @@ void QAction_toggled(QAction* self, bool param1) {
 }
 
 void QAction_connect_toggled(QAction* self, intptr_t slot) {
-	QAction::connect(self, static_cast<void (QAction::*)(bool)>(&QAction::toggled), self, [=](bool param1) {
+	MiqtVirtualQAction::connect(self, static_cast<void (QAction::*)(bool)>(&QAction::toggled), self, [=](bool param1) {
 		bool sigval1 = param1;
 		miqt_exec_callback_QAction_toggled(slot, sigval1);
 	});
@@ -637,7 +651,7 @@ void QAction_triggeredWithChecked(QAction* self, bool checked) {
 }
 
 void QAction_connect_triggeredWithChecked(QAction* self, intptr_t slot) {
-	QAction::connect(self, static_cast<void (QAction::*)(bool)>(&QAction::triggered), self, [=](bool checked) {
+	MiqtVirtualQAction::connect(self, static_cast<void (QAction::*)(bool)>(&QAction::triggered), self, [=](bool checked) {
 		bool sigval1 = checked;
 		miqt_exec_callback_QAction_triggeredWithChecked(slot, sigval1);
 	});
@@ -648,13 +662,15 @@ bool QAction_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QAction_virtualbase_event(void* self, QEvent* param1) {
-	return static_cast<MiqtVirtualQAction*>(self)->QAction::event(param1);
+
+	return ( (MiqtVirtualQAction*)(self) )->QAction::event(param1);
+
 }
 
 bool QAction_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -662,13 +678,15 @@ bool QAction_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QAction_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQAction*>(self)->QAction::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQAction*)(self) )->QAction::eventFilter(watched, event);
+
 }
 
 bool QAction_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -676,13 +694,15 @@ bool QAction_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QAction_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQAction*>(self)->QAction::timerEvent(event);
+
+	( (MiqtVirtualQAction*)(self) )->QAction::timerEvent(event);
+
 }
 
 bool QAction_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -690,13 +710,15 @@ bool QAction_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QAction_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQAction*>(self)->QAction::childEvent(event);
+
+	( (MiqtVirtualQAction*)(self) )->QAction::childEvent(event);
+
 }
 
 bool QAction_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -704,13 +726,15 @@ bool QAction_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QAction_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQAction*>(self)->QAction::customEvent(event);
+
+	( (MiqtVirtualQAction*)(self) )->QAction::customEvent(event);
+
 }
 
 bool QAction_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -718,13 +742,15 @@ bool QAction_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QAction_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQAction*>(self)->QAction::connectNotify(*signal);
+
+	( (MiqtVirtualQAction*)(self) )->QAction::connectNotify(*signal);
+
 }
 
 bool QAction_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -732,13 +758,15 @@ bool QAction_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QAction_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQAction*>(self)->QAction::disconnectNotify(*signal);
+
+	( (MiqtVirtualQAction*)(self) )->QAction::disconnectNotify(*signal);
+
 }
 
 QObject* QAction_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -747,9 +775,11 @@ QObject* QAction_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) 
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QAction_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -758,9 +788,11 @@ int QAction_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QAction_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -769,9 +801,11 @@ int QAction_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, co
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QAction_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -780,9 +814,11 @@ bool QAction_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void*
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QAction_delete(QAction* self) {

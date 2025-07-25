@@ -47,7 +47,6 @@ int QPixelFormat_typeInterpretation(const QPixelFormat* self);
 int QPixelFormat_byteOrder(const QPixelFormat* self);
 int QPixelFormat_yuvLayout(const QPixelFormat* self);
 unsigned char QPixelFormat_subEnum(const QPixelFormat* self);
-
 void QPixelFormat_delete(QPixelFormat* self);
 
 #ifdef __cplusplus

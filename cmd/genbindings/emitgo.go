@@ -800,18 +800,15 @@ import "C"
 		// Embed all inherited types to directly allow calling inherited methods
 		// Only include the direct inherits; the recursive inherits will exist
 		// on these types already
-		for _, base := range c.DirectInherits {
+		for _, parentClass := range c.DirectInheritClassInfo() {
 
-			if strings.HasPrefix(base, `QList<`) {
-				ret.WriteString("/* Also inherits unprojectable " + base + " */\n")
-
-			} else if pkg, ok := KnownClassnames[base]; ok && pkg.PackageName != gfs.currentPackageName {
+			if parentClass.PackageName != gfs.currentPackageName {
 				// Cross-package parent class
-				ret.WriteString("*" + path.Base(pkg.PackageName) + "." + cabiClassName(base) + "\n")
-				gfs.imports[importPathForQtPackage(pkg.PackageName)] = struct{}{}
+				ret.WriteString("*" + path.Base(parentClass.PackageName) + "." + cabiClassName(parentClass.Class.ClassName) + "\n")
+				gfs.imports[importPathForQtPackage(parentClass.PackageName)] = struct{}{}
 			} else {
 				// Same-package parent class
-				ret.WriteString("*" + cabiClassName(base) + "\n")
+				ret.WriteString("*" + cabiClassName(parentClass.Class.ClassName) + "\n")
 			}
 
 		}
@@ -899,10 +896,10 @@ import "C"
 				`,
 			)
 
-			if ctor.RequireGOOS != nil {
+			if ctor.LinuxOnly {
 				gfs.imports["runtime"] = struct{}{}
 				ret.WriteString(`
-					if runtime.GOOS != "` + *ctor.RequireGOOS + `" {
+					if runtime.GOOS != "linux" {
 						panic("Unsupported OS")
 					}
 				`)
@@ -941,10 +938,10 @@ import "C"
 
 			ret.WriteString(`
 			func ` + receiverAndMethod + `(` + gfs.emitParametersGo(m.Parameters) + `) ` + returnTypeDecl + ` {`)
-			if m.RequireGOOS != nil {
+			if m.LinuxOnly {
 				gfs.imports["runtime"] = struct{}{}
 				ret.WriteString(`
-				if runtime.GOOS != "` + *m.RequireGOOS + `" {
+				if runtime.GOOS != "linux" {
 					panic("Unsupported OS")
 				}
 				`)
@@ -1128,45 +1125,6 @@ import "C"
 
 			}
 
-		}
-
-		for _, m := range c.PrivateSignals {
-			gfs.imports["unsafe"] = struct{}{}
-			gfs.imports["runtime/cgo"] = struct{}{}
-
-			var cgoNamedParams []string
-			var paramNames []string
-			conversion := ""
-
-			if len(m.Parameters) > 0 {
-				conversion = "// Convert all CABI parameters to Go parameters\n"
-			}
-			for i, pp := range m.Parameters {
-				cgoNamedParams = append(cgoNamedParams, pp.goParameterName()+" "+pp.parameterTypeCgo())
-
-				paramNames = append(paramNames, fmt.Sprintf("slotval%d", i+1))
-				conversion += gfs.emitCabiToGo(fmt.Sprintf("slotval%d := ", i+1), pp, pp.goParameterName()) + "\n"
-			}
-
-			goCbType := `func(` + gfs.emitParametersGo(m.Parameters) + `)`
-			callbackName := cabiCallbackName(c, m)
-			ret.WriteString(`func (this *` + goClassName + `) On` + m.goMethodName() + `(slot ` + goCbType + `) {
-					C.` + cabiConnectName(c, m) + `(this.h, C.intptr_t(cgo.NewHandle(slot)) )
-				}
-
-				//export ` + callbackName + `
-				func ` + callbackName + `(cb C.intptr_t` + ifv(len(m.Parameters) > 0, ", ", "") + strings.Join(cgoNamedParams, `, `) + `) {
-					gofunc, ok := cgo.Handle(cb).Value().(` + goCbType + `)
-					if !ok {
-						panic("miqt: callback of non-callback type (heap corruption?)")
-					}
-
-					` + conversion + `
-
-					gofunc(` + strings.Join(paramNames, `, `) + ` )
-				}
-
-				`)
 		}
 
 		if c.CanDelete {

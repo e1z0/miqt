@@ -67,9 +67,9 @@ void miqt_exec_callback_QProxyStyle_disconnectNotify(QProxyStyle*, intptr_t, QMe
 class MiqtVirtualQProxyStyle final : public QProxyStyle {
 public:
 
-	MiqtVirtualQProxyStyle(): QProxyStyle() {}
-	MiqtVirtualQProxyStyle(const QString& key): QProxyStyle(key) {}
-	MiqtVirtualQProxyStyle(QStyle* style): QProxyStyle(style) {}
+	MiqtVirtualQProxyStyle(): QProxyStyle() {};
+	MiqtVirtualQProxyStyle(const QString& key): QProxyStyle(key) {};
+	MiqtVirtualQProxyStyle(QStyle* style): QProxyStyle(style) {};
 
 	virtual ~MiqtVirtualQProxyStyle() override = default;
 
@@ -82,14 +82,16 @@ public:
 			QProxyStyle::drawPrimitive(element, option, painter, widget);
 			return;
 		}
-
+		
 		QStyle::PrimitiveElement element_ret = element;
 		int sigval1 = static_cast<int>(element_ret);
 		QStyleOption* sigval2 = (QStyleOption*) option;
 		QPainter* sigval3 = painter;
 		QWidget* sigval4 = (QWidget*) widget;
+
 		miqt_exec_callback_QProxyStyle_drawPrimitive(this, handle__drawPrimitive, sigval1, sigval2, sigval3, sigval4);
 
+		
 	}
 
 	friend void QProxyStyle_virtualbase_drawPrimitive(const void* self, int element, QStyleOption* option, QPainter* painter, QWidget* widget);
@@ -103,14 +105,16 @@ public:
 			QProxyStyle::drawControl(element, option, painter, widget);
 			return;
 		}
-
+		
 		QStyle::ControlElement element_ret = element;
 		int sigval1 = static_cast<int>(element_ret);
 		QStyleOption* sigval2 = (QStyleOption*) option;
 		QPainter* sigval3 = painter;
 		QWidget* sigval4 = (QWidget*) widget;
+
 		miqt_exec_callback_QProxyStyle_drawControl(this, handle__drawControl, sigval1, sigval2, sigval3, sigval4);
 
+		
 	}
 
 	friend void QProxyStyle_virtualbase_drawControl(const void* self, int element, QStyleOption* option, QPainter* painter, QWidget* widget);
@@ -124,14 +128,16 @@ public:
 			QProxyStyle::drawComplexControl(control, option, painter, widget);
 			return;
 		}
-
+		
 		QStyle::ComplexControl control_ret = control;
 		int sigval1 = static_cast<int>(control_ret);
 		QStyleOptionComplex* sigval2 = (QStyleOptionComplex*) option;
 		QPainter* sigval3 = painter;
 		QWidget* sigval4 = (QWidget*) widget;
+
 		miqt_exec_callback_QProxyStyle_drawComplexControl(this, handle__drawComplexControl, sigval1, sigval2, sigval3, sigval4);
 
+		
 	}
 
 	friend void QProxyStyle_virtualbase_drawComplexControl(const void* self, int control, QStyleOptionComplex* option, QPainter* painter, QWidget* widget);
@@ -145,7 +151,7 @@ public:
 			QProxyStyle::drawItemText(painter, rect, flags, pal, enabled, text, textRole);
 			return;
 		}
-
+		
 		QPainter* sigval1 = painter;
 		const QRect& rect_ret = rect;
 		// Cast returned reference into pointer
@@ -165,8 +171,10 @@ public:
 		struct miqt_string sigval6 = text_ms;
 		QPalette::ColorRole textRole_ret = textRole;
 		int sigval7 = static_cast<int>(textRole_ret);
+
 		miqt_exec_callback_QProxyStyle_drawItemText(this, handle__drawItemText, sigval1, sigval2, sigval3, sigval4, sigval5, sigval6, sigval7);
 
+		
 	}
 
 	friend void QProxyStyle_virtualbase_drawItemText(const void* self, QPainter* painter, QRect* rect, int flags, QPalette* pal, bool enabled, struct miqt_string text, int textRole);
@@ -180,7 +188,7 @@ public:
 			QProxyStyle::drawItemPixmap(painter, rect, alignment, pixmap);
 			return;
 		}
-
+		
 		QPainter* sigval1 = painter;
 		const QRect& rect_ret = rect;
 		// Cast returned reference into pointer
@@ -189,8 +197,10 @@ public:
 		const QPixmap& pixmap_ret = pixmap;
 		// Cast returned reference into pointer
 		QPixmap* sigval4 = const_cast<QPixmap*>(&pixmap_ret);
+
 		miqt_exec_callback_QProxyStyle_drawItemPixmap(this, handle__drawItemPixmap, sigval1, sigval2, sigval3, sigval4);
 
+		
 	}
 
 	friend void QProxyStyle_virtualbase_drawItemPixmap(const void* self, QPainter* painter, QRect* rect, int alignment, QPixmap* pixmap);
@@ -203,7 +213,7 @@ public:
 		if (handle__sizeFromContents == 0) {
 			return QProxyStyle::sizeFromContents(type, option, size, widget);
 		}
-
+		
 		QStyle::ContentsType type_ret = type;
 		int sigval1 = static_cast<int>(type_ret);
 		QStyleOption* sigval2 = (QStyleOption*) option;
@@ -211,7 +221,9 @@ public:
 		// Cast returned reference into pointer
 		QSize* sigval3 = const_cast<QSize*>(&size_ret);
 		QWidget* sigval4 = (QWidget*) widget;
+
 		QSize* callback_return_value = miqt_exec_callback_QProxyStyle_sizeFromContents(this, handle__sizeFromContents, sigval1, sigval2, sigval3, sigval4);
+
 		return *callback_return_value;
 	}
 
@@ -225,12 +237,14 @@ public:
 		if (handle__subElementRect == 0) {
 			return QProxyStyle::subElementRect(element, option, widget);
 		}
-
+		
 		QStyle::SubElement element_ret = element;
 		int sigval1 = static_cast<int>(element_ret);
 		QStyleOption* sigval2 = (QStyleOption*) option;
 		QWidget* sigval3 = (QWidget*) widget;
+
 		QRect* callback_return_value = miqt_exec_callback_QProxyStyle_subElementRect(this, handle__subElementRect, sigval1, sigval2, sigval3);
+
 		return *callback_return_value;
 	}
 
@@ -244,14 +258,16 @@ public:
 		if (handle__subControlRect == 0) {
 			return QProxyStyle::subControlRect(cc, opt, sc, widget);
 		}
-
+		
 		QStyle::ComplexControl cc_ret = cc;
 		int sigval1 = static_cast<int>(cc_ret);
 		QStyleOptionComplex* sigval2 = (QStyleOptionComplex*) opt;
 		QStyle::SubControl sc_ret = sc;
 		int sigval3 = static_cast<int>(sc_ret);
 		QWidget* sigval4 = (QWidget*) widget;
+
 		QRect* callback_return_value = miqt_exec_callback_QProxyStyle_subControlRect(this, handle__subControlRect, sigval1, sigval2, sigval3, sigval4);
+
 		return *callback_return_value;
 	}
 
@@ -265,7 +281,7 @@ public:
 		if (handle__itemTextRect == 0) {
 			return QProxyStyle::itemTextRect(fm, r, flags, enabled, text);
 		}
-
+		
 		const QFontMetrics& fm_ret = fm;
 		// Cast returned reference into pointer
 		QFontMetrics* sigval1 = const_cast<QFontMetrics*>(&fm_ret);
@@ -282,7 +298,9 @@ public:
 		text_ms.data = static_cast<char*>(malloc(text_ms.len));
 		memcpy(text_ms.data, text_b.data(), text_ms.len);
 		struct miqt_string sigval5 = text_ms;
+
 		QRect* callback_return_value = miqt_exec_callback_QProxyStyle_itemTextRect(this, handle__itemTextRect, sigval1, sigval2, sigval3, sigval4, sigval5);
+
 		return *callback_return_value;
 	}
 
@@ -296,7 +314,7 @@ public:
 		if (handle__itemPixmapRect == 0) {
 			return QProxyStyle::itemPixmapRect(r, flags, pixmap);
 		}
-
+		
 		const QRect& r_ret = r;
 		// Cast returned reference into pointer
 		QRect* sigval1 = const_cast<QRect*>(&r_ret);
@@ -304,7 +322,9 @@ public:
 		const QPixmap& pixmap_ret = pixmap;
 		// Cast returned reference into pointer
 		QPixmap* sigval3 = const_cast<QPixmap*>(&pixmap_ret);
+
 		QRect* callback_return_value = miqt_exec_callback_QProxyStyle_itemPixmapRect(this, handle__itemPixmapRect, sigval1, sigval2, sigval3);
+
 		return *callback_return_value;
 	}
 
@@ -318,7 +338,7 @@ public:
 		if (handle__hitTestComplexControl == 0) {
 			return QProxyStyle::hitTestComplexControl(control, option, pos, widget);
 		}
-
+		
 		QStyle::ComplexControl control_ret = control;
 		int sigval1 = static_cast<int>(control_ret);
 		QStyleOptionComplex* sigval2 = (QStyleOptionComplex*) option;
@@ -326,7 +346,9 @@ public:
 		// Cast returned reference into pointer
 		QPoint* sigval3 = const_cast<QPoint*>(&pos_ret);
 		QWidget* sigval4 = (QWidget*) widget;
+
 		int callback_return_value = miqt_exec_callback_QProxyStyle_hitTestComplexControl(this, handle__hitTestComplexControl, sigval1, sigval2, sigval3, sigval4);
+
 		return static_cast<QStyle::SubControl>(callback_return_value);
 	}
 
@@ -340,13 +362,15 @@ public:
 		if (handle__styleHint == 0) {
 			return QProxyStyle::styleHint(hint, option, widget, returnData);
 		}
-
+		
 		QStyle::StyleHint hint_ret = hint;
 		int sigval1 = static_cast<int>(hint_ret);
 		QStyleOption* sigval2 = (QStyleOption*) option;
 		QWidget* sigval3 = (QWidget*) widget;
 		QStyleHintReturn* sigval4 = returnData;
+
 		int callback_return_value = miqt_exec_callback_QProxyStyle_styleHint(this, handle__styleHint, sigval1, sigval2, sigval3, sigval4);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -360,12 +384,14 @@ public:
 		if (handle__pixelMetric == 0) {
 			return QProxyStyle::pixelMetric(metric, option, widget);
 		}
-
+		
 		QStyle::PixelMetric metric_ret = metric;
 		int sigval1 = static_cast<int>(metric_ret);
 		QStyleOption* sigval2 = (QStyleOption*) option;
 		QWidget* sigval3 = (QWidget*) widget;
+
 		int callback_return_value = miqt_exec_callback_QProxyStyle_pixelMetric(this, handle__pixelMetric, sigval1, sigval2, sigval3);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -379,7 +405,7 @@ public:
 		if (handle__layoutSpacing == 0) {
 			return QProxyStyle::layoutSpacing(control1, control2, orientation, option, widget);
 		}
-
+		
 		QSizePolicy::ControlType control1_ret = control1;
 		int sigval1 = static_cast<int>(control1_ret);
 		QSizePolicy::ControlType control2_ret = control2;
@@ -388,7 +414,9 @@ public:
 		int sigval3 = static_cast<int>(orientation_ret);
 		QStyleOption* sigval4 = (QStyleOption*) option;
 		QWidget* sigval5 = (QWidget*) widget;
+
 		int callback_return_value = miqt_exec_callback_QProxyStyle_layoutSpacing(this, handle__layoutSpacing, sigval1, sigval2, sigval3, sigval4, sigval5);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -402,12 +430,14 @@ public:
 		if (handle__standardIcon == 0) {
 			return QProxyStyle::standardIcon(standardIcon, option, widget);
 		}
-
+		
 		QStyle::StandardPixmap standardIcon_ret = standardIcon;
 		int sigval1 = static_cast<int>(standardIcon_ret);
 		QStyleOption* sigval2 = (QStyleOption*) option;
 		QWidget* sigval3 = (QWidget*) widget;
+
 		QIcon* callback_return_value = miqt_exec_callback_QProxyStyle_standardIcon(this, handle__standardIcon, sigval1, sigval2, sigval3);
+
 		return *callback_return_value;
 	}
 
@@ -421,12 +451,14 @@ public:
 		if (handle__standardPixmap == 0) {
 			return QProxyStyle::standardPixmap(standardPixmap, opt, widget);
 		}
-
+		
 		QStyle::StandardPixmap standardPixmap_ret = standardPixmap;
 		int sigval1 = static_cast<int>(standardPixmap_ret);
 		QStyleOption* sigval2 = (QStyleOption*) opt;
 		QWidget* sigval3 = (QWidget*) widget;
+
 		QPixmap* callback_return_value = miqt_exec_callback_QProxyStyle_standardPixmap(this, handle__standardPixmap, sigval1, sigval2, sigval3);
+
 		return *callback_return_value;
 	}
 
@@ -440,14 +472,16 @@ public:
 		if (handle__generatedIconPixmap == 0) {
 			return QProxyStyle::generatedIconPixmap(iconMode, pixmap, opt);
 		}
-
+		
 		QIcon::Mode iconMode_ret = iconMode;
 		int sigval1 = static_cast<int>(iconMode_ret);
 		const QPixmap& pixmap_ret = pixmap;
 		// Cast returned reference into pointer
 		QPixmap* sigval2 = const_cast<QPixmap*>(&pixmap_ret);
 		QStyleOption* sigval3 = (QStyleOption*) opt;
+
 		QPixmap* callback_return_value = miqt_exec_callback_QProxyStyle_generatedIconPixmap(this, handle__generatedIconPixmap, sigval1, sigval2, sigval3);
+
 		return *callback_return_value;
 	}
 
@@ -461,8 +495,10 @@ public:
 		if (handle__standardPalette == 0) {
 			return QProxyStyle::standardPalette();
 		}
+		
 
 		QPalette* callback_return_value = miqt_exec_callback_QProxyStyle_standardPalette(this, handle__standardPalette);
+
 		return *callback_return_value;
 	}
 
@@ -477,10 +513,12 @@ public:
 			QProxyStyle::polish(widget);
 			return;
 		}
-
+		
 		QWidget* sigval1 = widget;
+
 		miqt_exec_callback_QProxyStyle_polish(this, handle__polish, sigval1);
 
+		
 	}
 
 	friend void QProxyStyle_virtualbase_polish(void* self, QWidget* widget);
@@ -494,12 +532,14 @@ public:
 			QProxyStyle::polish(pal);
 			return;
 		}
-
+		
 		QPalette& pal_ret = pal;
 		// Cast returned reference into pointer
 		QPalette* sigval1 = &pal_ret;
+
 		miqt_exec_callback_QProxyStyle_polishWithPal(this, handle__polishWithPal, sigval1);
 
+		
 	}
 
 	friend void QProxyStyle_virtualbase_polishWithPal(void* self, QPalette* pal);
@@ -513,10 +553,12 @@ public:
 			QProxyStyle::polish(app);
 			return;
 		}
-
+		
 		QApplication* sigval1 = app;
+
 		miqt_exec_callback_QProxyStyle_polishWithApp(this, handle__polishWithApp, sigval1);
 
+		
 	}
 
 	friend void QProxyStyle_virtualbase_polishWithApp(void* self, QApplication* app);
@@ -530,10 +572,12 @@ public:
 			QProxyStyle::unpolish(widget);
 			return;
 		}
-
+		
 		QWidget* sigval1 = widget;
+
 		miqt_exec_callback_QProxyStyle_unpolish(this, handle__unpolish, sigval1);
 
+		
 	}
 
 	friend void QProxyStyle_virtualbase_unpolish(void* self, QWidget* widget);
@@ -547,10 +591,12 @@ public:
 			QProxyStyle::unpolish(app);
 			return;
 		}
-
+		
 		QApplication* sigval1 = app;
+
 		miqt_exec_callback_QProxyStyle_unpolishWithApp(this, handle__unpolishWithApp, sigval1);
 
+		
 	}
 
 	friend void QProxyStyle_virtualbase_unpolishWithApp(void* self, QApplication* app);
@@ -563,9 +609,11 @@ public:
 		if (handle__event == 0) {
 			return QProxyStyle::event(e);
 		}
-
+		
 		QEvent* sigval1 = e;
+
 		bool callback_return_value = miqt_exec_callback_QProxyStyle_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -579,10 +627,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QProxyStyle::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QProxyStyle_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -597,10 +647,12 @@ public:
 			QProxyStyle::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QProxyStyle_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QProxyStyle_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -614,10 +666,12 @@ public:
 			QProxyStyle::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QProxyStyle_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QProxyStyle_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -631,10 +685,12 @@ public:
 			QProxyStyle::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QProxyStyle_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QProxyStyle_virtualbase_customEvent(void* self, QEvent* event);
@@ -648,12 +704,14 @@ public:
 			QProxyStyle::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QProxyStyle_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QProxyStyle_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -667,12 +725,14 @@ public:
 			QProxyStyle::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QProxyStyle_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QProxyStyle_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -685,16 +745,16 @@ public:
 };
 
 QProxyStyle* QProxyStyle_new() {
-	return new (std::nothrow) MiqtVirtualQProxyStyle();
+	return new MiqtVirtualQProxyStyle();
 }
 
 QProxyStyle* QProxyStyle_new2(struct miqt_string key) {
 	QString key_QString = QString::fromUtf8(key.data, key.len);
-	return new (std::nothrow) MiqtVirtualQProxyStyle(key_QString);
+	return new MiqtVirtualQProxyStyle(key_QString);
 }
 
 QProxyStyle* QProxyStyle_new3(QStyle* style) {
-	return new (std::nothrow) MiqtVirtualQProxyStyle(style);
+	return new MiqtVirtualQProxyStyle(style);
 }
 
 void QProxyStyle_virtbase(QProxyStyle* src, QCommonStyle** outptr_QCommonStyle) {
@@ -850,13 +910,15 @@ bool QProxyStyle_override_virtual_drawPrimitive(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__drawPrimitive = slot;
 	return true;
 }
 
 void QProxyStyle_virtualbase_drawPrimitive(const void* self, int element, QStyleOption* option, QPainter* painter, QWidget* widget) {
-	static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::drawPrimitive(static_cast<MiqtVirtualQProxyStyle::PrimitiveElement>(element), option, painter, widget);
+
+	( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::drawPrimitive(static_cast<MiqtVirtualQProxyStyle::PrimitiveElement>(element), option, painter, widget);
+
 }
 
 bool QProxyStyle_override_virtual_drawControl(void* self, intptr_t slot) {
@@ -864,13 +926,15 @@ bool QProxyStyle_override_virtual_drawControl(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__drawControl = slot;
 	return true;
 }
 
 void QProxyStyle_virtualbase_drawControl(const void* self, int element, QStyleOption* option, QPainter* painter, QWidget* widget) {
-	static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::drawControl(static_cast<MiqtVirtualQProxyStyle::ControlElement>(element), option, painter, widget);
+
+	( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::drawControl(static_cast<MiqtVirtualQProxyStyle::ControlElement>(element), option, painter, widget);
+
 }
 
 bool QProxyStyle_override_virtual_drawComplexControl(void* self, intptr_t slot) {
@@ -878,13 +942,15 @@ bool QProxyStyle_override_virtual_drawComplexControl(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__drawComplexControl = slot;
 	return true;
 }
 
 void QProxyStyle_virtualbase_drawComplexControl(const void* self, int control, QStyleOptionComplex* option, QPainter* painter, QWidget* widget) {
-	static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::drawComplexControl(static_cast<MiqtVirtualQProxyStyle::ComplexControl>(control), option, painter, widget);
+
+	( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::drawComplexControl(static_cast<MiqtVirtualQProxyStyle::ComplexControl>(control), option, painter, widget);
+
 }
 
 bool QProxyStyle_override_virtual_drawItemText(void* self, intptr_t slot) {
@@ -892,14 +958,16 @@ bool QProxyStyle_override_virtual_drawItemText(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__drawItemText = slot;
 	return true;
 }
 
 void QProxyStyle_virtualbase_drawItemText(const void* self, QPainter* painter, QRect* rect, int flags, QPalette* pal, bool enabled, struct miqt_string text, int textRole) {
 	QString text_QString = QString::fromUtf8(text.data, text.len);
-	static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::drawItemText(painter, *rect, static_cast<int>(flags), *pal, enabled, text_QString, static_cast<QPalette::ColorRole>(textRole));
+
+	( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::drawItemText(painter, *rect, static_cast<int>(flags), *pal, enabled, text_QString, static_cast<QPalette::ColorRole>(textRole));
+
 }
 
 bool QProxyStyle_override_virtual_drawItemPixmap(void* self, intptr_t slot) {
@@ -907,13 +975,15 @@ bool QProxyStyle_override_virtual_drawItemPixmap(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__drawItemPixmap = slot;
 	return true;
 }
 
 void QProxyStyle_virtualbase_drawItemPixmap(const void* self, QPainter* painter, QRect* rect, int alignment, QPixmap* pixmap) {
-	static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::drawItemPixmap(painter, *rect, static_cast<int>(alignment), *pixmap);
+
+	( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::drawItemPixmap(painter, *rect, static_cast<int>(alignment), *pixmap);
+
 }
 
 bool QProxyStyle_override_virtual_sizeFromContents(void* self, intptr_t slot) {
@@ -921,13 +991,15 @@ bool QProxyStyle_override_virtual_sizeFromContents(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sizeFromContents = slot;
 	return true;
 }
 
 QSize* QProxyStyle_virtualbase_sizeFromContents(const void* self, int type, QStyleOption* option, QSize* size, QWidget* widget) {
-	return new QSize(static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::sizeFromContents(static_cast<MiqtVirtualQProxyStyle::ContentsType>(type), option, *size, widget));
+
+	return new QSize(( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::sizeFromContents(static_cast<MiqtVirtualQProxyStyle::ContentsType>(type), option, *size, widget));
+
 }
 
 bool QProxyStyle_override_virtual_subElementRect(void* self, intptr_t slot) {
@@ -935,13 +1007,15 @@ bool QProxyStyle_override_virtual_subElementRect(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__subElementRect = slot;
 	return true;
 }
 
 QRect* QProxyStyle_virtualbase_subElementRect(const void* self, int element, QStyleOption* option, QWidget* widget) {
-	return new QRect(static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::subElementRect(static_cast<MiqtVirtualQProxyStyle::SubElement>(element), option, widget));
+
+	return new QRect(( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::subElementRect(static_cast<MiqtVirtualQProxyStyle::SubElement>(element), option, widget));
+
 }
 
 bool QProxyStyle_override_virtual_subControlRect(void* self, intptr_t slot) {
@@ -949,13 +1023,15 @@ bool QProxyStyle_override_virtual_subControlRect(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__subControlRect = slot;
 	return true;
 }
 
 QRect* QProxyStyle_virtualbase_subControlRect(const void* self, int cc, QStyleOptionComplex* opt, int sc, QWidget* widget) {
-	return new QRect(static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::subControlRect(static_cast<MiqtVirtualQProxyStyle::ComplexControl>(cc), opt, static_cast<MiqtVirtualQProxyStyle::SubControl>(sc), widget));
+
+	return new QRect(( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::subControlRect(static_cast<MiqtVirtualQProxyStyle::ComplexControl>(cc), opt, static_cast<MiqtVirtualQProxyStyle::SubControl>(sc), widget));
+
 }
 
 bool QProxyStyle_override_virtual_itemTextRect(void* self, intptr_t slot) {
@@ -963,14 +1039,16 @@ bool QProxyStyle_override_virtual_itemTextRect(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__itemTextRect = slot;
 	return true;
 }
 
 QRect* QProxyStyle_virtualbase_itemTextRect(const void* self, QFontMetrics* fm, QRect* r, int flags, bool enabled, struct miqt_string text) {
 	QString text_QString = QString::fromUtf8(text.data, text.len);
-	return new QRect(static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::itemTextRect(*fm, *r, static_cast<int>(flags), enabled, text_QString));
+
+	return new QRect(( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::itemTextRect(*fm, *r, static_cast<int>(flags), enabled, text_QString));
+
 }
 
 bool QProxyStyle_override_virtual_itemPixmapRect(void* self, intptr_t slot) {
@@ -978,13 +1056,15 @@ bool QProxyStyle_override_virtual_itemPixmapRect(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__itemPixmapRect = slot;
 	return true;
 }
 
 QRect* QProxyStyle_virtualbase_itemPixmapRect(const void* self, QRect* r, int flags, QPixmap* pixmap) {
-	return new QRect(static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::itemPixmapRect(*r, static_cast<int>(flags), *pixmap));
+
+	return new QRect(( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::itemPixmapRect(*r, static_cast<int>(flags), *pixmap));
+
 }
 
 bool QProxyStyle_override_virtual_hitTestComplexControl(void* self, intptr_t slot) {
@@ -992,14 +1072,16 @@ bool QProxyStyle_override_virtual_hitTestComplexControl(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hitTestComplexControl = slot;
 	return true;
 }
 
 int QProxyStyle_virtualbase_hitTestComplexControl(const void* self, int control, QStyleOptionComplex* option, QPoint* pos, QWidget* widget) {
-	MiqtVirtualQProxyStyle::SubControl _ret = static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::hitTestComplexControl(static_cast<MiqtVirtualQProxyStyle::ComplexControl>(control), option, *pos, widget);
+
+	MiqtVirtualQProxyStyle::SubControl _ret = ( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::hitTestComplexControl(static_cast<MiqtVirtualQProxyStyle::ComplexControl>(control), option, *pos, widget);
 	return static_cast<int>(_ret);
+
 }
 
 bool QProxyStyle_override_virtual_styleHint(void* self, intptr_t slot) {
@@ -1007,13 +1089,15 @@ bool QProxyStyle_override_virtual_styleHint(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__styleHint = slot;
 	return true;
 }
 
 int QProxyStyle_virtualbase_styleHint(const void* self, int hint, QStyleOption* option, QWidget* widget, QStyleHintReturn* returnData) {
-	return static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::styleHint(static_cast<MiqtVirtualQProxyStyle::StyleHint>(hint), option, widget, returnData);
+
+	return ( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::styleHint(static_cast<MiqtVirtualQProxyStyle::StyleHint>(hint), option, widget, returnData);
+
 }
 
 bool QProxyStyle_override_virtual_pixelMetric(void* self, intptr_t slot) {
@@ -1021,13 +1105,15 @@ bool QProxyStyle_override_virtual_pixelMetric(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__pixelMetric = slot;
 	return true;
 }
 
 int QProxyStyle_virtualbase_pixelMetric(const void* self, int metric, QStyleOption* option, QWidget* widget) {
-	return static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::pixelMetric(static_cast<MiqtVirtualQProxyStyle::PixelMetric>(metric), option, widget);
+
+	return ( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::pixelMetric(static_cast<MiqtVirtualQProxyStyle::PixelMetric>(metric), option, widget);
+
 }
 
 bool QProxyStyle_override_virtual_layoutSpacing(void* self, intptr_t slot) {
@@ -1035,13 +1121,15 @@ bool QProxyStyle_override_virtual_layoutSpacing(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__layoutSpacing = slot;
 	return true;
 }
 
 int QProxyStyle_virtualbase_layoutSpacing(const void* self, int control1, int control2, int orientation, QStyleOption* option, QWidget* widget) {
-	return static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::layoutSpacing(static_cast<QSizePolicy::ControlType>(control1), static_cast<QSizePolicy::ControlType>(control2), static_cast<Qt::Orientation>(orientation), option, widget);
+
+	return ( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::layoutSpacing(static_cast<QSizePolicy::ControlType>(control1), static_cast<QSizePolicy::ControlType>(control2), static_cast<Qt::Orientation>(orientation), option, widget);
+
 }
 
 bool QProxyStyle_override_virtual_standardIcon(void* self, intptr_t slot) {
@@ -1049,13 +1137,15 @@ bool QProxyStyle_override_virtual_standardIcon(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__standardIcon = slot;
 	return true;
 }
 
 QIcon* QProxyStyle_virtualbase_standardIcon(const void* self, int standardIcon, QStyleOption* option, QWidget* widget) {
-	return new QIcon(static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::standardIcon(static_cast<MiqtVirtualQProxyStyle::StandardPixmap>(standardIcon), option, widget));
+
+	return new QIcon(( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::standardIcon(static_cast<MiqtVirtualQProxyStyle::StandardPixmap>(standardIcon), option, widget));
+
 }
 
 bool QProxyStyle_override_virtual_standardPixmap(void* self, intptr_t slot) {
@@ -1063,13 +1153,15 @@ bool QProxyStyle_override_virtual_standardPixmap(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__standardPixmap = slot;
 	return true;
 }
 
 QPixmap* QProxyStyle_virtualbase_standardPixmap(const void* self, int standardPixmap, QStyleOption* opt, QWidget* widget) {
-	return new QPixmap(static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::standardPixmap(static_cast<MiqtVirtualQProxyStyle::StandardPixmap>(standardPixmap), opt, widget));
+
+	return new QPixmap(( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::standardPixmap(static_cast<MiqtVirtualQProxyStyle::StandardPixmap>(standardPixmap), opt, widget));
+
 }
 
 bool QProxyStyle_override_virtual_generatedIconPixmap(void* self, intptr_t slot) {
@@ -1077,13 +1169,15 @@ bool QProxyStyle_override_virtual_generatedIconPixmap(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__generatedIconPixmap = slot;
 	return true;
 }
 
 QPixmap* QProxyStyle_virtualbase_generatedIconPixmap(const void* self, int iconMode, QPixmap* pixmap, QStyleOption* opt) {
-	return new QPixmap(static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::generatedIconPixmap(static_cast<QIcon::Mode>(iconMode), *pixmap, opt));
+
+	return new QPixmap(( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::generatedIconPixmap(static_cast<QIcon::Mode>(iconMode), *pixmap, opt));
+
 }
 
 bool QProxyStyle_override_virtual_standardPalette(void* self, intptr_t slot) {
@@ -1091,13 +1185,15 @@ bool QProxyStyle_override_virtual_standardPalette(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__standardPalette = slot;
 	return true;
 }
 
 QPalette* QProxyStyle_virtualbase_standardPalette(const void* self) {
-	return new QPalette(static_cast<const MiqtVirtualQProxyStyle*>(self)->QProxyStyle::standardPalette());
+
+	return new QPalette(( (const MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::standardPalette());
+
 }
 
 bool QProxyStyle_override_virtual_polish(void* self, intptr_t slot) {
@@ -1105,13 +1201,15 @@ bool QProxyStyle_override_virtual_polish(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__polish = slot;
 	return true;
 }
 
 void QProxyStyle_virtualbase_polish(void* self, QWidget* widget) {
-	static_cast<MiqtVirtualQProxyStyle*>(self)->QProxyStyle::polish(widget);
+
+	( (MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::polish(widget);
+
 }
 
 bool QProxyStyle_override_virtual_polishWithPal(void* self, intptr_t slot) {
@@ -1119,13 +1217,15 @@ bool QProxyStyle_override_virtual_polishWithPal(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__polishWithPal = slot;
 	return true;
 }
 
 void QProxyStyle_virtualbase_polishWithPal(void* self, QPalette* pal) {
-	static_cast<MiqtVirtualQProxyStyle*>(self)->QProxyStyle::polish(*pal);
+
+	( (MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::polish(*pal);
+
 }
 
 bool QProxyStyle_override_virtual_polishWithApp(void* self, intptr_t slot) {
@@ -1133,13 +1233,15 @@ bool QProxyStyle_override_virtual_polishWithApp(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__polishWithApp = slot;
 	return true;
 }
 
 void QProxyStyle_virtualbase_polishWithApp(void* self, QApplication* app) {
-	static_cast<MiqtVirtualQProxyStyle*>(self)->QProxyStyle::polish(app);
+
+	( (MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::polish(app);
+
 }
 
 bool QProxyStyle_override_virtual_unpolish(void* self, intptr_t slot) {
@@ -1147,13 +1249,15 @@ bool QProxyStyle_override_virtual_unpolish(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__unpolish = slot;
 	return true;
 }
 
 void QProxyStyle_virtualbase_unpolish(void* self, QWidget* widget) {
-	static_cast<MiqtVirtualQProxyStyle*>(self)->QProxyStyle::unpolish(widget);
+
+	( (MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::unpolish(widget);
+
 }
 
 bool QProxyStyle_override_virtual_unpolishWithApp(void* self, intptr_t slot) {
@@ -1161,13 +1265,15 @@ bool QProxyStyle_override_virtual_unpolishWithApp(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__unpolishWithApp = slot;
 	return true;
 }
 
 void QProxyStyle_virtualbase_unpolishWithApp(void* self, QApplication* app) {
-	static_cast<MiqtVirtualQProxyStyle*>(self)->QProxyStyle::unpolish(app);
+
+	( (MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::unpolish(app);
+
 }
 
 bool QProxyStyle_override_virtual_event(void* self, intptr_t slot) {
@@ -1175,13 +1281,15 @@ bool QProxyStyle_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QProxyStyle_virtualbase_event(void* self, QEvent* e) {
-	return static_cast<MiqtVirtualQProxyStyle*>(self)->QProxyStyle::event(e);
+
+	return ( (MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::event(e);
+
 }
 
 bool QProxyStyle_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -1189,13 +1297,15 @@ bool QProxyStyle_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QProxyStyle_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQProxyStyle*>(self)->QProxyStyle::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::eventFilter(watched, event);
+
 }
 
 bool QProxyStyle_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -1203,13 +1313,15 @@ bool QProxyStyle_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QProxyStyle_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQProxyStyle*>(self)->QProxyStyle::timerEvent(event);
+
+	( (MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::timerEvent(event);
+
 }
 
 bool QProxyStyle_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -1217,13 +1329,15 @@ bool QProxyStyle_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QProxyStyle_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQProxyStyle*>(self)->QProxyStyle::childEvent(event);
+
+	( (MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::childEvent(event);
+
 }
 
 bool QProxyStyle_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -1231,13 +1345,15 @@ bool QProxyStyle_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QProxyStyle_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQProxyStyle*>(self)->QProxyStyle::customEvent(event);
+
+	( (MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::customEvent(event);
+
 }
 
 bool QProxyStyle_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -1245,13 +1361,15 @@ bool QProxyStyle_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QProxyStyle_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQProxyStyle*>(self)->QProxyStyle::connectNotify(*signal);
+
+	( (MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::connectNotify(*signal);
+
 }
 
 bool QProxyStyle_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -1259,13 +1377,15 @@ bool QProxyStyle_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QProxyStyle_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQProxyStyle*>(self)->QProxyStyle::disconnectNotify(*signal);
+
+	( (MiqtVirtualQProxyStyle*)(self) )->QProxyStyle::disconnectNotify(*signal);
+
 }
 
 QObject* QProxyStyle_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -1274,9 +1394,11 @@ QObject* QProxyStyle_protectedbase_sender(bool* _dynamic_cast_ok, const void* se
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QProxyStyle_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -1285,9 +1407,11 @@ int QProxyStyle_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const vo
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QProxyStyle_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -1296,9 +1420,11 @@ int QProxyStyle_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QProxyStyle_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -1307,9 +1433,11 @@ bool QProxyStyle_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const v
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QProxyStyle_delete(QProxyStyle* self) {

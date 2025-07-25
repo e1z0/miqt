@@ -117,8 +117,8 @@ void miqt_exec_callback_QComboBox_disconnectNotify(QComboBox*, intptr_t, QMetaMe
 class MiqtVirtualQComboBox final : public QComboBox {
 public:
 
-	MiqtVirtualQComboBox(QWidget* parent): QComboBox(parent) {}
-	MiqtVirtualQComboBox(): QComboBox() {}
+	MiqtVirtualQComboBox(QWidget* parent): QComboBox(parent) {};
+	MiqtVirtualQComboBox(): QComboBox() {};
 
 	virtual ~MiqtVirtualQComboBox() override = default;
 
@@ -130,8 +130,10 @@ public:
 		if (handle__sizeHint == 0) {
 			return QComboBox::sizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_QComboBox_sizeHint(this, handle__sizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -145,8 +147,10 @@ public:
 		if (handle__minimumSizeHint == 0) {
 			return QComboBox::minimumSizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_QComboBox_minimumSizeHint(this, handle__minimumSizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -161,9 +165,11 @@ public:
 			QComboBox::showPopup();
 			return;
 		}
+		
 
 		miqt_exec_callback_QComboBox_showPopup(this, handle__showPopup);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_showPopup(void* self);
@@ -177,9 +183,11 @@ public:
 			QComboBox::hidePopup();
 			return;
 		}
+		
 
 		miqt_exec_callback_QComboBox_hidePopup(this, handle__hidePopup);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_hidePopup(void* self);
@@ -192,9 +200,11 @@ public:
 		if (handle__event == 0) {
 			return QComboBox::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QComboBox_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -208,10 +218,12 @@ public:
 		if (handle__inputMethodQuery == 0) {
 			return QComboBox::inputMethodQuery(param1);
 		}
-
+		
 		Qt::InputMethodQuery param1_ret = param1;
 		int sigval1 = static_cast<int>(param1_ret);
+
 		QVariant* callback_return_value = miqt_exec_callback_QComboBox_inputMethodQuery(this, handle__inputMethodQuery, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -226,10 +238,12 @@ public:
 			QComboBox::focusInEvent(e);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = e;
+
 		miqt_exec_callback_QComboBox_focusInEvent(this, handle__focusInEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_focusInEvent(void* self, QFocusEvent* e);
@@ -243,10 +257,12 @@ public:
 			QComboBox::focusOutEvent(e);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = e;
+
 		miqt_exec_callback_QComboBox_focusOutEvent(this, handle__focusOutEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_focusOutEvent(void* self, QFocusEvent* e);
@@ -260,10 +276,12 @@ public:
 			QComboBox::changeEvent(e);
 			return;
 		}
-
+		
 		QEvent* sigval1 = e;
+
 		miqt_exec_callback_QComboBox_changeEvent(this, handle__changeEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_changeEvent(void* self, QEvent* e);
@@ -277,10 +295,12 @@ public:
 			QComboBox::resizeEvent(e);
 			return;
 		}
-
+		
 		QResizeEvent* sigval1 = e;
+
 		miqt_exec_callback_QComboBox_resizeEvent(this, handle__resizeEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_resizeEvent(void* self, QResizeEvent* e);
@@ -294,10 +314,12 @@ public:
 			QComboBox::paintEvent(e);
 			return;
 		}
-
+		
 		QPaintEvent* sigval1 = e;
+
 		miqt_exec_callback_QComboBox_paintEvent(this, handle__paintEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_paintEvent(void* self, QPaintEvent* e);
@@ -311,10 +333,12 @@ public:
 			QComboBox::showEvent(e);
 			return;
 		}
-
+		
 		QShowEvent* sigval1 = e;
+
 		miqt_exec_callback_QComboBox_showEvent(this, handle__showEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_showEvent(void* self, QShowEvent* e);
@@ -328,10 +352,12 @@ public:
 			QComboBox::hideEvent(e);
 			return;
 		}
-
+		
 		QHideEvent* sigval1 = e;
+
 		miqt_exec_callback_QComboBox_hideEvent(this, handle__hideEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_hideEvent(void* self, QHideEvent* e);
@@ -345,10 +371,12 @@ public:
 			QComboBox::mousePressEvent(e);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = e;
+
 		miqt_exec_callback_QComboBox_mousePressEvent(this, handle__mousePressEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_mousePressEvent(void* self, QMouseEvent* e);
@@ -362,10 +390,12 @@ public:
 			QComboBox::mouseReleaseEvent(e);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = e;
+
 		miqt_exec_callback_QComboBox_mouseReleaseEvent(this, handle__mouseReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_mouseReleaseEvent(void* self, QMouseEvent* e);
@@ -379,10 +409,12 @@ public:
 			QComboBox::keyPressEvent(e);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = e;
+
 		miqt_exec_callback_QComboBox_keyPressEvent(this, handle__keyPressEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_keyPressEvent(void* self, QKeyEvent* e);
@@ -396,10 +428,12 @@ public:
 			QComboBox::keyReleaseEvent(e);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = e;
+
 		miqt_exec_callback_QComboBox_keyReleaseEvent(this, handle__keyReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_keyReleaseEvent(void* self, QKeyEvent* e);
@@ -413,10 +447,12 @@ public:
 			QComboBox::wheelEvent(e);
 			return;
 		}
-
+		
 		QWheelEvent* sigval1 = e;
+
 		miqt_exec_callback_QComboBox_wheelEvent(this, handle__wheelEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_wheelEvent(void* self, QWheelEvent* e);
@@ -430,10 +466,12 @@ public:
 			QComboBox::contextMenuEvent(e);
 			return;
 		}
-
+		
 		QContextMenuEvent* sigval1 = e;
+
 		miqt_exec_callback_QComboBox_contextMenuEvent(this, handle__contextMenuEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_contextMenuEvent(void* self, QContextMenuEvent* e);
@@ -447,10 +485,12 @@ public:
 			QComboBox::inputMethodEvent(param1);
 			return;
 		}
-
+		
 		QInputMethodEvent* sigval1 = param1;
+
 		miqt_exec_callback_QComboBox_inputMethodEvent(this, handle__inputMethodEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* param1);
@@ -463,8 +503,10 @@ public:
 		if (handle__devType == 0) {
 			return QComboBox::devType();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QComboBox_devType(this, handle__devType);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -479,10 +521,12 @@ public:
 			QComboBox::setVisible(visible);
 			return;
 		}
-
+		
 		bool sigval1 = visible;
+
 		miqt_exec_callback_QComboBox_setVisible(this, handle__setVisible, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_setVisible(void* self, bool visible);
@@ -495,9 +539,11 @@ public:
 		if (handle__heightForWidth == 0) {
 			return QComboBox::heightForWidth(param1);
 		}
-
+		
 		int sigval1 = param1;
+
 		int callback_return_value = miqt_exec_callback_QComboBox_heightForWidth(this, handle__heightForWidth, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -511,8 +557,10 @@ public:
 		if (handle__hasHeightForWidth == 0) {
 			return QComboBox::hasHeightForWidth();
 		}
+		
 
 		bool callback_return_value = miqt_exec_callback_QComboBox_hasHeightForWidth(this, handle__hasHeightForWidth);
+
 		return callback_return_value;
 	}
 
@@ -526,8 +574,10 @@ public:
 		if (handle__paintEngine == 0) {
 			return QComboBox::paintEngine();
 		}
+		
 
 		QPaintEngine* callback_return_value = miqt_exec_callback_QComboBox_paintEngine(this, handle__paintEngine);
+
 		return callback_return_value;
 	}
 
@@ -542,10 +592,12 @@ public:
 			QComboBox::mouseDoubleClickEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QComboBox_mouseDoubleClickEvent(this, handle__mouseDoubleClickEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_mouseDoubleClickEvent(void* self, QMouseEvent* event);
@@ -559,10 +611,12 @@ public:
 			QComboBox::mouseMoveEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QComboBox_mouseMoveEvent(this, handle__mouseMoveEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_mouseMoveEvent(void* self, QMouseEvent* event);
@@ -576,10 +630,12 @@ public:
 			QComboBox::enterEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QComboBox_enterEvent(this, handle__enterEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_enterEvent(void* self, QEvent* event);
@@ -593,10 +649,12 @@ public:
 			QComboBox::leaveEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QComboBox_leaveEvent(this, handle__leaveEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_leaveEvent(void* self, QEvent* event);
@@ -610,10 +668,12 @@ public:
 			QComboBox::moveEvent(event);
 			return;
 		}
-
+		
 		QMoveEvent* sigval1 = event;
+
 		miqt_exec_callback_QComboBox_moveEvent(this, handle__moveEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_moveEvent(void* self, QMoveEvent* event);
@@ -627,10 +687,12 @@ public:
 			QComboBox::closeEvent(event);
 			return;
 		}
-
+		
 		QCloseEvent* sigval1 = event;
+
 		miqt_exec_callback_QComboBox_closeEvent(this, handle__closeEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_closeEvent(void* self, QCloseEvent* event);
@@ -644,10 +706,12 @@ public:
 			QComboBox::tabletEvent(event);
 			return;
 		}
-
+		
 		QTabletEvent* sigval1 = event;
+
 		miqt_exec_callback_QComboBox_tabletEvent(this, handle__tabletEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_tabletEvent(void* self, QTabletEvent* event);
@@ -661,10 +725,12 @@ public:
 			QComboBox::actionEvent(event);
 			return;
 		}
-
+		
 		QActionEvent* sigval1 = event;
+
 		miqt_exec_callback_QComboBox_actionEvent(this, handle__actionEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_actionEvent(void* self, QActionEvent* event);
@@ -678,10 +744,12 @@ public:
 			QComboBox::dragEnterEvent(event);
 			return;
 		}
-
+		
 		QDragEnterEvent* sigval1 = event;
+
 		miqt_exec_callback_QComboBox_dragEnterEvent(this, handle__dragEnterEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_dragEnterEvent(void* self, QDragEnterEvent* event);
@@ -695,10 +763,12 @@ public:
 			QComboBox::dragMoveEvent(event);
 			return;
 		}
-
+		
 		QDragMoveEvent* sigval1 = event;
+
 		miqt_exec_callback_QComboBox_dragMoveEvent(this, handle__dragMoveEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_dragMoveEvent(void* self, QDragMoveEvent* event);
@@ -712,10 +782,12 @@ public:
 			QComboBox::dragLeaveEvent(event);
 			return;
 		}
-
+		
 		QDragLeaveEvent* sigval1 = event;
+
 		miqt_exec_callback_QComboBox_dragLeaveEvent(this, handle__dragLeaveEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_dragLeaveEvent(void* self, QDragLeaveEvent* event);
@@ -729,10 +801,12 @@ public:
 			QComboBox::dropEvent(event);
 			return;
 		}
-
+		
 		QDropEvent* sigval1 = event;
+
 		miqt_exec_callback_QComboBox_dropEvent(this, handle__dropEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_dropEvent(void* self, QDropEvent* event);
@@ -745,7 +819,7 @@ public:
 		if (handle__nativeEvent == 0) {
 			return QComboBox::nativeEvent(eventType, message, result);
 		}
-
+		
 		const QByteArray eventType_qb = eventType;
 		struct miqt_string eventType_ms;
 		eventType_ms.len = eventType_qb.length();
@@ -754,7 +828,9 @@ public:
 		struct miqt_string sigval1 = eventType_ms;
 		void* sigval2 = message;
 		long* sigval3 = result;
+
 		bool callback_return_value = miqt_exec_callback_QComboBox_nativeEvent(this, handle__nativeEvent, sigval1, sigval2, sigval3);
+
 		return callback_return_value;
 	}
 
@@ -768,10 +844,12 @@ public:
 		if (handle__metric == 0) {
 			return QComboBox::metric(param1);
 		}
-
+		
 		QPaintDevice::PaintDeviceMetric param1_ret = param1;
 		int sigval1 = static_cast<int>(param1_ret);
+
 		int callback_return_value = miqt_exec_callback_QComboBox_metric(this, handle__metric, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -786,10 +864,12 @@ public:
 			QComboBox::initPainter(painter);
 			return;
 		}
-
+		
 		QPainter* sigval1 = painter;
+
 		miqt_exec_callback_QComboBox_initPainter(this, handle__initPainter, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_initPainter(const void* self, QPainter* painter);
@@ -802,9 +882,11 @@ public:
 		if (handle__redirected == 0) {
 			return QComboBox::redirected(offset);
 		}
-
+		
 		QPoint* sigval1 = offset;
+
 		QPaintDevice* callback_return_value = miqt_exec_callback_QComboBox_redirected(this, handle__redirected, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -818,8 +900,10 @@ public:
 		if (handle__sharedPainter == 0) {
 			return QComboBox::sharedPainter();
 		}
+		
 
 		QPainter* callback_return_value = miqt_exec_callback_QComboBox_sharedPainter(this, handle__sharedPainter);
+
 		return callback_return_value;
 	}
 
@@ -833,9 +917,11 @@ public:
 		if (handle__focusNextPrevChild == 0) {
 			return QComboBox::focusNextPrevChild(next);
 		}
-
+		
 		bool sigval1 = next;
+
 		bool callback_return_value = miqt_exec_callback_QComboBox_focusNextPrevChild(this, handle__focusNextPrevChild, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -849,10 +935,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QComboBox::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QComboBox_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -867,10 +955,12 @@ public:
 			QComboBox::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QComboBox_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -884,10 +974,12 @@ public:
 			QComboBox::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QComboBox_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -901,10 +993,12 @@ public:
 			QComboBox::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QComboBox_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_customEvent(void* self, QEvent* event);
@@ -918,12 +1012,14 @@ public:
 			QComboBox::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QComboBox_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -937,12 +1033,14 @@ public:
 			QComboBox::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QComboBox_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QComboBox_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -961,11 +1059,11 @@ public:
 };
 
 QComboBox* QComboBox_new(QWidget* parent) {
-	return new (std::nothrow) MiqtVirtualQComboBox(parent);
+	return new MiqtVirtualQComboBox(parent);
 }
 
 QComboBox* QComboBox_new2() {
-	return new (std::nothrow) MiqtVirtualQComboBox();
+	return new MiqtVirtualQComboBox();
 }
 
 void QComboBox_virtbase(QComboBox* src, QWidget** outptr_QWidget) {
@@ -1343,7 +1441,7 @@ void QComboBox_editTextChanged(QComboBox* self, struct miqt_string param1) {
 }
 
 void QComboBox_connect_editTextChanged(QComboBox* self, intptr_t slot) {
-	QComboBox::connect(self, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::editTextChanged), self, [=](const QString& param1) {
+	MiqtVirtualQComboBox::connect(self, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::editTextChanged), self, [=](const QString& param1) {
 		const QString param1_ret = param1;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray param1_b = param1_ret.toUtf8();
@@ -1361,7 +1459,7 @@ void QComboBox_activated(QComboBox* self, int index) {
 }
 
 void QComboBox_connect_activated(QComboBox* self, intptr_t slot) {
-	QComboBox::connect(self, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), self, [=](int index) {
+	MiqtVirtualQComboBox::connect(self, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated), self, [=](int index) {
 		int sigval1 = index;
 		miqt_exec_callback_QComboBox_activated(slot, sigval1);
 	});
@@ -1373,7 +1471,7 @@ void QComboBox_textActivated(QComboBox* self, struct miqt_string param1) {
 }
 
 void QComboBox_connect_textActivated(QComboBox* self, intptr_t slot) {
-	QComboBox::connect(self, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::textActivated), self, [=](const QString& param1) {
+	MiqtVirtualQComboBox::connect(self, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::textActivated), self, [=](const QString& param1) {
 		const QString param1_ret = param1;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray param1_b = param1_ret.toUtf8();
@@ -1391,7 +1489,7 @@ void QComboBox_highlighted(QComboBox* self, int index) {
 }
 
 void QComboBox_connect_highlighted(QComboBox* self, intptr_t slot) {
-	QComboBox::connect(self, static_cast<void (QComboBox::*)(int)>(&QComboBox::highlighted), self, [=](int index) {
+	MiqtVirtualQComboBox::connect(self, static_cast<void (QComboBox::*)(int)>(&QComboBox::highlighted), self, [=](int index) {
 		int sigval1 = index;
 		miqt_exec_callback_QComboBox_highlighted(slot, sigval1);
 	});
@@ -1403,7 +1501,7 @@ void QComboBox_textHighlighted(QComboBox* self, struct miqt_string param1) {
 }
 
 void QComboBox_connect_textHighlighted(QComboBox* self, intptr_t slot) {
-	QComboBox::connect(self, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::textHighlighted), self, [=](const QString& param1) {
+	MiqtVirtualQComboBox::connect(self, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::textHighlighted), self, [=](const QString& param1) {
 		const QString param1_ret = param1;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray param1_b = param1_ret.toUtf8();
@@ -1421,7 +1519,7 @@ void QComboBox_currentIndexChanged(QComboBox* self, int index) {
 }
 
 void QComboBox_connect_currentIndexChanged(QComboBox* self, intptr_t slot) {
-	QComboBox::connect(self, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), self, [=](int index) {
+	MiqtVirtualQComboBox::connect(self, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), self, [=](int index) {
 		int sigval1 = index;
 		miqt_exec_callback_QComboBox_currentIndexChanged(slot, sigval1);
 	});
@@ -1433,7 +1531,7 @@ void QComboBox_currentIndexChangedWithQString(QComboBox* self, struct miqt_strin
 }
 
 void QComboBox_connect_currentIndexChangedWithQString(QComboBox* self, intptr_t slot) {
-	QComboBox::connect(self, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), self, [=](const QString& param1) {
+	MiqtVirtualQComboBox::connect(self, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentIndexChanged), self, [=](const QString& param1) {
 		const QString param1_ret = param1;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray param1_b = param1_ret.toUtf8();
@@ -1452,7 +1550,7 @@ void QComboBox_currentTextChanged(QComboBox* self, struct miqt_string param1) {
 }
 
 void QComboBox_connect_currentTextChanged(QComboBox* self, intptr_t slot) {
-	QComboBox::connect(self, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), self, [=](const QString& param1) {
+	MiqtVirtualQComboBox::connect(self, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::currentTextChanged), self, [=](const QString& param1) {
 		const QString param1_ret = param1;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray param1_b = param1_ret.toUtf8();
@@ -1471,7 +1569,7 @@ void QComboBox_activatedWithQString(QComboBox* self, struct miqt_string param1) 
 }
 
 void QComboBox_connect_activatedWithQString(QComboBox* self, intptr_t slot) {
-	QComboBox::connect(self, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::activated), self, [=](const QString& param1) {
+	MiqtVirtualQComboBox::connect(self, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::activated), self, [=](const QString& param1) {
 		const QString param1_ret = param1;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray param1_b = param1_ret.toUtf8();
@@ -1490,7 +1588,7 @@ void QComboBox_highlightedWithQString(QComboBox* self, struct miqt_string param1
 }
 
 void QComboBox_connect_highlightedWithQString(QComboBox* self, intptr_t slot) {
-	QComboBox::connect(self, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::highlighted), self, [=](const QString& param1) {
+	MiqtVirtualQComboBox::connect(self, static_cast<void (QComboBox::*)(const QString&)>(&QComboBox::highlighted), self, [=](const QString& param1) {
 		const QString param1_ret = param1;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray param1_b = param1_ret.toUtf8();
@@ -1597,13 +1695,15 @@ bool QComboBox_override_virtual_sizeHint(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sizeHint = slot;
 	return true;
 }
 
 QSize* QComboBox_virtualbase_sizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualQComboBox*>(self)->QComboBox::sizeHint());
+
+	return new QSize(( (const MiqtVirtualQComboBox*)(self) )->QComboBox::sizeHint());
+
 }
 
 bool QComboBox_override_virtual_minimumSizeHint(void* self, intptr_t slot) {
@@ -1611,13 +1711,15 @@ bool QComboBox_override_virtual_minimumSizeHint(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__minimumSizeHint = slot;
 	return true;
 }
 
 QSize* QComboBox_virtualbase_minimumSizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualQComboBox*>(self)->QComboBox::minimumSizeHint());
+
+	return new QSize(( (const MiqtVirtualQComboBox*)(self) )->QComboBox::minimumSizeHint());
+
 }
 
 bool QComboBox_override_virtual_showPopup(void* self, intptr_t slot) {
@@ -1625,13 +1727,15 @@ bool QComboBox_override_virtual_showPopup(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__showPopup = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_showPopup(void* self) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::showPopup();
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::showPopup();
+
 }
 
 bool QComboBox_override_virtual_hidePopup(void* self, intptr_t slot) {
@@ -1639,13 +1743,15 @@ bool QComboBox_override_virtual_hidePopup(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hidePopup = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_hidePopup(void* self) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::hidePopup();
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::hidePopup();
+
 }
 
 bool QComboBox_override_virtual_event(void* self, intptr_t slot) {
@@ -1653,13 +1759,15 @@ bool QComboBox_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QComboBox_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::event(event);
+
+	return ( (MiqtVirtualQComboBox*)(self) )->QComboBox::event(event);
+
 }
 
 bool QComboBox_override_virtual_inputMethodQuery(void* self, intptr_t slot) {
@@ -1667,13 +1775,15 @@ bool QComboBox_override_virtual_inputMethodQuery(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodQuery = slot;
 	return true;
 }
 
 QVariant* QComboBox_virtualbase_inputMethodQuery(const void* self, int param1) {
-	return new QVariant(static_cast<const MiqtVirtualQComboBox*>(self)->QComboBox::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+
+	return new QVariant(( (const MiqtVirtualQComboBox*)(self) )->QComboBox::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+
 }
 
 bool QComboBox_override_virtual_focusInEvent(void* self, intptr_t slot) {
@@ -1681,13 +1791,15 @@ bool QComboBox_override_virtual_focusInEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusInEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_focusInEvent(void* self, QFocusEvent* e) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::focusInEvent(e);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::focusInEvent(e);
+
 }
 
 bool QComboBox_override_virtual_focusOutEvent(void* self, intptr_t slot) {
@@ -1695,13 +1807,15 @@ bool QComboBox_override_virtual_focusOutEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusOutEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_focusOutEvent(void* self, QFocusEvent* e) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::focusOutEvent(e);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::focusOutEvent(e);
+
 }
 
 bool QComboBox_override_virtual_changeEvent(void* self, intptr_t slot) {
@@ -1709,13 +1823,15 @@ bool QComboBox_override_virtual_changeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__changeEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_changeEvent(void* self, QEvent* e) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::changeEvent(e);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::changeEvent(e);
+
 }
 
 bool QComboBox_override_virtual_resizeEvent(void* self, intptr_t slot) {
@@ -1723,13 +1839,15 @@ bool QComboBox_override_virtual_resizeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__resizeEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_resizeEvent(void* self, QResizeEvent* e) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::resizeEvent(e);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::resizeEvent(e);
+
 }
 
 bool QComboBox_override_virtual_paintEvent(void* self, intptr_t slot) {
@@ -1737,13 +1855,15 @@ bool QComboBox_override_virtual_paintEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paintEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_paintEvent(void* self, QPaintEvent* e) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::paintEvent(e);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::paintEvent(e);
+
 }
 
 bool QComboBox_override_virtual_showEvent(void* self, intptr_t slot) {
@@ -1751,13 +1871,15 @@ bool QComboBox_override_virtual_showEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__showEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_showEvent(void* self, QShowEvent* e) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::showEvent(e);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::showEvent(e);
+
 }
 
 bool QComboBox_override_virtual_hideEvent(void* self, intptr_t slot) {
@@ -1765,13 +1887,15 @@ bool QComboBox_override_virtual_hideEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hideEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_hideEvent(void* self, QHideEvent* e) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::hideEvent(e);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::hideEvent(e);
+
 }
 
 bool QComboBox_override_virtual_mousePressEvent(void* self, intptr_t slot) {
@@ -1779,13 +1903,15 @@ bool QComboBox_override_virtual_mousePressEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mousePressEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_mousePressEvent(void* self, QMouseEvent* e) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::mousePressEvent(e);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::mousePressEvent(e);
+
 }
 
 bool QComboBox_override_virtual_mouseReleaseEvent(void* self, intptr_t slot) {
@@ -1793,13 +1919,15 @@ bool QComboBox_override_virtual_mouseReleaseEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseReleaseEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_mouseReleaseEvent(void* self, QMouseEvent* e) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::mouseReleaseEvent(e);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::mouseReleaseEvent(e);
+
 }
 
 bool QComboBox_override_virtual_keyPressEvent(void* self, intptr_t slot) {
@@ -1807,13 +1935,15 @@ bool QComboBox_override_virtual_keyPressEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyPressEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_keyPressEvent(void* self, QKeyEvent* e) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::keyPressEvent(e);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::keyPressEvent(e);
+
 }
 
 bool QComboBox_override_virtual_keyReleaseEvent(void* self, intptr_t slot) {
@@ -1821,13 +1951,15 @@ bool QComboBox_override_virtual_keyReleaseEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyReleaseEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_keyReleaseEvent(void* self, QKeyEvent* e) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::keyReleaseEvent(e);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::keyReleaseEvent(e);
+
 }
 
 bool QComboBox_override_virtual_wheelEvent(void* self, intptr_t slot) {
@@ -1835,13 +1967,15 @@ bool QComboBox_override_virtual_wheelEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__wheelEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_wheelEvent(void* self, QWheelEvent* e) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::wheelEvent(e);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::wheelEvent(e);
+
 }
 
 bool QComboBox_override_virtual_contextMenuEvent(void* self, intptr_t slot) {
@@ -1849,13 +1983,15 @@ bool QComboBox_override_virtual_contextMenuEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__contextMenuEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_contextMenuEvent(void* self, QContextMenuEvent* e) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::contextMenuEvent(e);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::contextMenuEvent(e);
+
 }
 
 bool QComboBox_override_virtual_inputMethodEvent(void* self, intptr_t slot) {
@@ -1863,13 +1999,15 @@ bool QComboBox_override_virtual_inputMethodEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* param1) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::inputMethodEvent(param1);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::inputMethodEvent(param1);
+
 }
 
 bool QComboBox_override_virtual_devType(void* self, intptr_t slot) {
@@ -1877,13 +2015,15 @@ bool QComboBox_override_virtual_devType(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__devType = slot;
 	return true;
 }
 
 int QComboBox_virtualbase_devType(const void* self) {
-	return static_cast<const MiqtVirtualQComboBox*>(self)->QComboBox::devType();
+
+	return ( (const MiqtVirtualQComboBox*)(self) )->QComboBox::devType();
+
 }
 
 bool QComboBox_override_virtual_setVisible(void* self, intptr_t slot) {
@@ -1891,13 +2031,15 @@ bool QComboBox_override_virtual_setVisible(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setVisible = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_setVisible(void* self, bool visible) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::setVisible(visible);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::setVisible(visible);
+
 }
 
 bool QComboBox_override_virtual_heightForWidth(void* self, intptr_t slot) {
@@ -1905,13 +2047,15 @@ bool QComboBox_override_virtual_heightForWidth(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__heightForWidth = slot;
 	return true;
 }
 
 int QComboBox_virtualbase_heightForWidth(const void* self, int param1) {
-	return static_cast<const MiqtVirtualQComboBox*>(self)->QComboBox::heightForWidth(static_cast<int>(param1));
+
+	return ( (const MiqtVirtualQComboBox*)(self) )->QComboBox::heightForWidth(static_cast<int>(param1));
+
 }
 
 bool QComboBox_override_virtual_hasHeightForWidth(void* self, intptr_t slot) {
@@ -1919,13 +2063,15 @@ bool QComboBox_override_virtual_hasHeightForWidth(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hasHeightForWidth = slot;
 	return true;
 }
 
 bool QComboBox_virtualbase_hasHeightForWidth(const void* self) {
-	return static_cast<const MiqtVirtualQComboBox*>(self)->QComboBox::hasHeightForWidth();
+
+	return ( (const MiqtVirtualQComboBox*)(self) )->QComboBox::hasHeightForWidth();
+
 }
 
 bool QComboBox_override_virtual_paintEngine(void* self, intptr_t slot) {
@@ -1933,13 +2079,15 @@ bool QComboBox_override_virtual_paintEngine(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paintEngine = slot;
 	return true;
 }
 
 QPaintEngine* QComboBox_virtualbase_paintEngine(const void* self) {
-	return static_cast<const MiqtVirtualQComboBox*>(self)->QComboBox::paintEngine();
+
+	return ( (const MiqtVirtualQComboBox*)(self) )->QComboBox::paintEngine();
+
 }
 
 bool QComboBox_override_virtual_mouseDoubleClickEvent(void* self, intptr_t slot) {
@@ -1947,13 +2095,15 @@ bool QComboBox_override_virtual_mouseDoubleClickEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseDoubleClickEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_mouseDoubleClickEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::mouseDoubleClickEvent(event);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::mouseDoubleClickEvent(event);
+
 }
 
 bool QComboBox_override_virtual_mouseMoveEvent(void* self, intptr_t slot) {
@@ -1961,13 +2111,15 @@ bool QComboBox_override_virtual_mouseMoveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseMoveEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_mouseMoveEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::mouseMoveEvent(event);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::mouseMoveEvent(event);
+
 }
 
 bool QComboBox_override_virtual_enterEvent(void* self, intptr_t slot) {
@@ -1975,13 +2127,15 @@ bool QComboBox_override_virtual_enterEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__enterEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_enterEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::enterEvent(event);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::enterEvent(event);
+
 }
 
 bool QComboBox_override_virtual_leaveEvent(void* self, intptr_t slot) {
@@ -1989,13 +2143,15 @@ bool QComboBox_override_virtual_leaveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__leaveEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_leaveEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::leaveEvent(event);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::leaveEvent(event);
+
 }
 
 bool QComboBox_override_virtual_moveEvent(void* self, intptr_t slot) {
@@ -2003,13 +2159,15 @@ bool QComboBox_override_virtual_moveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__moveEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_moveEvent(void* self, QMoveEvent* event) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::moveEvent(event);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::moveEvent(event);
+
 }
 
 bool QComboBox_override_virtual_closeEvent(void* self, intptr_t slot) {
@@ -2017,13 +2175,15 @@ bool QComboBox_override_virtual_closeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__closeEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_closeEvent(void* self, QCloseEvent* event) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::closeEvent(event);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::closeEvent(event);
+
 }
 
 bool QComboBox_override_virtual_tabletEvent(void* self, intptr_t slot) {
@@ -2031,13 +2191,15 @@ bool QComboBox_override_virtual_tabletEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__tabletEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_tabletEvent(void* self, QTabletEvent* event) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::tabletEvent(event);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::tabletEvent(event);
+
 }
 
 bool QComboBox_override_virtual_actionEvent(void* self, intptr_t slot) {
@@ -2045,13 +2207,15 @@ bool QComboBox_override_virtual_actionEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__actionEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_actionEvent(void* self, QActionEvent* event) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::actionEvent(event);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::actionEvent(event);
+
 }
 
 bool QComboBox_override_virtual_dragEnterEvent(void* self, intptr_t slot) {
@@ -2059,13 +2223,15 @@ bool QComboBox_override_virtual_dragEnterEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragEnterEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_dragEnterEvent(void* self, QDragEnterEvent* event) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::dragEnterEvent(event);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::dragEnterEvent(event);
+
 }
 
 bool QComboBox_override_virtual_dragMoveEvent(void* self, intptr_t slot) {
@@ -2073,13 +2239,15 @@ bool QComboBox_override_virtual_dragMoveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragMoveEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_dragMoveEvent(void* self, QDragMoveEvent* event) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::dragMoveEvent(event);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::dragMoveEvent(event);
+
 }
 
 bool QComboBox_override_virtual_dragLeaveEvent(void* self, intptr_t slot) {
@@ -2087,13 +2255,15 @@ bool QComboBox_override_virtual_dragLeaveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragLeaveEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_dragLeaveEvent(void* self, QDragLeaveEvent* event) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::dragLeaveEvent(event);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::dragLeaveEvent(event);
+
 }
 
 bool QComboBox_override_virtual_dropEvent(void* self, intptr_t slot) {
@@ -2101,13 +2271,15 @@ bool QComboBox_override_virtual_dropEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dropEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_dropEvent(void* self, QDropEvent* event) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::dropEvent(event);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::dropEvent(event);
+
 }
 
 bool QComboBox_override_virtual_nativeEvent(void* self, intptr_t slot) {
@@ -2115,14 +2287,16 @@ bool QComboBox_override_virtual_nativeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__nativeEvent = slot;
 	return true;
 }
 
 bool QComboBox_virtualbase_nativeEvent(void* self, struct miqt_string eventType, void* message, long* result) {
 	QByteArray eventType_QByteArray(eventType.data, eventType.len);
-	return static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::nativeEvent(eventType_QByteArray, message, static_cast<long*>(result));
+
+	return ( (MiqtVirtualQComboBox*)(self) )->QComboBox::nativeEvent(eventType_QByteArray, message, static_cast<long*>(result));
+
 }
 
 bool QComboBox_override_virtual_metric(void* self, intptr_t slot) {
@@ -2130,13 +2304,15 @@ bool QComboBox_override_virtual_metric(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__metric = slot;
 	return true;
 }
 
 int QComboBox_virtualbase_metric(const void* self, int param1) {
-	return static_cast<const MiqtVirtualQComboBox*>(self)->QComboBox::metric(static_cast<MiqtVirtualQComboBox::PaintDeviceMetric>(param1));
+
+	return ( (const MiqtVirtualQComboBox*)(self) )->QComboBox::metric(static_cast<MiqtVirtualQComboBox::PaintDeviceMetric>(param1));
+
 }
 
 bool QComboBox_override_virtual_initPainter(void* self, intptr_t slot) {
@@ -2144,13 +2320,15 @@ bool QComboBox_override_virtual_initPainter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__initPainter = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_initPainter(const void* self, QPainter* painter) {
-	static_cast<const MiqtVirtualQComboBox*>(self)->QComboBox::initPainter(painter);
+
+	( (const MiqtVirtualQComboBox*)(self) )->QComboBox::initPainter(painter);
+
 }
 
 bool QComboBox_override_virtual_redirected(void* self, intptr_t slot) {
@@ -2158,13 +2336,15 @@ bool QComboBox_override_virtual_redirected(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__redirected = slot;
 	return true;
 }
 
 QPaintDevice* QComboBox_virtualbase_redirected(const void* self, QPoint* offset) {
-	return static_cast<const MiqtVirtualQComboBox*>(self)->QComboBox::redirected(offset);
+
+	return ( (const MiqtVirtualQComboBox*)(self) )->QComboBox::redirected(offset);
+
 }
 
 bool QComboBox_override_virtual_sharedPainter(void* self, intptr_t slot) {
@@ -2172,13 +2352,15 @@ bool QComboBox_override_virtual_sharedPainter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sharedPainter = slot;
 	return true;
 }
 
 QPainter* QComboBox_virtualbase_sharedPainter(const void* self) {
-	return static_cast<const MiqtVirtualQComboBox*>(self)->QComboBox::sharedPainter();
+
+	return ( (const MiqtVirtualQComboBox*)(self) )->QComboBox::sharedPainter();
+
 }
 
 bool QComboBox_override_virtual_focusNextPrevChild(void* self, intptr_t slot) {
@@ -2186,13 +2368,15 @@ bool QComboBox_override_virtual_focusNextPrevChild(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusNextPrevChild = slot;
 	return true;
 }
 
 bool QComboBox_virtualbase_focusNextPrevChild(void* self, bool next) {
-	return static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::focusNextPrevChild(next);
+
+	return ( (MiqtVirtualQComboBox*)(self) )->QComboBox::focusNextPrevChild(next);
+
 }
 
 bool QComboBox_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -2200,13 +2384,15 @@ bool QComboBox_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QComboBox_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQComboBox*)(self) )->QComboBox::eventFilter(watched, event);
+
 }
 
 bool QComboBox_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -2214,13 +2400,15 @@ bool QComboBox_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::timerEvent(event);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::timerEvent(event);
+
 }
 
 bool QComboBox_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -2228,13 +2416,15 @@ bool QComboBox_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::childEvent(event);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::childEvent(event);
+
 }
 
 bool QComboBox_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -2242,13 +2432,15 @@ bool QComboBox_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::customEvent(event);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::customEvent(event);
+
 }
 
 bool QComboBox_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -2256,13 +2448,15 @@ bool QComboBox_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::connectNotify(*signal);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::connectNotify(*signal);
+
 }
 
 bool QComboBox_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -2270,13 +2464,15 @@ bool QComboBox_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QComboBox_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQComboBox*>(self)->QComboBox::disconnectNotify(*signal);
+
+	( (MiqtVirtualQComboBox*)(self) )->QComboBox::disconnectNotify(*signal);
+
 }
 
 void QComboBox_protectedbase_initStyleOption(bool* _dynamic_cast_ok, const void* self, QStyleOptionComboBox* option) {
@@ -2285,9 +2481,11 @@ void QComboBox_protectedbase_initStyleOption(bool* _dynamic_cast_ok, const void*
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->initStyleOption(option);
+
 }
 
 void QComboBox_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* self) {
@@ -2296,9 +2494,11 @@ void QComboBox_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* self
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->updateMicroFocus();
+
 }
 
 void QComboBox_protectedbase_create(bool* _dynamic_cast_ok, void* self) {
@@ -2307,9 +2507,11 @@ void QComboBox_protectedbase_create(bool* _dynamic_cast_ok, void* self) {
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->create();
+
 }
 
 void QComboBox_protectedbase_destroy(bool* _dynamic_cast_ok, void* self) {
@@ -2318,9 +2520,11 @@ void QComboBox_protectedbase_destroy(bool* _dynamic_cast_ok, void* self) {
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->destroy();
+
 }
 
 bool QComboBox_protectedbase_focusNextChild(bool* _dynamic_cast_ok, void* self) {
@@ -2329,9 +2533,11 @@ bool QComboBox_protectedbase_focusNextChild(bool* _dynamic_cast_ok, void* self) 
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->focusNextChild();
+
 }
 
 bool QComboBox_protectedbase_focusPreviousChild(bool* _dynamic_cast_ok, void* self) {
@@ -2340,9 +2546,11 @@ bool QComboBox_protectedbase_focusPreviousChild(bool* _dynamic_cast_ok, void* se
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->focusPreviousChild();
+
 }
 
 QObject* QComboBox_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -2351,9 +2559,11 @@ QObject* QComboBox_protectedbase_sender(bool* _dynamic_cast_ok, const void* self
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QComboBox_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -2362,9 +2572,11 @@ int QComboBox_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QComboBox_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -2373,9 +2585,11 @@ int QComboBox_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QComboBox_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -2384,9 +2598,11 @@ bool QComboBox_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const voi
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QComboBox_delete(QComboBox* self) {

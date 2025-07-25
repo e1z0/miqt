@@ -52,16 +52,15 @@ func TestTransformTypedefs(t *testing.T) {
 		}
 	}
 
-	flushKnownTypes()
-	InsertTypedefs(false)
-	KnownTypedefs["WId"] = lookupResultTypedef{"qt", CppTypedef{"WId", parseSingleTypeString("uintptr_t")}}
+	InsertTypedefs()
+	KnownTypedefs["WId"] = CppTypedef{"WId", parseSingleTypeString("uintptr_t")}
 
 	runTest("WId", "uintptr_t")
 	runTest("QList<WId>", "QList<uintptr_t>")
 	runTest("QStringList", "QList<QString>")
 	runTest("QVector<WId>", "QVector<uintptr_t>")
 
-	KnownTypedefs["_test_known_typedef_recursion"] = lookupResultTypedef{"qt", CppTypedef{"_test_known_typedef_recursion", parseSingleTypeString("WId")}}
+	KnownTypedefs["_test_known_typedef_recursion"] = CppTypedef{"_test_known_typedef_recursion", parseSingleTypeString("WId")}
 	runTest("_test_known_typedef_recursion", "uintptr_t")
 
 	// Pointer tests
@@ -72,7 +71,7 @@ func TestTransformTypedefs(t *testing.T) {
 	runTest("const QVector<WId*>", "const QVector<uintptr_t*>")
 
 	// Typedefs changing pointer values
-	KnownTypedefs["_test_iterator"] = lookupResultTypedef{"qt", CppTypedef{"_test_iterator", parseSingleTypeString("char*")}}
+	KnownTypedefs["_test_iterator"] = CppTypedef{"_test_iterator", parseSingleTypeString("char*")}
 	runTest("_test_iterator", "char*")
 
 }

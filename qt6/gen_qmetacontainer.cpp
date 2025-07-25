@@ -14,11 +14,11 @@ extern "C" {
 #endif
 
 QMetaContainer* QMetaContainer_new() {
-	return new (std::nothrow) QMetaContainer();
+	return new QMetaContainer();
 }
 
 QMetaContainer* QMetaContainer_new2(QMetaContainer* param1) {
-	return new (std::nothrow) QMetaContainer(*param1);
+	return new QMetaContainer(*param1);
 }
 
 bool QMetaContainer_hasInputIterator(const QMetaContainer* self) {
@@ -125,7 +125,7 @@ void QMetaContainer_delete(QMetaContainer* self) {
 }
 
 QMetaSequence* QMetaSequence_new() {
-	return new (std::nothrow) QMetaSequence();
+	return new QMetaSequence();
 }
 
 void QMetaSequence_virtbase(QMetaSequence* src, QMetaContainer** outptr_QMetaContainer) {
@@ -257,7 +257,7 @@ void QMetaSequence_delete(QMetaSequence* self) {
 }
 
 QMetaAssociation* QMetaAssociation_new() {
-	return new (std::nothrow) QMetaAssociation();
+	return new QMetaAssociation();
 }
 
 void QMetaAssociation_virtbase(QMetaAssociation* src, QMetaContainer** outptr_QMetaContainer) {

@@ -16,19 +16,19 @@ extern "C" {
 #endif
 
 QTextDocumentFragment* QTextDocumentFragment_new() {
-	return new (std::nothrow) QTextDocumentFragment();
+	return new QTextDocumentFragment();
 }
 
 QTextDocumentFragment* QTextDocumentFragment_new2(QTextDocument* document) {
-	return new (std::nothrow) QTextDocumentFragment(document);
+	return new QTextDocumentFragment(document);
 }
 
 QTextDocumentFragment* QTextDocumentFragment_new3(QTextCursor* range) {
-	return new (std::nothrow) QTextDocumentFragment(*range);
+	return new QTextDocumentFragment(*range);
 }
 
 QTextDocumentFragment* QTextDocumentFragment_new4(QTextDocumentFragment* rhs) {
-	return new (std::nothrow) QTextDocumentFragment(*rhs);
+	return new QTextDocumentFragment(*rhs);
 }
 
 void QTextDocumentFragment_operatorAssign(QTextDocumentFragment* self, QTextDocumentFragment* rhs) {

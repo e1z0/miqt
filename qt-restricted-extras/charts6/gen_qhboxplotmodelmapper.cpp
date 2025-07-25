@@ -38,8 +38,8 @@ void miqt_exec_callback_QHBoxPlotModelMapper_disconnectNotify(QHBoxPlotModelMapp
 class MiqtVirtualQHBoxPlotModelMapper final : public QHBoxPlotModelMapper {
 public:
 
-	MiqtVirtualQHBoxPlotModelMapper(): QHBoxPlotModelMapper() {}
-	MiqtVirtualQHBoxPlotModelMapper(QObject* parent): QHBoxPlotModelMapper(parent) {}
+	MiqtVirtualQHBoxPlotModelMapper(): QHBoxPlotModelMapper() {};
+	MiqtVirtualQHBoxPlotModelMapper(QObject* parent): QHBoxPlotModelMapper(parent) {};
 
 	virtual ~MiqtVirtualQHBoxPlotModelMapper() override = default;
 
@@ -51,9 +51,11 @@ public:
 		if (handle__event == 0) {
 			return QHBoxPlotModelMapper::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QHBoxPlotModelMapper_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -67,10 +69,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QHBoxPlotModelMapper::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QHBoxPlotModelMapper_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -85,10 +89,12 @@ public:
 			QHBoxPlotModelMapper::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QHBoxPlotModelMapper_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QHBoxPlotModelMapper_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -102,10 +108,12 @@ public:
 			QHBoxPlotModelMapper::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QHBoxPlotModelMapper_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QHBoxPlotModelMapper_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -119,10 +127,12 @@ public:
 			QHBoxPlotModelMapper::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QHBoxPlotModelMapper_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QHBoxPlotModelMapper_virtualbase_customEvent(void* self, QEvent* event);
@@ -136,12 +146,14 @@ public:
 			QHBoxPlotModelMapper::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QHBoxPlotModelMapper_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QHBoxPlotModelMapper_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -155,12 +167,14 @@ public:
 			QHBoxPlotModelMapper::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QHBoxPlotModelMapper_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QHBoxPlotModelMapper_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -183,11 +197,11 @@ public:
 };
 
 QHBoxPlotModelMapper* QHBoxPlotModelMapper_new() {
-	return new (std::nothrow) MiqtVirtualQHBoxPlotModelMapper();
+	return new MiqtVirtualQHBoxPlotModelMapper();
 }
 
 QHBoxPlotModelMapper* QHBoxPlotModelMapper_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQHBoxPlotModelMapper(parent);
+	return new MiqtVirtualQHBoxPlotModelMapper(parent);
 }
 
 void QHBoxPlotModelMapper_virtbase(QHBoxPlotModelMapper* src, QBoxPlotModelMapper** outptr_QBoxPlotModelMapper) {
@@ -266,7 +280,7 @@ void QHBoxPlotModelMapper_seriesReplaced(QHBoxPlotModelMapper* self) {
 }
 
 void QHBoxPlotModelMapper_connect_seriesReplaced(QHBoxPlotModelMapper* self, intptr_t slot) {
-	QHBoxPlotModelMapper::connect(self, static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::seriesReplaced), self, [=]() {
+	MiqtVirtualQHBoxPlotModelMapper::connect(self, static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::seriesReplaced), self, [=]() {
 		miqt_exec_callback_QHBoxPlotModelMapper_seriesReplaced(slot);
 	});
 }
@@ -276,7 +290,7 @@ void QHBoxPlotModelMapper_modelReplaced(QHBoxPlotModelMapper* self) {
 }
 
 void QHBoxPlotModelMapper_connect_modelReplaced(QHBoxPlotModelMapper* self, intptr_t slot) {
-	QHBoxPlotModelMapper::connect(self, static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::modelReplaced), self, [=]() {
+	MiqtVirtualQHBoxPlotModelMapper::connect(self, static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::modelReplaced), self, [=]() {
 		miqt_exec_callback_QHBoxPlotModelMapper_modelReplaced(slot);
 	});
 }
@@ -286,7 +300,7 @@ void QHBoxPlotModelMapper_firstBoxSetRowChanged(QHBoxPlotModelMapper* self) {
 }
 
 void QHBoxPlotModelMapper_connect_firstBoxSetRowChanged(QHBoxPlotModelMapper* self, intptr_t slot) {
-	QHBoxPlotModelMapper::connect(self, static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::firstBoxSetRowChanged), self, [=]() {
+	MiqtVirtualQHBoxPlotModelMapper::connect(self, static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::firstBoxSetRowChanged), self, [=]() {
 		miqt_exec_callback_QHBoxPlotModelMapper_firstBoxSetRowChanged(slot);
 	});
 }
@@ -296,7 +310,7 @@ void QHBoxPlotModelMapper_lastBoxSetRowChanged(QHBoxPlotModelMapper* self) {
 }
 
 void QHBoxPlotModelMapper_connect_lastBoxSetRowChanged(QHBoxPlotModelMapper* self, intptr_t slot) {
-	QHBoxPlotModelMapper::connect(self, static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::lastBoxSetRowChanged), self, [=]() {
+	MiqtVirtualQHBoxPlotModelMapper::connect(self, static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::lastBoxSetRowChanged), self, [=]() {
 		miqt_exec_callback_QHBoxPlotModelMapper_lastBoxSetRowChanged(slot);
 	});
 }
@@ -306,7 +320,7 @@ void QHBoxPlotModelMapper_firstColumnChanged(QHBoxPlotModelMapper* self) {
 }
 
 void QHBoxPlotModelMapper_connect_firstColumnChanged(QHBoxPlotModelMapper* self, intptr_t slot) {
-	QHBoxPlotModelMapper::connect(self, static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::firstColumnChanged), self, [=]() {
+	MiqtVirtualQHBoxPlotModelMapper::connect(self, static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::firstColumnChanged), self, [=]() {
 		miqt_exec_callback_QHBoxPlotModelMapper_firstColumnChanged(slot);
 	});
 }
@@ -316,7 +330,7 @@ void QHBoxPlotModelMapper_columnCountChanged(QHBoxPlotModelMapper* self) {
 }
 
 void QHBoxPlotModelMapper_connect_columnCountChanged(QHBoxPlotModelMapper* self, intptr_t slot) {
-	QHBoxPlotModelMapper::connect(self, static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::columnCountChanged), self, [=]() {
+	MiqtVirtualQHBoxPlotModelMapper::connect(self, static_cast<void (QHBoxPlotModelMapper::*)()>(&QHBoxPlotModelMapper::columnCountChanged), self, [=]() {
 		miqt_exec_callback_QHBoxPlotModelMapper_columnCountChanged(slot);
 	});
 }
@@ -348,13 +362,15 @@ bool QHBoxPlotModelMapper_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QHBoxPlotModelMapper_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQHBoxPlotModelMapper*>(self)->QHBoxPlotModelMapper::event(event);
+
+	return ( (MiqtVirtualQHBoxPlotModelMapper*)(self) )->QHBoxPlotModelMapper::event(event);
+
 }
 
 bool QHBoxPlotModelMapper_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -362,13 +378,15 @@ bool QHBoxPlotModelMapper_override_virtual_eventFilter(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QHBoxPlotModelMapper_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQHBoxPlotModelMapper*>(self)->QHBoxPlotModelMapper::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQHBoxPlotModelMapper*)(self) )->QHBoxPlotModelMapper::eventFilter(watched, event);
+
 }
 
 bool QHBoxPlotModelMapper_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -376,13 +394,15 @@ bool QHBoxPlotModelMapper_override_virtual_timerEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QHBoxPlotModelMapper_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQHBoxPlotModelMapper*>(self)->QHBoxPlotModelMapper::timerEvent(event);
+
+	( (MiqtVirtualQHBoxPlotModelMapper*)(self) )->QHBoxPlotModelMapper::timerEvent(event);
+
 }
 
 bool QHBoxPlotModelMapper_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -390,13 +410,15 @@ bool QHBoxPlotModelMapper_override_virtual_childEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QHBoxPlotModelMapper_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQHBoxPlotModelMapper*>(self)->QHBoxPlotModelMapper::childEvent(event);
+
+	( (MiqtVirtualQHBoxPlotModelMapper*)(self) )->QHBoxPlotModelMapper::childEvent(event);
+
 }
 
 bool QHBoxPlotModelMapper_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -404,13 +426,15 @@ bool QHBoxPlotModelMapper_override_virtual_customEvent(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QHBoxPlotModelMapper_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQHBoxPlotModelMapper*>(self)->QHBoxPlotModelMapper::customEvent(event);
+
+	( (MiqtVirtualQHBoxPlotModelMapper*)(self) )->QHBoxPlotModelMapper::customEvent(event);
+
 }
 
 bool QHBoxPlotModelMapper_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -418,13 +442,15 @@ bool QHBoxPlotModelMapper_override_virtual_connectNotify(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QHBoxPlotModelMapper_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQHBoxPlotModelMapper*>(self)->QHBoxPlotModelMapper::connectNotify(*signal);
+
+	( (MiqtVirtualQHBoxPlotModelMapper*)(self) )->QHBoxPlotModelMapper::connectNotify(*signal);
+
 }
 
 bool QHBoxPlotModelMapper_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -432,13 +458,15 @@ bool QHBoxPlotModelMapper_override_virtual_disconnectNotify(void* self, intptr_t
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QHBoxPlotModelMapper_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQHBoxPlotModelMapper*>(self)->QHBoxPlotModelMapper::disconnectNotify(*signal);
+
+	( (MiqtVirtualQHBoxPlotModelMapper*)(self) )->QHBoxPlotModelMapper::disconnectNotify(*signal);
+
 }
 
 int QHBoxPlotModelMapper_protectedbase_first(bool* _dynamic_cast_ok, const void* self) {
@@ -447,9 +475,11 @@ int QHBoxPlotModelMapper_protectedbase_first(bool* _dynamic_cast_ok, const void*
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->first();
+
 }
 
 void QHBoxPlotModelMapper_protectedbase_setFirst(bool* _dynamic_cast_ok, void* self, int first) {
@@ -458,9 +488,11 @@ void QHBoxPlotModelMapper_protectedbase_setFirst(bool* _dynamic_cast_ok, void* s
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setFirst(static_cast<int>(first));
+
 }
 
 int QHBoxPlotModelMapper_protectedbase_count(bool* _dynamic_cast_ok, const void* self) {
@@ -469,9 +501,11 @@ int QHBoxPlotModelMapper_protectedbase_count(bool* _dynamic_cast_ok, const void*
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->count();
+
 }
 
 void QHBoxPlotModelMapper_protectedbase_setCount(bool* _dynamic_cast_ok, void* self, int count) {
@@ -480,9 +514,11 @@ void QHBoxPlotModelMapper_protectedbase_setCount(bool* _dynamic_cast_ok, void* s
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setCount(static_cast<int>(count));
+
 }
 
 int QHBoxPlotModelMapper_protectedbase_firstBoxSetSection(bool* _dynamic_cast_ok, const void* self) {
@@ -491,9 +527,11 @@ int QHBoxPlotModelMapper_protectedbase_firstBoxSetSection(bool* _dynamic_cast_ok
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->firstBoxSetSection();
+
 }
 
 void QHBoxPlotModelMapper_protectedbase_setFirstBoxSetSection(bool* _dynamic_cast_ok, void* self, int firstBoxSetSection) {
@@ -502,9 +540,11 @@ void QHBoxPlotModelMapper_protectedbase_setFirstBoxSetSection(bool* _dynamic_cas
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setFirstBoxSetSection(static_cast<int>(firstBoxSetSection));
+
 }
 
 int QHBoxPlotModelMapper_protectedbase_lastBoxSetSection(bool* _dynamic_cast_ok, const void* self) {
@@ -513,9 +553,11 @@ int QHBoxPlotModelMapper_protectedbase_lastBoxSetSection(bool* _dynamic_cast_ok,
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->lastBoxSetSection();
+
 }
 
 void QHBoxPlotModelMapper_protectedbase_setLastBoxSetSection(bool* _dynamic_cast_ok, void* self, int lastBoxSetSection) {
@@ -524,9 +566,11 @@ void QHBoxPlotModelMapper_protectedbase_setLastBoxSetSection(bool* _dynamic_cast
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setLastBoxSetSection(static_cast<int>(lastBoxSetSection));
+
 }
 
 int QHBoxPlotModelMapper_protectedbase_orientation(bool* _dynamic_cast_ok, const void* self) {
@@ -535,10 +579,12 @@ int QHBoxPlotModelMapper_protectedbase_orientation(bool* _dynamic_cast_ok, const
 		*_dynamic_cast_ok = false;
 		return (int)(0);
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	Qt::Orientation _ret = self_cast->orientation();
 	return static_cast<int>(_ret);
+
 }
 
 void QHBoxPlotModelMapper_protectedbase_setOrientation(bool* _dynamic_cast_ok, void* self, int orientation) {
@@ -547,9 +593,11 @@ void QHBoxPlotModelMapper_protectedbase_setOrientation(bool* _dynamic_cast_ok, v
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setOrientation(static_cast<Qt::Orientation>(orientation));
+
 }
 
 QObject* QHBoxPlotModelMapper_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -558,9 +606,11 @@ QObject* QHBoxPlotModelMapper_protectedbase_sender(bool* _dynamic_cast_ok, const
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QHBoxPlotModelMapper_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -569,9 +619,11 @@ int QHBoxPlotModelMapper_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok,
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QHBoxPlotModelMapper_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -580,9 +632,11 @@ int QHBoxPlotModelMapper_protectedbase_receivers(bool* _dynamic_cast_ok, const v
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QHBoxPlotModelMapper_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -591,9 +645,11 @@ bool QHBoxPlotModelMapper_protectedbase_isSignalConnected(bool* _dynamic_cast_ok
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QHBoxPlotModelMapper_delete(QHBoxPlotModelMapper* self) {

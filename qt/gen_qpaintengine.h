@@ -64,7 +64,6 @@ double QTextItem_width(const QTextItem* self);
 int QTextItem_renderFlags(const QTextItem* self);
 struct miqt_string QTextItem_text(const QTextItem* self);
 QFont* QTextItem_font(const QTextItem* self);
-
 void QTextItem_delete(QTextItem* self);
 
 QPaintEngine* QPaintEngine_new();
@@ -105,7 +104,6 @@ bool QPaintEngine_hasFeature(const QPaintEngine* self, int feature);
 QPainter* QPaintEngine_painter(const QPaintEngine* self);
 void QPaintEngine_syncState(QPaintEngine* self);
 bool QPaintEngine_isExtended(const QPaintEngine* self);
-
 bool QPaintEngine_override_virtual_begin(void* self, intptr_t slot);
 bool QPaintEngine_virtualbase_begin(void* self, QPaintDevice* pdev);
 bool QPaintEngine_override_virtual_end(void* self, intptr_t slot);
@@ -146,7 +144,6 @@ bool QPaintEngine_override_virtual_coordinateOffset(void* self, intptr_t slot);
 QPoint* QPaintEngine_virtualbase_coordinateOffset(const void* self);
 bool QPaintEngine_override_virtual_type(void* self, intptr_t slot);
 int QPaintEngine_virtualbase_type(const void* self);
-
 void QPaintEngine_delete(QPaintEngine* self);
 
 int QPaintEngineState_state(const QPaintEngineState* self);
@@ -168,7 +165,6 @@ double QPaintEngineState_opacity(const QPaintEngineState* self);
 QPainter* QPaintEngineState_painter(const QPaintEngineState* self);
 bool QPaintEngineState_brushNeedsResolving(const QPaintEngineState* self);
 bool QPaintEngineState_penNeedsResolving(const QPaintEngineState* self);
-
 void QPaintEngineState_delete(QPaintEngineState* self);
 
 #ifdef __cplusplus

@@ -35,8 +35,8 @@ void miqt_exec_callback_QCategoryAxis_disconnectNotify(QCategoryAxis*, intptr_t,
 class MiqtVirtualQCategoryAxis final : public QCategoryAxis {
 public:
 
-	MiqtVirtualQCategoryAxis(): QCategoryAxis() {}
-	MiqtVirtualQCategoryAxis(QObject* parent): QCategoryAxis(parent) {}
+	MiqtVirtualQCategoryAxis(): QCategoryAxis() {};
+	MiqtVirtualQCategoryAxis(QObject* parent): QCategoryAxis(parent) {};
 
 	virtual ~MiqtVirtualQCategoryAxis() override = default;
 
@@ -48,8 +48,10 @@ public:
 		if (handle__type == 0) {
 			return QCategoryAxis::type();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QCategoryAxis_type(this, handle__type);
+
 		return static_cast<QAbstractAxis::AxisType>(callback_return_value);
 	}
 
@@ -63,9 +65,11 @@ public:
 		if (handle__event == 0) {
 			return QCategoryAxis::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QCategoryAxis_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -79,10 +83,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QCategoryAxis::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QCategoryAxis_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -97,10 +103,12 @@ public:
 			QCategoryAxis::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QCategoryAxis_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QCategoryAxis_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -114,10 +122,12 @@ public:
 			QCategoryAxis::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QCategoryAxis_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QCategoryAxis_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -131,10 +141,12 @@ public:
 			QCategoryAxis::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QCategoryAxis_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QCategoryAxis_virtualbase_customEvent(void* self, QEvent* event);
@@ -148,12 +160,14 @@ public:
 			QCategoryAxis::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QCategoryAxis_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QCategoryAxis_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -167,12 +181,14 @@ public:
 			QCategoryAxis::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QCategoryAxis_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QCategoryAxis_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -185,11 +201,11 @@ public:
 };
 
 QCategoryAxis* QCategoryAxis_new() {
-	return new (std::nothrow) MiqtVirtualQCategoryAxis();
+	return new MiqtVirtualQCategoryAxis();
 }
 
 QCategoryAxis* QCategoryAxis_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQCategoryAxis(parent);
+	return new MiqtVirtualQCategoryAxis(parent);
 }
 
 void QCategoryAxis_virtbase(QCategoryAxis* src, QValueAxis** outptr_QValueAxis) {
@@ -289,7 +305,7 @@ void QCategoryAxis_categoriesChanged(QCategoryAxis* self) {
 }
 
 void QCategoryAxis_connect_categoriesChanged(QCategoryAxis* self, intptr_t slot) {
-	QCategoryAxis::connect(self, static_cast<void (QCategoryAxis::*)()>(&QCategoryAxis::categoriesChanged), self, [=]() {
+	MiqtVirtualQCategoryAxis::connect(self, static_cast<void (QCategoryAxis::*)()>(&QCategoryAxis::categoriesChanged), self, [=]() {
 		miqt_exec_callback_QCategoryAxis_categoriesChanged(slot);
 	});
 }
@@ -299,7 +315,7 @@ void QCategoryAxis_labelsPositionChanged(QCategoryAxis* self, int position) {
 }
 
 void QCategoryAxis_connect_labelsPositionChanged(QCategoryAxis* self, intptr_t slot) {
-	QCategoryAxis::connect(self, static_cast<void (QCategoryAxis::*)(QCategoryAxis::AxisLabelsPosition)>(&QCategoryAxis::labelsPositionChanged), self, [=](QCategoryAxis::AxisLabelsPosition position) {
+	MiqtVirtualQCategoryAxis::connect(self, static_cast<void (QCategoryAxis::*)(QCategoryAxis::AxisLabelsPosition)>(&QCategoryAxis::labelsPositionChanged), self, [=](QCategoryAxis::AxisLabelsPosition position) {
 		QCategoryAxis::AxisLabelsPosition position_ret = position;
 		int sigval1 = static_cast<int>(position_ret);
 		miqt_exec_callback_QCategoryAxis_labelsPositionChanged(slot, sigval1);
@@ -339,14 +355,16 @@ bool QCategoryAxis_override_virtual_type(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__type = slot;
 	return true;
 }
 
 int QCategoryAxis_virtualbase_type(const void* self) {
-	MiqtVirtualQCategoryAxis::AxisType _ret = static_cast<const MiqtVirtualQCategoryAxis*>(self)->QCategoryAxis::type();
+
+	MiqtVirtualQCategoryAxis::AxisType _ret = ( (const MiqtVirtualQCategoryAxis*)(self) )->QCategoryAxis::type();
 	return static_cast<int>(_ret);
+
 }
 
 bool QCategoryAxis_override_virtual_event(void* self, intptr_t slot) {
@@ -354,13 +372,15 @@ bool QCategoryAxis_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QCategoryAxis_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQCategoryAxis*>(self)->QCategoryAxis::event(event);
+
+	return ( (MiqtVirtualQCategoryAxis*)(self) )->QCategoryAxis::event(event);
+
 }
 
 bool QCategoryAxis_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -368,13 +388,15 @@ bool QCategoryAxis_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QCategoryAxis_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQCategoryAxis*>(self)->QCategoryAxis::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQCategoryAxis*)(self) )->QCategoryAxis::eventFilter(watched, event);
+
 }
 
 bool QCategoryAxis_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -382,13 +404,15 @@ bool QCategoryAxis_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QCategoryAxis_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQCategoryAxis*>(self)->QCategoryAxis::timerEvent(event);
+
+	( (MiqtVirtualQCategoryAxis*)(self) )->QCategoryAxis::timerEvent(event);
+
 }
 
 bool QCategoryAxis_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -396,13 +420,15 @@ bool QCategoryAxis_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QCategoryAxis_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQCategoryAxis*>(self)->QCategoryAxis::childEvent(event);
+
+	( (MiqtVirtualQCategoryAxis*)(self) )->QCategoryAxis::childEvent(event);
+
 }
 
 bool QCategoryAxis_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -410,13 +436,15 @@ bool QCategoryAxis_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QCategoryAxis_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQCategoryAxis*>(self)->QCategoryAxis::customEvent(event);
+
+	( (MiqtVirtualQCategoryAxis*)(self) )->QCategoryAxis::customEvent(event);
+
 }
 
 bool QCategoryAxis_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -424,13 +452,15 @@ bool QCategoryAxis_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QCategoryAxis_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQCategoryAxis*>(self)->QCategoryAxis::connectNotify(*signal);
+
+	( (MiqtVirtualQCategoryAxis*)(self) )->QCategoryAxis::connectNotify(*signal);
+
 }
 
 bool QCategoryAxis_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -438,13 +468,15 @@ bool QCategoryAxis_override_virtual_disconnectNotify(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QCategoryAxis_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQCategoryAxis*>(self)->QCategoryAxis::disconnectNotify(*signal);
+
+	( (MiqtVirtualQCategoryAxis*)(self) )->QCategoryAxis::disconnectNotify(*signal);
+
 }
 
 QObject* QCategoryAxis_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -453,9 +485,11 @@ QObject* QCategoryAxis_protectedbase_sender(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QCategoryAxis_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -464,9 +498,11 @@ int QCategoryAxis_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QCategoryAxis_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -475,9 +511,11 @@ int QCategoryAxis_protectedbase_receivers(bool* _dynamic_cast_ok, const void* se
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QCategoryAxis_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -486,9 +524,11 @@ bool QCategoryAxis_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QCategoryAxis_delete(QCategoryAxis* self) {

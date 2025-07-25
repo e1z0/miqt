@@ -122,12 +122,12 @@ void miqt_exec_callback_QWebEngineView_disconnectNotify(QWebEngineView*, intptr_
 class MiqtVirtualQWebEngineView final : public QWebEngineView {
 public:
 
-	MiqtVirtualQWebEngineView(QWidget* parent): QWebEngineView(parent) {}
-	MiqtVirtualQWebEngineView(): QWebEngineView() {}
-	MiqtVirtualQWebEngineView(QWebEngineProfile* profile): QWebEngineView(profile) {}
-	MiqtVirtualQWebEngineView(QWebEnginePage* page): QWebEngineView(page) {}
-	MiqtVirtualQWebEngineView(QWebEngineProfile* profile, QWidget* parent): QWebEngineView(profile, parent) {}
-	MiqtVirtualQWebEngineView(QWebEnginePage* page, QWidget* parent): QWebEngineView(page, parent) {}
+	MiqtVirtualQWebEngineView(QWidget* parent): QWebEngineView(parent) {};
+	MiqtVirtualQWebEngineView(): QWebEngineView() {};
+	MiqtVirtualQWebEngineView(QWebEngineProfile* profile): QWebEngineView(profile) {};
+	MiqtVirtualQWebEngineView(QWebEnginePage* page): QWebEngineView(page) {};
+	MiqtVirtualQWebEngineView(QWebEngineProfile* profile, QWidget* parent): QWebEngineView(profile, parent) {};
+	MiqtVirtualQWebEngineView(QWebEnginePage* page, QWidget* parent): QWebEngineView(page, parent) {};
 
 	virtual ~MiqtVirtualQWebEngineView() override = default;
 
@@ -139,8 +139,10 @@ public:
 		if (handle__sizeHint == 0) {
 			return QWebEngineView::sizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_QWebEngineView_sizeHint(this, handle__sizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -154,10 +156,12 @@ public:
 		if (handle__createWindow == 0) {
 			return QWebEngineView::createWindow(type);
 		}
-
+		
 		QWebEnginePage::WebWindowType type_ret = type;
 		int sigval1 = static_cast<int>(type_ret);
+
 		QWebEngineView* callback_return_value = miqt_exec_callback_QWebEngineView_createWindow(this, handle__createWindow, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -172,10 +176,12 @@ public:
 			QWebEngineView::contextMenuEvent(param1);
 			return;
 		}
-
+		
 		QContextMenuEvent* sigval1 = param1;
+
 		miqt_exec_callback_QWebEngineView_contextMenuEvent(this, handle__contextMenuEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_contextMenuEvent(void* self, QContextMenuEvent* param1);
@@ -188,9 +194,11 @@ public:
 		if (handle__event == 0) {
 			return QWebEngineView::event(param1);
 		}
-
+		
 		QEvent* sigval1 = param1;
+
 		bool callback_return_value = miqt_exec_callback_QWebEngineView_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -205,10 +213,12 @@ public:
 			QWebEngineView::showEvent(param1);
 			return;
 		}
-
+		
 		QShowEvent* sigval1 = param1;
+
 		miqt_exec_callback_QWebEngineView_showEvent(this, handle__showEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_showEvent(void* self, QShowEvent* param1);
@@ -222,10 +232,12 @@ public:
 			QWebEngineView::hideEvent(param1);
 			return;
 		}
-
+		
 		QHideEvent* sigval1 = param1;
+
 		miqt_exec_callback_QWebEngineView_hideEvent(this, handle__hideEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_hideEvent(void* self, QHideEvent* param1);
@@ -239,10 +251,12 @@ public:
 			QWebEngineView::closeEvent(param1);
 			return;
 		}
-
+		
 		QCloseEvent* sigval1 = param1;
+
 		miqt_exec_callback_QWebEngineView_closeEvent(this, handle__closeEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_closeEvent(void* self, QCloseEvent* param1);
@@ -256,10 +270,12 @@ public:
 			QWebEngineView::dragEnterEvent(e);
 			return;
 		}
-
+		
 		QDragEnterEvent* sigval1 = e;
+
 		miqt_exec_callback_QWebEngineView_dragEnterEvent(this, handle__dragEnterEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_dragEnterEvent(void* self, QDragEnterEvent* e);
@@ -273,10 +289,12 @@ public:
 			QWebEngineView::dragLeaveEvent(e);
 			return;
 		}
-
+		
 		QDragLeaveEvent* sigval1 = e;
+
 		miqt_exec_callback_QWebEngineView_dragLeaveEvent(this, handle__dragLeaveEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_dragLeaveEvent(void* self, QDragLeaveEvent* e);
@@ -290,10 +308,12 @@ public:
 			QWebEngineView::dragMoveEvent(e);
 			return;
 		}
-
+		
 		QDragMoveEvent* sigval1 = e;
+
 		miqt_exec_callback_QWebEngineView_dragMoveEvent(this, handle__dragMoveEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_dragMoveEvent(void* self, QDragMoveEvent* e);
@@ -307,10 +327,12 @@ public:
 			QWebEngineView::dropEvent(e);
 			return;
 		}
-
+		
 		QDropEvent* sigval1 = e;
+
 		miqt_exec_callback_QWebEngineView_dropEvent(this, handle__dropEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_dropEvent(void* self, QDropEvent* e);
@@ -323,8 +345,10 @@ public:
 		if (handle__devType == 0) {
 			return QWebEngineView::devType();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QWebEngineView_devType(this, handle__devType);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -339,10 +363,12 @@ public:
 			QWebEngineView::setVisible(visible);
 			return;
 		}
-
+		
 		bool sigval1 = visible;
+
 		miqt_exec_callback_QWebEngineView_setVisible(this, handle__setVisible, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_setVisible(void* self, bool visible);
@@ -355,8 +381,10 @@ public:
 		if (handle__minimumSizeHint == 0) {
 			return QWebEngineView::minimumSizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_QWebEngineView_minimumSizeHint(this, handle__minimumSizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -370,9 +398,11 @@ public:
 		if (handle__heightForWidth == 0) {
 			return QWebEngineView::heightForWidth(param1);
 		}
-
+		
 		int sigval1 = param1;
+
 		int callback_return_value = miqt_exec_callback_QWebEngineView_heightForWidth(this, handle__heightForWidth, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -386,8 +416,10 @@ public:
 		if (handle__hasHeightForWidth == 0) {
 			return QWebEngineView::hasHeightForWidth();
 		}
+		
 
 		bool callback_return_value = miqt_exec_callback_QWebEngineView_hasHeightForWidth(this, handle__hasHeightForWidth);
+
 		return callback_return_value;
 	}
 
@@ -401,8 +433,10 @@ public:
 		if (handle__paintEngine == 0) {
 			return QWebEngineView::paintEngine();
 		}
+		
 
 		QPaintEngine* callback_return_value = miqt_exec_callback_QWebEngineView_paintEngine(this, handle__paintEngine);
+
 		return callback_return_value;
 	}
 
@@ -417,10 +451,12 @@ public:
 			QWebEngineView::mousePressEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_mousePressEvent(this, handle__mousePressEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_mousePressEvent(void* self, QMouseEvent* event);
@@ -434,10 +470,12 @@ public:
 			QWebEngineView::mouseReleaseEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_mouseReleaseEvent(this, handle__mouseReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_mouseReleaseEvent(void* self, QMouseEvent* event);
@@ -451,10 +489,12 @@ public:
 			QWebEngineView::mouseDoubleClickEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_mouseDoubleClickEvent(this, handle__mouseDoubleClickEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_mouseDoubleClickEvent(void* self, QMouseEvent* event);
@@ -468,10 +508,12 @@ public:
 			QWebEngineView::mouseMoveEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_mouseMoveEvent(this, handle__mouseMoveEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_mouseMoveEvent(void* self, QMouseEvent* event);
@@ -485,10 +527,12 @@ public:
 			QWebEngineView::wheelEvent(event);
 			return;
 		}
-
+		
 		QWheelEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_wheelEvent(this, handle__wheelEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_wheelEvent(void* self, QWheelEvent* event);
@@ -502,10 +546,12 @@ public:
 			QWebEngineView::keyPressEvent(event);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_keyPressEvent(this, handle__keyPressEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_keyPressEvent(void* self, QKeyEvent* event);
@@ -519,10 +565,12 @@ public:
 			QWebEngineView::keyReleaseEvent(event);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_keyReleaseEvent(this, handle__keyReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_keyReleaseEvent(void* self, QKeyEvent* event);
@@ -536,10 +584,12 @@ public:
 			QWebEngineView::focusInEvent(event);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_focusInEvent(this, handle__focusInEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_focusInEvent(void* self, QFocusEvent* event);
@@ -553,10 +603,12 @@ public:
 			QWebEngineView::focusOutEvent(event);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_focusOutEvent(this, handle__focusOutEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_focusOutEvent(void* self, QFocusEvent* event);
@@ -570,10 +622,12 @@ public:
 			QWebEngineView::enterEvent(event);
 			return;
 		}
-
+		
 		QEnterEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_enterEvent(this, handle__enterEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_enterEvent(void* self, QEnterEvent* event);
@@ -587,10 +641,12 @@ public:
 			QWebEngineView::leaveEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_leaveEvent(this, handle__leaveEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_leaveEvent(void* self, QEvent* event);
@@ -604,10 +660,12 @@ public:
 			QWebEngineView::paintEvent(event);
 			return;
 		}
-
+		
 		QPaintEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_paintEvent(this, handle__paintEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_paintEvent(void* self, QPaintEvent* event);
@@ -621,10 +679,12 @@ public:
 			QWebEngineView::moveEvent(event);
 			return;
 		}
-
+		
 		QMoveEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_moveEvent(this, handle__moveEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_moveEvent(void* self, QMoveEvent* event);
@@ -638,10 +698,12 @@ public:
 			QWebEngineView::resizeEvent(event);
 			return;
 		}
-
+		
 		QResizeEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_resizeEvent(this, handle__resizeEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_resizeEvent(void* self, QResizeEvent* event);
@@ -655,10 +717,12 @@ public:
 			QWebEngineView::tabletEvent(event);
 			return;
 		}
-
+		
 		QTabletEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_tabletEvent(this, handle__tabletEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_tabletEvent(void* self, QTabletEvent* event);
@@ -672,10 +736,12 @@ public:
 			QWebEngineView::actionEvent(event);
 			return;
 		}
-
+		
 		QActionEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_actionEvent(this, handle__actionEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_actionEvent(void* self, QActionEvent* event);
@@ -688,7 +754,7 @@ public:
 		if (handle__nativeEvent == 0) {
 			return QWebEngineView::nativeEvent(eventType, message, result);
 		}
-
+		
 		const QByteArray eventType_qb = eventType;
 		struct miqt_string eventType_ms;
 		eventType_ms.len = eventType_qb.length();
@@ -698,7 +764,9 @@ public:
 		void* sigval2 = message;
 		qintptr* result_ret = result;
 		intptr_t* sigval3 = (intptr_t*)(result_ret);
+
 		bool callback_return_value = miqt_exec_callback_QWebEngineView_nativeEvent(this, handle__nativeEvent, sigval1, sigval2, sigval3);
+
 		return callback_return_value;
 	}
 
@@ -713,10 +781,12 @@ public:
 			QWebEngineView::changeEvent(param1);
 			return;
 		}
-
+		
 		QEvent* sigval1 = param1;
+
 		miqt_exec_callback_QWebEngineView_changeEvent(this, handle__changeEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_changeEvent(void* self, QEvent* param1);
@@ -729,10 +799,12 @@ public:
 		if (handle__metric == 0) {
 			return QWebEngineView::metric(param1);
 		}
-
+		
 		QPaintDevice::PaintDeviceMetric param1_ret = param1;
 		int sigval1 = static_cast<int>(param1_ret);
+
 		int callback_return_value = miqt_exec_callback_QWebEngineView_metric(this, handle__metric, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -747,10 +819,12 @@ public:
 			QWebEngineView::initPainter(painter);
 			return;
 		}
-
+		
 		QPainter* sigval1 = painter;
+
 		miqt_exec_callback_QWebEngineView_initPainter(this, handle__initPainter, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_initPainter(const void* self, QPainter* painter);
@@ -763,9 +837,11 @@ public:
 		if (handle__redirected == 0) {
 			return QWebEngineView::redirected(offset);
 		}
-
+		
 		QPoint* sigval1 = offset;
+
 		QPaintDevice* callback_return_value = miqt_exec_callback_QWebEngineView_redirected(this, handle__redirected, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -779,8 +855,10 @@ public:
 		if (handle__sharedPainter == 0) {
 			return QWebEngineView::sharedPainter();
 		}
+		
 
 		QPainter* callback_return_value = miqt_exec_callback_QWebEngineView_sharedPainter(this, handle__sharedPainter);
+
 		return callback_return_value;
 	}
 
@@ -795,10 +873,12 @@ public:
 			QWebEngineView::inputMethodEvent(param1);
 			return;
 		}
-
+		
 		QInputMethodEvent* sigval1 = param1;
+
 		miqt_exec_callback_QWebEngineView_inputMethodEvent(this, handle__inputMethodEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* param1);
@@ -811,10 +891,12 @@ public:
 		if (handle__inputMethodQuery == 0) {
 			return QWebEngineView::inputMethodQuery(param1);
 		}
-
+		
 		Qt::InputMethodQuery param1_ret = param1;
 		int sigval1 = static_cast<int>(param1_ret);
+
 		QVariant* callback_return_value = miqt_exec_callback_QWebEngineView_inputMethodQuery(this, handle__inputMethodQuery, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -828,9 +910,11 @@ public:
 		if (handle__focusNextPrevChild == 0) {
 			return QWebEngineView::focusNextPrevChild(next);
 		}
-
+		
 		bool sigval1 = next;
+
 		bool callback_return_value = miqt_exec_callback_QWebEngineView_focusNextPrevChild(this, handle__focusNextPrevChild, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -844,10 +928,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QWebEngineView::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QWebEngineView_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -862,10 +948,12 @@ public:
 			QWebEngineView::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -879,10 +967,12 @@ public:
 			QWebEngineView::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -896,10 +986,12 @@ public:
 			QWebEngineView::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineView_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_customEvent(void* self, QEvent* event);
@@ -913,12 +1005,14 @@ public:
 			QWebEngineView::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QWebEngineView_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -932,12 +1026,14 @@ public:
 			QWebEngineView::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QWebEngineView_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QWebEngineView_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -955,27 +1051,27 @@ public:
 };
 
 QWebEngineView* QWebEngineView_new(QWidget* parent) {
-	return new (std::nothrow) MiqtVirtualQWebEngineView(parent);
+	return new MiqtVirtualQWebEngineView(parent);
 }
 
 QWebEngineView* QWebEngineView_new2() {
-	return new (std::nothrow) MiqtVirtualQWebEngineView();
+	return new MiqtVirtualQWebEngineView();
 }
 
 QWebEngineView* QWebEngineView_new3(QWebEngineProfile* profile) {
-	return new (std::nothrow) MiqtVirtualQWebEngineView(profile);
+	return new MiqtVirtualQWebEngineView(profile);
 }
 
 QWebEngineView* QWebEngineView_new4(QWebEnginePage* page) {
-	return new (std::nothrow) MiqtVirtualQWebEngineView(page);
+	return new MiqtVirtualQWebEngineView(page);
 }
 
 QWebEngineView* QWebEngineView_new5(QWebEngineProfile* profile, QWidget* parent) {
-	return new (std::nothrow) MiqtVirtualQWebEngineView(profile, parent);
+	return new MiqtVirtualQWebEngineView(profile, parent);
 }
 
 QWebEngineView* QWebEngineView_new6(QWebEnginePage* page, QWidget* parent) {
-	return new (std::nothrow) MiqtVirtualQWebEngineView(page, parent);
+	return new MiqtVirtualQWebEngineView(page, parent);
 }
 
 void QWebEngineView_virtbase(QWebEngineView* src, QWidget** outptr_QWidget) {
@@ -1140,7 +1236,7 @@ void QWebEngineView_loadStarted(QWebEngineView* self) {
 }
 
 void QWebEngineView_connect_loadStarted(QWebEngineView* self, intptr_t slot) {
-	QWebEngineView::connect(self, static_cast<void (QWebEngineView::*)()>(&QWebEngineView::loadStarted), self, [=]() {
+	MiqtVirtualQWebEngineView::connect(self, static_cast<void (QWebEngineView::*)()>(&QWebEngineView::loadStarted), self, [=]() {
 		miqt_exec_callback_QWebEngineView_loadStarted(slot);
 	});
 }
@@ -1150,7 +1246,7 @@ void QWebEngineView_loadProgress(QWebEngineView* self, int progress) {
 }
 
 void QWebEngineView_connect_loadProgress(QWebEngineView* self, intptr_t slot) {
-	QWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(int)>(&QWebEngineView::loadProgress), self, [=](int progress) {
+	MiqtVirtualQWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(int)>(&QWebEngineView::loadProgress), self, [=](int progress) {
 		int sigval1 = progress;
 		miqt_exec_callback_QWebEngineView_loadProgress(slot, sigval1);
 	});
@@ -1161,7 +1257,7 @@ void QWebEngineView_loadFinished(QWebEngineView* self, bool param1) {
 }
 
 void QWebEngineView_connect_loadFinished(QWebEngineView* self, intptr_t slot) {
-	QWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(bool)>(&QWebEngineView::loadFinished), self, [=](bool param1) {
+	MiqtVirtualQWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(bool)>(&QWebEngineView::loadFinished), self, [=](bool param1) {
 		bool sigval1 = param1;
 		miqt_exec_callback_QWebEngineView_loadFinished(slot, sigval1);
 	});
@@ -1173,7 +1269,7 @@ void QWebEngineView_titleChanged(QWebEngineView* self, struct miqt_string title)
 }
 
 void QWebEngineView_connect_titleChanged(QWebEngineView* self, intptr_t slot) {
-	QWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(const QString&)>(&QWebEngineView::titleChanged), self, [=](const QString& title) {
+	MiqtVirtualQWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(const QString&)>(&QWebEngineView::titleChanged), self, [=](const QString& title) {
 		const QString title_ret = title;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray title_b = title_ret.toUtf8();
@@ -1191,7 +1287,7 @@ void QWebEngineView_selectionChanged(QWebEngineView* self) {
 }
 
 void QWebEngineView_connect_selectionChanged(QWebEngineView* self, intptr_t slot) {
-	QWebEngineView::connect(self, static_cast<void (QWebEngineView::*)()>(&QWebEngineView::selectionChanged), self, [=]() {
+	MiqtVirtualQWebEngineView::connect(self, static_cast<void (QWebEngineView::*)()>(&QWebEngineView::selectionChanged), self, [=]() {
 		miqt_exec_callback_QWebEngineView_selectionChanged(slot);
 	});
 }
@@ -1201,7 +1297,7 @@ void QWebEngineView_urlChanged(QWebEngineView* self, QUrl* param1) {
 }
 
 void QWebEngineView_connect_urlChanged(QWebEngineView* self, intptr_t slot) {
-	QWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(const QUrl&)>(&QWebEngineView::urlChanged), self, [=](const QUrl& param1) {
+	MiqtVirtualQWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(const QUrl&)>(&QWebEngineView::urlChanged), self, [=](const QUrl& param1) {
 		const QUrl& param1_ret = param1;
 		// Cast returned reference into pointer
 		QUrl* sigval1 = const_cast<QUrl*>(&param1_ret);
@@ -1214,7 +1310,7 @@ void QWebEngineView_iconUrlChanged(QWebEngineView* self, QUrl* param1) {
 }
 
 void QWebEngineView_connect_iconUrlChanged(QWebEngineView* self, intptr_t slot) {
-	QWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(const QUrl&)>(&QWebEngineView::iconUrlChanged), self, [=](const QUrl& param1) {
+	MiqtVirtualQWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(const QUrl&)>(&QWebEngineView::iconUrlChanged), self, [=](const QUrl& param1) {
 		const QUrl& param1_ret = param1;
 		// Cast returned reference into pointer
 		QUrl* sigval1 = const_cast<QUrl*>(&param1_ret);
@@ -1227,7 +1323,7 @@ void QWebEngineView_iconChanged(QWebEngineView* self, QIcon* param1) {
 }
 
 void QWebEngineView_connect_iconChanged(QWebEngineView* self, intptr_t slot) {
-	QWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(const QIcon&)>(&QWebEngineView::iconChanged), self, [=](const QIcon& param1) {
+	MiqtVirtualQWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(const QIcon&)>(&QWebEngineView::iconChanged), self, [=](const QIcon& param1) {
 		const QIcon& param1_ret = param1;
 		// Cast returned reference into pointer
 		QIcon* sigval1 = const_cast<QIcon*>(&param1_ret);
@@ -1240,7 +1336,7 @@ void QWebEngineView_renderProcessTerminated(QWebEngineView* self, int terminatio
 }
 
 void QWebEngineView_connect_renderProcessTerminated(QWebEngineView* self, intptr_t slot) {
-	QWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(QWebEnginePage::RenderProcessTerminationStatus, int)>(&QWebEngineView::renderProcessTerminated), self, [=](QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode) {
+	MiqtVirtualQWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(QWebEnginePage::RenderProcessTerminationStatus, int)>(&QWebEngineView::renderProcessTerminated), self, [=](QWebEnginePage::RenderProcessTerminationStatus terminationStatus, int exitCode) {
 		QWebEnginePage::RenderProcessTerminationStatus terminationStatus_ret = terminationStatus;
 		int sigval1 = static_cast<int>(terminationStatus_ret);
 		int sigval2 = exitCode;
@@ -1254,7 +1350,7 @@ void QWebEngineView_pdfPrintingFinished(QWebEngineView* self, struct miqt_string
 }
 
 void QWebEngineView_connect_pdfPrintingFinished(QWebEngineView* self, intptr_t slot) {
-	QWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(const QString&, bool)>(&QWebEngineView::pdfPrintingFinished), self, [=](const QString& filePath, bool success) {
+	MiqtVirtualQWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(const QString&, bool)>(&QWebEngineView::pdfPrintingFinished), self, [=](const QString& filePath, bool success) {
 		const QString filePath_ret = filePath;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray filePath_b = filePath_ret.toUtf8();
@@ -1273,7 +1369,7 @@ void QWebEngineView_printRequested(QWebEngineView* self) {
 }
 
 void QWebEngineView_connect_printRequested(QWebEngineView* self, intptr_t slot) {
-	QWebEngineView::connect(self, static_cast<void (QWebEngineView::*)()>(&QWebEngineView::printRequested), self, [=]() {
+	MiqtVirtualQWebEngineView::connect(self, static_cast<void (QWebEngineView::*)()>(&QWebEngineView::printRequested), self, [=]() {
 		miqt_exec_callback_QWebEngineView_printRequested(slot);
 	});
 }
@@ -1283,7 +1379,7 @@ void QWebEngineView_printFinished(QWebEngineView* self, bool success) {
 }
 
 void QWebEngineView_connect_printFinished(QWebEngineView* self, intptr_t slot) {
-	QWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(bool)>(&QWebEngineView::printFinished), self, [=](bool success) {
+	MiqtVirtualQWebEngineView::connect(self, static_cast<void (QWebEngineView::*)(bool)>(&QWebEngineView::printFinished), self, [=](bool success) {
 		bool sigval1 = success;
 		miqt_exec_callback_QWebEngineView_printFinished(slot, sigval1);
 	});
@@ -1347,13 +1443,15 @@ bool QWebEngineView_override_virtual_sizeHint(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sizeHint = slot;
 	return true;
 }
 
 QSize* QWebEngineView_virtualbase_sizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualQWebEngineView*>(self)->QWebEngineView::sizeHint());
+
+	return new QSize(( (const MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::sizeHint());
+
 }
 
 bool QWebEngineView_override_virtual_createWindow(void* self, intptr_t slot) {
@@ -1361,13 +1459,15 @@ bool QWebEngineView_override_virtual_createWindow(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__createWindow = slot;
 	return true;
 }
 
 QWebEngineView* QWebEngineView_virtualbase_createWindow(void* self, int type) {
-	return static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::createWindow(static_cast<QWebEnginePage::WebWindowType>(type));
+
+	return ( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::createWindow(static_cast<QWebEnginePage::WebWindowType>(type));
+
 }
 
 bool QWebEngineView_override_virtual_contextMenuEvent(void* self, intptr_t slot) {
@@ -1375,13 +1475,15 @@ bool QWebEngineView_override_virtual_contextMenuEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__contextMenuEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_contextMenuEvent(void* self, QContextMenuEvent* param1) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::contextMenuEvent(param1);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::contextMenuEvent(param1);
+
 }
 
 bool QWebEngineView_override_virtual_event(void* self, intptr_t slot) {
@@ -1389,13 +1491,15 @@ bool QWebEngineView_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QWebEngineView_virtualbase_event(void* self, QEvent* param1) {
-	return static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::event(param1);
+
+	return ( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::event(param1);
+
 }
 
 bool QWebEngineView_override_virtual_showEvent(void* self, intptr_t slot) {
@@ -1403,13 +1507,15 @@ bool QWebEngineView_override_virtual_showEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__showEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_showEvent(void* self, QShowEvent* param1) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::showEvent(param1);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::showEvent(param1);
+
 }
 
 bool QWebEngineView_override_virtual_hideEvent(void* self, intptr_t slot) {
@@ -1417,13 +1523,15 @@ bool QWebEngineView_override_virtual_hideEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hideEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_hideEvent(void* self, QHideEvent* param1) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::hideEvent(param1);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::hideEvent(param1);
+
 }
 
 bool QWebEngineView_override_virtual_closeEvent(void* self, intptr_t slot) {
@@ -1431,13 +1539,15 @@ bool QWebEngineView_override_virtual_closeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__closeEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_closeEvent(void* self, QCloseEvent* param1) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::closeEvent(param1);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::closeEvent(param1);
+
 }
 
 bool QWebEngineView_override_virtual_dragEnterEvent(void* self, intptr_t slot) {
@@ -1445,13 +1555,15 @@ bool QWebEngineView_override_virtual_dragEnterEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragEnterEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_dragEnterEvent(void* self, QDragEnterEvent* e) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::dragEnterEvent(e);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::dragEnterEvent(e);
+
 }
 
 bool QWebEngineView_override_virtual_dragLeaveEvent(void* self, intptr_t slot) {
@@ -1459,13 +1571,15 @@ bool QWebEngineView_override_virtual_dragLeaveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragLeaveEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_dragLeaveEvent(void* self, QDragLeaveEvent* e) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::dragLeaveEvent(e);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::dragLeaveEvent(e);
+
 }
 
 bool QWebEngineView_override_virtual_dragMoveEvent(void* self, intptr_t slot) {
@@ -1473,13 +1587,15 @@ bool QWebEngineView_override_virtual_dragMoveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragMoveEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_dragMoveEvent(void* self, QDragMoveEvent* e) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::dragMoveEvent(e);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::dragMoveEvent(e);
+
 }
 
 bool QWebEngineView_override_virtual_dropEvent(void* self, intptr_t slot) {
@@ -1487,13 +1603,15 @@ bool QWebEngineView_override_virtual_dropEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dropEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_dropEvent(void* self, QDropEvent* e) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::dropEvent(e);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::dropEvent(e);
+
 }
 
 bool QWebEngineView_override_virtual_devType(void* self, intptr_t slot) {
@@ -1501,13 +1619,15 @@ bool QWebEngineView_override_virtual_devType(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__devType = slot;
 	return true;
 }
 
 int QWebEngineView_virtualbase_devType(const void* self) {
-	return static_cast<const MiqtVirtualQWebEngineView*>(self)->QWebEngineView::devType();
+
+	return ( (const MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::devType();
+
 }
 
 bool QWebEngineView_override_virtual_setVisible(void* self, intptr_t slot) {
@@ -1515,13 +1635,15 @@ bool QWebEngineView_override_virtual_setVisible(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setVisible = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_setVisible(void* self, bool visible) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::setVisible(visible);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::setVisible(visible);
+
 }
 
 bool QWebEngineView_override_virtual_minimumSizeHint(void* self, intptr_t slot) {
@@ -1529,13 +1651,15 @@ bool QWebEngineView_override_virtual_minimumSizeHint(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__minimumSizeHint = slot;
 	return true;
 }
 
 QSize* QWebEngineView_virtualbase_minimumSizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualQWebEngineView*>(self)->QWebEngineView::minimumSizeHint());
+
+	return new QSize(( (const MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::minimumSizeHint());
+
 }
 
 bool QWebEngineView_override_virtual_heightForWidth(void* self, intptr_t slot) {
@@ -1543,13 +1667,15 @@ bool QWebEngineView_override_virtual_heightForWidth(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__heightForWidth = slot;
 	return true;
 }
 
 int QWebEngineView_virtualbase_heightForWidth(const void* self, int param1) {
-	return static_cast<const MiqtVirtualQWebEngineView*>(self)->QWebEngineView::heightForWidth(static_cast<int>(param1));
+
+	return ( (const MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::heightForWidth(static_cast<int>(param1));
+
 }
 
 bool QWebEngineView_override_virtual_hasHeightForWidth(void* self, intptr_t slot) {
@@ -1557,13 +1683,15 @@ bool QWebEngineView_override_virtual_hasHeightForWidth(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hasHeightForWidth = slot;
 	return true;
 }
 
 bool QWebEngineView_virtualbase_hasHeightForWidth(const void* self) {
-	return static_cast<const MiqtVirtualQWebEngineView*>(self)->QWebEngineView::hasHeightForWidth();
+
+	return ( (const MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::hasHeightForWidth();
+
 }
 
 bool QWebEngineView_override_virtual_paintEngine(void* self, intptr_t slot) {
@@ -1571,13 +1699,15 @@ bool QWebEngineView_override_virtual_paintEngine(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paintEngine = slot;
 	return true;
 }
 
 QPaintEngine* QWebEngineView_virtualbase_paintEngine(const void* self) {
-	return static_cast<const MiqtVirtualQWebEngineView*>(self)->QWebEngineView::paintEngine();
+
+	return ( (const MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::paintEngine();
+
 }
 
 bool QWebEngineView_override_virtual_mousePressEvent(void* self, intptr_t slot) {
@@ -1585,13 +1715,15 @@ bool QWebEngineView_override_virtual_mousePressEvent(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mousePressEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_mousePressEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::mousePressEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::mousePressEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_mouseReleaseEvent(void* self, intptr_t slot) {
@@ -1599,13 +1731,15 @@ bool QWebEngineView_override_virtual_mouseReleaseEvent(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseReleaseEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_mouseReleaseEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::mouseReleaseEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::mouseReleaseEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_mouseDoubleClickEvent(void* self, intptr_t slot) {
@@ -1613,13 +1747,15 @@ bool QWebEngineView_override_virtual_mouseDoubleClickEvent(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseDoubleClickEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_mouseDoubleClickEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::mouseDoubleClickEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::mouseDoubleClickEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_mouseMoveEvent(void* self, intptr_t slot) {
@@ -1627,13 +1763,15 @@ bool QWebEngineView_override_virtual_mouseMoveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseMoveEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_mouseMoveEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::mouseMoveEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::mouseMoveEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_wheelEvent(void* self, intptr_t slot) {
@@ -1641,13 +1779,15 @@ bool QWebEngineView_override_virtual_wheelEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__wheelEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_wheelEvent(void* self, QWheelEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::wheelEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::wheelEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_keyPressEvent(void* self, intptr_t slot) {
@@ -1655,13 +1795,15 @@ bool QWebEngineView_override_virtual_keyPressEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyPressEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_keyPressEvent(void* self, QKeyEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::keyPressEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::keyPressEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_keyReleaseEvent(void* self, intptr_t slot) {
@@ -1669,13 +1811,15 @@ bool QWebEngineView_override_virtual_keyReleaseEvent(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyReleaseEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_keyReleaseEvent(void* self, QKeyEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::keyReleaseEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::keyReleaseEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_focusInEvent(void* self, intptr_t slot) {
@@ -1683,13 +1827,15 @@ bool QWebEngineView_override_virtual_focusInEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusInEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_focusInEvent(void* self, QFocusEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::focusInEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::focusInEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_focusOutEvent(void* self, intptr_t slot) {
@@ -1697,13 +1843,15 @@ bool QWebEngineView_override_virtual_focusOutEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusOutEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_focusOutEvent(void* self, QFocusEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::focusOutEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::focusOutEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_enterEvent(void* self, intptr_t slot) {
@@ -1711,13 +1859,15 @@ bool QWebEngineView_override_virtual_enterEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__enterEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_enterEvent(void* self, QEnterEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::enterEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::enterEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_leaveEvent(void* self, intptr_t slot) {
@@ -1725,13 +1875,15 @@ bool QWebEngineView_override_virtual_leaveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__leaveEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_leaveEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::leaveEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::leaveEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_paintEvent(void* self, intptr_t slot) {
@@ -1739,13 +1891,15 @@ bool QWebEngineView_override_virtual_paintEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paintEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_paintEvent(void* self, QPaintEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::paintEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::paintEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_moveEvent(void* self, intptr_t slot) {
@@ -1753,13 +1907,15 @@ bool QWebEngineView_override_virtual_moveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__moveEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_moveEvent(void* self, QMoveEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::moveEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::moveEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_resizeEvent(void* self, intptr_t slot) {
@@ -1767,13 +1923,15 @@ bool QWebEngineView_override_virtual_resizeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__resizeEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_resizeEvent(void* self, QResizeEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::resizeEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::resizeEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_tabletEvent(void* self, intptr_t slot) {
@@ -1781,13 +1939,15 @@ bool QWebEngineView_override_virtual_tabletEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__tabletEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_tabletEvent(void* self, QTabletEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::tabletEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::tabletEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_actionEvent(void* self, intptr_t slot) {
@@ -1795,13 +1955,15 @@ bool QWebEngineView_override_virtual_actionEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__actionEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_actionEvent(void* self, QActionEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::actionEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::actionEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_nativeEvent(void* self, intptr_t slot) {
@@ -1809,14 +1971,16 @@ bool QWebEngineView_override_virtual_nativeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__nativeEvent = slot;
 	return true;
 }
 
 bool QWebEngineView_virtualbase_nativeEvent(void* self, struct miqt_string eventType, void* message, intptr_t* result) {
 	QByteArray eventType_QByteArray(eventType.data, eventType.len);
-	return static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+
+	return ( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::nativeEvent(eventType_QByteArray, message, (qintptr*)(result));
+
 }
 
 bool QWebEngineView_override_virtual_changeEvent(void* self, intptr_t slot) {
@@ -1824,13 +1988,15 @@ bool QWebEngineView_override_virtual_changeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__changeEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_changeEvent(void* self, QEvent* param1) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::changeEvent(param1);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::changeEvent(param1);
+
 }
 
 bool QWebEngineView_override_virtual_metric(void* self, intptr_t slot) {
@@ -1838,13 +2004,15 @@ bool QWebEngineView_override_virtual_metric(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__metric = slot;
 	return true;
 }
 
 int QWebEngineView_virtualbase_metric(const void* self, int param1) {
-	return static_cast<const MiqtVirtualQWebEngineView*>(self)->QWebEngineView::metric(static_cast<MiqtVirtualQWebEngineView::PaintDeviceMetric>(param1));
+
+	return ( (const MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::metric(static_cast<MiqtVirtualQWebEngineView::PaintDeviceMetric>(param1));
+
 }
 
 bool QWebEngineView_override_virtual_initPainter(void* self, intptr_t slot) {
@@ -1852,13 +2020,15 @@ bool QWebEngineView_override_virtual_initPainter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__initPainter = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_initPainter(const void* self, QPainter* painter) {
-	static_cast<const MiqtVirtualQWebEngineView*>(self)->QWebEngineView::initPainter(painter);
+
+	( (const MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::initPainter(painter);
+
 }
 
 bool QWebEngineView_override_virtual_redirected(void* self, intptr_t slot) {
@@ -1866,13 +2036,15 @@ bool QWebEngineView_override_virtual_redirected(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__redirected = slot;
 	return true;
 }
 
 QPaintDevice* QWebEngineView_virtualbase_redirected(const void* self, QPoint* offset) {
-	return static_cast<const MiqtVirtualQWebEngineView*>(self)->QWebEngineView::redirected(offset);
+
+	return ( (const MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::redirected(offset);
+
 }
 
 bool QWebEngineView_override_virtual_sharedPainter(void* self, intptr_t slot) {
@@ -1880,13 +2052,15 @@ bool QWebEngineView_override_virtual_sharedPainter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sharedPainter = slot;
 	return true;
 }
 
 QPainter* QWebEngineView_virtualbase_sharedPainter(const void* self) {
-	return static_cast<const MiqtVirtualQWebEngineView*>(self)->QWebEngineView::sharedPainter();
+
+	return ( (const MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::sharedPainter();
+
 }
 
 bool QWebEngineView_override_virtual_inputMethodEvent(void* self, intptr_t slot) {
@@ -1894,13 +2068,15 @@ bool QWebEngineView_override_virtual_inputMethodEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* param1) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::inputMethodEvent(param1);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::inputMethodEvent(param1);
+
 }
 
 bool QWebEngineView_override_virtual_inputMethodQuery(void* self, intptr_t slot) {
@@ -1908,13 +2084,15 @@ bool QWebEngineView_override_virtual_inputMethodQuery(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodQuery = slot;
 	return true;
 }
 
 QVariant* QWebEngineView_virtualbase_inputMethodQuery(const void* self, int param1) {
-	return new QVariant(static_cast<const MiqtVirtualQWebEngineView*>(self)->QWebEngineView::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+
+	return new QVariant(( (const MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+
 }
 
 bool QWebEngineView_override_virtual_focusNextPrevChild(void* self, intptr_t slot) {
@@ -1922,13 +2100,15 @@ bool QWebEngineView_override_virtual_focusNextPrevChild(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusNextPrevChild = slot;
 	return true;
 }
 
 bool QWebEngineView_virtualbase_focusNextPrevChild(void* self, bool next) {
-	return static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::focusNextPrevChild(next);
+
+	return ( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::focusNextPrevChild(next);
+
 }
 
 bool QWebEngineView_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -1936,13 +2116,15 @@ bool QWebEngineView_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QWebEngineView_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::eventFilter(watched, event);
+
 }
 
 bool QWebEngineView_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -1950,13 +2132,15 @@ bool QWebEngineView_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::timerEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::timerEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -1964,13 +2148,15 @@ bool QWebEngineView_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::childEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::childEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -1978,13 +2164,15 @@ bool QWebEngineView_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::customEvent(event);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::customEvent(event);
+
 }
 
 bool QWebEngineView_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -1992,13 +2180,15 @@ bool QWebEngineView_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::connectNotify(*signal);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::connectNotify(*signal);
+
 }
 
 bool QWebEngineView_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -2006,13 +2196,15 @@ bool QWebEngineView_override_virtual_disconnectNotify(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QWebEngineView_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQWebEngineView*>(self)->QWebEngineView::disconnectNotify(*signal);
+
+	( (MiqtVirtualQWebEngineView*)(self) )->QWebEngineView::disconnectNotify(*signal);
+
 }
 
 void QWebEngineView_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* self) {
@@ -2021,9 +2213,11 @@ void QWebEngineView_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void*
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->updateMicroFocus();
+
 }
 
 void QWebEngineView_protectedbase_create(bool* _dynamic_cast_ok, void* self) {
@@ -2032,9 +2226,11 @@ void QWebEngineView_protectedbase_create(bool* _dynamic_cast_ok, void* self) {
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->create();
+
 }
 
 void QWebEngineView_protectedbase_destroy(bool* _dynamic_cast_ok, void* self) {
@@ -2043,9 +2239,11 @@ void QWebEngineView_protectedbase_destroy(bool* _dynamic_cast_ok, void* self) {
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->destroy();
+
 }
 
 bool QWebEngineView_protectedbase_focusNextChild(bool* _dynamic_cast_ok, void* self) {
@@ -2054,9 +2252,11 @@ bool QWebEngineView_protectedbase_focusNextChild(bool* _dynamic_cast_ok, void* s
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->focusNextChild();
+
 }
 
 bool QWebEngineView_protectedbase_focusPreviousChild(bool* _dynamic_cast_ok, void* self) {
@@ -2065,9 +2265,11 @@ bool QWebEngineView_protectedbase_focusPreviousChild(bool* _dynamic_cast_ok, voi
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->focusPreviousChild();
+
 }
 
 QObject* QWebEngineView_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -2076,9 +2278,11 @@ QObject* QWebEngineView_protectedbase_sender(bool* _dynamic_cast_ok, const void*
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QWebEngineView_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -2087,9 +2291,11 @@ int QWebEngineView_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QWebEngineView_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -2098,9 +2304,11 @@ int QWebEngineView_protectedbase_receivers(bool* _dynamic_cast_ok, const void* s
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QWebEngineView_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -2109,9 +2317,11 @@ bool QWebEngineView_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, cons
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QWebEngineView_delete(QWebEngineView* self) {

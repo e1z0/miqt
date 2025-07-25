@@ -190,7 +190,6 @@ unsigned long long QVariant_toULongLongWithOk(const QVariant* self, bool* ok);
 double QVariant_toDoubleWithOk(const QVariant* self, bool* ok);
 float QVariant_toFloatWithOk(const QVariant* self, bool* ok);
 double QVariant_toRealWithOk(const QVariant* self, bool* ok);
-
 void QVariant_delete(QVariant* self);
 
 QVariantConstPointer* QVariantConstPointer_new(QVariant* variant);
@@ -198,7 +197,6 @@ QVariantConstPointer* QVariantConstPointer_new2(QVariantConstPointer* param1);
 QVariant* QVariantConstPointer_operatorMultiply(const QVariantConstPointer* self);
 QVariant* QVariantConstPointer_operatorMinusGreater(const QVariantConstPointer* self);
 void QVariantConstPointer_operatorAssign(QVariantConstPointer* self, QVariantConstPointer* param1);
-
 void QVariantConstPointer_delete(QVariantConstPointer* self);
 
 #ifdef __cplusplus

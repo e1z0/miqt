@@ -19,48 +19,48 @@ extern "C" {
 #endif
 
 QJsonValue* QJsonValue_new() {
-	return new (std::nothrow) QJsonValue();
+	return new QJsonValue();
 }
 
 QJsonValue* QJsonValue_new2(bool b) {
-	return new (std::nothrow) QJsonValue(b);
+	return new QJsonValue(b);
 }
 
 QJsonValue* QJsonValue_new3(double n) {
-	return new (std::nothrow) QJsonValue(static_cast<double>(n));
+	return new QJsonValue(static_cast<double>(n));
 }
 
 QJsonValue* QJsonValue_new4(int n) {
-	return new (std::nothrow) QJsonValue(static_cast<int>(n));
+	return new QJsonValue(static_cast<int>(n));
 }
 
 QJsonValue* QJsonValue_new5(long long v) {
-	return new (std::nothrow) QJsonValue(static_cast<qint64>(v));
+	return new QJsonValue(static_cast<qint64>(v));
 }
 
 QJsonValue* QJsonValue_new6(struct miqt_string s) {
 	QString s_QString = QString::fromUtf8(s.data, s.len);
-	return new (std::nothrow) QJsonValue(s_QString);
+	return new QJsonValue(s_QString);
 }
 
 QJsonValue* QJsonValue_new7(const char* s) {
-	return new (std::nothrow) QJsonValue(s);
+	return new QJsonValue(s);
 }
 
 QJsonValue* QJsonValue_new8(QJsonArray* a) {
-	return new (std::nothrow) QJsonValue(*a);
+	return new QJsonValue(*a);
 }
 
 QJsonValue* QJsonValue_new9(QJsonObject* o) {
-	return new (std::nothrow) QJsonValue(*o);
+	return new QJsonValue(*o);
 }
 
 QJsonValue* QJsonValue_new10(QJsonValue* other) {
-	return new (std::nothrow) QJsonValue(*other);
+	return new QJsonValue(*other);
 }
 
 QJsonValue* QJsonValue_new11(int param1) {
-	return new (std::nothrow) QJsonValue(static_cast<QJsonValue::Type>(param1));
+	return new QJsonValue(static_cast<QJsonValue::Type>(param1));
 }
 
 void QJsonValue_operatorAssign(QJsonValue* self, QJsonValue* other) {
@@ -207,7 +207,7 @@ void QJsonValue_delete(QJsonValue* self) {
 }
 
 QJsonValueConstRef* QJsonValueConstRef_new(QJsonValueConstRef* param1) {
-	return new (std::nothrow) QJsonValueConstRef(*param1);
+	return new QJsonValueConstRef(*param1);
 }
 
 QJsonValue* QJsonValueConstRef_ToQJsonValue(const QJsonValueConstRef* self) {
@@ -333,15 +333,15 @@ void QJsonValueConstRef_delete(QJsonValueConstRef* self) {
 }
 
 QJsonValueRef* QJsonValueRef_new(QJsonValueRef* param1) {
-	return new (std::nothrow) QJsonValueRef(*param1);
+	return new QJsonValueRef(*param1);
 }
 
 QJsonValueRef* QJsonValueRef_new2(QJsonArray* array, ptrdiff_t idx) {
-	return new (std::nothrow) QJsonValueRef(array, (qsizetype)(idx));
+	return new QJsonValueRef(array, (qsizetype)(idx));
 }
 
 QJsonValueRef* QJsonValueRef_new3(QJsonObject* object, ptrdiff_t idx) {
-	return new (std::nothrow) QJsonValueRef(object, (qsizetype)(idx));
+	return new QJsonValueRef(object, (qsizetype)(idx));
 }
 
 void QJsonValueRef_virtbase(QJsonValueRef* src, QJsonValueConstRef** outptr_QJsonValueConstRef) {

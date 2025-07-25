@@ -73,7 +73,6 @@ struct miqt_string QWebEngineDownloadItem_tr2(const char* s, const char* c);
 struct miqt_string QWebEngineDownloadItem_tr3(const char* s, const char* c, int n);
 struct miqt_string QWebEngineDownloadItem_trUtf82(const char* s, const char* c);
 struct miqt_string QWebEngineDownloadItem_trUtf83(const char* s, const char* c, int n);
-
 void QWebEngineDownloadItem_delete(QWebEngineDownloadItem* self);
 
 #ifdef __cplusplus

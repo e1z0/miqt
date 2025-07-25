@@ -13,7 +13,7 @@ extern "C" {
 #endif
 
 QCborStreamWriter* QCborStreamWriter_new(QIODevice* device) {
-	return new (std::nothrow) QCborStreamWriter(device);
+	return new QCborStreamWriter(device);
 }
 
 void QCborStreamWriter_setDevice(QCborStreamWriter* self, QIODevice* device) {

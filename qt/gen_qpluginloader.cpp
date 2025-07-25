@@ -33,10 +33,10 @@ void miqt_exec_callback_QPluginLoader_disconnectNotify(QPluginLoader*, intptr_t,
 class MiqtVirtualQPluginLoader final : public QPluginLoader {
 public:
 
-	MiqtVirtualQPluginLoader(): QPluginLoader() {}
-	MiqtVirtualQPluginLoader(const QString& fileName): QPluginLoader(fileName) {}
-	MiqtVirtualQPluginLoader(QObject* parent): QPluginLoader(parent) {}
-	MiqtVirtualQPluginLoader(const QString& fileName, QObject* parent): QPluginLoader(fileName, parent) {}
+	MiqtVirtualQPluginLoader(): QPluginLoader() {};
+	MiqtVirtualQPluginLoader(const QString& fileName): QPluginLoader(fileName) {};
+	MiqtVirtualQPluginLoader(QObject* parent): QPluginLoader(parent) {};
+	MiqtVirtualQPluginLoader(const QString& fileName, QObject* parent): QPluginLoader(fileName, parent) {};
 
 	virtual ~MiqtVirtualQPluginLoader() override = default;
 
@@ -48,9 +48,11 @@ public:
 		if (handle__event == 0) {
 			return QPluginLoader::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QPluginLoader_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -64,10 +66,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QPluginLoader::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QPluginLoader_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -82,10 +86,12 @@ public:
 			QPluginLoader::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QPluginLoader_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QPluginLoader_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -99,10 +105,12 @@ public:
 			QPluginLoader::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QPluginLoader_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QPluginLoader_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -116,10 +124,12 @@ public:
 			QPluginLoader::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QPluginLoader_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QPluginLoader_virtualbase_customEvent(void* self, QEvent* event);
@@ -133,12 +143,14 @@ public:
 			QPluginLoader::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QPluginLoader_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QPluginLoader_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -152,12 +164,14 @@ public:
 			QPluginLoader::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QPluginLoader_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QPluginLoader_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -170,21 +184,21 @@ public:
 };
 
 QPluginLoader* QPluginLoader_new() {
-	return new (std::nothrow) MiqtVirtualQPluginLoader();
+	return new MiqtVirtualQPluginLoader();
 }
 
 QPluginLoader* QPluginLoader_new2(struct miqt_string fileName) {
 	QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-	return new (std::nothrow) MiqtVirtualQPluginLoader(fileName_QString);
+	return new MiqtVirtualQPluginLoader(fileName_QString);
 }
 
 QPluginLoader* QPluginLoader_new3(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQPluginLoader(parent);
+	return new MiqtVirtualQPluginLoader(parent);
 }
 
 QPluginLoader* QPluginLoader_new4(struct miqt_string fileName, QObject* parent) {
 	QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-	return new (std::nothrow) MiqtVirtualQPluginLoader(fileName_QString, parent);
+	return new MiqtVirtualQPluginLoader(fileName_QString, parent);
 }
 
 void QPluginLoader_virtbase(QPluginLoader* src, QObject** outptr_QObject) {
@@ -352,13 +366,15 @@ bool QPluginLoader_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QPluginLoader_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQPluginLoader*>(self)->QPluginLoader::event(event);
+
+	return ( (MiqtVirtualQPluginLoader*)(self) )->QPluginLoader::event(event);
+
 }
 
 bool QPluginLoader_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -366,13 +382,15 @@ bool QPluginLoader_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QPluginLoader_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQPluginLoader*>(self)->QPluginLoader::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQPluginLoader*)(self) )->QPluginLoader::eventFilter(watched, event);
+
 }
 
 bool QPluginLoader_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -380,13 +398,15 @@ bool QPluginLoader_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QPluginLoader_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQPluginLoader*>(self)->QPluginLoader::timerEvent(event);
+
+	( (MiqtVirtualQPluginLoader*)(self) )->QPluginLoader::timerEvent(event);
+
 }
 
 bool QPluginLoader_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -394,13 +414,15 @@ bool QPluginLoader_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QPluginLoader_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQPluginLoader*>(self)->QPluginLoader::childEvent(event);
+
+	( (MiqtVirtualQPluginLoader*)(self) )->QPluginLoader::childEvent(event);
+
 }
 
 bool QPluginLoader_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -408,13 +430,15 @@ bool QPluginLoader_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QPluginLoader_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQPluginLoader*>(self)->QPluginLoader::customEvent(event);
+
+	( (MiqtVirtualQPluginLoader*)(self) )->QPluginLoader::customEvent(event);
+
 }
 
 bool QPluginLoader_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -422,13 +446,15 @@ bool QPluginLoader_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QPluginLoader_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQPluginLoader*>(self)->QPluginLoader::connectNotify(*signal);
+
+	( (MiqtVirtualQPluginLoader*)(self) )->QPluginLoader::connectNotify(*signal);
+
 }
 
 bool QPluginLoader_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -436,13 +462,15 @@ bool QPluginLoader_override_virtual_disconnectNotify(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QPluginLoader_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQPluginLoader*>(self)->QPluginLoader::disconnectNotify(*signal);
+
+	( (MiqtVirtualQPluginLoader*)(self) )->QPluginLoader::disconnectNotify(*signal);
+
 }
 
 QObject* QPluginLoader_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -451,9 +479,11 @@ QObject* QPluginLoader_protectedbase_sender(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QPluginLoader_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -462,9 +492,11 @@ int QPluginLoader_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QPluginLoader_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -473,9 +505,11 @@ int QPluginLoader_protectedbase_receivers(bool* _dynamic_cast_ok, const void* se
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QPluginLoader_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -484,9 +518,11 @@ bool QPluginLoader_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QPluginLoader_delete(QPluginLoader* self) {

@@ -23,7 +23,6 @@ typedef struct QStaticPlugin QStaticPlugin;
 #endif
 
 QJsonObject* QStaticPlugin_metaData(const QStaticPlugin* self);
-
 void QStaticPlugin_delete(QStaticPlugin* self);
 
 #ifdef __cplusplus

@@ -17,7 +17,7 @@ extern "C" {
 #endif
 
 QCollatorSortKey* QCollatorSortKey_new(QCollatorSortKey* other) {
-	return new (std::nothrow) QCollatorSortKey(*other);
+	return new QCollatorSortKey(*other);
 }
 
 void QCollatorSortKey_operatorAssign(QCollatorSortKey* self, QCollatorSortKey* other) {
@@ -37,15 +37,15 @@ void QCollatorSortKey_delete(QCollatorSortKey* self) {
 }
 
 QCollator* QCollator_new() {
-	return new (std::nothrow) QCollator();
+	return new QCollator();
 }
 
 QCollator* QCollator_new2(QLocale* locale) {
-	return new (std::nothrow) QCollator(*locale);
+	return new QCollator(*locale);
 }
 
 QCollator* QCollator_new3(QCollator* param1) {
-	return new (std::nothrow) QCollator(*param1);
+	return new QCollator(*param1);
 }
 
 void QCollator_operatorAssign(QCollator* self, QCollator* param1) {

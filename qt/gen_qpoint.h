@@ -39,7 +39,6 @@ QPoint* QPoint_operatorMultiplyAssignWithFactor(QPoint* self, double factor);
 QPoint* QPoint_operatorMultiplyAssign2(QPoint* self, int factor);
 QPoint* QPoint_operatorDivideAssign(QPoint* self, double divisor);
 int QPoint_dotProduct(QPoint* p1, QPoint* p2);
-
 void QPoint_delete(QPoint* self);
 
 QPointF* QPointF_new();
@@ -59,7 +58,6 @@ QPointF* QPointF_operatorMultiplyAssign(QPointF* self, double c);
 QPointF* QPointF_operatorDivideAssign(QPointF* self, double c);
 double QPointF_dotProduct(QPointF* p1, QPointF* p2);
 QPoint* QPointF_toPoint(const QPointF* self);
-
 void QPointF_delete(QPointF* self);
 
 #ifdef __cplusplus

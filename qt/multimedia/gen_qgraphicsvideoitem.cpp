@@ -88,8 +88,8 @@ QVariant* miqt_exec_callback_QGraphicsVideoItem_extension(const QGraphicsVideoIt
 class MiqtVirtualQGraphicsVideoItem final : public QGraphicsVideoItem {
 public:
 
-	MiqtVirtualQGraphicsVideoItem(): QGraphicsVideoItem() {}
-	MiqtVirtualQGraphicsVideoItem(QGraphicsItem* parent): QGraphicsVideoItem(parent) {}
+	MiqtVirtualQGraphicsVideoItem(): QGraphicsVideoItem() {};
+	MiqtVirtualQGraphicsVideoItem(QGraphicsItem* parent): QGraphicsVideoItem(parent) {};
 
 	virtual ~MiqtVirtualQGraphicsVideoItem() override = default;
 
@@ -101,8 +101,10 @@ public:
 		if (handle__mediaObject == 0) {
 			return QGraphicsVideoItem::mediaObject();
 		}
+		
 
 		QMediaObject* callback_return_value = miqt_exec_callback_QGraphicsVideoItem_mediaObject(this, handle__mediaObject);
+
 		return callback_return_value;
 	}
 
@@ -116,8 +118,10 @@ public:
 		if (handle__boundingRect == 0) {
 			return QGraphicsVideoItem::boundingRect();
 		}
+		
 
 		QRectF* callback_return_value = miqt_exec_callback_QGraphicsVideoItem_boundingRect(this, handle__boundingRect);
+
 		return *callback_return_value;
 	}
 
@@ -132,12 +136,14 @@ public:
 			QGraphicsVideoItem::paint(painter, option, widget);
 			return;
 		}
-
+		
 		QPainter* sigval1 = painter;
 		QStyleOptionGraphicsItem* sigval2 = (QStyleOptionGraphicsItem*) option;
 		QWidget* sigval3 = widget;
+
 		miqt_exec_callback_QGraphicsVideoItem_paint(this, handle__paint, sigval1, sigval2, sigval3);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_paint(void* self, QPainter* painter, QStyleOptionGraphicsItem* option, QWidget* widget);
@@ -151,10 +157,12 @@ public:
 			QGraphicsVideoItem::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -167,13 +175,15 @@ public:
 		if (handle__itemChange == 0) {
 			return QGraphicsVideoItem::itemChange(change, value);
 		}
-
+		
 		QGraphicsItem::GraphicsItemChange change_ret = change;
 		int sigval1 = static_cast<int>(change_ret);
 		const QVariant& value_ret = value;
 		// Cast returned reference into pointer
 		QVariant* sigval2 = const_cast<QVariant*>(&value_ret);
+
 		QVariant* callback_return_value = miqt_exec_callback_QGraphicsVideoItem_itemChange(this, handle__itemChange, sigval1, sigval2);
+
 		return *callback_return_value;
 	}
 
@@ -187,9 +197,11 @@ public:
 		if (handle__setMediaObject == 0) {
 			return QGraphicsVideoItem::setMediaObject(object);
 		}
-
+		
 		QMediaObject* sigval1 = object;
+
 		bool callback_return_value = miqt_exec_callback_QGraphicsVideoItem_setMediaObject(this, handle__setMediaObject, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -203,9 +215,11 @@ public:
 		if (handle__event == 0) {
 			return QGraphicsVideoItem::event(ev);
 		}
-
+		
 		QEvent* sigval1 = ev;
+
 		bool callback_return_value = miqt_exec_callback_QGraphicsVideoItem_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -219,10 +233,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QGraphicsVideoItem::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QGraphicsVideoItem_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -237,10 +253,12 @@ public:
 			QGraphicsVideoItem::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -254,10 +272,12 @@ public:
 			QGraphicsVideoItem::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_customEvent(void* self, QEvent* event);
@@ -271,12 +291,14 @@ public:
 			QGraphicsVideoItem::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QGraphicsVideoItem_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -290,12 +312,14 @@ public:
 			QGraphicsVideoItem::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QGraphicsVideoItem_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -309,10 +333,12 @@ public:
 			QGraphicsVideoItem::advance(phase);
 			return;
 		}
-
+		
 		int sigval1 = phase;
+
 		miqt_exec_callback_QGraphicsVideoItem_advance(this, handle__advance, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_advance(void* self, int phase);
@@ -325,8 +351,10 @@ public:
 		if (handle__shape == 0) {
 			return QGraphicsVideoItem::shape();
 		}
+		
 
 		QPainterPath* callback_return_value = miqt_exec_callback_QGraphicsVideoItem_shape(this, handle__shape);
+
 		return *callback_return_value;
 	}
 
@@ -340,11 +368,13 @@ public:
 		if (handle__contains == 0) {
 			return QGraphicsVideoItem::contains(point);
 		}
-
+		
 		const QPointF& point_ret = point;
 		// Cast returned reference into pointer
 		QPointF* sigval1 = const_cast<QPointF*>(&point_ret);
+
 		bool callback_return_value = miqt_exec_callback_QGraphicsVideoItem_contains(this, handle__contains, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -358,11 +388,13 @@ public:
 		if (handle__collidesWithItem == 0) {
 			return QGraphicsVideoItem::collidesWithItem(other, mode);
 		}
-
+		
 		QGraphicsItem* sigval1 = (QGraphicsItem*) other;
 		Qt::ItemSelectionMode mode_ret = mode;
 		int sigval2 = static_cast<int>(mode_ret);
+
 		bool callback_return_value = miqt_exec_callback_QGraphicsVideoItem_collidesWithItem(this, handle__collidesWithItem, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -376,13 +408,15 @@ public:
 		if (handle__collidesWithPath == 0) {
 			return QGraphicsVideoItem::collidesWithPath(path, mode);
 		}
-
+		
 		const QPainterPath& path_ret = path;
 		// Cast returned reference into pointer
 		QPainterPath* sigval1 = const_cast<QPainterPath*>(&path_ret);
 		Qt::ItemSelectionMode mode_ret = mode;
 		int sigval2 = static_cast<int>(mode_ret);
+
 		bool callback_return_value = miqt_exec_callback_QGraphicsVideoItem_collidesWithPath(this, handle__collidesWithPath, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -396,9 +430,11 @@ public:
 		if (handle__isObscuredBy == 0) {
 			return QGraphicsVideoItem::isObscuredBy(item);
 		}
-
+		
 		QGraphicsItem* sigval1 = (QGraphicsItem*) item;
+
 		bool callback_return_value = miqt_exec_callback_QGraphicsVideoItem_isObscuredBy(this, handle__isObscuredBy, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -412,8 +448,10 @@ public:
 		if (handle__opaqueArea == 0) {
 			return QGraphicsVideoItem::opaqueArea();
 		}
+		
 
 		QPainterPath* callback_return_value = miqt_exec_callback_QGraphicsVideoItem_opaqueArea(this, handle__opaqueArea);
+
 		return *callback_return_value;
 	}
 
@@ -427,8 +465,10 @@ public:
 		if (handle__type == 0) {
 			return QGraphicsVideoItem::type();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QGraphicsVideoItem_type(this, handle__type);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -442,10 +482,12 @@ public:
 		if (handle__sceneEventFilter == 0) {
 			return QGraphicsVideoItem::sceneEventFilter(watched, event);
 		}
-
+		
 		QGraphicsItem* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QGraphicsVideoItem_sceneEventFilter(this, handle__sceneEventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -459,9 +501,11 @@ public:
 		if (handle__sceneEvent == 0) {
 			return QGraphicsVideoItem::sceneEvent(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QGraphicsVideoItem_sceneEvent(this, handle__sceneEvent, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -476,10 +520,12 @@ public:
 			QGraphicsVideoItem::contextMenuEvent(event);
 			return;
 		}
-
+		
 		QGraphicsSceneContextMenuEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_contextMenuEvent(this, handle__contextMenuEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_contextMenuEvent(void* self, QGraphicsSceneContextMenuEvent* event);
@@ -493,10 +539,12 @@ public:
 			QGraphicsVideoItem::dragEnterEvent(event);
 			return;
 		}
-
+		
 		QGraphicsSceneDragDropEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_dragEnterEvent(this, handle__dragEnterEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_dragEnterEvent(void* self, QGraphicsSceneDragDropEvent* event);
@@ -510,10 +558,12 @@ public:
 			QGraphicsVideoItem::dragLeaveEvent(event);
 			return;
 		}
-
+		
 		QGraphicsSceneDragDropEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_dragLeaveEvent(this, handle__dragLeaveEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_dragLeaveEvent(void* self, QGraphicsSceneDragDropEvent* event);
@@ -527,10 +577,12 @@ public:
 			QGraphicsVideoItem::dragMoveEvent(event);
 			return;
 		}
-
+		
 		QGraphicsSceneDragDropEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_dragMoveEvent(this, handle__dragMoveEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_dragMoveEvent(void* self, QGraphicsSceneDragDropEvent* event);
@@ -544,10 +596,12 @@ public:
 			QGraphicsVideoItem::dropEvent(event);
 			return;
 		}
-
+		
 		QGraphicsSceneDragDropEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_dropEvent(this, handle__dropEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_dropEvent(void* self, QGraphicsSceneDragDropEvent* event);
@@ -561,10 +615,12 @@ public:
 			QGraphicsVideoItem::focusInEvent(event);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_focusInEvent(this, handle__focusInEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_focusInEvent(void* self, QFocusEvent* event);
@@ -578,10 +634,12 @@ public:
 			QGraphicsVideoItem::focusOutEvent(event);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_focusOutEvent(this, handle__focusOutEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_focusOutEvent(void* self, QFocusEvent* event);
@@ -595,10 +653,12 @@ public:
 			QGraphicsVideoItem::hoverEnterEvent(event);
 			return;
 		}
-
+		
 		QGraphicsSceneHoverEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_hoverEnterEvent(this, handle__hoverEnterEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_hoverEnterEvent(void* self, QGraphicsSceneHoverEvent* event);
@@ -612,10 +672,12 @@ public:
 			QGraphicsVideoItem::hoverMoveEvent(event);
 			return;
 		}
-
+		
 		QGraphicsSceneHoverEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_hoverMoveEvent(this, handle__hoverMoveEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_hoverMoveEvent(void* self, QGraphicsSceneHoverEvent* event);
@@ -629,10 +691,12 @@ public:
 			QGraphicsVideoItem::hoverLeaveEvent(event);
 			return;
 		}
-
+		
 		QGraphicsSceneHoverEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_hoverLeaveEvent(this, handle__hoverLeaveEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_hoverLeaveEvent(void* self, QGraphicsSceneHoverEvent* event);
@@ -646,10 +710,12 @@ public:
 			QGraphicsVideoItem::keyPressEvent(event);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_keyPressEvent(this, handle__keyPressEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_keyPressEvent(void* self, QKeyEvent* event);
@@ -663,10 +729,12 @@ public:
 			QGraphicsVideoItem::keyReleaseEvent(event);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_keyReleaseEvent(this, handle__keyReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_keyReleaseEvent(void* self, QKeyEvent* event);
@@ -680,10 +748,12 @@ public:
 			QGraphicsVideoItem::mousePressEvent(event);
 			return;
 		}
-
+		
 		QGraphicsSceneMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_mousePressEvent(this, handle__mousePressEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_mousePressEvent(void* self, QGraphicsSceneMouseEvent* event);
@@ -697,10 +767,12 @@ public:
 			QGraphicsVideoItem::mouseMoveEvent(event);
 			return;
 		}
-
+		
 		QGraphicsSceneMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_mouseMoveEvent(this, handle__mouseMoveEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_mouseMoveEvent(void* self, QGraphicsSceneMouseEvent* event);
@@ -714,10 +786,12 @@ public:
 			QGraphicsVideoItem::mouseReleaseEvent(event);
 			return;
 		}
-
+		
 		QGraphicsSceneMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_mouseReleaseEvent(this, handle__mouseReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_mouseReleaseEvent(void* self, QGraphicsSceneMouseEvent* event);
@@ -731,10 +805,12 @@ public:
 			QGraphicsVideoItem::mouseDoubleClickEvent(event);
 			return;
 		}
-
+		
 		QGraphicsSceneMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_mouseDoubleClickEvent(this, handle__mouseDoubleClickEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_mouseDoubleClickEvent(void* self, QGraphicsSceneMouseEvent* event);
@@ -748,10 +824,12 @@ public:
 			QGraphicsVideoItem::wheelEvent(event);
 			return;
 		}
-
+		
 		QGraphicsSceneWheelEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_wheelEvent(this, handle__wheelEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_wheelEvent(void* self, QGraphicsSceneWheelEvent* event);
@@ -765,10 +843,12 @@ public:
 			QGraphicsVideoItem::inputMethodEvent(event);
 			return;
 		}
-
+		
 		QInputMethodEvent* sigval1 = event;
+
 		miqt_exec_callback_QGraphicsVideoItem_inputMethodEvent(this, handle__inputMethodEvent, sigval1);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* event);
@@ -781,10 +861,12 @@ public:
 		if (handle__inputMethodQuery == 0) {
 			return QGraphicsVideoItem::inputMethodQuery(query);
 		}
-
+		
 		Qt::InputMethodQuery query_ret = query;
 		int sigval1 = static_cast<int>(query_ret);
+
 		QVariant* callback_return_value = miqt_exec_callback_QGraphicsVideoItem_inputMethodQuery(this, handle__inputMethodQuery, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -798,10 +880,12 @@ public:
 		if (handle__supportsExtension == 0) {
 			return QGraphicsVideoItem::supportsExtension(extension);
 		}
-
+		
 		QGraphicsItem::Extension extension_ret = extension;
 		int sigval1 = static_cast<int>(extension_ret);
+
 		bool callback_return_value = miqt_exec_callback_QGraphicsVideoItem_supportsExtension(this, handle__supportsExtension, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -816,14 +900,16 @@ public:
 			QGraphicsVideoItem::setExtension(extension, variant);
 			return;
 		}
-
+		
 		QGraphicsItem::Extension extension_ret = extension;
 		int sigval1 = static_cast<int>(extension_ret);
 		const QVariant& variant_ret = variant;
 		// Cast returned reference into pointer
 		QVariant* sigval2 = const_cast<QVariant*>(&variant_ret);
+
 		miqt_exec_callback_QGraphicsVideoItem_setExtension(this, handle__setExtension, sigval1, sigval2);
 
+		
 	}
 
 	friend void QGraphicsVideoItem_virtualbase_setExtension(void* self, int extension, QVariant* variant);
@@ -836,11 +922,13 @@ public:
 		if (handle__extension == 0) {
 			return QGraphicsVideoItem::extension(variant);
 		}
-
+		
 		const QVariant& variant_ret = variant;
 		// Cast returned reference into pointer
 		QVariant* sigval1 = const_cast<QVariant*>(&variant_ret);
+
 		QVariant* callback_return_value = miqt_exec_callback_QGraphicsVideoItem_extension(this, handle__extension, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -858,11 +946,11 @@ public:
 };
 
 QGraphicsVideoItem* QGraphicsVideoItem_new() {
-	return new (std::nothrow) MiqtVirtualQGraphicsVideoItem();
+	return new MiqtVirtualQGraphicsVideoItem();
 }
 
 QGraphicsVideoItem* QGraphicsVideoItem_new2(QGraphicsItem* parent) {
-	return new (std::nothrow) MiqtVirtualQGraphicsVideoItem(parent);
+	return new MiqtVirtualQGraphicsVideoItem(parent);
 }
 
 void QGraphicsVideoItem_virtbase(QGraphicsVideoItem* src, QGraphicsObject** outptr_QGraphicsObject, QMediaBindableInterface** outptr_QMediaBindableInterface) {
@@ -950,7 +1038,7 @@ void QGraphicsVideoItem_nativeSizeChanged(QGraphicsVideoItem* self, QSizeF* size
 }
 
 void QGraphicsVideoItem_connect_nativeSizeChanged(QGraphicsVideoItem* self, intptr_t slot) {
-	QGraphicsVideoItem::connect(self, static_cast<void (QGraphicsVideoItem::*)(const QSizeF&)>(&QGraphicsVideoItem::nativeSizeChanged), self, [=](const QSizeF& size) {
+	MiqtVirtualQGraphicsVideoItem::connect(self, static_cast<void (QGraphicsVideoItem::*)(const QSizeF&)>(&QGraphicsVideoItem::nativeSizeChanged), self, [=](const QSizeF& size) {
 		const QSizeF& size_ret = size;
 		// Cast returned reference into pointer
 		QSizeF* sigval1 = const_cast<QSizeF*>(&size_ret);
@@ -1007,13 +1095,15 @@ bool QGraphicsVideoItem_override_virtual_mediaObject(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mediaObject = slot;
 	return true;
 }
 
 QMediaObject* QGraphicsVideoItem_virtualbase_mediaObject(const void* self) {
-	return static_cast<const MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::mediaObject();
+
+	return ( (const MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::mediaObject();
+
 }
 
 bool QGraphicsVideoItem_override_virtual_boundingRect(void* self, intptr_t slot) {
@@ -1021,13 +1111,15 @@ bool QGraphicsVideoItem_override_virtual_boundingRect(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__boundingRect = slot;
 	return true;
 }
 
 QRectF* QGraphicsVideoItem_virtualbase_boundingRect(const void* self) {
-	return new QRectF(static_cast<const MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::boundingRect());
+
+	return new QRectF(( (const MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::boundingRect());
+
 }
 
 bool QGraphicsVideoItem_override_virtual_paint(void* self, intptr_t slot) {
@@ -1035,13 +1127,15 @@ bool QGraphicsVideoItem_override_virtual_paint(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paint = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_paint(void* self, QPainter* painter, QStyleOptionGraphicsItem* option, QWidget* widget) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::paint(painter, option, widget);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::paint(painter, option, widget);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -1049,13 +1143,15 @@ bool QGraphicsVideoItem_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::timerEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::timerEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_itemChange(void* self, intptr_t slot) {
@@ -1063,13 +1159,15 @@ bool QGraphicsVideoItem_override_virtual_itemChange(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__itemChange = slot;
 	return true;
 }
 
 QVariant* QGraphicsVideoItem_virtualbase_itemChange(void* self, int change, QVariant* value) {
-	return new QVariant(static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::itemChange(static_cast<MiqtVirtualQGraphicsVideoItem::GraphicsItemChange>(change), *value));
+
+	return new QVariant(( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::itemChange(static_cast<MiqtVirtualQGraphicsVideoItem::GraphicsItemChange>(change), *value));
+
 }
 
 bool QGraphicsVideoItem_override_virtual_setMediaObject(void* self, intptr_t slot) {
@@ -1077,13 +1175,15 @@ bool QGraphicsVideoItem_override_virtual_setMediaObject(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setMediaObject = slot;
 	return true;
 }
 
 bool QGraphicsVideoItem_virtualbase_setMediaObject(void* self, QMediaObject* object) {
-	return static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::setMediaObject(object);
+
+	return ( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::setMediaObject(object);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_event(void* self, intptr_t slot) {
@@ -1091,13 +1191,15 @@ bool QGraphicsVideoItem_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QGraphicsVideoItem_virtualbase_event(void* self, QEvent* ev) {
-	return static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::event(ev);
+
+	return ( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::event(ev);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -1105,13 +1207,15 @@ bool QGraphicsVideoItem_override_virtual_eventFilter(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QGraphicsVideoItem_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::eventFilter(watched, event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -1119,13 +1223,15 @@ bool QGraphicsVideoItem_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::childEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::childEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -1133,13 +1239,15 @@ bool QGraphicsVideoItem_override_virtual_customEvent(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::customEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::customEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -1147,13 +1255,15 @@ bool QGraphicsVideoItem_override_virtual_connectNotify(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::connectNotify(*signal);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::connectNotify(*signal);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -1161,13 +1271,15 @@ bool QGraphicsVideoItem_override_virtual_disconnectNotify(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::disconnectNotify(*signal);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::disconnectNotify(*signal);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_advance(void* self, intptr_t slot) {
@@ -1175,13 +1287,15 @@ bool QGraphicsVideoItem_override_virtual_advance(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__advance = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_advance(void* self, int phase) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::advance(static_cast<int>(phase));
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::advance(static_cast<int>(phase));
+
 }
 
 bool QGraphicsVideoItem_override_virtual_shape(void* self, intptr_t slot) {
@@ -1189,13 +1303,15 @@ bool QGraphicsVideoItem_override_virtual_shape(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__shape = slot;
 	return true;
 }
 
 QPainterPath* QGraphicsVideoItem_virtualbase_shape(const void* self) {
-	return new QPainterPath(static_cast<const MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::shape());
+
+	return new QPainterPath(( (const MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::shape());
+
 }
 
 bool QGraphicsVideoItem_override_virtual_contains(void* self, intptr_t slot) {
@@ -1203,13 +1319,15 @@ bool QGraphicsVideoItem_override_virtual_contains(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__contains = slot;
 	return true;
 }
 
 bool QGraphicsVideoItem_virtualbase_contains(const void* self, QPointF* point) {
-	return static_cast<const MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::contains(*point);
+
+	return ( (const MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::contains(*point);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_collidesWithItem(void* self, intptr_t slot) {
@@ -1217,13 +1335,15 @@ bool QGraphicsVideoItem_override_virtual_collidesWithItem(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__collidesWithItem = slot;
 	return true;
 }
 
 bool QGraphicsVideoItem_virtualbase_collidesWithItem(const void* self, QGraphicsItem* other, int mode) {
-	return static_cast<const MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
+
+	return ( (const MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::collidesWithItem(other, static_cast<Qt::ItemSelectionMode>(mode));
+
 }
 
 bool QGraphicsVideoItem_override_virtual_collidesWithPath(void* self, intptr_t slot) {
@@ -1231,13 +1351,15 @@ bool QGraphicsVideoItem_override_virtual_collidesWithPath(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__collidesWithPath = slot;
 	return true;
 }
 
 bool QGraphicsVideoItem_virtualbase_collidesWithPath(const void* self, QPainterPath* path, int mode) {
-	return static_cast<const MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
+
+	return ( (const MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::collidesWithPath(*path, static_cast<Qt::ItemSelectionMode>(mode));
+
 }
 
 bool QGraphicsVideoItem_override_virtual_isObscuredBy(void* self, intptr_t slot) {
@@ -1245,13 +1367,15 @@ bool QGraphicsVideoItem_override_virtual_isObscuredBy(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__isObscuredBy = slot;
 	return true;
 }
 
 bool QGraphicsVideoItem_virtualbase_isObscuredBy(const void* self, QGraphicsItem* item) {
-	return static_cast<const MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::isObscuredBy(item);
+
+	return ( (const MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::isObscuredBy(item);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_opaqueArea(void* self, intptr_t slot) {
@@ -1259,13 +1383,15 @@ bool QGraphicsVideoItem_override_virtual_opaqueArea(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__opaqueArea = slot;
 	return true;
 }
 
 QPainterPath* QGraphicsVideoItem_virtualbase_opaqueArea(const void* self) {
-	return new QPainterPath(static_cast<const MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::opaqueArea());
+
+	return new QPainterPath(( (const MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::opaqueArea());
+
 }
 
 bool QGraphicsVideoItem_override_virtual_type(void* self, intptr_t slot) {
@@ -1273,13 +1399,15 @@ bool QGraphicsVideoItem_override_virtual_type(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__type = slot;
 	return true;
 }
 
 int QGraphicsVideoItem_virtualbase_type(const void* self) {
-	return static_cast<const MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::type();
+
+	return ( (const MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::type();
+
 }
 
 bool QGraphicsVideoItem_override_virtual_sceneEventFilter(void* self, intptr_t slot) {
@@ -1287,13 +1415,15 @@ bool QGraphicsVideoItem_override_virtual_sceneEventFilter(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sceneEventFilter = slot;
 	return true;
 }
 
 bool QGraphicsVideoItem_virtualbase_sceneEventFilter(void* self, QGraphicsItem* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::sceneEventFilter(watched, event);
+
+	return ( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::sceneEventFilter(watched, event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_sceneEvent(void* self, intptr_t slot) {
@@ -1301,13 +1431,15 @@ bool QGraphicsVideoItem_override_virtual_sceneEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sceneEvent = slot;
 	return true;
 }
 
 bool QGraphicsVideoItem_virtualbase_sceneEvent(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::sceneEvent(event);
+
+	return ( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::sceneEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_contextMenuEvent(void* self, intptr_t slot) {
@@ -1315,13 +1447,15 @@ bool QGraphicsVideoItem_override_virtual_contextMenuEvent(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__contextMenuEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_contextMenuEvent(void* self, QGraphicsSceneContextMenuEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::contextMenuEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::contextMenuEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_dragEnterEvent(void* self, intptr_t slot) {
@@ -1329,13 +1463,15 @@ bool QGraphicsVideoItem_override_virtual_dragEnterEvent(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragEnterEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_dragEnterEvent(void* self, QGraphicsSceneDragDropEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::dragEnterEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::dragEnterEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_dragLeaveEvent(void* self, intptr_t slot) {
@@ -1343,13 +1479,15 @@ bool QGraphicsVideoItem_override_virtual_dragLeaveEvent(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragLeaveEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_dragLeaveEvent(void* self, QGraphicsSceneDragDropEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::dragLeaveEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::dragLeaveEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_dragMoveEvent(void* self, intptr_t slot) {
@@ -1357,13 +1495,15 @@ bool QGraphicsVideoItem_override_virtual_dragMoveEvent(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragMoveEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_dragMoveEvent(void* self, QGraphicsSceneDragDropEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::dragMoveEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::dragMoveEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_dropEvent(void* self, intptr_t slot) {
@@ -1371,13 +1511,15 @@ bool QGraphicsVideoItem_override_virtual_dropEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dropEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_dropEvent(void* self, QGraphicsSceneDragDropEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::dropEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::dropEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_focusInEvent(void* self, intptr_t slot) {
@@ -1385,13 +1527,15 @@ bool QGraphicsVideoItem_override_virtual_focusInEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusInEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_focusInEvent(void* self, QFocusEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::focusInEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::focusInEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_focusOutEvent(void* self, intptr_t slot) {
@@ -1399,13 +1543,15 @@ bool QGraphicsVideoItem_override_virtual_focusOutEvent(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusOutEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_focusOutEvent(void* self, QFocusEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::focusOutEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::focusOutEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_hoverEnterEvent(void* self, intptr_t slot) {
@@ -1413,13 +1559,15 @@ bool QGraphicsVideoItem_override_virtual_hoverEnterEvent(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hoverEnterEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_hoverEnterEvent(void* self, QGraphicsSceneHoverEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::hoverEnterEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::hoverEnterEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_hoverMoveEvent(void* self, intptr_t slot) {
@@ -1427,13 +1575,15 @@ bool QGraphicsVideoItem_override_virtual_hoverMoveEvent(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hoverMoveEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_hoverMoveEvent(void* self, QGraphicsSceneHoverEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::hoverMoveEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::hoverMoveEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_hoverLeaveEvent(void* self, intptr_t slot) {
@@ -1441,13 +1591,15 @@ bool QGraphicsVideoItem_override_virtual_hoverLeaveEvent(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hoverLeaveEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_hoverLeaveEvent(void* self, QGraphicsSceneHoverEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::hoverLeaveEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::hoverLeaveEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_keyPressEvent(void* self, intptr_t slot) {
@@ -1455,13 +1607,15 @@ bool QGraphicsVideoItem_override_virtual_keyPressEvent(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyPressEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_keyPressEvent(void* self, QKeyEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::keyPressEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::keyPressEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_keyReleaseEvent(void* self, intptr_t slot) {
@@ -1469,13 +1623,15 @@ bool QGraphicsVideoItem_override_virtual_keyReleaseEvent(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyReleaseEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_keyReleaseEvent(void* self, QKeyEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::keyReleaseEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::keyReleaseEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_mousePressEvent(void* self, intptr_t slot) {
@@ -1483,13 +1639,15 @@ bool QGraphicsVideoItem_override_virtual_mousePressEvent(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mousePressEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_mousePressEvent(void* self, QGraphicsSceneMouseEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::mousePressEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::mousePressEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_mouseMoveEvent(void* self, intptr_t slot) {
@@ -1497,13 +1655,15 @@ bool QGraphicsVideoItem_override_virtual_mouseMoveEvent(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseMoveEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_mouseMoveEvent(void* self, QGraphicsSceneMouseEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::mouseMoveEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::mouseMoveEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_mouseReleaseEvent(void* self, intptr_t slot) {
@@ -1511,13 +1671,15 @@ bool QGraphicsVideoItem_override_virtual_mouseReleaseEvent(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseReleaseEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_mouseReleaseEvent(void* self, QGraphicsSceneMouseEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::mouseReleaseEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::mouseReleaseEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_mouseDoubleClickEvent(void* self, intptr_t slot) {
@@ -1525,13 +1687,15 @@ bool QGraphicsVideoItem_override_virtual_mouseDoubleClickEvent(void* self, intpt
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseDoubleClickEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_mouseDoubleClickEvent(void* self, QGraphicsSceneMouseEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::mouseDoubleClickEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::mouseDoubleClickEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_wheelEvent(void* self, intptr_t slot) {
@@ -1539,13 +1703,15 @@ bool QGraphicsVideoItem_override_virtual_wheelEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__wheelEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_wheelEvent(void* self, QGraphicsSceneWheelEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::wheelEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::wheelEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_inputMethodEvent(void* self, intptr_t slot) {
@@ -1553,13 +1719,15 @@ bool QGraphicsVideoItem_override_virtual_inputMethodEvent(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodEvent = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* event) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::inputMethodEvent(event);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::inputMethodEvent(event);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_inputMethodQuery(void* self, intptr_t slot) {
@@ -1567,13 +1735,15 @@ bool QGraphicsVideoItem_override_virtual_inputMethodQuery(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodQuery = slot;
 	return true;
 }
 
 QVariant* QGraphicsVideoItem_virtualbase_inputMethodQuery(const void* self, int query) {
-	return new QVariant(static_cast<const MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
+
+	return new QVariant(( (const MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
+
 }
 
 bool QGraphicsVideoItem_override_virtual_supportsExtension(void* self, intptr_t slot) {
@@ -1581,13 +1751,15 @@ bool QGraphicsVideoItem_override_virtual_supportsExtension(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__supportsExtension = slot;
 	return true;
 }
 
 bool QGraphicsVideoItem_virtualbase_supportsExtension(const void* self, int extension) {
-	return static_cast<const MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::supportsExtension(static_cast<MiqtVirtualQGraphicsVideoItem::Extension>(extension));
+
+	return ( (const MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::supportsExtension(static_cast<MiqtVirtualQGraphicsVideoItem::Extension>(extension));
+
 }
 
 bool QGraphicsVideoItem_override_virtual_setExtension(void* self, intptr_t slot) {
@@ -1595,13 +1767,15 @@ bool QGraphicsVideoItem_override_virtual_setExtension(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setExtension = slot;
 	return true;
 }
 
 void QGraphicsVideoItem_virtualbase_setExtension(void* self, int extension, QVariant* variant) {
-	static_cast<MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::setExtension(static_cast<MiqtVirtualQGraphicsVideoItem::Extension>(extension), *variant);
+
+	( (MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::setExtension(static_cast<MiqtVirtualQGraphicsVideoItem::Extension>(extension), *variant);
+
 }
 
 bool QGraphicsVideoItem_override_virtual_extension(void* self, intptr_t slot) {
@@ -1609,13 +1783,15 @@ bool QGraphicsVideoItem_override_virtual_extension(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__extension = slot;
 	return true;
 }
 
 QVariant* QGraphicsVideoItem_virtualbase_extension(const void* self, QVariant* variant) {
-	return new QVariant(static_cast<const MiqtVirtualQGraphicsVideoItem*>(self)->QGraphicsVideoItem::extension(*variant));
+
+	return new QVariant(( (const MiqtVirtualQGraphicsVideoItem*)(self) )->QGraphicsVideoItem::extension(*variant));
+
 }
 
 void QGraphicsVideoItem_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* self) {
@@ -1624,9 +1800,11 @@ void QGraphicsVideoItem_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, v
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->updateMicroFocus();
+
 }
 
 QObject* QGraphicsVideoItem_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -1635,9 +1813,11 @@ QObject* QGraphicsVideoItem_protectedbase_sender(bool* _dynamic_cast_ok, const v
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QGraphicsVideoItem_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -1646,9 +1826,11 @@ int QGraphicsVideoItem_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, c
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QGraphicsVideoItem_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -1657,9 +1839,11 @@ int QGraphicsVideoItem_protectedbase_receivers(bool* _dynamic_cast_ok, const voi
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QGraphicsVideoItem_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -1668,9 +1852,11 @@ bool QGraphicsVideoItem_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, 
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QGraphicsVideoItem_protectedbase_addToIndex(bool* _dynamic_cast_ok, void* self) {
@@ -1679,9 +1865,11 @@ void QGraphicsVideoItem_protectedbase_addToIndex(bool* _dynamic_cast_ok, void* s
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->addToIndex();
+
 }
 
 void QGraphicsVideoItem_protectedbase_removeFromIndex(bool* _dynamic_cast_ok, void* self) {
@@ -1690,9 +1878,11 @@ void QGraphicsVideoItem_protectedbase_removeFromIndex(bool* _dynamic_cast_ok, vo
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->removeFromIndex();
+
 }
 
 void QGraphicsVideoItem_protectedbase_prepareGeometryChange(bool* _dynamic_cast_ok, void* self) {
@@ -1701,9 +1891,11 @@ void QGraphicsVideoItem_protectedbase_prepareGeometryChange(bool* _dynamic_cast_
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->prepareGeometryChange();
+
 }
 
 void QGraphicsVideoItem_delete(QGraphicsVideoItem* self) {

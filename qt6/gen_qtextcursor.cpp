@@ -27,23 +27,23 @@ extern "C" {
 #endif
 
 QTextCursor* QTextCursor_new() {
-	return new (std::nothrow) QTextCursor();
+	return new QTextCursor();
 }
 
 QTextCursor* QTextCursor_new2(QTextDocument* document) {
-	return new (std::nothrow) QTextCursor(document);
+	return new QTextCursor(document);
 }
 
 QTextCursor* QTextCursor_new3(QTextFrame* frame) {
-	return new (std::nothrow) QTextCursor(frame);
+	return new QTextCursor(frame);
 }
 
 QTextCursor* QTextCursor_new4(QTextBlock* block) {
-	return new (std::nothrow) QTextCursor(*block);
+	return new QTextCursor(*block);
 }
 
 QTextCursor* QTextCursor_new5(QTextCursor* cursor) {
-	return new (std::nothrow) QTextCursor(*cursor);
+	return new QTextCursor(*cursor);
 }
 
 void QTextCursor_operatorAssign(QTextCursor* self, QTextCursor* other) {

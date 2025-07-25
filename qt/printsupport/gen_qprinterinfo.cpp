@@ -19,15 +19,15 @@ extern "C" {
 #endif
 
 QPrinterInfo* QPrinterInfo_new() {
-	return new (std::nothrow) QPrinterInfo();
+	return new QPrinterInfo();
 }
 
 QPrinterInfo* QPrinterInfo_new2(QPrinterInfo* other) {
-	return new (std::nothrow) QPrinterInfo(*other);
+	return new QPrinterInfo(*other);
 }
 
 QPrinterInfo* QPrinterInfo_new3(QPrinter* printer) {
-	return new (std::nothrow) QPrinterInfo(*printer);
+	return new QPrinterInfo(*printer);
 }
 
 void QPrinterInfo_operatorAssign(QPrinterInfo* self, QPrinterInfo* other) {

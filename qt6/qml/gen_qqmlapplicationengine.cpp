@@ -38,12 +38,12 @@ void miqt_exec_callback_QQmlApplicationEngine_disconnectNotify(QQmlApplicationEn
 class MiqtVirtualQQmlApplicationEngine final : public QQmlApplicationEngine {
 public:
 
-	MiqtVirtualQQmlApplicationEngine(): QQmlApplicationEngine() {}
-	MiqtVirtualQQmlApplicationEngine(const QUrl& url): QQmlApplicationEngine(url) {}
-	MiqtVirtualQQmlApplicationEngine(const QString& filePath): QQmlApplicationEngine(filePath) {}
-	MiqtVirtualQQmlApplicationEngine(QObject* parent): QQmlApplicationEngine(parent) {}
-	MiqtVirtualQQmlApplicationEngine(const QUrl& url, QObject* parent): QQmlApplicationEngine(url, parent) {}
-	MiqtVirtualQQmlApplicationEngine(const QString& filePath, QObject* parent): QQmlApplicationEngine(filePath, parent) {}
+	MiqtVirtualQQmlApplicationEngine(): QQmlApplicationEngine() {};
+	MiqtVirtualQQmlApplicationEngine(const QUrl& url): QQmlApplicationEngine(url) {};
+	MiqtVirtualQQmlApplicationEngine(const QString& filePath): QQmlApplicationEngine(filePath) {};
+	MiqtVirtualQQmlApplicationEngine(QObject* parent): QQmlApplicationEngine(parent) {};
+	MiqtVirtualQQmlApplicationEngine(const QUrl& url, QObject* parent): QQmlApplicationEngine(url, parent) {};
+	MiqtVirtualQQmlApplicationEngine(const QString& filePath, QObject* parent): QQmlApplicationEngine(filePath, parent) {};
 
 	virtual ~MiqtVirtualQQmlApplicationEngine() override = default;
 
@@ -55,9 +55,11 @@ public:
 		if (handle__event == 0) {
 			return QQmlApplicationEngine::event(param1);
 		}
-
+		
 		QEvent* sigval1 = param1;
+
 		bool callback_return_value = miqt_exec_callback_QQmlApplicationEngine_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -71,10 +73,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QQmlApplicationEngine::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QQmlApplicationEngine_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -89,10 +93,12 @@ public:
 			QQmlApplicationEngine::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QQmlApplicationEngine_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QQmlApplicationEngine_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -106,10 +112,12 @@ public:
 			QQmlApplicationEngine::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QQmlApplicationEngine_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QQmlApplicationEngine_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -123,10 +131,12 @@ public:
 			QQmlApplicationEngine::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QQmlApplicationEngine_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QQmlApplicationEngine_virtualbase_customEvent(void* self, QEvent* event);
@@ -140,12 +150,14 @@ public:
 			QQmlApplicationEngine::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QQmlApplicationEngine_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QQmlApplicationEngine_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -159,12 +171,14 @@ public:
 			QQmlApplicationEngine::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QQmlApplicationEngine_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QQmlApplicationEngine_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -177,29 +191,29 @@ public:
 };
 
 QQmlApplicationEngine* QQmlApplicationEngine_new() {
-	return new (std::nothrow) MiqtVirtualQQmlApplicationEngine();
+	return new MiqtVirtualQQmlApplicationEngine();
 }
 
 QQmlApplicationEngine* QQmlApplicationEngine_new2(QUrl* url) {
-	return new (std::nothrow) MiqtVirtualQQmlApplicationEngine(*url);
+	return new MiqtVirtualQQmlApplicationEngine(*url);
 }
 
 QQmlApplicationEngine* QQmlApplicationEngine_new3(struct miqt_string filePath) {
 	QString filePath_QString = QString::fromUtf8(filePath.data, filePath.len);
-	return new (std::nothrow) MiqtVirtualQQmlApplicationEngine(filePath_QString);
+	return new MiqtVirtualQQmlApplicationEngine(filePath_QString);
 }
 
 QQmlApplicationEngine* QQmlApplicationEngine_new4(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQQmlApplicationEngine(parent);
+	return new MiqtVirtualQQmlApplicationEngine(parent);
 }
 
 QQmlApplicationEngine* QQmlApplicationEngine_new5(QUrl* url, QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQQmlApplicationEngine(*url, parent);
+	return new MiqtVirtualQQmlApplicationEngine(*url, parent);
 }
 
 QQmlApplicationEngine* QQmlApplicationEngine_new6(struct miqt_string filePath, QObject* parent) {
 	QString filePath_QString = QString::fromUtf8(filePath.data, filePath.len);
-	return new (std::nothrow) MiqtVirtualQQmlApplicationEngine(filePath_QString, parent);
+	return new MiqtVirtualQQmlApplicationEngine(filePath_QString, parent);
 }
 
 void QQmlApplicationEngine_virtbase(QQmlApplicationEngine* src, QQmlEngine** outptr_QQmlEngine) {
@@ -279,7 +293,7 @@ void QQmlApplicationEngine_objectCreated(QQmlApplicationEngine* self, QObject* o
 }
 
 void QQmlApplicationEngine_connect_objectCreated(QQmlApplicationEngine* self, intptr_t slot) {
-	QQmlApplicationEngine::connect(self, static_cast<void (QQmlApplicationEngine::*)(QObject*, const QUrl&)>(&QQmlApplicationEngine::objectCreated), self, [=](QObject* object, const QUrl& url) {
+	MiqtVirtualQQmlApplicationEngine::connect(self, static_cast<void (QQmlApplicationEngine::*)(QObject*, const QUrl&)>(&QQmlApplicationEngine::objectCreated), self, [=](QObject* object, const QUrl& url) {
 		QObject* sigval1 = object;
 		const QUrl& url_ret = url;
 		// Cast returned reference into pointer
@@ -293,7 +307,7 @@ void QQmlApplicationEngine_objectCreationFailed(QQmlApplicationEngine* self, QUr
 }
 
 void QQmlApplicationEngine_connect_objectCreationFailed(QQmlApplicationEngine* self, intptr_t slot) {
-	QQmlApplicationEngine::connect(self, static_cast<void (QQmlApplicationEngine::*)(const QUrl&)>(&QQmlApplicationEngine::objectCreationFailed), self, [=](const QUrl& url) {
+	MiqtVirtualQQmlApplicationEngine::connect(self, static_cast<void (QQmlApplicationEngine::*)(const QUrl&)>(&QQmlApplicationEngine::objectCreationFailed), self, [=](const QUrl& url) {
 		const QUrl& url_ret = url;
 		// Cast returned reference into pointer
 		QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
@@ -333,13 +347,15 @@ bool QQmlApplicationEngine_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QQmlApplicationEngine_virtualbase_event(void* self, QEvent* param1) {
-	return static_cast<MiqtVirtualQQmlApplicationEngine*>(self)->QQmlApplicationEngine::event(param1);
+
+	return ( (MiqtVirtualQQmlApplicationEngine*)(self) )->QQmlApplicationEngine::event(param1);
+
 }
 
 bool QQmlApplicationEngine_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -347,13 +363,15 @@ bool QQmlApplicationEngine_override_virtual_eventFilter(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QQmlApplicationEngine_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQQmlApplicationEngine*>(self)->QQmlApplicationEngine::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQQmlApplicationEngine*)(self) )->QQmlApplicationEngine::eventFilter(watched, event);
+
 }
 
 bool QQmlApplicationEngine_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -361,13 +379,15 @@ bool QQmlApplicationEngine_override_virtual_timerEvent(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QQmlApplicationEngine_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQQmlApplicationEngine*>(self)->QQmlApplicationEngine::timerEvent(event);
+
+	( (MiqtVirtualQQmlApplicationEngine*)(self) )->QQmlApplicationEngine::timerEvent(event);
+
 }
 
 bool QQmlApplicationEngine_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -375,13 +395,15 @@ bool QQmlApplicationEngine_override_virtual_childEvent(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QQmlApplicationEngine_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQQmlApplicationEngine*>(self)->QQmlApplicationEngine::childEvent(event);
+
+	( (MiqtVirtualQQmlApplicationEngine*)(self) )->QQmlApplicationEngine::childEvent(event);
+
 }
 
 bool QQmlApplicationEngine_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -389,13 +411,15 @@ bool QQmlApplicationEngine_override_virtual_customEvent(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QQmlApplicationEngine_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQQmlApplicationEngine*>(self)->QQmlApplicationEngine::customEvent(event);
+
+	( (MiqtVirtualQQmlApplicationEngine*)(self) )->QQmlApplicationEngine::customEvent(event);
+
 }
 
 bool QQmlApplicationEngine_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -403,13 +427,15 @@ bool QQmlApplicationEngine_override_virtual_connectNotify(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QQmlApplicationEngine_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQQmlApplicationEngine*>(self)->QQmlApplicationEngine::connectNotify(*signal);
+
+	( (MiqtVirtualQQmlApplicationEngine*)(self) )->QQmlApplicationEngine::connectNotify(*signal);
+
 }
 
 bool QQmlApplicationEngine_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -417,13 +443,15 @@ bool QQmlApplicationEngine_override_virtual_disconnectNotify(void* self, intptr_
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QQmlApplicationEngine_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQQmlApplicationEngine*>(self)->QQmlApplicationEngine::disconnectNotify(*signal);
+
+	( (MiqtVirtualQQmlApplicationEngine*)(self) )->QQmlApplicationEngine::disconnectNotify(*signal);
+
 }
 
 QObject* QQmlApplicationEngine_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -432,9 +460,11 @@ QObject* QQmlApplicationEngine_protectedbase_sender(bool* _dynamic_cast_ok, cons
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QQmlApplicationEngine_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -443,9 +473,11 @@ int QQmlApplicationEngine_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QQmlApplicationEngine_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -454,9 +486,11 @@ int QQmlApplicationEngine_protectedbase_receivers(bool* _dynamic_cast_ok, const 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QQmlApplicationEngine_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -465,9 +499,11 @@ bool QQmlApplicationEngine_protectedbase_isSignalConnected(bool* _dynamic_cast_o
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QQmlApplicationEngine_delete(QQmlApplicationEngine* self) {

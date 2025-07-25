@@ -9,7 +9,7 @@ package network
 import "C"
 
 import (
-	"github.com/e1z0/miqt/qt6"
+	"github.com/mappu/miqt/qt6"
 	"runtime"
 	"runtime/cgo"
 	"unsafe"
@@ -576,19 +576,6 @@ func miqt_exec_callback_QTcpServer_disconnectNotify(self *C.QTcpServer, cb C.int
 
 	gofunc((&QTcpServer{h: self}).callVirtualBase_DisconnectNotify, slotval1)
 
-}
-func (this *QTcpServer) OnPendingConnectionAvailable(slot func()) {
-	C.QTcpServer_connect_pendingConnectionAvailable(this.h, C.intptr_t(cgo.NewHandle(slot)))
-}
-
-//export miqt_exec_callback_QTcpServer_pendingConnectionAvailable
-func miqt_exec_callback_QTcpServer_pendingConnectionAvailable(cb C.intptr_t) {
-	gofunc, ok := cgo.Handle(cb).Value().(func())
-	if !ok {
-		panic("miqt: callback of non-callback type (heap corruption?)")
-	}
-
-	gofunc()
 }
 
 // Delete this object from C++ memory.

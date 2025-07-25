@@ -246,7 +246,6 @@ struct miqt_string QAbstractItemView_tr2(const char* s, const char* c);
 struct miqt_string QAbstractItemView_tr3(const char* s, const char* c, int n);
 struct miqt_string QAbstractItemView_trUtf82(const char* s, const char* c);
 struct miqt_string QAbstractItemView_trUtf83(const char* s, const char* c, int n);
-
 bool QAbstractItemView_override_virtual_setModel(void* self, intptr_t slot);
 void QAbstractItemView_virtualbase_setModel(void* self, QAbstractItemModel* model);
 bool QAbstractItemView_override_virtual_setSelectionModel(void* self, intptr_t slot);
@@ -425,7 +424,6 @@ bool QAbstractItemView_override_virtual_connectNotify(void* self, intptr_t slot)
 void QAbstractItemView_virtualbase_connectNotify(void* self, QMetaMethod* signal);
 bool QAbstractItemView_override_virtual_disconnectNotify(void* self, intptr_t slot);
 void QAbstractItemView_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
-
 void QAbstractItemView_protectedbase_setHorizontalStepsPerItem(bool* _dynamic_cast_ok, void* self, int steps);
 int QAbstractItemView_protectedbase_horizontalStepsPerItem(bool* _dynamic_cast_ok, const void* self);
 void QAbstractItemView_protectedbase_setVerticalStepsPerItem(bool* _dynamic_cast_ok, void* self, int steps);
@@ -454,7 +452,6 @@ QObject* QAbstractItemView_protectedbase_sender(bool* _dynamic_cast_ok, const vo
 int QAbstractItemView_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self);
 int QAbstractItemView_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal);
 bool QAbstractItemView_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal);
-
 void QAbstractItemView_delete(QAbstractItemView* self);
 
 #ifdef __cplusplus

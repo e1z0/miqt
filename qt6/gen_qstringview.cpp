@@ -19,7 +19,7 @@ extern "C" {
 #endif
 
 QStringView* QStringView_new() {
-	return new (std::nothrow) QStringView();
+	return new QStringView();
 }
 
 struct miqt_string QStringView_toString(const QStringView* self) {

@@ -23,15 +23,15 @@ extern "C" {
 #endif
 
 QStylePainter* QStylePainter_new(QWidget* w) {
-	return new (std::nothrow) QStylePainter(w);
+	return new QStylePainter(w);
 }
 
 QStylePainter* QStylePainter_new2() {
-	return new (std::nothrow) QStylePainter();
+	return new QStylePainter();
 }
 
 QStylePainter* QStylePainter_new3(QPaintDevice* pd, QWidget* w) {
-	return new (std::nothrow) QStylePainter(pd, w);
+	return new QStylePainter(pd, w);
 }
 
 void QStylePainter_virtbase(QStylePainter* src, QPainter** outptr_QPainter) {

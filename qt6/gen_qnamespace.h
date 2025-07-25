@@ -46,7 +46,6 @@ int QKeyCombination_key(const QKeyCombination* self);
 QKeyCombination* QKeyCombination_fromCombined(int combined);
 int QKeyCombination_toCombined(const QKeyCombination* self);
 int QKeyCombination_ToInt(const QKeyCombination* self);
-
 void QKeyCombination_delete(QKeyCombination* self);
 
 #ifdef __cplusplus

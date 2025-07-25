@@ -34,8 +34,8 @@ void miqt_exec_callback_QXYLegendMarker_disconnectNotify(QXYLegendMarker*, intpt
 class MiqtVirtualQXYLegendMarker final : public QXYLegendMarker {
 public:
 
-	MiqtVirtualQXYLegendMarker(QXYSeries* series, QLegend* legend): QXYLegendMarker(series, legend) {}
-	MiqtVirtualQXYLegendMarker(QXYSeries* series, QLegend* legend, QObject* parent): QXYLegendMarker(series, legend, parent) {}
+	MiqtVirtualQXYLegendMarker(QXYSeries* series, QLegend* legend): QXYLegendMarker(series, legend) {};
+	MiqtVirtualQXYLegendMarker(QXYSeries* series, QLegend* legend, QObject* parent): QXYLegendMarker(series, legend, parent) {};
 
 	virtual ~MiqtVirtualQXYLegendMarker() override = default;
 
@@ -47,8 +47,10 @@ public:
 		if (handle__type == 0) {
 			return QXYLegendMarker::type();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QXYLegendMarker_type(this, handle__type);
+
 		return static_cast<QLegendMarker::LegendMarkerType>(callback_return_value);
 	}
 
@@ -62,8 +64,10 @@ public:
 		if (handle__series == 0) {
 			return QXYLegendMarker::series();
 		}
+		
 
 		QXYSeries* callback_return_value = miqt_exec_callback_QXYLegendMarker_series(this, handle__series);
+
 		return callback_return_value;
 	}
 
@@ -77,9 +81,11 @@ public:
 		if (handle__event == 0) {
 			return QXYLegendMarker::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QXYLegendMarker_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -93,10 +99,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QXYLegendMarker::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QXYLegendMarker_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -111,10 +119,12 @@ public:
 			QXYLegendMarker::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QXYLegendMarker_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QXYLegendMarker_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -128,10 +138,12 @@ public:
 			QXYLegendMarker::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QXYLegendMarker_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QXYLegendMarker_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -145,10 +157,12 @@ public:
 			QXYLegendMarker::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QXYLegendMarker_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QXYLegendMarker_virtualbase_customEvent(void* self, QEvent* event);
@@ -162,12 +176,14 @@ public:
 			QXYLegendMarker::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QXYLegendMarker_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QXYLegendMarker_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -181,12 +197,14 @@ public:
 			QXYLegendMarker::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QXYLegendMarker_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QXYLegendMarker_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -199,11 +217,11 @@ public:
 };
 
 QXYLegendMarker* QXYLegendMarker_new(QXYSeries* series, QLegend* legend) {
-	return new (std::nothrow) MiqtVirtualQXYLegendMarker(series, legend);
+	return new MiqtVirtualQXYLegendMarker(series, legend);
 }
 
 QXYLegendMarker* QXYLegendMarker_new2(QXYSeries* series, QLegend* legend, QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQXYLegendMarker(series, legend, parent);
+	return new MiqtVirtualQXYLegendMarker(series, legend, parent);
 }
 
 void QXYLegendMarker_virtbase(QXYLegendMarker* src, QLegendMarker** outptr_QLegendMarker) {
@@ -265,14 +283,16 @@ bool QXYLegendMarker_override_virtual_type(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__type = slot;
 	return true;
 }
 
 int QXYLegendMarker_virtualbase_type(void* self) {
-	MiqtVirtualQXYLegendMarker::LegendMarkerType _ret = static_cast<MiqtVirtualQXYLegendMarker*>(self)->QXYLegendMarker::type();
+
+	MiqtVirtualQXYLegendMarker::LegendMarkerType _ret = ( (MiqtVirtualQXYLegendMarker*)(self) )->QXYLegendMarker::type();
 	return static_cast<int>(_ret);
+
 }
 
 bool QXYLegendMarker_override_virtual_series(void* self, intptr_t slot) {
@@ -280,13 +300,15 @@ bool QXYLegendMarker_override_virtual_series(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__series = slot;
 	return true;
 }
 
 QXYSeries* QXYLegendMarker_virtualbase_series(void* self) {
-	return static_cast<MiqtVirtualQXYLegendMarker*>(self)->QXYLegendMarker::series();
+
+	return ( (MiqtVirtualQXYLegendMarker*)(self) )->QXYLegendMarker::series();
+
 }
 
 bool QXYLegendMarker_override_virtual_event(void* self, intptr_t slot) {
@@ -294,13 +316,15 @@ bool QXYLegendMarker_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QXYLegendMarker_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQXYLegendMarker*>(self)->QXYLegendMarker::event(event);
+
+	return ( (MiqtVirtualQXYLegendMarker*)(self) )->QXYLegendMarker::event(event);
+
 }
 
 bool QXYLegendMarker_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -308,13 +332,15 @@ bool QXYLegendMarker_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QXYLegendMarker_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQXYLegendMarker*>(self)->QXYLegendMarker::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQXYLegendMarker*)(self) )->QXYLegendMarker::eventFilter(watched, event);
+
 }
 
 bool QXYLegendMarker_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -322,13 +348,15 @@ bool QXYLegendMarker_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QXYLegendMarker_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQXYLegendMarker*>(self)->QXYLegendMarker::timerEvent(event);
+
+	( (MiqtVirtualQXYLegendMarker*)(self) )->QXYLegendMarker::timerEvent(event);
+
 }
 
 bool QXYLegendMarker_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -336,13 +364,15 @@ bool QXYLegendMarker_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QXYLegendMarker_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQXYLegendMarker*>(self)->QXYLegendMarker::childEvent(event);
+
+	( (MiqtVirtualQXYLegendMarker*)(self) )->QXYLegendMarker::childEvent(event);
+
 }
 
 bool QXYLegendMarker_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -350,13 +380,15 @@ bool QXYLegendMarker_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QXYLegendMarker_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQXYLegendMarker*>(self)->QXYLegendMarker::customEvent(event);
+
+	( (MiqtVirtualQXYLegendMarker*)(self) )->QXYLegendMarker::customEvent(event);
+
 }
 
 bool QXYLegendMarker_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -364,13 +396,15 @@ bool QXYLegendMarker_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QXYLegendMarker_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQXYLegendMarker*>(self)->QXYLegendMarker::connectNotify(*signal);
+
+	( (MiqtVirtualQXYLegendMarker*)(self) )->QXYLegendMarker::connectNotify(*signal);
+
 }
 
 bool QXYLegendMarker_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -378,13 +412,15 @@ bool QXYLegendMarker_override_virtual_disconnectNotify(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QXYLegendMarker_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQXYLegendMarker*>(self)->QXYLegendMarker::disconnectNotify(*signal);
+
+	( (MiqtVirtualQXYLegendMarker*)(self) )->QXYLegendMarker::disconnectNotify(*signal);
+
 }
 
 QObject* QXYLegendMarker_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -393,9 +429,11 @@ QObject* QXYLegendMarker_protectedbase_sender(bool* _dynamic_cast_ok, const void
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QXYLegendMarker_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -404,9 +442,11 @@ int QXYLegendMarker_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, cons
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QXYLegendMarker_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -415,9 +455,11 @@ int QXYLegendMarker_protectedbase_receivers(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QXYLegendMarker_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -426,9 +468,11 @@ bool QXYLegendMarker_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, con
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QXYLegendMarker_delete(QXYLegendMarker* self) {

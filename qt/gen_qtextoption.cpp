@@ -14,15 +14,15 @@ extern "C" {
 #endif
 
 QTextOption* QTextOption_new() {
-	return new (std::nothrow) QTextOption();
+	return new QTextOption();
 }
 
 QTextOption* QTextOption_new2(int alignment) {
-	return new (std::nothrow) QTextOption(static_cast<Qt::Alignment>(alignment));
+	return new QTextOption(static_cast<Qt::Alignment>(alignment));
 }
 
 QTextOption* QTextOption_new3(QTextOption* o) {
-	return new (std::nothrow) QTextOption(*o);
+	return new QTextOption(*o);
 }
 
 void QTextOption_operatorAssign(QTextOption* self, QTextOption* o) {
@@ -142,19 +142,19 @@ void QTextOption_delete(QTextOption* self) {
 }
 
 QTextOption__Tab* QTextOption__Tab_new() {
-	return new (std::nothrow) QTextOption::Tab();
+	return new QTextOption::Tab();
 }
 
 QTextOption__Tab* QTextOption__Tab_new2(double pos, int tabType) {
-	return new (std::nothrow) QTextOption::Tab(static_cast<qreal>(pos), static_cast<QTextOption::TabType>(tabType));
+	return new QTextOption::Tab(static_cast<qreal>(pos), static_cast<QTextOption::TabType>(tabType));
 }
 
 QTextOption__Tab* QTextOption__Tab_new3(QTextOption__Tab* param1) {
-	return new (std::nothrow) QTextOption::Tab(*param1);
+	return new QTextOption::Tab(*param1);
 }
 
 QTextOption__Tab* QTextOption__Tab_new4(double pos, int tabType, QChar* delim) {
-	return new (std::nothrow) QTextOption::Tab(static_cast<qreal>(pos), static_cast<QTextOption::TabType>(tabType), *delim);
+	return new QTextOption::Tab(static_cast<qreal>(pos), static_cast<QTextOption::TabType>(tabType), *delim);
 }
 
 bool QTextOption__Tab_operatorEqual(const QTextOption__Tab* self, QTextOption__Tab* other) {

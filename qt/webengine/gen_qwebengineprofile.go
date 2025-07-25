@@ -9,7 +9,7 @@ package webengine
 import "C"
 
 import (
-	"github.com/e1z0/miqt/qt"
+	"github.com/mappu/miqt/qt"
 	"runtime"
 	"runtime/cgo"
 	"unsafe"

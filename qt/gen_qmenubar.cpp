@@ -102,8 +102,8 @@ void miqt_exec_callback_QMenuBar_disconnectNotify(QMenuBar*, intptr_t, QMetaMeth
 class MiqtVirtualQMenuBar final : public QMenuBar {
 public:
 
-	MiqtVirtualQMenuBar(QWidget* parent): QMenuBar(parent) {}
-	MiqtVirtualQMenuBar(): QMenuBar() {}
+	MiqtVirtualQMenuBar(QWidget* parent): QMenuBar(parent) {};
+	MiqtVirtualQMenuBar(): QMenuBar() {};
 
 	virtual ~MiqtVirtualQMenuBar() override = default;
 
@@ -115,8 +115,10 @@ public:
 		if (handle__sizeHint == 0) {
 			return QMenuBar::sizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_QMenuBar_sizeHint(this, handle__sizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -130,8 +132,10 @@ public:
 		if (handle__minimumSizeHint == 0) {
 			return QMenuBar::minimumSizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_QMenuBar_minimumSizeHint(this, handle__minimumSizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -145,9 +149,11 @@ public:
 		if (handle__heightForWidth == 0) {
 			return QMenuBar::heightForWidth(param1);
 		}
-
+		
 		int sigval1 = param1;
+
 		int callback_return_value = miqt_exec_callback_QMenuBar_heightForWidth(this, handle__heightForWidth, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -162,10 +168,12 @@ public:
 			QMenuBar::setVisible(visible);
 			return;
 		}
-
+		
 		bool sigval1 = visible;
+
 		miqt_exec_callback_QMenuBar_setVisible(this, handle__setVisible, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_setVisible(void* self, bool visible);
@@ -179,10 +187,12 @@ public:
 			QMenuBar::changeEvent(param1);
 			return;
 		}
-
+		
 		QEvent* sigval1 = param1;
+
 		miqt_exec_callback_QMenuBar_changeEvent(this, handle__changeEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_changeEvent(void* self, QEvent* param1);
@@ -196,10 +206,12 @@ public:
 			QMenuBar::keyPressEvent(param1);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = param1;
+
 		miqt_exec_callback_QMenuBar_keyPressEvent(this, handle__keyPressEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_keyPressEvent(void* self, QKeyEvent* param1);
@@ -213,10 +225,12 @@ public:
 			QMenuBar::mouseReleaseEvent(param1);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = param1;
+
 		miqt_exec_callback_QMenuBar_mouseReleaseEvent(this, handle__mouseReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_mouseReleaseEvent(void* self, QMouseEvent* param1);
@@ -230,10 +244,12 @@ public:
 			QMenuBar::mousePressEvent(param1);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = param1;
+
 		miqt_exec_callback_QMenuBar_mousePressEvent(this, handle__mousePressEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_mousePressEvent(void* self, QMouseEvent* param1);
@@ -247,10 +263,12 @@ public:
 			QMenuBar::mouseMoveEvent(param1);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = param1;
+
 		miqt_exec_callback_QMenuBar_mouseMoveEvent(this, handle__mouseMoveEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_mouseMoveEvent(void* self, QMouseEvent* param1);
@@ -264,10 +282,12 @@ public:
 			QMenuBar::leaveEvent(param1);
 			return;
 		}
-
+		
 		QEvent* sigval1 = param1;
+
 		miqt_exec_callback_QMenuBar_leaveEvent(this, handle__leaveEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_leaveEvent(void* self, QEvent* param1);
@@ -281,10 +301,12 @@ public:
 			QMenuBar::paintEvent(param1);
 			return;
 		}
-
+		
 		QPaintEvent* sigval1 = param1;
+
 		miqt_exec_callback_QMenuBar_paintEvent(this, handle__paintEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_paintEvent(void* self, QPaintEvent* param1);
@@ -298,10 +320,12 @@ public:
 			QMenuBar::resizeEvent(param1);
 			return;
 		}
-
+		
 		QResizeEvent* sigval1 = param1;
+
 		miqt_exec_callback_QMenuBar_resizeEvent(this, handle__resizeEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_resizeEvent(void* self, QResizeEvent* param1);
@@ -315,10 +339,12 @@ public:
 			QMenuBar::actionEvent(param1);
 			return;
 		}
-
+		
 		QActionEvent* sigval1 = param1;
+
 		miqt_exec_callback_QMenuBar_actionEvent(this, handle__actionEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_actionEvent(void* self, QActionEvent* param1);
@@ -332,10 +358,12 @@ public:
 			QMenuBar::focusOutEvent(param1);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = param1;
+
 		miqt_exec_callback_QMenuBar_focusOutEvent(this, handle__focusOutEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_focusOutEvent(void* self, QFocusEvent* param1);
@@ -349,10 +377,12 @@ public:
 			QMenuBar::focusInEvent(param1);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = param1;
+
 		miqt_exec_callback_QMenuBar_focusInEvent(this, handle__focusInEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_focusInEvent(void* self, QFocusEvent* param1);
@@ -366,10 +396,12 @@ public:
 			QMenuBar::timerEvent(param1);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = param1;
+
 		miqt_exec_callback_QMenuBar_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_timerEvent(void* self, QTimerEvent* param1);
@@ -382,10 +414,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QMenuBar::eventFilter(param1, param2);
 		}
-
+		
 		QObject* sigval1 = param1;
 		QEvent* sigval2 = param2;
+
 		bool callback_return_value = miqt_exec_callback_QMenuBar_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -399,9 +433,11 @@ public:
 		if (handle__event == 0) {
 			return QMenuBar::event(param1);
 		}
-
+		
 		QEvent* sigval1 = param1;
+
 		bool callback_return_value = miqt_exec_callback_QMenuBar_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -415,8 +451,10 @@ public:
 		if (handle__devType == 0) {
 			return QMenuBar::devType();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QMenuBar_devType(this, handle__devType);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -430,8 +468,10 @@ public:
 		if (handle__hasHeightForWidth == 0) {
 			return QMenuBar::hasHeightForWidth();
 		}
+		
 
 		bool callback_return_value = miqt_exec_callback_QMenuBar_hasHeightForWidth(this, handle__hasHeightForWidth);
+
 		return callback_return_value;
 	}
 
@@ -445,8 +485,10 @@ public:
 		if (handle__paintEngine == 0) {
 			return QMenuBar::paintEngine();
 		}
+		
 
 		QPaintEngine* callback_return_value = miqt_exec_callback_QMenuBar_paintEngine(this, handle__paintEngine);
+
 		return callback_return_value;
 	}
 
@@ -461,10 +503,12 @@ public:
 			QMenuBar::mouseDoubleClickEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QMenuBar_mouseDoubleClickEvent(this, handle__mouseDoubleClickEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_mouseDoubleClickEvent(void* self, QMouseEvent* event);
@@ -478,10 +522,12 @@ public:
 			QMenuBar::wheelEvent(event);
 			return;
 		}
-
+		
 		QWheelEvent* sigval1 = event;
+
 		miqt_exec_callback_QMenuBar_wheelEvent(this, handle__wheelEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_wheelEvent(void* self, QWheelEvent* event);
@@ -495,10 +541,12 @@ public:
 			QMenuBar::keyReleaseEvent(event);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = event;
+
 		miqt_exec_callback_QMenuBar_keyReleaseEvent(this, handle__keyReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_keyReleaseEvent(void* self, QKeyEvent* event);
@@ -512,10 +560,12 @@ public:
 			QMenuBar::enterEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QMenuBar_enterEvent(this, handle__enterEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_enterEvent(void* self, QEvent* event);
@@ -529,10 +579,12 @@ public:
 			QMenuBar::moveEvent(event);
 			return;
 		}
-
+		
 		QMoveEvent* sigval1 = event;
+
 		miqt_exec_callback_QMenuBar_moveEvent(this, handle__moveEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_moveEvent(void* self, QMoveEvent* event);
@@ -546,10 +598,12 @@ public:
 			QMenuBar::closeEvent(event);
 			return;
 		}
-
+		
 		QCloseEvent* sigval1 = event;
+
 		miqt_exec_callback_QMenuBar_closeEvent(this, handle__closeEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_closeEvent(void* self, QCloseEvent* event);
@@ -563,10 +617,12 @@ public:
 			QMenuBar::contextMenuEvent(event);
 			return;
 		}
-
+		
 		QContextMenuEvent* sigval1 = event;
+
 		miqt_exec_callback_QMenuBar_contextMenuEvent(this, handle__contextMenuEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_contextMenuEvent(void* self, QContextMenuEvent* event);
@@ -580,10 +636,12 @@ public:
 			QMenuBar::tabletEvent(event);
 			return;
 		}
-
+		
 		QTabletEvent* sigval1 = event;
+
 		miqt_exec_callback_QMenuBar_tabletEvent(this, handle__tabletEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_tabletEvent(void* self, QTabletEvent* event);
@@ -597,10 +655,12 @@ public:
 			QMenuBar::dragEnterEvent(event);
 			return;
 		}
-
+		
 		QDragEnterEvent* sigval1 = event;
+
 		miqt_exec_callback_QMenuBar_dragEnterEvent(this, handle__dragEnterEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_dragEnterEvent(void* self, QDragEnterEvent* event);
@@ -614,10 +674,12 @@ public:
 			QMenuBar::dragMoveEvent(event);
 			return;
 		}
-
+		
 		QDragMoveEvent* sigval1 = event;
+
 		miqt_exec_callback_QMenuBar_dragMoveEvent(this, handle__dragMoveEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_dragMoveEvent(void* self, QDragMoveEvent* event);
@@ -631,10 +693,12 @@ public:
 			QMenuBar::dragLeaveEvent(event);
 			return;
 		}
-
+		
 		QDragLeaveEvent* sigval1 = event;
+
 		miqt_exec_callback_QMenuBar_dragLeaveEvent(this, handle__dragLeaveEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_dragLeaveEvent(void* self, QDragLeaveEvent* event);
@@ -648,10 +712,12 @@ public:
 			QMenuBar::dropEvent(event);
 			return;
 		}
-
+		
 		QDropEvent* sigval1 = event;
+
 		miqt_exec_callback_QMenuBar_dropEvent(this, handle__dropEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_dropEvent(void* self, QDropEvent* event);
@@ -665,10 +731,12 @@ public:
 			QMenuBar::showEvent(event);
 			return;
 		}
-
+		
 		QShowEvent* sigval1 = event;
+
 		miqt_exec_callback_QMenuBar_showEvent(this, handle__showEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_showEvent(void* self, QShowEvent* event);
@@ -682,10 +750,12 @@ public:
 			QMenuBar::hideEvent(event);
 			return;
 		}
-
+		
 		QHideEvent* sigval1 = event;
+
 		miqt_exec_callback_QMenuBar_hideEvent(this, handle__hideEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_hideEvent(void* self, QHideEvent* event);
@@ -698,7 +768,7 @@ public:
 		if (handle__nativeEvent == 0) {
 			return QMenuBar::nativeEvent(eventType, message, result);
 		}
-
+		
 		const QByteArray eventType_qb = eventType;
 		struct miqt_string eventType_ms;
 		eventType_ms.len = eventType_qb.length();
@@ -707,7 +777,9 @@ public:
 		struct miqt_string sigval1 = eventType_ms;
 		void* sigval2 = message;
 		long* sigval3 = result;
+
 		bool callback_return_value = miqt_exec_callback_QMenuBar_nativeEvent(this, handle__nativeEvent, sigval1, sigval2, sigval3);
+
 		return callback_return_value;
 	}
 
@@ -721,10 +793,12 @@ public:
 		if (handle__metric == 0) {
 			return QMenuBar::metric(param1);
 		}
-
+		
 		QPaintDevice::PaintDeviceMetric param1_ret = param1;
 		int sigval1 = static_cast<int>(param1_ret);
+
 		int callback_return_value = miqt_exec_callback_QMenuBar_metric(this, handle__metric, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -739,10 +813,12 @@ public:
 			QMenuBar::initPainter(painter);
 			return;
 		}
-
+		
 		QPainter* sigval1 = painter;
+
 		miqt_exec_callback_QMenuBar_initPainter(this, handle__initPainter, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_initPainter(const void* self, QPainter* painter);
@@ -755,9 +831,11 @@ public:
 		if (handle__redirected == 0) {
 			return QMenuBar::redirected(offset);
 		}
-
+		
 		QPoint* sigval1 = offset;
+
 		QPaintDevice* callback_return_value = miqt_exec_callback_QMenuBar_redirected(this, handle__redirected, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -771,8 +849,10 @@ public:
 		if (handle__sharedPainter == 0) {
 			return QMenuBar::sharedPainter();
 		}
+		
 
 		QPainter* callback_return_value = miqt_exec_callback_QMenuBar_sharedPainter(this, handle__sharedPainter);
+
 		return callback_return_value;
 	}
 
@@ -787,10 +867,12 @@ public:
 			QMenuBar::inputMethodEvent(param1);
 			return;
 		}
-
+		
 		QInputMethodEvent* sigval1 = param1;
+
 		miqt_exec_callback_QMenuBar_inputMethodEvent(this, handle__inputMethodEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* param1);
@@ -803,10 +885,12 @@ public:
 		if (handle__inputMethodQuery == 0) {
 			return QMenuBar::inputMethodQuery(param1);
 		}
-
+		
 		Qt::InputMethodQuery param1_ret = param1;
 		int sigval1 = static_cast<int>(param1_ret);
+
 		QVariant* callback_return_value = miqt_exec_callback_QMenuBar_inputMethodQuery(this, handle__inputMethodQuery, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -820,9 +904,11 @@ public:
 		if (handle__focusNextPrevChild == 0) {
 			return QMenuBar::focusNextPrevChild(next);
 		}
-
+		
 		bool sigval1 = next;
+
 		bool callback_return_value = miqt_exec_callback_QMenuBar_focusNextPrevChild(this, handle__focusNextPrevChild, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -837,10 +923,12 @@ public:
 			QMenuBar::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QMenuBar_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -854,10 +942,12 @@ public:
 			QMenuBar::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QMenuBar_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_customEvent(void* self, QEvent* event);
@@ -871,12 +961,14 @@ public:
 			QMenuBar::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QMenuBar_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -890,12 +982,14 @@ public:
 			QMenuBar::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QMenuBar_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QMenuBar_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -914,11 +1008,11 @@ public:
 };
 
 QMenuBar* QMenuBar_new(QWidget* parent) {
-	return new (std::nothrow) MiqtVirtualQMenuBar(parent);
+	return new MiqtVirtualQMenuBar(parent);
 }
 
 QMenuBar* QMenuBar_new2() {
-	return new (std::nothrow) MiqtVirtualQMenuBar();
+	return new MiqtVirtualQMenuBar();
 }
 
 void QMenuBar_virtbase(QMenuBar* src, QWidget** outptr_QWidget) {
@@ -1051,7 +1145,7 @@ void QMenuBar_triggered(QMenuBar* self, QAction* action) {
 }
 
 void QMenuBar_connect_triggered(QMenuBar* self, intptr_t slot) {
-	QMenuBar::connect(self, static_cast<void (QMenuBar::*)(QAction*)>(&QMenuBar::triggered), self, [=](QAction* action) {
+	MiqtVirtualQMenuBar::connect(self, static_cast<void (QMenuBar::*)(QAction*)>(&QMenuBar::triggered), self, [=](QAction* action) {
 		QAction* sigval1 = action;
 		miqt_exec_callback_QMenuBar_triggered(slot, sigval1);
 	});
@@ -1062,7 +1156,7 @@ void QMenuBar_hovered(QMenuBar* self, QAction* action) {
 }
 
 void QMenuBar_connect_hovered(QMenuBar* self, intptr_t slot) {
-	QMenuBar::connect(self, static_cast<void (QMenuBar::*)(QAction*)>(&QMenuBar::hovered), self, [=](QAction* action) {
+	MiqtVirtualQMenuBar::connect(self, static_cast<void (QMenuBar::*)(QAction*)>(&QMenuBar::hovered), self, [=](QAction* action) {
 		QAction* sigval1 = action;
 		miqt_exec_callback_QMenuBar_hovered(slot, sigval1);
 	});
@@ -1125,13 +1219,15 @@ bool QMenuBar_override_virtual_sizeHint(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sizeHint = slot;
 	return true;
 }
 
 QSize* QMenuBar_virtualbase_sizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualQMenuBar*>(self)->QMenuBar::sizeHint());
+
+	return new QSize(( (const MiqtVirtualQMenuBar*)(self) )->QMenuBar::sizeHint());
+
 }
 
 bool QMenuBar_override_virtual_minimumSizeHint(void* self, intptr_t slot) {
@@ -1139,13 +1235,15 @@ bool QMenuBar_override_virtual_minimumSizeHint(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__minimumSizeHint = slot;
 	return true;
 }
 
 QSize* QMenuBar_virtualbase_minimumSizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualQMenuBar*>(self)->QMenuBar::minimumSizeHint());
+
+	return new QSize(( (const MiqtVirtualQMenuBar*)(self) )->QMenuBar::minimumSizeHint());
+
 }
 
 bool QMenuBar_override_virtual_heightForWidth(void* self, intptr_t slot) {
@@ -1153,13 +1251,15 @@ bool QMenuBar_override_virtual_heightForWidth(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__heightForWidth = slot;
 	return true;
 }
 
 int QMenuBar_virtualbase_heightForWidth(const void* self, int param1) {
-	return static_cast<const MiqtVirtualQMenuBar*>(self)->QMenuBar::heightForWidth(static_cast<int>(param1));
+
+	return ( (const MiqtVirtualQMenuBar*)(self) )->QMenuBar::heightForWidth(static_cast<int>(param1));
+
 }
 
 bool QMenuBar_override_virtual_setVisible(void* self, intptr_t slot) {
@@ -1167,13 +1267,15 @@ bool QMenuBar_override_virtual_setVisible(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setVisible = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_setVisible(void* self, bool visible) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::setVisible(visible);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::setVisible(visible);
+
 }
 
 bool QMenuBar_override_virtual_changeEvent(void* self, intptr_t slot) {
@@ -1181,13 +1283,15 @@ bool QMenuBar_override_virtual_changeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__changeEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_changeEvent(void* self, QEvent* param1) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::changeEvent(param1);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::changeEvent(param1);
+
 }
 
 bool QMenuBar_override_virtual_keyPressEvent(void* self, intptr_t slot) {
@@ -1195,13 +1299,15 @@ bool QMenuBar_override_virtual_keyPressEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyPressEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_keyPressEvent(void* self, QKeyEvent* param1) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::keyPressEvent(param1);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::keyPressEvent(param1);
+
 }
 
 bool QMenuBar_override_virtual_mouseReleaseEvent(void* self, intptr_t slot) {
@@ -1209,13 +1315,15 @@ bool QMenuBar_override_virtual_mouseReleaseEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseReleaseEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_mouseReleaseEvent(void* self, QMouseEvent* param1) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::mouseReleaseEvent(param1);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::mouseReleaseEvent(param1);
+
 }
 
 bool QMenuBar_override_virtual_mousePressEvent(void* self, intptr_t slot) {
@@ -1223,13 +1331,15 @@ bool QMenuBar_override_virtual_mousePressEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mousePressEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_mousePressEvent(void* self, QMouseEvent* param1) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::mousePressEvent(param1);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::mousePressEvent(param1);
+
 }
 
 bool QMenuBar_override_virtual_mouseMoveEvent(void* self, intptr_t slot) {
@@ -1237,13 +1347,15 @@ bool QMenuBar_override_virtual_mouseMoveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseMoveEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_mouseMoveEvent(void* self, QMouseEvent* param1) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::mouseMoveEvent(param1);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::mouseMoveEvent(param1);
+
 }
 
 bool QMenuBar_override_virtual_leaveEvent(void* self, intptr_t slot) {
@@ -1251,13 +1363,15 @@ bool QMenuBar_override_virtual_leaveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__leaveEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_leaveEvent(void* self, QEvent* param1) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::leaveEvent(param1);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::leaveEvent(param1);
+
 }
 
 bool QMenuBar_override_virtual_paintEvent(void* self, intptr_t slot) {
@@ -1265,13 +1379,15 @@ bool QMenuBar_override_virtual_paintEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paintEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_paintEvent(void* self, QPaintEvent* param1) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::paintEvent(param1);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::paintEvent(param1);
+
 }
 
 bool QMenuBar_override_virtual_resizeEvent(void* self, intptr_t slot) {
@@ -1279,13 +1395,15 @@ bool QMenuBar_override_virtual_resizeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__resizeEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_resizeEvent(void* self, QResizeEvent* param1) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::resizeEvent(param1);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::resizeEvent(param1);
+
 }
 
 bool QMenuBar_override_virtual_actionEvent(void* self, intptr_t slot) {
@@ -1293,13 +1411,15 @@ bool QMenuBar_override_virtual_actionEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__actionEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_actionEvent(void* self, QActionEvent* param1) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::actionEvent(param1);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::actionEvent(param1);
+
 }
 
 bool QMenuBar_override_virtual_focusOutEvent(void* self, intptr_t slot) {
@@ -1307,13 +1427,15 @@ bool QMenuBar_override_virtual_focusOutEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusOutEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_focusOutEvent(void* self, QFocusEvent* param1) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::focusOutEvent(param1);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::focusOutEvent(param1);
+
 }
 
 bool QMenuBar_override_virtual_focusInEvent(void* self, intptr_t slot) {
@@ -1321,13 +1443,15 @@ bool QMenuBar_override_virtual_focusInEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusInEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_focusInEvent(void* self, QFocusEvent* param1) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::focusInEvent(param1);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::focusInEvent(param1);
+
 }
 
 bool QMenuBar_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -1335,13 +1459,15 @@ bool QMenuBar_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_timerEvent(void* self, QTimerEvent* param1) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::timerEvent(param1);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::timerEvent(param1);
+
 }
 
 bool QMenuBar_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -1349,13 +1475,15 @@ bool QMenuBar_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QMenuBar_virtualbase_eventFilter(void* self, QObject* param1, QEvent* param2) {
-	return static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::eventFilter(param1, param2);
+
+	return ( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::eventFilter(param1, param2);
+
 }
 
 bool QMenuBar_override_virtual_event(void* self, intptr_t slot) {
@@ -1363,13 +1491,15 @@ bool QMenuBar_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QMenuBar_virtualbase_event(void* self, QEvent* param1) {
-	return static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::event(param1);
+
+	return ( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::event(param1);
+
 }
 
 bool QMenuBar_override_virtual_devType(void* self, intptr_t slot) {
@@ -1377,13 +1507,15 @@ bool QMenuBar_override_virtual_devType(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__devType = slot;
 	return true;
 }
 
 int QMenuBar_virtualbase_devType(const void* self) {
-	return static_cast<const MiqtVirtualQMenuBar*>(self)->QMenuBar::devType();
+
+	return ( (const MiqtVirtualQMenuBar*)(self) )->QMenuBar::devType();
+
 }
 
 bool QMenuBar_override_virtual_hasHeightForWidth(void* self, intptr_t slot) {
@@ -1391,13 +1523,15 @@ bool QMenuBar_override_virtual_hasHeightForWidth(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hasHeightForWidth = slot;
 	return true;
 }
 
 bool QMenuBar_virtualbase_hasHeightForWidth(const void* self) {
-	return static_cast<const MiqtVirtualQMenuBar*>(self)->QMenuBar::hasHeightForWidth();
+
+	return ( (const MiqtVirtualQMenuBar*)(self) )->QMenuBar::hasHeightForWidth();
+
 }
 
 bool QMenuBar_override_virtual_paintEngine(void* self, intptr_t slot) {
@@ -1405,13 +1539,15 @@ bool QMenuBar_override_virtual_paintEngine(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paintEngine = slot;
 	return true;
 }
 
 QPaintEngine* QMenuBar_virtualbase_paintEngine(const void* self) {
-	return static_cast<const MiqtVirtualQMenuBar*>(self)->QMenuBar::paintEngine();
+
+	return ( (const MiqtVirtualQMenuBar*)(self) )->QMenuBar::paintEngine();
+
 }
 
 bool QMenuBar_override_virtual_mouseDoubleClickEvent(void* self, intptr_t slot) {
@@ -1419,13 +1555,15 @@ bool QMenuBar_override_virtual_mouseDoubleClickEvent(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseDoubleClickEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_mouseDoubleClickEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::mouseDoubleClickEvent(event);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::mouseDoubleClickEvent(event);
+
 }
 
 bool QMenuBar_override_virtual_wheelEvent(void* self, intptr_t slot) {
@@ -1433,13 +1571,15 @@ bool QMenuBar_override_virtual_wheelEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__wheelEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_wheelEvent(void* self, QWheelEvent* event) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::wheelEvent(event);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::wheelEvent(event);
+
 }
 
 bool QMenuBar_override_virtual_keyReleaseEvent(void* self, intptr_t slot) {
@@ -1447,13 +1587,15 @@ bool QMenuBar_override_virtual_keyReleaseEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyReleaseEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_keyReleaseEvent(void* self, QKeyEvent* event) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::keyReleaseEvent(event);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::keyReleaseEvent(event);
+
 }
 
 bool QMenuBar_override_virtual_enterEvent(void* self, intptr_t slot) {
@@ -1461,13 +1603,15 @@ bool QMenuBar_override_virtual_enterEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__enterEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_enterEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::enterEvent(event);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::enterEvent(event);
+
 }
 
 bool QMenuBar_override_virtual_moveEvent(void* self, intptr_t slot) {
@@ -1475,13 +1619,15 @@ bool QMenuBar_override_virtual_moveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__moveEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_moveEvent(void* self, QMoveEvent* event) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::moveEvent(event);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::moveEvent(event);
+
 }
 
 bool QMenuBar_override_virtual_closeEvent(void* self, intptr_t slot) {
@@ -1489,13 +1635,15 @@ bool QMenuBar_override_virtual_closeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__closeEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_closeEvent(void* self, QCloseEvent* event) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::closeEvent(event);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::closeEvent(event);
+
 }
 
 bool QMenuBar_override_virtual_contextMenuEvent(void* self, intptr_t slot) {
@@ -1503,13 +1651,15 @@ bool QMenuBar_override_virtual_contextMenuEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__contextMenuEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_contextMenuEvent(void* self, QContextMenuEvent* event) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::contextMenuEvent(event);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::contextMenuEvent(event);
+
 }
 
 bool QMenuBar_override_virtual_tabletEvent(void* self, intptr_t slot) {
@@ -1517,13 +1667,15 @@ bool QMenuBar_override_virtual_tabletEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__tabletEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_tabletEvent(void* self, QTabletEvent* event) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::tabletEvent(event);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::tabletEvent(event);
+
 }
 
 bool QMenuBar_override_virtual_dragEnterEvent(void* self, intptr_t slot) {
@@ -1531,13 +1683,15 @@ bool QMenuBar_override_virtual_dragEnterEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragEnterEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_dragEnterEvent(void* self, QDragEnterEvent* event) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::dragEnterEvent(event);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::dragEnterEvent(event);
+
 }
 
 bool QMenuBar_override_virtual_dragMoveEvent(void* self, intptr_t slot) {
@@ -1545,13 +1699,15 @@ bool QMenuBar_override_virtual_dragMoveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragMoveEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_dragMoveEvent(void* self, QDragMoveEvent* event) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::dragMoveEvent(event);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::dragMoveEvent(event);
+
 }
 
 bool QMenuBar_override_virtual_dragLeaveEvent(void* self, intptr_t slot) {
@@ -1559,13 +1715,15 @@ bool QMenuBar_override_virtual_dragLeaveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragLeaveEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_dragLeaveEvent(void* self, QDragLeaveEvent* event) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::dragLeaveEvent(event);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::dragLeaveEvent(event);
+
 }
 
 bool QMenuBar_override_virtual_dropEvent(void* self, intptr_t slot) {
@@ -1573,13 +1731,15 @@ bool QMenuBar_override_virtual_dropEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dropEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_dropEvent(void* self, QDropEvent* event) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::dropEvent(event);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::dropEvent(event);
+
 }
 
 bool QMenuBar_override_virtual_showEvent(void* self, intptr_t slot) {
@@ -1587,13 +1747,15 @@ bool QMenuBar_override_virtual_showEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__showEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_showEvent(void* self, QShowEvent* event) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::showEvent(event);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::showEvent(event);
+
 }
 
 bool QMenuBar_override_virtual_hideEvent(void* self, intptr_t slot) {
@@ -1601,13 +1763,15 @@ bool QMenuBar_override_virtual_hideEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hideEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_hideEvent(void* self, QHideEvent* event) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::hideEvent(event);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::hideEvent(event);
+
 }
 
 bool QMenuBar_override_virtual_nativeEvent(void* self, intptr_t slot) {
@@ -1615,14 +1779,16 @@ bool QMenuBar_override_virtual_nativeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__nativeEvent = slot;
 	return true;
 }
 
 bool QMenuBar_virtualbase_nativeEvent(void* self, struct miqt_string eventType, void* message, long* result) {
 	QByteArray eventType_QByteArray(eventType.data, eventType.len);
-	return static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::nativeEvent(eventType_QByteArray, message, static_cast<long*>(result));
+
+	return ( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::nativeEvent(eventType_QByteArray, message, static_cast<long*>(result));
+
 }
 
 bool QMenuBar_override_virtual_metric(void* self, intptr_t slot) {
@@ -1630,13 +1796,15 @@ bool QMenuBar_override_virtual_metric(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__metric = slot;
 	return true;
 }
 
 int QMenuBar_virtualbase_metric(const void* self, int param1) {
-	return static_cast<const MiqtVirtualQMenuBar*>(self)->QMenuBar::metric(static_cast<MiqtVirtualQMenuBar::PaintDeviceMetric>(param1));
+
+	return ( (const MiqtVirtualQMenuBar*)(self) )->QMenuBar::metric(static_cast<MiqtVirtualQMenuBar::PaintDeviceMetric>(param1));
+
 }
 
 bool QMenuBar_override_virtual_initPainter(void* self, intptr_t slot) {
@@ -1644,13 +1812,15 @@ bool QMenuBar_override_virtual_initPainter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__initPainter = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_initPainter(const void* self, QPainter* painter) {
-	static_cast<const MiqtVirtualQMenuBar*>(self)->QMenuBar::initPainter(painter);
+
+	( (const MiqtVirtualQMenuBar*)(self) )->QMenuBar::initPainter(painter);
+
 }
 
 bool QMenuBar_override_virtual_redirected(void* self, intptr_t slot) {
@@ -1658,13 +1828,15 @@ bool QMenuBar_override_virtual_redirected(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__redirected = slot;
 	return true;
 }
 
 QPaintDevice* QMenuBar_virtualbase_redirected(const void* self, QPoint* offset) {
-	return static_cast<const MiqtVirtualQMenuBar*>(self)->QMenuBar::redirected(offset);
+
+	return ( (const MiqtVirtualQMenuBar*)(self) )->QMenuBar::redirected(offset);
+
 }
 
 bool QMenuBar_override_virtual_sharedPainter(void* self, intptr_t slot) {
@@ -1672,13 +1844,15 @@ bool QMenuBar_override_virtual_sharedPainter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sharedPainter = slot;
 	return true;
 }
 
 QPainter* QMenuBar_virtualbase_sharedPainter(const void* self) {
-	return static_cast<const MiqtVirtualQMenuBar*>(self)->QMenuBar::sharedPainter();
+
+	return ( (const MiqtVirtualQMenuBar*)(self) )->QMenuBar::sharedPainter();
+
 }
 
 bool QMenuBar_override_virtual_inputMethodEvent(void* self, intptr_t slot) {
@@ -1686,13 +1860,15 @@ bool QMenuBar_override_virtual_inputMethodEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* param1) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::inputMethodEvent(param1);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::inputMethodEvent(param1);
+
 }
 
 bool QMenuBar_override_virtual_inputMethodQuery(void* self, intptr_t slot) {
@@ -1700,13 +1876,15 @@ bool QMenuBar_override_virtual_inputMethodQuery(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodQuery = slot;
 	return true;
 }
 
 QVariant* QMenuBar_virtualbase_inputMethodQuery(const void* self, int param1) {
-	return new QVariant(static_cast<const MiqtVirtualQMenuBar*>(self)->QMenuBar::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+
+	return new QVariant(( (const MiqtVirtualQMenuBar*)(self) )->QMenuBar::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+
 }
 
 bool QMenuBar_override_virtual_focusNextPrevChild(void* self, intptr_t slot) {
@@ -1714,13 +1892,15 @@ bool QMenuBar_override_virtual_focusNextPrevChild(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusNextPrevChild = slot;
 	return true;
 }
 
 bool QMenuBar_virtualbase_focusNextPrevChild(void* self, bool next) {
-	return static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::focusNextPrevChild(next);
+
+	return ( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::focusNextPrevChild(next);
+
 }
 
 bool QMenuBar_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -1728,13 +1908,15 @@ bool QMenuBar_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::childEvent(event);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::childEvent(event);
+
 }
 
 bool QMenuBar_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -1742,13 +1924,15 @@ bool QMenuBar_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::customEvent(event);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::customEvent(event);
+
 }
 
 bool QMenuBar_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -1756,13 +1940,15 @@ bool QMenuBar_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::connectNotify(*signal);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::connectNotify(*signal);
+
 }
 
 bool QMenuBar_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -1770,13 +1956,15 @@ bool QMenuBar_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QMenuBar_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQMenuBar*>(self)->QMenuBar::disconnectNotify(*signal);
+
+	( (MiqtVirtualQMenuBar*)(self) )->QMenuBar::disconnectNotify(*signal);
+
 }
 
 void QMenuBar_protectedbase_initStyleOption(bool* _dynamic_cast_ok, const void* self, QStyleOptionMenuItem* option, QAction* action) {
@@ -1785,9 +1973,11 @@ void QMenuBar_protectedbase_initStyleOption(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->initStyleOption(option, action);
+
 }
 
 void QMenuBar_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* self) {
@@ -1796,9 +1986,11 @@ void QMenuBar_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* self)
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->updateMicroFocus();
+
 }
 
 void QMenuBar_protectedbase_create(bool* _dynamic_cast_ok, void* self) {
@@ -1807,9 +1999,11 @@ void QMenuBar_protectedbase_create(bool* _dynamic_cast_ok, void* self) {
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->create();
+
 }
 
 void QMenuBar_protectedbase_destroy(bool* _dynamic_cast_ok, void* self) {
@@ -1818,9 +2012,11 @@ void QMenuBar_protectedbase_destroy(bool* _dynamic_cast_ok, void* self) {
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->destroy();
+
 }
 
 bool QMenuBar_protectedbase_focusNextChild(bool* _dynamic_cast_ok, void* self) {
@@ -1829,9 +2025,11 @@ bool QMenuBar_protectedbase_focusNextChild(bool* _dynamic_cast_ok, void* self) {
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->focusNextChild();
+
 }
 
 bool QMenuBar_protectedbase_focusPreviousChild(bool* _dynamic_cast_ok, void* self) {
@@ -1840,9 +2038,11 @@ bool QMenuBar_protectedbase_focusPreviousChild(bool* _dynamic_cast_ok, void* sel
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->focusPreviousChild();
+
 }
 
 QObject* QMenuBar_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -1851,9 +2051,11 @@ QObject* QMenuBar_protectedbase_sender(bool* _dynamic_cast_ok, const void* self)
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QMenuBar_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -1862,9 +2064,11 @@ int QMenuBar_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void*
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QMenuBar_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -1873,9 +2077,11 @@ int QMenuBar_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, c
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QMenuBar_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -1884,9 +2090,11 @@ bool QMenuBar_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QMenuBar_delete(QMenuBar* self) {

@@ -130,7 +130,6 @@ struct miqt_string QSpinBox_tr2(const char* s, const char* c);
 struct miqt_string QSpinBox_tr3(const char* s, const char* c, int n);
 struct miqt_string QSpinBox_trUtf82(const char* s, const char* c);
 struct miqt_string QSpinBox_trUtf83(const char* s, const char* c, int n);
-
 bool QSpinBox_override_virtual_event(void* self, intptr_t slot);
 bool QSpinBox_virtualbase_event(void* self, QEvent* event);
 bool QSpinBox_override_virtual_validate(void* self, intptr_t slot);
@@ -239,7 +238,6 @@ bool QSpinBox_override_virtual_connectNotify(void* self, intptr_t slot);
 void QSpinBox_virtualbase_connectNotify(void* self, QMetaMethod* signal);
 bool QSpinBox_override_virtual_disconnectNotify(void* self, intptr_t slot);
 void QSpinBox_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
-
 void QSpinBox_protectedbase_initStyleOption(bool* _dynamic_cast_ok, const void* self, QStyleOptionSpinBox* option);
 QLineEdit* QSpinBox_protectedbase_lineEdit(bool* _dynamic_cast_ok, const void* self);
 void QSpinBox_protectedbase_setLineEdit(bool* _dynamic_cast_ok, void* self, QLineEdit* edit);
@@ -252,7 +250,6 @@ QObject* QSpinBox_protectedbase_sender(bool* _dynamic_cast_ok, const void* self)
 int QSpinBox_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self);
 int QSpinBox_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal);
 bool QSpinBox_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal);
-
 void QSpinBox_delete(QSpinBox* self);
 
 QDoubleSpinBox* QDoubleSpinBox_new(QWidget* parent);
@@ -294,7 +291,6 @@ struct miqt_string QDoubleSpinBox_tr2(const char* s, const char* c);
 struct miqt_string QDoubleSpinBox_tr3(const char* s, const char* c, int n);
 struct miqt_string QDoubleSpinBox_trUtf82(const char* s, const char* c);
 struct miqt_string QDoubleSpinBox_trUtf83(const char* s, const char* c, int n);
-
 bool QDoubleSpinBox_override_virtual_validate(void* self, intptr_t slot);
 int QDoubleSpinBox_virtualbase_validate(const void* self, struct miqt_string input, int* pos);
 bool QDoubleSpinBox_override_virtual_valueFromText(void* self, intptr_t slot);
@@ -403,7 +399,6 @@ bool QDoubleSpinBox_override_virtual_connectNotify(void* self, intptr_t slot);
 void QDoubleSpinBox_virtualbase_connectNotify(void* self, QMetaMethod* signal);
 bool QDoubleSpinBox_override_virtual_disconnectNotify(void* self, intptr_t slot);
 void QDoubleSpinBox_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
-
 void QDoubleSpinBox_protectedbase_initStyleOption(bool* _dynamic_cast_ok, const void* self, QStyleOptionSpinBox* option);
 QLineEdit* QDoubleSpinBox_protectedbase_lineEdit(bool* _dynamic_cast_ok, const void* self);
 void QDoubleSpinBox_protectedbase_setLineEdit(bool* _dynamic_cast_ok, void* self, QLineEdit* edit);
@@ -416,7 +411,6 @@ QObject* QDoubleSpinBox_protectedbase_sender(bool* _dynamic_cast_ok, const void*
 int QDoubleSpinBox_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self);
 int QDoubleSpinBox_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal);
 bool QDoubleSpinBox_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal);
-
 void QDoubleSpinBox_delete(QDoubleSpinBox* self);
 
 #ifdef __cplusplus

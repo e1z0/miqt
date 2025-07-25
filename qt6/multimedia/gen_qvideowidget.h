@@ -108,7 +108,6 @@ void QVideoWidget_resizeEvent(QVideoWidget* self, QResizeEvent* event);
 void QVideoWidget_moveEvent(QVideoWidget* self, QMoveEvent* event);
 struct miqt_string QVideoWidget_tr2(const char* s, const char* c);
 struct miqt_string QVideoWidget_tr3(const char* s, const char* c, int n);
-
 bool QVideoWidget_override_virtual_sizeHint(void* self, intptr_t slot);
 QSize* QVideoWidget_virtualbase_sizeHint(const void* self);
 bool QVideoWidget_override_virtual_event(void* self, intptr_t slot);
@@ -203,7 +202,6 @@ bool QVideoWidget_override_virtual_connectNotify(void* self, intptr_t slot);
 void QVideoWidget_virtualbase_connectNotify(void* self, QMetaMethod* signal);
 bool QVideoWidget_override_virtual_disconnectNotify(void* self, intptr_t slot);
 void QVideoWidget_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
-
 void QVideoWidget_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* self);
 void QVideoWidget_protectedbase_create(bool* _dynamic_cast_ok, void* self);
 void QVideoWidget_protectedbase_destroy(bool* _dynamic_cast_ok, void* self);
@@ -213,7 +211,6 @@ QObject* QVideoWidget_protectedbase_sender(bool* _dynamic_cast_ok, const void* s
 int QVideoWidget_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self);
 int QVideoWidget_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal);
 bool QVideoWidget_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal);
-
 void QVideoWidget_delete(QVideoWidget* self);
 
 #ifdef __cplusplus

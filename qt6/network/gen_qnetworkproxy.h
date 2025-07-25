@@ -54,7 +54,6 @@ struct miqt_string QNetworkProxyQuery_protocolTag(const QNetworkProxyQuery* self
 void QNetworkProxyQuery_setProtocolTag(QNetworkProxyQuery* self, struct miqt_string protocolTag);
 QUrl* QNetworkProxyQuery_url(const QNetworkProxyQuery* self);
 void QNetworkProxyQuery_setUrl(QNetworkProxyQuery* self, QUrl* url);
-
 void QNetworkProxyQuery_delete(QNetworkProxyQuery* self);
 
 QNetworkProxy* QNetworkProxy_new();
@@ -90,7 +89,6 @@ bool QNetworkProxy_hasRawHeader(const QNetworkProxy* self, struct miqt_string he
 struct miqt_array /* of struct miqt_string */  QNetworkProxy_rawHeaderList(const QNetworkProxy* self);
 struct miqt_string QNetworkProxy_rawHeader(const QNetworkProxy* self, struct miqt_string headerName);
 void QNetworkProxy_setRawHeader(QNetworkProxy* self, struct miqt_string headerName, struct miqt_string value);
-
 void QNetworkProxy_delete(QNetworkProxy* self);
 
 QNetworkProxyFactory* QNetworkProxyFactory_new();
@@ -102,10 +100,8 @@ struct miqt_array /* of QNetworkProxy* */  QNetworkProxyFactory_proxyForQuery(QN
 struct miqt_array /* of QNetworkProxy* */  QNetworkProxyFactory_systemProxyForQuery();
 void QNetworkProxyFactory_operatorAssign(QNetworkProxyFactory* self, QNetworkProxyFactory* param1);
 struct miqt_array /* of QNetworkProxy* */  QNetworkProxyFactory_systemProxyForQueryWithQuery(QNetworkProxyQuery* query);
-
 bool QNetworkProxyFactory_override_virtual_queryProxy(void* self, intptr_t slot);
 struct miqt_array /* of QNetworkProxy* */  QNetworkProxyFactory_virtualbase_queryProxy(void* self, QNetworkProxyQuery* query);
-
 void QNetworkProxyFactory_delete(QNetworkProxyFactory* self);
 
 #ifdef __cplusplus

@@ -33,7 +33,6 @@ void QWebEngineUrlRequestInfo_block(QWebEngineUrlRequestInfo* self, bool shouldB
 void QWebEngineUrlRequestInfo_redirect(QWebEngineUrlRequestInfo* self, QUrl* url);
 void QWebEngineUrlRequestInfo_setHttpHeader(QWebEngineUrlRequestInfo* self, struct miqt_string name, struct miqt_string value);
 
-
 #ifdef __cplusplus
 } /* extern C */
 #endif

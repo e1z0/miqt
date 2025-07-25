@@ -43,8 +43,8 @@ void miqt_exec_callback_QAbstractVideoSurface_disconnectNotify(QAbstractVideoSur
 class MiqtVirtualQAbstractVideoSurface final : public QAbstractVideoSurface {
 public:
 
-	MiqtVirtualQAbstractVideoSurface(): QAbstractVideoSurface() {}
-	MiqtVirtualQAbstractVideoSurface(QObject* parent): QAbstractVideoSurface(parent) {}
+	MiqtVirtualQAbstractVideoSurface(): QAbstractVideoSurface() {};
+	MiqtVirtualQAbstractVideoSurface(QObject* parent): QAbstractVideoSurface(parent) {};
 
 	virtual ~MiqtVirtualQAbstractVideoSurface() override = default;
 
@@ -56,9 +56,10 @@ public:
 		if (handle__supportedPixelFormats == 0) {
 			return QList<QVideoFrame::PixelFormat>(); // Pure virtual, there is no base we can call
 		}
-
+		
 		QAbstractVideoBuffer::HandleType type_ret = type;
 		int sigval1 = static_cast<int>(type_ret);
+
 		struct miqt_array /* of int */  callback_return_value = miqt_exec_callback_QAbstractVideoSurface_supportedPixelFormats(this, handle__supportedPixelFormats, sigval1);
 		QList<QVideoFrame::PixelFormat> callback_return_value_QList;
 		callback_return_value_QList.reserve(callback_return_value.len);
@@ -66,6 +67,7 @@ public:
 		for(size_t i = 0; i < callback_return_value.len; ++i) {
 			callback_return_value_QList.push_back(static_cast<QVideoFrame::PixelFormat>(callback_return_value_arr[i]));
 		}
+
 		return callback_return_value_QList;
 	}
 
@@ -77,11 +79,13 @@ public:
 		if (handle__isFormatSupported == 0) {
 			return QAbstractVideoSurface::isFormatSupported(format);
 		}
-
+		
 		const QVideoSurfaceFormat& format_ret = format;
 		// Cast returned reference into pointer
 		QVideoSurfaceFormat* sigval1 = const_cast<QVideoSurfaceFormat*>(&format_ret);
+
 		bool callback_return_value = miqt_exec_callback_QAbstractVideoSurface_isFormatSupported(this, handle__isFormatSupported, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -95,11 +99,13 @@ public:
 		if (handle__nearestFormat == 0) {
 			return QAbstractVideoSurface::nearestFormat(format);
 		}
-
+		
 		const QVideoSurfaceFormat& format_ret = format;
 		// Cast returned reference into pointer
 		QVideoSurfaceFormat* sigval1 = const_cast<QVideoSurfaceFormat*>(&format_ret);
+
 		QVideoSurfaceFormat* callback_return_value = miqt_exec_callback_QAbstractVideoSurface_nearestFormat(this, handle__nearestFormat, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -113,11 +119,13 @@ public:
 		if (handle__start == 0) {
 			return QAbstractVideoSurface::start(format);
 		}
-
+		
 		const QVideoSurfaceFormat& format_ret = format;
 		// Cast returned reference into pointer
 		QVideoSurfaceFormat* sigval1 = const_cast<QVideoSurfaceFormat*>(&format_ret);
+
 		bool callback_return_value = miqt_exec_callback_QAbstractVideoSurface_start(this, handle__start, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -132,9 +140,11 @@ public:
 			QAbstractVideoSurface::stop();
 			return;
 		}
+		
 
 		miqt_exec_callback_QAbstractVideoSurface_stop(this, handle__stop);
 
+		
 	}
 
 	friend void QAbstractVideoSurface_virtualbase_stop(void* self);
@@ -147,11 +157,13 @@ public:
 		if (handle__present == 0) {
 			return false; // Pure virtual, there is no base we can call
 		}
-
+		
 		const QVideoFrame& frame_ret = frame;
 		// Cast returned reference into pointer
 		QVideoFrame* sigval1 = const_cast<QVideoFrame*>(&frame_ret);
+
 		bool callback_return_value = miqt_exec_callback_QAbstractVideoSurface_present(this, handle__present, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -163,9 +175,11 @@ public:
 		if (handle__event == 0) {
 			return QAbstractVideoSurface::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QAbstractVideoSurface_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -179,10 +193,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QAbstractVideoSurface::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QAbstractVideoSurface_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -197,10 +213,12 @@ public:
 			QAbstractVideoSurface::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractVideoSurface_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractVideoSurface_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -214,10 +232,12 @@ public:
 			QAbstractVideoSurface::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractVideoSurface_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractVideoSurface_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -231,10 +251,12 @@ public:
 			QAbstractVideoSurface::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractVideoSurface_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractVideoSurface_virtualbase_customEvent(void* self, QEvent* event);
@@ -248,12 +270,14 @@ public:
 			QAbstractVideoSurface::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QAbstractVideoSurface_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QAbstractVideoSurface_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -267,12 +291,14 @@ public:
 			QAbstractVideoSurface::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QAbstractVideoSurface_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QAbstractVideoSurface_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -287,11 +313,11 @@ public:
 };
 
 QAbstractVideoSurface* QAbstractVideoSurface_new() {
-	return new (std::nothrow) MiqtVirtualQAbstractVideoSurface();
+	return new MiqtVirtualQAbstractVideoSurface();
 }
 
 QAbstractVideoSurface* QAbstractVideoSurface_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQAbstractVideoSurface(parent);
+	return new MiqtVirtualQAbstractVideoSurface(parent);
 }
 
 void QAbstractVideoSurface_virtbase(QAbstractVideoSurface* src, QObject** outptr_QObject) {
@@ -384,7 +410,7 @@ void QAbstractVideoSurface_activeChanged(QAbstractVideoSurface* self, bool activ
 }
 
 void QAbstractVideoSurface_connect_activeChanged(QAbstractVideoSurface* self, intptr_t slot) {
-	QAbstractVideoSurface::connect(self, static_cast<void (QAbstractVideoSurface::*)(bool)>(&QAbstractVideoSurface::activeChanged), self, [=](bool active) {
+	MiqtVirtualQAbstractVideoSurface::connect(self, static_cast<void (QAbstractVideoSurface::*)(bool)>(&QAbstractVideoSurface::activeChanged), self, [=](bool active) {
 		bool sigval1 = active;
 		miqt_exec_callback_QAbstractVideoSurface_activeChanged(slot, sigval1);
 	});
@@ -395,7 +421,7 @@ void QAbstractVideoSurface_surfaceFormatChanged(QAbstractVideoSurface* self, QVi
 }
 
 void QAbstractVideoSurface_connect_surfaceFormatChanged(QAbstractVideoSurface* self, intptr_t slot) {
-	QAbstractVideoSurface::connect(self, static_cast<void (QAbstractVideoSurface::*)(const QVideoSurfaceFormat&)>(&QAbstractVideoSurface::surfaceFormatChanged), self, [=](const QVideoSurfaceFormat& format) {
+	MiqtVirtualQAbstractVideoSurface::connect(self, static_cast<void (QAbstractVideoSurface::*)(const QVideoSurfaceFormat&)>(&QAbstractVideoSurface::surfaceFormatChanged), self, [=](const QVideoSurfaceFormat& format) {
 		const QVideoSurfaceFormat& format_ret = format;
 		// Cast returned reference into pointer
 		QVideoSurfaceFormat* sigval1 = const_cast<QVideoSurfaceFormat*>(&format_ret);
@@ -408,7 +434,7 @@ void QAbstractVideoSurface_supportedFormatsChanged(QAbstractVideoSurface* self) 
 }
 
 void QAbstractVideoSurface_connect_supportedFormatsChanged(QAbstractVideoSurface* self, intptr_t slot) {
-	QAbstractVideoSurface::connect(self, static_cast<void (QAbstractVideoSurface::*)()>(&QAbstractVideoSurface::supportedFormatsChanged), self, [=]() {
+	MiqtVirtualQAbstractVideoSurface::connect(self, static_cast<void (QAbstractVideoSurface::*)()>(&QAbstractVideoSurface::supportedFormatsChanged), self, [=]() {
 		miqt_exec_callback_QAbstractVideoSurface_supportedFormatsChanged(slot);
 	});
 }
@@ -418,7 +444,7 @@ void QAbstractVideoSurface_nativeResolutionChanged(QAbstractVideoSurface* self, 
 }
 
 void QAbstractVideoSurface_connect_nativeResolutionChanged(QAbstractVideoSurface* self, intptr_t slot) {
-	QAbstractVideoSurface::connect(self, static_cast<void (QAbstractVideoSurface::*)(const QSize&)>(&QAbstractVideoSurface::nativeResolutionChanged), self, [=](const QSize& resolution) {
+	MiqtVirtualQAbstractVideoSurface::connect(self, static_cast<void (QAbstractVideoSurface::*)(const QSize&)>(&QAbstractVideoSurface::nativeResolutionChanged), self, [=](const QSize& resolution) {
 		const QSize& resolution_ret = resolution;
 		// Cast returned reference into pointer
 		QSize* sigval1 = const_cast<QSize*>(&resolution_ret);
@@ -475,7 +501,7 @@ bool QAbstractVideoSurface_override_virtual_supportedPixelFormats(void* self, in
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__supportedPixelFormats = slot;
 	return true;
 }
@@ -485,13 +511,15 @@ bool QAbstractVideoSurface_override_virtual_isFormatSupported(void* self, intptr
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__isFormatSupported = slot;
 	return true;
 }
 
 bool QAbstractVideoSurface_virtualbase_isFormatSupported(const void* self, QVideoSurfaceFormat* format) {
-	return static_cast<const MiqtVirtualQAbstractVideoSurface*>(self)->QAbstractVideoSurface::isFormatSupported(*format);
+
+	return ( (const MiqtVirtualQAbstractVideoSurface*)(self) )->QAbstractVideoSurface::isFormatSupported(*format);
+
 }
 
 bool QAbstractVideoSurface_override_virtual_nearestFormat(void* self, intptr_t slot) {
@@ -499,13 +527,15 @@ bool QAbstractVideoSurface_override_virtual_nearestFormat(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__nearestFormat = slot;
 	return true;
 }
 
 QVideoSurfaceFormat* QAbstractVideoSurface_virtualbase_nearestFormat(const void* self, QVideoSurfaceFormat* format) {
-	return new QVideoSurfaceFormat(static_cast<const MiqtVirtualQAbstractVideoSurface*>(self)->QAbstractVideoSurface::nearestFormat(*format));
+
+	return new QVideoSurfaceFormat(( (const MiqtVirtualQAbstractVideoSurface*)(self) )->QAbstractVideoSurface::nearestFormat(*format));
+
 }
 
 bool QAbstractVideoSurface_override_virtual_start(void* self, intptr_t slot) {
@@ -513,13 +543,15 @@ bool QAbstractVideoSurface_override_virtual_start(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__start = slot;
 	return true;
 }
 
 bool QAbstractVideoSurface_virtualbase_start(void* self, QVideoSurfaceFormat* format) {
-	return static_cast<MiqtVirtualQAbstractVideoSurface*>(self)->QAbstractVideoSurface::start(*format);
+
+	return ( (MiqtVirtualQAbstractVideoSurface*)(self) )->QAbstractVideoSurface::start(*format);
+
 }
 
 bool QAbstractVideoSurface_override_virtual_stop(void* self, intptr_t slot) {
@@ -527,13 +559,15 @@ bool QAbstractVideoSurface_override_virtual_stop(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__stop = slot;
 	return true;
 }
 
 void QAbstractVideoSurface_virtualbase_stop(void* self) {
-	static_cast<MiqtVirtualQAbstractVideoSurface*>(self)->QAbstractVideoSurface::stop();
+
+	( (MiqtVirtualQAbstractVideoSurface*)(self) )->QAbstractVideoSurface::stop();
+
 }
 
 bool QAbstractVideoSurface_override_virtual_present(void* self, intptr_t slot) {
@@ -541,7 +575,7 @@ bool QAbstractVideoSurface_override_virtual_present(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__present = slot;
 	return true;
 }
@@ -551,13 +585,15 @@ bool QAbstractVideoSurface_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QAbstractVideoSurface_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQAbstractVideoSurface*>(self)->QAbstractVideoSurface::event(event);
+
+	return ( (MiqtVirtualQAbstractVideoSurface*)(self) )->QAbstractVideoSurface::event(event);
+
 }
 
 bool QAbstractVideoSurface_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -565,13 +601,15 @@ bool QAbstractVideoSurface_override_virtual_eventFilter(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QAbstractVideoSurface_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQAbstractVideoSurface*>(self)->QAbstractVideoSurface::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQAbstractVideoSurface*)(self) )->QAbstractVideoSurface::eventFilter(watched, event);
+
 }
 
 bool QAbstractVideoSurface_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -579,13 +617,15 @@ bool QAbstractVideoSurface_override_virtual_timerEvent(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QAbstractVideoSurface_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQAbstractVideoSurface*>(self)->QAbstractVideoSurface::timerEvent(event);
+
+	( (MiqtVirtualQAbstractVideoSurface*)(self) )->QAbstractVideoSurface::timerEvent(event);
+
 }
 
 bool QAbstractVideoSurface_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -593,13 +633,15 @@ bool QAbstractVideoSurface_override_virtual_childEvent(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QAbstractVideoSurface_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQAbstractVideoSurface*>(self)->QAbstractVideoSurface::childEvent(event);
+
+	( (MiqtVirtualQAbstractVideoSurface*)(self) )->QAbstractVideoSurface::childEvent(event);
+
 }
 
 bool QAbstractVideoSurface_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -607,13 +649,15 @@ bool QAbstractVideoSurface_override_virtual_customEvent(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QAbstractVideoSurface_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQAbstractVideoSurface*>(self)->QAbstractVideoSurface::customEvent(event);
+
+	( (MiqtVirtualQAbstractVideoSurface*)(self) )->QAbstractVideoSurface::customEvent(event);
+
 }
 
 bool QAbstractVideoSurface_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -621,13 +665,15 @@ bool QAbstractVideoSurface_override_virtual_connectNotify(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QAbstractVideoSurface_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQAbstractVideoSurface*>(self)->QAbstractVideoSurface::connectNotify(*signal);
+
+	( (MiqtVirtualQAbstractVideoSurface*)(self) )->QAbstractVideoSurface::connectNotify(*signal);
+
 }
 
 bool QAbstractVideoSurface_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -635,13 +681,15 @@ bool QAbstractVideoSurface_override_virtual_disconnectNotify(void* self, intptr_
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QAbstractVideoSurface_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQAbstractVideoSurface*>(self)->QAbstractVideoSurface::disconnectNotify(*signal);
+
+	( (MiqtVirtualQAbstractVideoSurface*)(self) )->QAbstractVideoSurface::disconnectNotify(*signal);
+
 }
 
 void QAbstractVideoSurface_protectedbase_setError(bool* _dynamic_cast_ok, void* self, int error) {
@@ -650,9 +698,11 @@ void QAbstractVideoSurface_protectedbase_setError(bool* _dynamic_cast_ok, void* 
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setError(static_cast<MiqtVirtualQAbstractVideoSurface::Error>(error));
+
 }
 
 void QAbstractVideoSurface_protectedbase_setNativeResolution(bool* _dynamic_cast_ok, void* self, QSize* resolution) {
@@ -661,9 +711,11 @@ void QAbstractVideoSurface_protectedbase_setNativeResolution(bool* _dynamic_cast
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setNativeResolution(*resolution);
+
 }
 
 QObject* QAbstractVideoSurface_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -672,9 +724,11 @@ QObject* QAbstractVideoSurface_protectedbase_sender(bool* _dynamic_cast_ok, cons
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QAbstractVideoSurface_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -683,9 +737,11 @@ int QAbstractVideoSurface_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QAbstractVideoSurface_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -694,9 +750,11 @@ int QAbstractVideoSurface_protectedbase_receivers(bool* _dynamic_cast_ok, const 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QAbstractVideoSurface_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -705,9 +763,11 @@ bool QAbstractVideoSurface_protectedbase_isSignalConnected(bool* _dynamic_cast_o
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QAbstractVideoSurface_delete(QAbstractVideoSurface* self) {

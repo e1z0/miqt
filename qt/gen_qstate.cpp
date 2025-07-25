@@ -20,11 +20,6 @@
 extern "C" {
 #endif
 
-void miqt_exec_callback_QState_finished(intptr_t);
-void miqt_exec_callback_QState_propertiesAssigned(intptr_t);
-void miqt_exec_callback_QState_childModeChanged(intptr_t);
-void miqt_exec_callback_QState_initialStateChanged(intptr_t);
-void miqt_exec_callback_QState_errorStateChanged(intptr_t);
 void miqt_exec_callback_QState_onEntry(QState*, intptr_t, QEvent*);
 void miqt_exec_callback_QState_onExit(QState*, intptr_t, QEvent*);
 bool miqt_exec_callback_QState_event(QState*, intptr_t, QEvent*);
@@ -41,10 +36,10 @@ void miqt_exec_callback_QState_disconnectNotify(QState*, intptr_t, QMetaMethod*)
 class MiqtVirtualQState final : public QState {
 public:
 
-	MiqtVirtualQState(): QState() {}
-	MiqtVirtualQState(QState::ChildMode childMode): QState(childMode) {}
-	MiqtVirtualQState(QState* parent): QState(parent) {}
-	MiqtVirtualQState(QState::ChildMode childMode, QState* parent): QState(childMode, parent) {}
+	MiqtVirtualQState(): QState() {};
+	MiqtVirtualQState(QState::ChildMode childMode): QState(childMode) {};
+	MiqtVirtualQState(QState* parent): QState(parent) {};
+	MiqtVirtualQState(QState::ChildMode childMode, QState* parent): QState(childMode, parent) {};
 
 	virtual ~MiqtVirtualQState() override = default;
 
@@ -57,10 +52,12 @@ public:
 			QState::onEntry(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QState_onEntry(this, handle__onEntry, sigval1);
 
+		
 	}
 
 	friend void QState_virtualbase_onEntry(void* self, QEvent* event);
@@ -74,10 +71,12 @@ public:
 			QState::onExit(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QState_onExit(this, handle__onExit, sigval1);
 
+		
 	}
 
 	friend void QState_virtualbase_onExit(void* self, QEvent* event);
@@ -90,9 +89,11 @@ public:
 		if (handle__event == 0) {
 			return QState::event(e);
 		}
-
+		
 		QEvent* sigval1 = e;
+
 		bool callback_return_value = miqt_exec_callback_QState_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -106,10 +107,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QState::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QState_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -124,10 +127,12 @@ public:
 			QState::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QState_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QState_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -141,10 +146,12 @@ public:
 			QState::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QState_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QState_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -158,10 +165,12 @@ public:
 			QState::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QState_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QState_virtualbase_customEvent(void* self, QEvent* event);
@@ -175,12 +184,14 @@ public:
 			QState::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QState_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QState_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -194,12 +205,14 @@ public:
 			QState::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QState_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QState_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -212,19 +225,19 @@ public:
 };
 
 QState* QState_new() {
-	return new (std::nothrow) MiqtVirtualQState();
+	return new MiqtVirtualQState();
 }
 
 QState* QState_new2(int childMode) {
-	return new (std::nothrow) MiqtVirtualQState(static_cast<QState::ChildMode>(childMode));
+	return new MiqtVirtualQState(static_cast<QState::ChildMode>(childMode));
 }
 
 QState* QState_new3(QState* parent) {
-	return new (std::nothrow) MiqtVirtualQState(parent);
+	return new MiqtVirtualQState(parent);
 }
 
 QState* QState_new4(int childMode, QState* parent) {
-	return new (std::nothrow) MiqtVirtualQState(static_cast<QState::ChildMode>(childMode), parent);
+	return new MiqtVirtualQState(static_cast<QState::ChildMode>(childMode), parent);
 }
 
 void QState_virtbase(QState* src, QAbstractState** outptr_QAbstractState) {
@@ -368,13 +381,15 @@ bool QState_override_virtual_onEntry(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__onEntry = slot;
 	return true;
 }
 
 void QState_virtualbase_onEntry(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQState*>(self)->QState::onEntry(event);
+
+	( (MiqtVirtualQState*)(self) )->QState::onEntry(event);
+
 }
 
 bool QState_override_virtual_onExit(void* self, intptr_t slot) {
@@ -382,13 +397,15 @@ bool QState_override_virtual_onExit(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__onExit = slot;
 	return true;
 }
 
 void QState_virtualbase_onExit(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQState*>(self)->QState::onExit(event);
+
+	( (MiqtVirtualQState*)(self) )->QState::onExit(event);
+
 }
 
 bool QState_override_virtual_event(void* self, intptr_t slot) {
@@ -396,13 +413,15 @@ bool QState_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QState_virtualbase_event(void* self, QEvent* e) {
-	return static_cast<MiqtVirtualQState*>(self)->QState::event(e);
+
+	return ( (MiqtVirtualQState*)(self) )->QState::event(e);
+
 }
 
 bool QState_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -410,13 +429,15 @@ bool QState_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QState_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQState*>(self)->QState::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQState*)(self) )->QState::eventFilter(watched, event);
+
 }
 
 bool QState_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -424,13 +445,15 @@ bool QState_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QState_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQState*>(self)->QState::timerEvent(event);
+
+	( (MiqtVirtualQState*)(self) )->QState::timerEvent(event);
+
 }
 
 bool QState_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -438,13 +461,15 @@ bool QState_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QState_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQState*>(self)->QState::childEvent(event);
+
+	( (MiqtVirtualQState*)(self) )->QState::childEvent(event);
+
 }
 
 bool QState_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -452,13 +477,15 @@ bool QState_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QState_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQState*>(self)->QState::customEvent(event);
+
+	( (MiqtVirtualQState*)(self) )->QState::customEvent(event);
+
 }
 
 bool QState_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -466,13 +493,15 @@ bool QState_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QState_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQState*>(self)->QState::connectNotify(*signal);
+
+	( (MiqtVirtualQState*)(self) )->QState::connectNotify(*signal);
+
 }
 
 bool QState_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -480,13 +509,15 @@ bool QState_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QState_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQState*>(self)->QState::disconnectNotify(*signal);
+
+	( (MiqtVirtualQState*)(self) )->QState::disconnectNotify(*signal);
+
 }
 
 QObject* QState_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -495,9 +526,11 @@ QObject* QState_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QState_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -506,9 +539,11 @@ int QState_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* s
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QState_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -517,9 +552,11 @@ int QState_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, con
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QState_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -528,39 +565,11 @@ bool QState_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
-}
 
-void QState_connect_finished(QState* self, intptr_t slot) {
-	QState::connect(self, &QState::finished, self, [=]() {
-		miqt_exec_callback_QState_finished(slot);
-	});
-}
-
-void QState_connect_propertiesAssigned(QState* self, intptr_t slot) {
-	QState::connect(self, &QState::propertiesAssigned, self, [=]() {
-		miqt_exec_callback_QState_propertiesAssigned(slot);
-	});
-}
-
-void QState_connect_childModeChanged(QState* self, intptr_t slot) {
-	QState::connect(self, &QState::childModeChanged, self, [=]() {
-		miqt_exec_callback_QState_childModeChanged(slot);
-	});
-}
-
-void QState_connect_initialStateChanged(QState* self, intptr_t slot) {
-	QState::connect(self, &QState::initialStateChanged, self, [=]() {
-		miqt_exec_callback_QState_initialStateChanged(slot);
-	});
-}
-
-void QState_connect_errorStateChanged(QState* self, intptr_t slot) {
-	QState::connect(self, &QState::errorStateChanged, self, [=]() {
-		miqt_exec_callback_QState_errorStateChanged(slot);
-	});
 }
 
 void QState_delete(QState* self) {

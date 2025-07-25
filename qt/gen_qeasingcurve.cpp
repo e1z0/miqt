@@ -13,15 +13,15 @@ extern "C" {
 #endif
 
 QEasingCurve* QEasingCurve_new() {
-	return new (std::nothrow) QEasingCurve();
+	return new QEasingCurve();
 }
 
 QEasingCurve* QEasingCurve_new2(QEasingCurve* other) {
-	return new (std::nothrow) QEasingCurve(*other);
+	return new QEasingCurve(*other);
 }
 
 QEasingCurve* QEasingCurve_new3(int type) {
-	return new (std::nothrow) QEasingCurve(static_cast<QEasingCurve::Type>(type));
+	return new QEasingCurve(static_cast<QEasingCurve::Type>(type));
 }
 
 void QEasingCurve_operatorAssign(QEasingCurve* self, QEasingCurve* other) {

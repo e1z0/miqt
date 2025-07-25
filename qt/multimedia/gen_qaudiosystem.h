@@ -52,7 +52,6 @@ struct miqt_string QAbstractAudioDeviceInfo_tr2(const char* s, const char* c);
 struct miqt_string QAbstractAudioDeviceInfo_tr3(const char* s, const char* c, int n);
 struct miqt_string QAbstractAudioDeviceInfo_trUtf82(const char* s, const char* c);
 struct miqt_string QAbstractAudioDeviceInfo_trUtf83(const char* s, const char* c, int n);
-
 void QAbstractAudioDeviceInfo_delete(QAbstractAudioDeviceInfo* self);
 
 void QAbstractAudioOutput_virtbase(QAbstractAudioOutput* src, QObject** outptr_QObject);
@@ -92,7 +91,6 @@ struct miqt_string QAbstractAudioOutput_tr2(const char* s, const char* c);
 struct miqt_string QAbstractAudioOutput_tr3(const char* s, const char* c, int n);
 struct miqt_string QAbstractAudioOutput_trUtf82(const char* s, const char* c);
 struct miqt_string QAbstractAudioOutput_trUtf83(const char* s, const char* c, int n);
-
 void QAbstractAudioOutput_delete(QAbstractAudioOutput* self);
 
 void QAbstractAudioInput_virtbase(QAbstractAudioInput* src, QObject** outptr_QObject);
@@ -130,7 +128,6 @@ struct miqt_string QAbstractAudioInput_tr2(const char* s, const char* c);
 struct miqt_string QAbstractAudioInput_tr3(const char* s, const char* c, int n);
 struct miqt_string QAbstractAudioInput_trUtf82(const char* s, const char* c);
 struct miqt_string QAbstractAudioInput_trUtf83(const char* s, const char* c, int n);
-
 void QAbstractAudioInput_delete(QAbstractAudioInput* self);
 
 #ifdef __cplusplus

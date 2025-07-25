@@ -82,7 +82,6 @@ void QBoxSet_cleared(QBoxSet* self);
 void QBoxSet_connect_cleared(QBoxSet* self, intptr_t slot);
 struct miqt_string QBoxSet_tr2(const char* s, const char* c);
 struct miqt_string QBoxSet_tr3(const char* s, const char* c, int n);
-
 bool QBoxSet_override_virtual_event(void* self, intptr_t slot);
 bool QBoxSet_virtualbase_event(void* self, QEvent* event);
 bool QBoxSet_override_virtual_eventFilter(void* self, intptr_t slot);
@@ -97,12 +96,10 @@ bool QBoxSet_override_virtual_connectNotify(void* self, intptr_t slot);
 void QBoxSet_virtualbase_connectNotify(void* self, QMetaMethod* signal);
 bool QBoxSet_override_virtual_disconnectNotify(void* self, intptr_t slot);
 void QBoxSet_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
-
 QObject* QBoxSet_protectedbase_sender(bool* _dynamic_cast_ok, const void* self);
 int QBoxSet_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self);
 int QBoxSet_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal);
 bool QBoxSet_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal);
-
 void QBoxSet_delete(QBoxSet* self);
 
 #ifdef __cplusplus

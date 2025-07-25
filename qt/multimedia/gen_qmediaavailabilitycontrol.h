@@ -40,7 +40,6 @@ struct miqt_string QMediaAvailabilityControl_tr2(const char* s, const char* c);
 struct miqt_string QMediaAvailabilityControl_tr3(const char* s, const char* c, int n);
 struct miqt_string QMediaAvailabilityControl_trUtf82(const char* s, const char* c);
 struct miqt_string QMediaAvailabilityControl_trUtf83(const char* s, const char* c, int n);
-
 void QMediaAvailabilityControl_delete(QMediaAvailabilityControl* self);
 
 #ifdef __cplusplus

@@ -17,8 +17,6 @@
 extern "C" {
 #endif
 
-void miqt_exec_callback_QThread_started(intptr_t);
-void miqt_exec_callback_QThread_finished(intptr_t);
 bool miqt_exec_callback_QThread_event(QThread*, intptr_t, QEvent*);
 void miqt_exec_callback_QThread_run(QThread*, intptr_t);
 bool miqt_exec_callback_QThread_eventFilter(QThread*, intptr_t, QObject*, QEvent*);
@@ -34,8 +32,8 @@ void miqt_exec_callback_QThread_disconnectNotify(QThread*, intptr_t, QMetaMethod
 class MiqtVirtualQThread final : public QThread {
 public:
 
-	MiqtVirtualQThread(): QThread() {}
-	MiqtVirtualQThread(QObject* parent): QThread(parent) {}
+	MiqtVirtualQThread(): QThread() {};
+	MiqtVirtualQThread(QObject* parent): QThread(parent) {};
 
 	virtual ~MiqtVirtualQThread() override = default;
 
@@ -47,9 +45,11 @@ public:
 		if (handle__event == 0) {
 			return QThread::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QThread_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -64,9 +64,11 @@ public:
 			QThread::run();
 			return;
 		}
+		
 
 		miqt_exec_callback_QThread_run(this, handle__run);
 
+		
 	}
 
 	friend void QThread_virtualbase_run(void* self);
@@ -79,10 +81,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QThread::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QThread_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -97,10 +101,12 @@ public:
 			QThread::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QThread_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QThread_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -114,10 +120,12 @@ public:
 			QThread::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QThread_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QThread_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -131,10 +139,12 @@ public:
 			QThread::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QThread_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QThread_virtualbase_customEvent(void* self, QEvent* event);
@@ -148,12 +158,14 @@ public:
 			QThread::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QThread_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QThread_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -167,12 +179,14 @@ public:
 			QThread::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QThread_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QThread_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -186,11 +200,11 @@ public:
 };
 
 QThread* QThread_new() {
-	return new (std::nothrow) MiqtVirtualQThread();
+	return new MiqtVirtualQThread();
 }
 
 QThread* QThread_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQThread(parent);
+	return new MiqtVirtualQThread(parent);
 }
 
 void QThread_virtbase(QThread* src, QObject** outptr_QObject) {
@@ -358,13 +372,15 @@ bool QThread_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QThread_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQThread*>(self)->QThread::event(event);
+
+	return ( (MiqtVirtualQThread*)(self) )->QThread::event(event);
+
 }
 
 bool QThread_override_virtual_run(void* self, intptr_t slot) {
@@ -372,13 +388,15 @@ bool QThread_override_virtual_run(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__run = slot;
 	return true;
 }
 
 void QThread_virtualbase_run(void* self) {
-	static_cast<MiqtVirtualQThread*>(self)->QThread::run();
+
+	( (MiqtVirtualQThread*)(self) )->QThread::run();
+
 }
 
 bool QThread_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -386,13 +404,15 @@ bool QThread_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QThread_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQThread*>(self)->QThread::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQThread*)(self) )->QThread::eventFilter(watched, event);
+
 }
 
 bool QThread_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -400,13 +420,15 @@ bool QThread_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QThread_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQThread*>(self)->QThread::timerEvent(event);
+
+	( (MiqtVirtualQThread*)(self) )->QThread::timerEvent(event);
+
 }
 
 bool QThread_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -414,13 +436,15 @@ bool QThread_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QThread_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQThread*>(self)->QThread::childEvent(event);
+
+	( (MiqtVirtualQThread*)(self) )->QThread::childEvent(event);
+
 }
 
 bool QThread_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -428,13 +452,15 @@ bool QThread_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QThread_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQThread*>(self)->QThread::customEvent(event);
+
+	( (MiqtVirtualQThread*)(self) )->QThread::customEvent(event);
+
 }
 
 bool QThread_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -442,13 +468,15 @@ bool QThread_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QThread_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQThread*>(self)->QThread::connectNotify(*signal);
+
+	( (MiqtVirtualQThread*)(self) )->QThread::connectNotify(*signal);
+
 }
 
 bool QThread_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -456,13 +484,15 @@ bool QThread_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QThread_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQThread*>(self)->QThread::disconnectNotify(*signal);
+
+	( (MiqtVirtualQThread*)(self) )->QThread::disconnectNotify(*signal);
+
 }
 
 int QThread_protectedbase_exec(bool* _dynamic_cast_ok, void* self) {
@@ -471,9 +501,11 @@ int QThread_protectedbase_exec(bool* _dynamic_cast_ok, void* self) {
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->exec();
+
 }
 
 QObject* QThread_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -482,9 +514,11 @@ QObject* QThread_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) 
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QThread_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -493,9 +527,11 @@ int QThread_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QThread_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -504,9 +540,11 @@ int QThread_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, co
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QThread_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -515,21 +553,11 @@ bool QThread_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void*
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
-}
 
-void QThread_connect_started(QThread* self, intptr_t slot) {
-	QThread::connect(self, &QThread::started, self, [=]() {
-		miqt_exec_callback_QThread_started(slot);
-	});
-}
-
-void QThread_connect_finished(QThread* self, intptr_t slot) {
-	QThread::connect(self, &QThread::finished, self, [=]() {
-		miqt_exec_callback_QThread_finished(slot);
-	});
 }
 
 void QThread_delete(QThread* self) {

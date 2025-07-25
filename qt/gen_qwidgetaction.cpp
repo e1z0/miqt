@@ -34,7 +34,7 @@ void miqt_exec_callback_QWidgetAction_disconnectNotify(QWidgetAction*, intptr_t,
 class MiqtVirtualQWidgetAction final : public QWidgetAction {
 public:
 
-	MiqtVirtualQWidgetAction(QObject* parent): QWidgetAction(parent) {}
+	MiqtVirtualQWidgetAction(QObject* parent): QWidgetAction(parent) {};
 
 	virtual ~MiqtVirtualQWidgetAction() override = default;
 
@@ -46,9 +46,11 @@ public:
 		if (handle__event == 0) {
 			return QWidgetAction::event(param1);
 		}
-
+		
 		QEvent* sigval1 = param1;
+
 		bool callback_return_value = miqt_exec_callback_QWidgetAction_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -62,10 +64,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QWidgetAction::eventFilter(param1, param2);
 		}
-
+		
 		QObject* sigval1 = param1;
 		QEvent* sigval2 = param2;
+
 		bool callback_return_value = miqt_exec_callback_QWidgetAction_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -79,9 +83,11 @@ public:
 		if (handle__createWidget == 0) {
 			return QWidgetAction::createWidget(parent);
 		}
-
+		
 		QWidget* sigval1 = parent;
+
 		QWidget* callback_return_value = miqt_exec_callback_QWidgetAction_createWidget(this, handle__createWidget, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -96,10 +102,12 @@ public:
 			QWidgetAction::deleteWidget(widget);
 			return;
 		}
-
+		
 		QWidget* sigval1 = widget;
+
 		miqt_exec_callback_QWidgetAction_deleteWidget(this, handle__deleteWidget, sigval1);
 
+		
 	}
 
 	friend void QWidgetAction_virtualbase_deleteWidget(void* self, QWidget* widget);
@@ -113,10 +121,12 @@ public:
 			QWidgetAction::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QWidgetAction_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QWidgetAction_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -130,10 +140,12 @@ public:
 			QWidgetAction::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QWidgetAction_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QWidgetAction_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -147,10 +159,12 @@ public:
 			QWidgetAction::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QWidgetAction_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QWidgetAction_virtualbase_customEvent(void* self, QEvent* event);
@@ -164,12 +178,14 @@ public:
 			QWidgetAction::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QWidgetAction_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QWidgetAction_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -183,12 +199,14 @@ public:
 			QWidgetAction::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QWidgetAction_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QWidgetAction_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -202,7 +220,7 @@ public:
 };
 
 QWidgetAction* QWidgetAction_new(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQWidgetAction(parent);
+	return new MiqtVirtualQWidgetAction(parent);
 }
 
 void QWidgetAction_virtbase(QWidgetAction* src, QAction** outptr_QAction) {
@@ -304,13 +322,15 @@ bool QWidgetAction_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QWidgetAction_virtualbase_event(void* self, QEvent* param1) {
-	return static_cast<MiqtVirtualQWidgetAction*>(self)->QWidgetAction::event(param1);
+
+	return ( (MiqtVirtualQWidgetAction*)(self) )->QWidgetAction::event(param1);
+
 }
 
 bool QWidgetAction_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -318,13 +338,15 @@ bool QWidgetAction_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QWidgetAction_virtualbase_eventFilter(void* self, QObject* param1, QEvent* param2) {
-	return static_cast<MiqtVirtualQWidgetAction*>(self)->QWidgetAction::eventFilter(param1, param2);
+
+	return ( (MiqtVirtualQWidgetAction*)(self) )->QWidgetAction::eventFilter(param1, param2);
+
 }
 
 bool QWidgetAction_override_virtual_createWidget(void* self, intptr_t slot) {
@@ -332,13 +354,15 @@ bool QWidgetAction_override_virtual_createWidget(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__createWidget = slot;
 	return true;
 }
 
 QWidget* QWidgetAction_virtualbase_createWidget(void* self, QWidget* parent) {
-	return static_cast<MiqtVirtualQWidgetAction*>(self)->QWidgetAction::createWidget(parent);
+
+	return ( (MiqtVirtualQWidgetAction*)(self) )->QWidgetAction::createWidget(parent);
+
 }
 
 bool QWidgetAction_override_virtual_deleteWidget(void* self, intptr_t slot) {
@@ -346,13 +370,15 @@ bool QWidgetAction_override_virtual_deleteWidget(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__deleteWidget = slot;
 	return true;
 }
 
 void QWidgetAction_virtualbase_deleteWidget(void* self, QWidget* widget) {
-	static_cast<MiqtVirtualQWidgetAction*>(self)->QWidgetAction::deleteWidget(widget);
+
+	( (MiqtVirtualQWidgetAction*)(self) )->QWidgetAction::deleteWidget(widget);
+
 }
 
 bool QWidgetAction_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -360,13 +386,15 @@ bool QWidgetAction_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QWidgetAction_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQWidgetAction*>(self)->QWidgetAction::timerEvent(event);
+
+	( (MiqtVirtualQWidgetAction*)(self) )->QWidgetAction::timerEvent(event);
+
 }
 
 bool QWidgetAction_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -374,13 +402,15 @@ bool QWidgetAction_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QWidgetAction_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQWidgetAction*>(self)->QWidgetAction::childEvent(event);
+
+	( (MiqtVirtualQWidgetAction*)(self) )->QWidgetAction::childEvent(event);
+
 }
 
 bool QWidgetAction_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -388,13 +418,15 @@ bool QWidgetAction_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QWidgetAction_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQWidgetAction*>(self)->QWidgetAction::customEvent(event);
+
+	( (MiqtVirtualQWidgetAction*)(self) )->QWidgetAction::customEvent(event);
+
 }
 
 bool QWidgetAction_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -402,13 +434,15 @@ bool QWidgetAction_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QWidgetAction_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQWidgetAction*>(self)->QWidgetAction::connectNotify(*signal);
+
+	( (MiqtVirtualQWidgetAction*)(self) )->QWidgetAction::connectNotify(*signal);
+
 }
 
 bool QWidgetAction_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -416,13 +450,15 @@ bool QWidgetAction_override_virtual_disconnectNotify(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QWidgetAction_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQWidgetAction*>(self)->QWidgetAction::disconnectNotify(*signal);
+
+	( (MiqtVirtualQWidgetAction*)(self) )->QWidgetAction::disconnectNotify(*signal);
+
 }
 
 struct miqt_array /* of QWidget* */  QWidgetAction_protectedbase_createdWidgets(bool* _dynamic_cast_ok, const void* self) {
@@ -431,8 +467,9 @@ struct miqt_array /* of QWidget* */  QWidgetAction_protectedbase_createdWidgets(
 		*_dynamic_cast_ok = false;
 		return (struct miqt_array){};
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	QList<QWidget *> _ret = self_cast->createdWidgets();
 	// Convert QList<> from C++ memory to manually-managed C memory
 	QWidget** _arr = static_cast<QWidget**>(malloc(sizeof(QWidget*) * _ret.length()));
@@ -443,6 +480,7 @@ struct miqt_array /* of QWidget* */  QWidgetAction_protectedbase_createdWidgets(
 	_out.len = _ret.length();
 	_out.data = static_cast<void*>(_arr);
 	return _out;
+
 }
 
 QObject* QWidgetAction_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -451,9 +489,11 @@ QObject* QWidgetAction_protectedbase_sender(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QWidgetAction_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -462,9 +502,11 @@ int QWidgetAction_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QWidgetAction_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -473,9 +515,11 @@ int QWidgetAction_protectedbase_receivers(bool* _dynamic_cast_ok, const void* se
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QWidgetAction_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -484,9 +528,11 @@ bool QWidgetAction_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QWidgetAction_delete(QWidgetAction* self) {

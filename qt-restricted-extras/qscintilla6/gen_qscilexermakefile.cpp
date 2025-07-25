@@ -66,8 +66,8 @@ void miqt_exec_callback_QsciLexerMakefile_disconnectNotify(QsciLexerMakefile*, i
 class MiqtVirtualQsciLexerMakefile final : public QsciLexerMakefile {
 public:
 
-	MiqtVirtualQsciLexerMakefile(): QsciLexerMakefile() {}
-	MiqtVirtualQsciLexerMakefile(QObject* parent): QsciLexerMakefile(parent) {}
+	MiqtVirtualQsciLexerMakefile(): QsciLexerMakefile() {};
+	MiqtVirtualQsciLexerMakefile(QObject* parent): QsciLexerMakefile(parent) {};
 
 	virtual ~MiqtVirtualQsciLexerMakefile() override = default;
 
@@ -79,8 +79,10 @@ public:
 		if (handle__language == 0) {
 			return nullptr; // Pure virtual, there is no base we can call
 		}
+		
 
 		const char* callback_return_value = miqt_exec_callback_QsciLexerMakefile_language(this, handle__language);
+
 		return callback_return_value;
 	}
 
@@ -92,8 +94,10 @@ public:
 		if (handle__lexer == 0) {
 			return QsciLexerMakefile::lexer();
 		}
+		
 
 		const char* callback_return_value = miqt_exec_callback_QsciLexerMakefile_lexer(this, handle__lexer);
+
 		return callback_return_value;
 	}
 
@@ -107,8 +111,10 @@ public:
 		if (handle__lexerId == 0) {
 			return QsciLexerMakefile::lexerId();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QsciLexerMakefile_lexerId(this, handle__lexerId);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -122,8 +128,10 @@ public:
 		if (handle__autoCompletionFillups == 0) {
 			return QsciLexerMakefile::autoCompletionFillups();
 		}
+		
 
 		const char* callback_return_value = miqt_exec_callback_QsciLexerMakefile_autoCompletionFillups(this, handle__autoCompletionFillups);
+
 		return callback_return_value;
 	}
 
@@ -137,6 +145,7 @@ public:
 		if (handle__autoCompletionWordSeparators == 0) {
 			return QsciLexerMakefile::autoCompletionWordSeparators();
 		}
+		
 
 		struct miqt_array /* of struct miqt_string */  callback_return_value = miqt_exec_callback_QsciLexerMakefile_autoCompletionWordSeparators(this, handle__autoCompletionWordSeparators);
 		QStringList callback_return_value_QList;
@@ -146,6 +155,7 @@ public:
 			QString callback_return_value_arr_i_QString = QString::fromUtf8(callback_return_value_arr[i].data, callback_return_value_arr[i].len);
 			callback_return_value_QList.push_back(callback_return_value_arr_i_QString);
 		}
+
 		return callback_return_value_QList;
 	}
 
@@ -159,9 +169,11 @@ public:
 		if (handle__blockEnd == 0) {
 			return QsciLexerMakefile::blockEnd(style);
 		}
-
+		
 		int* sigval1 = style;
+
 		const char* callback_return_value = miqt_exec_callback_QsciLexerMakefile_blockEnd(this, handle__blockEnd, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -175,8 +187,10 @@ public:
 		if (handle__blockLookback == 0) {
 			return QsciLexerMakefile::blockLookback();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QsciLexerMakefile_blockLookback(this, handle__blockLookback);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -190,9 +204,11 @@ public:
 		if (handle__blockStart == 0) {
 			return QsciLexerMakefile::blockStart(style);
 		}
-
+		
 		int* sigval1 = style;
+
 		const char* callback_return_value = miqt_exec_callback_QsciLexerMakefile_blockStart(this, handle__blockStart, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -206,9 +222,11 @@ public:
 		if (handle__blockStartKeyword == 0) {
 			return QsciLexerMakefile::blockStartKeyword(style);
 		}
-
+		
 		int* sigval1 = style;
+
 		const char* callback_return_value = miqt_exec_callback_QsciLexerMakefile_blockStartKeyword(this, handle__blockStartKeyword, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -222,8 +240,10 @@ public:
 		if (handle__braceStyle == 0) {
 			return QsciLexerMakefile::braceStyle();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QsciLexerMakefile_braceStyle(this, handle__braceStyle);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -237,8 +257,10 @@ public:
 		if (handle__caseSensitive == 0) {
 			return QsciLexerMakefile::caseSensitive();
 		}
+		
 
 		bool callback_return_value = miqt_exec_callback_QsciLexerMakefile_caseSensitive(this, handle__caseSensitive);
+
 		return callback_return_value;
 	}
 
@@ -252,9 +274,11 @@ public:
 		if (handle__color == 0) {
 			return QsciLexerMakefile::color(style);
 		}
-
+		
 		int sigval1 = style;
+
 		QColor* callback_return_value = miqt_exec_callback_QsciLexerMakefile_color(this, handle__color, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -268,9 +292,11 @@ public:
 		if (handle__eolFill == 0) {
 			return QsciLexerMakefile::eolFill(style);
 		}
-
+		
 		int sigval1 = style;
+
 		bool callback_return_value = miqt_exec_callback_QsciLexerMakefile_eolFill(this, handle__eolFill, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -284,9 +310,11 @@ public:
 		if (handle__font == 0) {
 			return QsciLexerMakefile::font(style);
 		}
-
+		
 		int sigval1 = style;
+
 		QFont* callback_return_value = miqt_exec_callback_QsciLexerMakefile_font(this, handle__font, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -300,8 +328,10 @@ public:
 		if (handle__indentationGuideView == 0) {
 			return QsciLexerMakefile::indentationGuideView();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QsciLexerMakefile_indentationGuideView(this, handle__indentationGuideView);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -315,9 +345,11 @@ public:
 		if (handle__keywords == 0) {
 			return QsciLexerMakefile::keywords(set);
 		}
-
+		
 		int sigval1 = set;
+
 		const char* callback_return_value = miqt_exec_callback_QsciLexerMakefile_keywords(this, handle__keywords, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -331,8 +363,10 @@ public:
 		if (handle__defaultStyle == 0) {
 			return QsciLexerMakefile::defaultStyle();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QsciLexerMakefile_defaultStyle(this, handle__defaultStyle);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -346,10 +380,12 @@ public:
 		if (handle__description == 0) {
 			return QString(); // Pure virtual, there is no base we can call
 		}
-
+		
 		int sigval1 = style;
+
 		struct miqt_string callback_return_value = miqt_exec_callback_QsciLexerMakefile_description(this, handle__description, sigval1);
 		QString callback_return_value_QString = QString::fromUtf8(callback_return_value.data, callback_return_value.len);
+
 		return callback_return_value_QString;
 	}
 
@@ -361,9 +397,11 @@ public:
 		if (handle__paper == 0) {
 			return QsciLexerMakefile::paper(style);
 		}
-
+		
 		int sigval1 = style;
+
 		QColor* callback_return_value = miqt_exec_callback_QsciLexerMakefile_paper(this, handle__paper, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -377,9 +415,11 @@ public:
 		if (handle__defaultColorWithStyle == 0) {
 			return QsciLexerMakefile::defaultColor(style);
 		}
-
+		
 		int sigval1 = style;
+
 		QColor* callback_return_value = miqt_exec_callback_QsciLexerMakefile_defaultColorWithStyle(this, handle__defaultColorWithStyle, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -393,9 +433,11 @@ public:
 		if (handle__defaultEolFill == 0) {
 			return QsciLexerMakefile::defaultEolFill(style);
 		}
-
+		
 		int sigval1 = style;
+
 		bool callback_return_value = miqt_exec_callback_QsciLexerMakefile_defaultEolFill(this, handle__defaultEolFill, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -409,9 +451,11 @@ public:
 		if (handle__defaultFontWithStyle == 0) {
 			return QsciLexerMakefile::defaultFont(style);
 		}
-
+		
 		int sigval1 = style;
+
 		QFont* callback_return_value = miqt_exec_callback_QsciLexerMakefile_defaultFontWithStyle(this, handle__defaultFontWithStyle, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -425,9 +469,11 @@ public:
 		if (handle__defaultPaperWithStyle == 0) {
 			return QsciLexerMakefile::defaultPaper(style);
 		}
-
+		
 		int sigval1 = style;
+
 		QColor* callback_return_value = miqt_exec_callback_QsciLexerMakefile_defaultPaperWithStyle(this, handle__defaultPaperWithStyle, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -442,10 +488,12 @@ public:
 			QsciLexerMakefile::setEditor(editor);
 			return;
 		}
-
+		
 		QsciScintilla* sigval1 = editor;
+
 		miqt_exec_callback_QsciLexerMakefile_setEditor(this, handle__setEditor, sigval1);
 
+		
 	}
 
 	friend void QsciLexerMakefile_virtualbase_setEditor(void* self, QsciScintilla* editor);
@@ -459,9 +507,11 @@ public:
 			QsciLexerMakefile::refreshProperties();
 			return;
 		}
+		
 
 		miqt_exec_callback_QsciLexerMakefile_refreshProperties(this, handle__refreshProperties);
 
+		
 	}
 
 	friend void QsciLexerMakefile_virtualbase_refreshProperties(void* self);
@@ -474,8 +524,10 @@ public:
 		if (handle__styleBitsNeeded == 0) {
 			return QsciLexerMakefile::styleBitsNeeded();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QsciLexerMakefile_styleBitsNeeded(this, handle__styleBitsNeeded);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -489,8 +541,10 @@ public:
 		if (handle__wordCharacters == 0) {
 			return QsciLexerMakefile::wordCharacters();
 		}
+		
 
 		const char* callback_return_value = miqt_exec_callback_QsciLexerMakefile_wordCharacters(this, handle__wordCharacters);
+
 		return callback_return_value;
 	}
 
@@ -505,10 +559,12 @@ public:
 			QsciLexerMakefile::setAutoIndentStyle(autoindentstyle);
 			return;
 		}
-
+		
 		int sigval1 = autoindentstyle;
+
 		miqt_exec_callback_QsciLexerMakefile_setAutoIndentStyle(this, handle__setAutoIndentStyle, sigval1);
 
+		
 	}
 
 	friend void QsciLexerMakefile_virtualbase_setAutoIndentStyle(void* self, int autoindentstyle);
@@ -522,13 +578,15 @@ public:
 			QsciLexerMakefile::setColor(c, style);
 			return;
 		}
-
+		
 		const QColor& c_ret = c;
 		// Cast returned reference into pointer
 		QColor* sigval1 = const_cast<QColor*>(&c_ret);
 		int sigval2 = style;
+
 		miqt_exec_callback_QsciLexerMakefile_setColor(this, handle__setColor, sigval1, sigval2);
 
+		
 	}
 
 	friend void QsciLexerMakefile_virtualbase_setColor(void* self, QColor* c, int style);
@@ -542,11 +600,13 @@ public:
 			QsciLexerMakefile::setEolFill(eoffill, style);
 			return;
 		}
-
+		
 		bool sigval1 = eoffill;
 		int sigval2 = style;
+
 		miqt_exec_callback_QsciLexerMakefile_setEolFill(this, handle__setEolFill, sigval1, sigval2);
 
+		
 	}
 
 	friend void QsciLexerMakefile_virtualbase_setEolFill(void* self, bool eoffill, int style);
@@ -560,13 +620,15 @@ public:
 			QsciLexerMakefile::setFont(f, style);
 			return;
 		}
-
+		
 		const QFont& f_ret = f;
 		// Cast returned reference into pointer
 		QFont* sigval1 = const_cast<QFont*>(&f_ret);
 		int sigval2 = style;
+
 		miqt_exec_callback_QsciLexerMakefile_setFont(this, handle__setFont, sigval1, sigval2);
 
+		
 	}
 
 	friend void QsciLexerMakefile_virtualbase_setFont(void* self, QFont* f, int style);
@@ -580,13 +642,15 @@ public:
 			QsciLexerMakefile::setPaper(c, style);
 			return;
 		}
-
+		
 		const QColor& c_ret = c;
 		// Cast returned reference into pointer
 		QColor* sigval1 = const_cast<QColor*>(&c_ret);
 		int sigval2 = style;
+
 		miqt_exec_callback_QsciLexerMakefile_setPaper(this, handle__setPaper, sigval1, sigval2);
 
+		
 	}
 
 	friend void QsciLexerMakefile_virtualbase_setPaper(void* self, QColor* c, int style);
@@ -599,7 +663,7 @@ public:
 		if (handle__readProperties == 0) {
 			return QsciLexerMakefile::readProperties(qs, prefix);
 		}
-
+		
 		QSettings& qs_ret = qs;
 		// Cast returned reference into pointer
 		QSettings* sigval1 = &qs_ret;
@@ -611,7 +675,9 @@ public:
 		prefix_ms.data = static_cast<char*>(malloc(prefix_ms.len));
 		memcpy(prefix_ms.data, prefix_b.data(), prefix_ms.len);
 		struct miqt_string sigval2 = prefix_ms;
+
 		bool callback_return_value = miqt_exec_callback_QsciLexerMakefile_readProperties(this, handle__readProperties, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -625,7 +691,7 @@ public:
 		if (handle__writeProperties == 0) {
 			return QsciLexerMakefile::writeProperties(qs, prefix);
 		}
-
+		
 		QSettings& qs_ret = qs;
 		// Cast returned reference into pointer
 		QSettings* sigval1 = &qs_ret;
@@ -637,7 +703,9 @@ public:
 		prefix_ms.data = static_cast<char*>(malloc(prefix_ms.len));
 		memcpy(prefix_ms.data, prefix_b.data(), prefix_ms.len);
 		struct miqt_string sigval2 = prefix_ms;
+
 		bool callback_return_value = miqt_exec_callback_QsciLexerMakefile_writeProperties(this, handle__writeProperties, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -651,9 +719,11 @@ public:
 		if (handle__event == 0) {
 			return QsciLexerMakefile::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QsciLexerMakefile_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -667,10 +737,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QsciLexerMakefile::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QsciLexerMakefile_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -685,10 +757,12 @@ public:
 			QsciLexerMakefile::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QsciLexerMakefile_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QsciLexerMakefile_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -702,10 +776,12 @@ public:
 			QsciLexerMakefile::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QsciLexerMakefile_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QsciLexerMakefile_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -719,10 +795,12 @@ public:
 			QsciLexerMakefile::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QsciLexerMakefile_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QsciLexerMakefile_virtualbase_customEvent(void* self, QEvent* event);
@@ -736,12 +814,14 @@ public:
 			QsciLexerMakefile::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QsciLexerMakefile_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QsciLexerMakefile_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -755,12 +835,14 @@ public:
 			QsciLexerMakefile::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QsciLexerMakefile_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QsciLexerMakefile_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -773,11 +855,11 @@ public:
 };
 
 QsciLexerMakefile* QsciLexerMakefile_new() {
-	return new (std::nothrow) MiqtVirtualQsciLexerMakefile();
+	return new MiqtVirtualQsciLexerMakefile();
 }
 
 QsciLexerMakefile* QsciLexerMakefile_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQsciLexerMakefile(parent);
+	return new MiqtVirtualQsciLexerMakefile(parent);
 }
 
 void QsciLexerMakefile_virtbase(QsciLexerMakefile* src, QsciLexer** outptr_QsciLexer) {
@@ -869,7 +951,7 @@ bool QsciLexerMakefile_override_virtual_language(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__language = slot;
 	return true;
 }
@@ -879,13 +961,15 @@ bool QsciLexerMakefile_override_virtual_lexer(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__lexer = slot;
 	return true;
 }
 
 const char* QsciLexerMakefile_virtualbase_lexer(const void* self) {
-	return (const char*) static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::lexer();
+
+	return (const char*) ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::lexer();
+
 }
 
 bool QsciLexerMakefile_override_virtual_lexerId(void* self, intptr_t slot) {
@@ -893,13 +977,15 @@ bool QsciLexerMakefile_override_virtual_lexerId(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__lexerId = slot;
 	return true;
 }
 
 int QsciLexerMakefile_virtualbase_lexerId(const void* self) {
-	return static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::lexerId();
+
+	return ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::lexerId();
+
 }
 
 bool QsciLexerMakefile_override_virtual_autoCompletionFillups(void* self, intptr_t slot) {
@@ -907,13 +993,15 @@ bool QsciLexerMakefile_override_virtual_autoCompletionFillups(void* self, intptr
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__autoCompletionFillups = slot;
 	return true;
 }
 
 const char* QsciLexerMakefile_virtualbase_autoCompletionFillups(const void* self) {
-	return (const char*) static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::autoCompletionFillups();
+
+	return (const char*) ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::autoCompletionFillups();
+
 }
 
 bool QsciLexerMakefile_override_virtual_autoCompletionWordSeparators(void* self, intptr_t slot) {
@@ -921,13 +1009,14 @@ bool QsciLexerMakefile_override_virtual_autoCompletionWordSeparators(void* self,
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__autoCompletionWordSeparators = slot;
 	return true;
 }
 
 struct miqt_array /* of struct miqt_string */  QsciLexerMakefile_virtualbase_autoCompletionWordSeparators(const void* self) {
-	QStringList _ret = static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::autoCompletionWordSeparators();
+
+	QStringList _ret = ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::autoCompletionWordSeparators();
 	// Convert QList<> from C++ memory to manually-managed C memory
 	struct miqt_string* _arr = static_cast<struct miqt_string*>(malloc(sizeof(struct miqt_string) * _ret.length()));
 	for (size_t i = 0, e = _ret.length(); i < e; ++i) {
@@ -944,6 +1033,7 @@ struct miqt_array /* of struct miqt_string */  QsciLexerMakefile_virtualbase_aut
 	_out.len = _ret.length();
 	_out.data = static_cast<void*>(_arr);
 	return _out;
+
 }
 
 bool QsciLexerMakefile_override_virtual_blockEnd(void* self, intptr_t slot) {
@@ -951,13 +1041,15 @@ bool QsciLexerMakefile_override_virtual_blockEnd(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__blockEnd = slot;
 	return true;
 }
 
 const char* QsciLexerMakefile_virtualbase_blockEnd(const void* self, int* style) {
-	return (const char*) static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::blockEnd(static_cast<int*>(style));
+
+	return (const char*) ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::blockEnd(static_cast<int*>(style));
+
 }
 
 bool QsciLexerMakefile_override_virtual_blockLookback(void* self, intptr_t slot) {
@@ -965,13 +1057,15 @@ bool QsciLexerMakefile_override_virtual_blockLookback(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__blockLookback = slot;
 	return true;
 }
 
 int QsciLexerMakefile_virtualbase_blockLookback(const void* self) {
-	return static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::blockLookback();
+
+	return ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::blockLookback();
+
 }
 
 bool QsciLexerMakefile_override_virtual_blockStart(void* self, intptr_t slot) {
@@ -979,13 +1073,15 @@ bool QsciLexerMakefile_override_virtual_blockStart(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__blockStart = slot;
 	return true;
 }
 
 const char* QsciLexerMakefile_virtualbase_blockStart(const void* self, int* style) {
-	return (const char*) static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::blockStart(static_cast<int*>(style));
+
+	return (const char*) ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::blockStart(static_cast<int*>(style));
+
 }
 
 bool QsciLexerMakefile_override_virtual_blockStartKeyword(void* self, intptr_t slot) {
@@ -993,13 +1089,15 @@ bool QsciLexerMakefile_override_virtual_blockStartKeyword(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__blockStartKeyword = slot;
 	return true;
 }
 
 const char* QsciLexerMakefile_virtualbase_blockStartKeyword(const void* self, int* style) {
-	return (const char*) static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::blockStartKeyword(static_cast<int*>(style));
+
+	return (const char*) ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::blockStartKeyword(static_cast<int*>(style));
+
 }
 
 bool QsciLexerMakefile_override_virtual_braceStyle(void* self, intptr_t slot) {
@@ -1007,13 +1105,15 @@ bool QsciLexerMakefile_override_virtual_braceStyle(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__braceStyle = slot;
 	return true;
 }
 
 int QsciLexerMakefile_virtualbase_braceStyle(const void* self) {
-	return static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::braceStyle();
+
+	return ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::braceStyle();
+
 }
 
 bool QsciLexerMakefile_override_virtual_caseSensitive(void* self, intptr_t slot) {
@@ -1021,13 +1121,15 @@ bool QsciLexerMakefile_override_virtual_caseSensitive(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__caseSensitive = slot;
 	return true;
 }
 
 bool QsciLexerMakefile_virtualbase_caseSensitive(const void* self) {
-	return static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::caseSensitive();
+
+	return ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::caseSensitive();
+
 }
 
 bool QsciLexerMakefile_override_virtual_color(void* self, intptr_t slot) {
@@ -1035,13 +1137,15 @@ bool QsciLexerMakefile_override_virtual_color(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__color = slot;
 	return true;
 }
 
 QColor* QsciLexerMakefile_virtualbase_color(const void* self, int style) {
-	return new QColor(static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::color(static_cast<int>(style)));
+
+	return new QColor(( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::color(static_cast<int>(style)));
+
 }
 
 bool QsciLexerMakefile_override_virtual_eolFill(void* self, intptr_t slot) {
@@ -1049,13 +1153,15 @@ bool QsciLexerMakefile_override_virtual_eolFill(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eolFill = slot;
 	return true;
 }
 
 bool QsciLexerMakefile_virtualbase_eolFill(const void* self, int style) {
-	return static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::eolFill(static_cast<int>(style));
+
+	return ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::eolFill(static_cast<int>(style));
+
 }
 
 bool QsciLexerMakefile_override_virtual_font(void* self, intptr_t slot) {
@@ -1063,13 +1169,15 @@ bool QsciLexerMakefile_override_virtual_font(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__font = slot;
 	return true;
 }
 
 QFont* QsciLexerMakefile_virtualbase_font(const void* self, int style) {
-	return new QFont(static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::font(static_cast<int>(style)));
+
+	return new QFont(( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::font(static_cast<int>(style)));
+
 }
 
 bool QsciLexerMakefile_override_virtual_indentationGuideView(void* self, intptr_t slot) {
@@ -1077,13 +1185,15 @@ bool QsciLexerMakefile_override_virtual_indentationGuideView(void* self, intptr_
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__indentationGuideView = slot;
 	return true;
 }
 
 int QsciLexerMakefile_virtualbase_indentationGuideView(const void* self) {
-	return static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::indentationGuideView();
+
+	return ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::indentationGuideView();
+
 }
 
 bool QsciLexerMakefile_override_virtual_keywords(void* self, intptr_t slot) {
@@ -1091,13 +1201,15 @@ bool QsciLexerMakefile_override_virtual_keywords(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keywords = slot;
 	return true;
 }
 
 const char* QsciLexerMakefile_virtualbase_keywords(const void* self, int set) {
-	return (const char*) static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::keywords(static_cast<int>(set));
+
+	return (const char*) ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::keywords(static_cast<int>(set));
+
 }
 
 bool QsciLexerMakefile_override_virtual_defaultStyle(void* self, intptr_t slot) {
@@ -1105,13 +1217,15 @@ bool QsciLexerMakefile_override_virtual_defaultStyle(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__defaultStyle = slot;
 	return true;
 }
 
 int QsciLexerMakefile_virtualbase_defaultStyle(const void* self) {
-	return static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::defaultStyle();
+
+	return ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::defaultStyle();
+
 }
 
 bool QsciLexerMakefile_override_virtual_description(void* self, intptr_t slot) {
@@ -1119,7 +1233,7 @@ bool QsciLexerMakefile_override_virtual_description(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__description = slot;
 	return true;
 }
@@ -1129,13 +1243,15 @@ bool QsciLexerMakefile_override_virtual_paper(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paper = slot;
 	return true;
 }
 
 QColor* QsciLexerMakefile_virtualbase_paper(const void* self, int style) {
-	return new QColor(static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::paper(static_cast<int>(style)));
+
+	return new QColor(( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::paper(static_cast<int>(style)));
+
 }
 
 bool QsciLexerMakefile_override_virtual_defaultColorWithStyle(void* self, intptr_t slot) {
@@ -1143,13 +1259,15 @@ bool QsciLexerMakefile_override_virtual_defaultColorWithStyle(void* self, intptr
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__defaultColorWithStyle = slot;
 	return true;
 }
 
 QColor* QsciLexerMakefile_virtualbase_defaultColorWithStyle(const void* self, int style) {
-	return new QColor(static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::defaultColor(static_cast<int>(style)));
+
+	return new QColor(( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::defaultColor(static_cast<int>(style)));
+
 }
 
 bool QsciLexerMakefile_override_virtual_defaultEolFill(void* self, intptr_t slot) {
@@ -1157,13 +1275,15 @@ bool QsciLexerMakefile_override_virtual_defaultEolFill(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__defaultEolFill = slot;
 	return true;
 }
 
 bool QsciLexerMakefile_virtualbase_defaultEolFill(const void* self, int style) {
-	return static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::defaultEolFill(static_cast<int>(style));
+
+	return ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::defaultEolFill(static_cast<int>(style));
+
 }
 
 bool QsciLexerMakefile_override_virtual_defaultFontWithStyle(void* self, intptr_t slot) {
@@ -1171,13 +1291,15 @@ bool QsciLexerMakefile_override_virtual_defaultFontWithStyle(void* self, intptr_
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__defaultFontWithStyle = slot;
 	return true;
 }
 
 QFont* QsciLexerMakefile_virtualbase_defaultFontWithStyle(const void* self, int style) {
-	return new QFont(static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::defaultFont(static_cast<int>(style)));
+
+	return new QFont(( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::defaultFont(static_cast<int>(style)));
+
 }
 
 bool QsciLexerMakefile_override_virtual_defaultPaperWithStyle(void* self, intptr_t slot) {
@@ -1185,13 +1307,15 @@ bool QsciLexerMakefile_override_virtual_defaultPaperWithStyle(void* self, intptr
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__defaultPaperWithStyle = slot;
 	return true;
 }
 
 QColor* QsciLexerMakefile_virtualbase_defaultPaperWithStyle(const void* self, int style) {
-	return new QColor(static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::defaultPaper(static_cast<int>(style)));
+
+	return new QColor(( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::defaultPaper(static_cast<int>(style)));
+
 }
 
 bool QsciLexerMakefile_override_virtual_setEditor(void* self, intptr_t slot) {
@@ -1199,13 +1323,15 @@ bool QsciLexerMakefile_override_virtual_setEditor(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setEditor = slot;
 	return true;
 }
 
 void QsciLexerMakefile_virtualbase_setEditor(void* self, QsciScintilla* editor) {
-	static_cast<MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::setEditor(editor);
+
+	( (MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::setEditor(editor);
+
 }
 
 bool QsciLexerMakefile_override_virtual_refreshProperties(void* self, intptr_t slot) {
@@ -1213,13 +1339,15 @@ bool QsciLexerMakefile_override_virtual_refreshProperties(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__refreshProperties = slot;
 	return true;
 }
 
 void QsciLexerMakefile_virtualbase_refreshProperties(void* self) {
-	static_cast<MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::refreshProperties();
+
+	( (MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::refreshProperties();
+
 }
 
 bool QsciLexerMakefile_override_virtual_styleBitsNeeded(void* self, intptr_t slot) {
@@ -1227,13 +1355,15 @@ bool QsciLexerMakefile_override_virtual_styleBitsNeeded(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__styleBitsNeeded = slot;
 	return true;
 }
 
 int QsciLexerMakefile_virtualbase_styleBitsNeeded(const void* self) {
-	return static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::styleBitsNeeded();
+
+	return ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::styleBitsNeeded();
+
 }
 
 bool QsciLexerMakefile_override_virtual_wordCharacters(void* self, intptr_t slot) {
@@ -1241,13 +1371,15 @@ bool QsciLexerMakefile_override_virtual_wordCharacters(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__wordCharacters = slot;
 	return true;
 }
 
 const char* QsciLexerMakefile_virtualbase_wordCharacters(const void* self) {
-	return (const char*) static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::wordCharacters();
+
+	return (const char*) ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::wordCharacters();
+
 }
 
 bool QsciLexerMakefile_override_virtual_setAutoIndentStyle(void* self, intptr_t slot) {
@@ -1255,13 +1387,15 @@ bool QsciLexerMakefile_override_virtual_setAutoIndentStyle(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setAutoIndentStyle = slot;
 	return true;
 }
 
 void QsciLexerMakefile_virtualbase_setAutoIndentStyle(void* self, int autoindentstyle) {
-	static_cast<MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::setAutoIndentStyle(static_cast<int>(autoindentstyle));
+
+	( (MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::setAutoIndentStyle(static_cast<int>(autoindentstyle));
+
 }
 
 bool QsciLexerMakefile_override_virtual_setColor(void* self, intptr_t slot) {
@@ -1269,13 +1403,15 @@ bool QsciLexerMakefile_override_virtual_setColor(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setColor = slot;
 	return true;
 }
 
 void QsciLexerMakefile_virtualbase_setColor(void* self, QColor* c, int style) {
-	static_cast<MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::setColor(*c, static_cast<int>(style));
+
+	( (MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::setColor(*c, static_cast<int>(style));
+
 }
 
 bool QsciLexerMakefile_override_virtual_setEolFill(void* self, intptr_t slot) {
@@ -1283,13 +1419,15 @@ bool QsciLexerMakefile_override_virtual_setEolFill(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setEolFill = slot;
 	return true;
 }
 
 void QsciLexerMakefile_virtualbase_setEolFill(void* self, bool eoffill, int style) {
-	static_cast<MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::setEolFill(eoffill, static_cast<int>(style));
+
+	( (MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::setEolFill(eoffill, static_cast<int>(style));
+
 }
 
 bool QsciLexerMakefile_override_virtual_setFont(void* self, intptr_t slot) {
@@ -1297,13 +1435,15 @@ bool QsciLexerMakefile_override_virtual_setFont(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setFont = slot;
 	return true;
 }
 
 void QsciLexerMakefile_virtualbase_setFont(void* self, QFont* f, int style) {
-	static_cast<MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::setFont(*f, static_cast<int>(style));
+
+	( (MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::setFont(*f, static_cast<int>(style));
+
 }
 
 bool QsciLexerMakefile_override_virtual_setPaper(void* self, intptr_t slot) {
@@ -1311,13 +1451,15 @@ bool QsciLexerMakefile_override_virtual_setPaper(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setPaper = slot;
 	return true;
 }
 
 void QsciLexerMakefile_virtualbase_setPaper(void* self, QColor* c, int style) {
-	static_cast<MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::setPaper(*c, static_cast<int>(style));
+
+	( (MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::setPaper(*c, static_cast<int>(style));
+
 }
 
 bool QsciLexerMakefile_override_virtual_readProperties(void* self, intptr_t slot) {
@@ -1325,14 +1467,16 @@ bool QsciLexerMakefile_override_virtual_readProperties(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__readProperties = slot;
 	return true;
 }
 
 bool QsciLexerMakefile_virtualbase_readProperties(void* self, QSettings* qs, struct miqt_string prefix) {
 	QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-	return static_cast<MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::readProperties(*qs, prefix_QString);
+
+	return ( (MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::readProperties(*qs, prefix_QString);
+
 }
 
 bool QsciLexerMakefile_override_virtual_writeProperties(void* self, intptr_t slot) {
@@ -1340,14 +1484,16 @@ bool QsciLexerMakefile_override_virtual_writeProperties(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__writeProperties = slot;
 	return true;
 }
 
 bool QsciLexerMakefile_virtualbase_writeProperties(const void* self, QSettings* qs, struct miqt_string prefix) {
 	QString prefix_QString = QString::fromUtf8(prefix.data, prefix.len);
-	return static_cast<const MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::writeProperties(*qs, prefix_QString);
+
+	return ( (const MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::writeProperties(*qs, prefix_QString);
+
 }
 
 bool QsciLexerMakefile_override_virtual_event(void* self, intptr_t slot) {
@@ -1355,13 +1501,15 @@ bool QsciLexerMakefile_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QsciLexerMakefile_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::event(event);
+
+	return ( (MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::event(event);
+
 }
 
 bool QsciLexerMakefile_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -1369,13 +1517,15 @@ bool QsciLexerMakefile_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QsciLexerMakefile_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::eventFilter(watched, event);
+
 }
 
 bool QsciLexerMakefile_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -1383,13 +1533,15 @@ bool QsciLexerMakefile_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QsciLexerMakefile_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::timerEvent(event);
+
+	( (MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::timerEvent(event);
+
 }
 
 bool QsciLexerMakefile_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -1397,13 +1549,15 @@ bool QsciLexerMakefile_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QsciLexerMakefile_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::childEvent(event);
+
+	( (MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::childEvent(event);
+
 }
 
 bool QsciLexerMakefile_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -1411,13 +1565,15 @@ bool QsciLexerMakefile_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QsciLexerMakefile_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::customEvent(event);
+
+	( (MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::customEvent(event);
+
 }
 
 bool QsciLexerMakefile_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -1425,13 +1581,15 @@ bool QsciLexerMakefile_override_virtual_connectNotify(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QsciLexerMakefile_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::connectNotify(*signal);
+
+	( (MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::connectNotify(*signal);
+
 }
 
 bool QsciLexerMakefile_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -1439,13 +1597,15 @@ bool QsciLexerMakefile_override_virtual_disconnectNotify(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QsciLexerMakefile_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQsciLexerMakefile*>(self)->QsciLexerMakefile::disconnectNotify(*signal);
+
+	( (MiqtVirtualQsciLexerMakefile*)(self) )->QsciLexerMakefile::disconnectNotify(*signal);
+
 }
 
 QObject* QsciLexerMakefile_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -1454,9 +1614,11 @@ QObject* QsciLexerMakefile_protectedbase_sender(bool* _dynamic_cast_ok, const vo
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QsciLexerMakefile_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -1465,9 +1627,11 @@ int QsciLexerMakefile_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, co
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QsciLexerMakefile_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -1476,9 +1640,11 @@ int QsciLexerMakefile_protectedbase_receivers(bool* _dynamic_cast_ok, const void
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QsciLexerMakefile_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -1487,9 +1653,11 @@ bool QsciLexerMakefile_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, c
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QsciLexerMakefile_delete(QsciLexerMakefile* self) {

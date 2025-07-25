@@ -50,10 +50,10 @@ void miqt_exec_callback_QAreaSeries_disconnectNotify(QAreaSeries*, intptr_t, QMe
 class MiqtVirtualQAreaSeries final : public QAreaSeries {
 public:
 
-	MiqtVirtualQAreaSeries(): QAreaSeries() {}
-	MiqtVirtualQAreaSeries(QLineSeries* upperSeries): QAreaSeries(upperSeries) {}
-	MiqtVirtualQAreaSeries(QObject* parent): QAreaSeries(parent) {}
-	MiqtVirtualQAreaSeries(QLineSeries* upperSeries, QLineSeries* lowerSeries): QAreaSeries(upperSeries, lowerSeries) {}
+	MiqtVirtualQAreaSeries(): QAreaSeries() {};
+	MiqtVirtualQAreaSeries(QLineSeries* upperSeries): QAreaSeries(upperSeries) {};
+	MiqtVirtualQAreaSeries(QObject* parent): QAreaSeries(parent) {};
+	MiqtVirtualQAreaSeries(QLineSeries* upperSeries, QLineSeries* lowerSeries): QAreaSeries(upperSeries, lowerSeries) {};
 
 	virtual ~MiqtVirtualQAreaSeries() override = default;
 
@@ -65,8 +65,10 @@ public:
 		if (handle__type == 0) {
 			return QAreaSeries::type();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QAreaSeries_type(this, handle__type);
+
 		return static_cast<QAbstractSeries::SeriesType>(callback_return_value);
 	}
 
@@ -80,9 +82,11 @@ public:
 		if (handle__event == 0) {
 			return QAreaSeries::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QAreaSeries_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -96,10 +100,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QAreaSeries::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QAreaSeries_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -114,10 +120,12 @@ public:
 			QAreaSeries::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QAreaSeries_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QAreaSeries_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -131,10 +139,12 @@ public:
 			QAreaSeries::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QAreaSeries_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QAreaSeries_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -148,10 +158,12 @@ public:
 			QAreaSeries::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QAreaSeries_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QAreaSeries_virtualbase_customEvent(void* self, QEvent* event);
@@ -165,12 +177,14 @@ public:
 			QAreaSeries::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QAreaSeries_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QAreaSeries_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -184,12 +198,14 @@ public:
 			QAreaSeries::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QAreaSeries_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QAreaSeries_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -202,19 +218,19 @@ public:
 };
 
 QAreaSeries* QAreaSeries_new() {
-	return new (std::nothrow) MiqtVirtualQAreaSeries();
+	return new MiqtVirtualQAreaSeries();
 }
 
 QAreaSeries* QAreaSeries_new2(QLineSeries* upperSeries) {
-	return new (std::nothrow) MiqtVirtualQAreaSeries(upperSeries);
+	return new MiqtVirtualQAreaSeries(upperSeries);
 }
 
 QAreaSeries* QAreaSeries_new3(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQAreaSeries(parent);
+	return new MiqtVirtualQAreaSeries(parent);
 }
 
 QAreaSeries* QAreaSeries_new4(QLineSeries* upperSeries, QLineSeries* lowerSeries) {
-	return new (std::nothrow) MiqtVirtualQAreaSeries(upperSeries, lowerSeries);
+	return new MiqtVirtualQAreaSeries(upperSeries, lowerSeries);
 }
 
 void QAreaSeries_virtbase(QAreaSeries* src, QAbstractSeries** outptr_QAbstractSeries) {
@@ -354,7 +370,7 @@ void QAreaSeries_clicked(QAreaSeries* self, QPointF* point) {
 }
 
 void QAreaSeries_connect_clicked(QAreaSeries* self, intptr_t slot) {
-	QAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(const QPointF&)>(&QAreaSeries::clicked), self, [=](const QPointF& point) {
+	MiqtVirtualQAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(const QPointF&)>(&QAreaSeries::clicked), self, [=](const QPointF& point) {
 		const QPointF& point_ret = point;
 		// Cast returned reference into pointer
 		QPointF* sigval1 = const_cast<QPointF*>(&point_ret);
@@ -367,7 +383,7 @@ void QAreaSeries_hovered(QAreaSeries* self, QPointF* point, bool state) {
 }
 
 void QAreaSeries_connect_hovered(QAreaSeries* self, intptr_t slot) {
-	QAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(const QPointF&, bool)>(&QAreaSeries::hovered), self, [=](const QPointF& point, bool state) {
+	MiqtVirtualQAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(const QPointF&, bool)>(&QAreaSeries::hovered), self, [=](const QPointF& point, bool state) {
 		const QPointF& point_ret = point;
 		// Cast returned reference into pointer
 		QPointF* sigval1 = const_cast<QPointF*>(&point_ret);
@@ -381,7 +397,7 @@ void QAreaSeries_pressed(QAreaSeries* self, QPointF* point) {
 }
 
 void QAreaSeries_connect_pressed(QAreaSeries* self, intptr_t slot) {
-	QAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(const QPointF&)>(&QAreaSeries::pressed), self, [=](const QPointF& point) {
+	MiqtVirtualQAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(const QPointF&)>(&QAreaSeries::pressed), self, [=](const QPointF& point) {
 		const QPointF& point_ret = point;
 		// Cast returned reference into pointer
 		QPointF* sigval1 = const_cast<QPointF*>(&point_ret);
@@ -394,7 +410,7 @@ void QAreaSeries_released(QAreaSeries* self, QPointF* point) {
 }
 
 void QAreaSeries_connect_released(QAreaSeries* self, intptr_t slot) {
-	QAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(const QPointF&)>(&QAreaSeries::released), self, [=](const QPointF& point) {
+	MiqtVirtualQAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(const QPointF&)>(&QAreaSeries::released), self, [=](const QPointF& point) {
 		const QPointF& point_ret = point;
 		// Cast returned reference into pointer
 		QPointF* sigval1 = const_cast<QPointF*>(&point_ret);
@@ -407,7 +423,7 @@ void QAreaSeries_doubleClicked(QAreaSeries* self, QPointF* point) {
 }
 
 void QAreaSeries_connect_doubleClicked(QAreaSeries* self, intptr_t slot) {
-	QAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(const QPointF&)>(&QAreaSeries::doubleClicked), self, [=](const QPointF& point) {
+	MiqtVirtualQAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(const QPointF&)>(&QAreaSeries::doubleClicked), self, [=](const QPointF& point) {
 		const QPointF& point_ret = point;
 		// Cast returned reference into pointer
 		QPointF* sigval1 = const_cast<QPointF*>(&point_ret);
@@ -420,7 +436,7 @@ void QAreaSeries_selected(QAreaSeries* self) {
 }
 
 void QAreaSeries_connect_selected(QAreaSeries* self, intptr_t slot) {
-	QAreaSeries::connect(self, static_cast<void (QAreaSeries::*)()>(&QAreaSeries::selected), self, [=]() {
+	MiqtVirtualQAreaSeries::connect(self, static_cast<void (QAreaSeries::*)()>(&QAreaSeries::selected), self, [=]() {
 		miqt_exec_callback_QAreaSeries_selected(slot);
 	});
 }
@@ -430,7 +446,7 @@ void QAreaSeries_colorChanged(QAreaSeries* self, QColor* color) {
 }
 
 void QAreaSeries_connect_colorChanged(QAreaSeries* self, intptr_t slot) {
-	QAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(QColor)>(&QAreaSeries::colorChanged), self, [=](QColor color) {
+	MiqtVirtualQAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(QColor)>(&QAreaSeries::colorChanged), self, [=](QColor color) {
 		QColor* sigval1 = new QColor(color);
 		miqt_exec_callback_QAreaSeries_colorChanged(slot, sigval1);
 	});
@@ -441,7 +457,7 @@ void QAreaSeries_borderColorChanged(QAreaSeries* self, QColor* color) {
 }
 
 void QAreaSeries_connect_borderColorChanged(QAreaSeries* self, intptr_t slot) {
-	QAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(QColor)>(&QAreaSeries::borderColorChanged), self, [=](QColor color) {
+	MiqtVirtualQAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(QColor)>(&QAreaSeries::borderColorChanged), self, [=](QColor color) {
 		QColor* sigval1 = new QColor(color);
 		miqt_exec_callback_QAreaSeries_borderColorChanged(slot, sigval1);
 	});
@@ -453,7 +469,7 @@ void QAreaSeries_pointLabelsFormatChanged(QAreaSeries* self, struct miqt_string 
 }
 
 void QAreaSeries_connect_pointLabelsFormatChanged(QAreaSeries* self, intptr_t slot) {
-	QAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(const QString&)>(&QAreaSeries::pointLabelsFormatChanged), self, [=](const QString& format) {
+	MiqtVirtualQAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(const QString&)>(&QAreaSeries::pointLabelsFormatChanged), self, [=](const QString& format) {
 		const QString format_ret = format;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray format_b = format_ret.toUtf8();
@@ -471,7 +487,7 @@ void QAreaSeries_pointLabelsVisibilityChanged(QAreaSeries* self, bool visible) {
 }
 
 void QAreaSeries_connect_pointLabelsVisibilityChanged(QAreaSeries* self, intptr_t slot) {
-	QAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(bool)>(&QAreaSeries::pointLabelsVisibilityChanged), self, [=](bool visible) {
+	MiqtVirtualQAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(bool)>(&QAreaSeries::pointLabelsVisibilityChanged), self, [=](bool visible) {
 		bool sigval1 = visible;
 		miqt_exec_callback_QAreaSeries_pointLabelsVisibilityChanged(slot, sigval1);
 	});
@@ -482,7 +498,7 @@ void QAreaSeries_pointLabelsFontChanged(QAreaSeries* self, QFont* font) {
 }
 
 void QAreaSeries_connect_pointLabelsFontChanged(QAreaSeries* self, intptr_t slot) {
-	QAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(const QFont&)>(&QAreaSeries::pointLabelsFontChanged), self, [=](const QFont& font) {
+	MiqtVirtualQAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(const QFont&)>(&QAreaSeries::pointLabelsFontChanged), self, [=](const QFont& font) {
 		const QFont& font_ret = font;
 		// Cast returned reference into pointer
 		QFont* sigval1 = const_cast<QFont*>(&font_ret);
@@ -495,7 +511,7 @@ void QAreaSeries_pointLabelsColorChanged(QAreaSeries* self, QColor* color) {
 }
 
 void QAreaSeries_connect_pointLabelsColorChanged(QAreaSeries* self, intptr_t slot) {
-	QAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(const QColor&)>(&QAreaSeries::pointLabelsColorChanged), self, [=](const QColor& color) {
+	MiqtVirtualQAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(const QColor&)>(&QAreaSeries::pointLabelsColorChanged), self, [=](const QColor& color) {
 		const QColor& color_ret = color;
 		// Cast returned reference into pointer
 		QColor* sigval1 = const_cast<QColor*>(&color_ret);
@@ -508,7 +524,7 @@ void QAreaSeries_pointLabelsClippingChanged(QAreaSeries* self, bool clipping) {
 }
 
 void QAreaSeries_connect_pointLabelsClippingChanged(QAreaSeries* self, intptr_t slot) {
-	QAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(bool)>(&QAreaSeries::pointLabelsClippingChanged), self, [=](bool clipping) {
+	MiqtVirtualQAreaSeries::connect(self, static_cast<void (QAreaSeries::*)(bool)>(&QAreaSeries::pointLabelsClippingChanged), self, [=](bool clipping) {
 		bool sigval1 = clipping;
 		miqt_exec_callback_QAreaSeries_pointLabelsClippingChanged(slot, sigval1);
 	});
@@ -553,14 +569,16 @@ bool QAreaSeries_override_virtual_type(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__type = slot;
 	return true;
 }
 
 int QAreaSeries_virtualbase_type(const void* self) {
-	MiqtVirtualQAreaSeries::SeriesType _ret = static_cast<const MiqtVirtualQAreaSeries*>(self)->QAreaSeries::type();
+
+	MiqtVirtualQAreaSeries::SeriesType _ret = ( (const MiqtVirtualQAreaSeries*)(self) )->QAreaSeries::type();
 	return static_cast<int>(_ret);
+
 }
 
 bool QAreaSeries_override_virtual_event(void* self, intptr_t slot) {
@@ -568,13 +586,15 @@ bool QAreaSeries_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QAreaSeries_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQAreaSeries*>(self)->QAreaSeries::event(event);
+
+	return ( (MiqtVirtualQAreaSeries*)(self) )->QAreaSeries::event(event);
+
 }
 
 bool QAreaSeries_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -582,13 +602,15 @@ bool QAreaSeries_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QAreaSeries_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQAreaSeries*>(self)->QAreaSeries::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQAreaSeries*)(self) )->QAreaSeries::eventFilter(watched, event);
+
 }
 
 bool QAreaSeries_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -596,13 +618,15 @@ bool QAreaSeries_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QAreaSeries_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQAreaSeries*>(self)->QAreaSeries::timerEvent(event);
+
+	( (MiqtVirtualQAreaSeries*)(self) )->QAreaSeries::timerEvent(event);
+
 }
 
 bool QAreaSeries_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -610,13 +634,15 @@ bool QAreaSeries_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QAreaSeries_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQAreaSeries*>(self)->QAreaSeries::childEvent(event);
+
+	( (MiqtVirtualQAreaSeries*)(self) )->QAreaSeries::childEvent(event);
+
 }
 
 bool QAreaSeries_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -624,13 +650,15 @@ bool QAreaSeries_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QAreaSeries_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQAreaSeries*>(self)->QAreaSeries::customEvent(event);
+
+	( (MiqtVirtualQAreaSeries*)(self) )->QAreaSeries::customEvent(event);
+
 }
 
 bool QAreaSeries_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -638,13 +666,15 @@ bool QAreaSeries_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QAreaSeries_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQAreaSeries*>(self)->QAreaSeries::connectNotify(*signal);
+
+	( (MiqtVirtualQAreaSeries*)(self) )->QAreaSeries::connectNotify(*signal);
+
 }
 
 bool QAreaSeries_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -652,13 +682,15 @@ bool QAreaSeries_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QAreaSeries_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQAreaSeries*>(self)->QAreaSeries::disconnectNotify(*signal);
+
+	( (MiqtVirtualQAreaSeries*)(self) )->QAreaSeries::disconnectNotify(*signal);
+
 }
 
 QObject* QAreaSeries_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -667,9 +699,11 @@ QObject* QAreaSeries_protectedbase_sender(bool* _dynamic_cast_ok, const void* se
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QAreaSeries_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -678,9 +712,11 @@ int QAreaSeries_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const vo
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QAreaSeries_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -689,9 +725,11 @@ int QAreaSeries_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QAreaSeries_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -700,9 +738,11 @@ bool QAreaSeries_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const v
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QAreaSeries_delete(QAreaSeries* self) {

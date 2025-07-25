@@ -30,7 +30,6 @@ int QOcspResponse_revocationReason(const QOcspResponse* self);
 QSslCertificate* QOcspResponse_responder(const QOcspResponse* self);
 QSslCertificate* QOcspResponse_subject(const QOcspResponse* self);
 void QOcspResponse_swap(QOcspResponse* self, QOcspResponse* other);
-
 void QOcspResponse_delete(QOcspResponse* self);
 
 #ifdef __cplusplus

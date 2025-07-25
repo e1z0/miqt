@@ -158,8 +158,8 @@ void miqt_exec_callback_QAbstractItemView_disconnectNotify(QAbstractItemView*, i
 class MiqtVirtualQAbstractItemView final : public QAbstractItemView {
 public:
 
-	MiqtVirtualQAbstractItemView(QWidget* parent): QAbstractItemView(parent) {}
-	MiqtVirtualQAbstractItemView(): QAbstractItemView() {}
+	MiqtVirtualQAbstractItemView(QWidget* parent): QAbstractItemView(parent) {};
+	MiqtVirtualQAbstractItemView(): QAbstractItemView() {};
 
 	virtual ~MiqtVirtualQAbstractItemView() override = default;
 
@@ -172,10 +172,12 @@ public:
 			QAbstractItemView::setModel(model);
 			return;
 		}
-
+		
 		QAbstractItemModel* sigval1 = model;
+
 		miqt_exec_callback_QAbstractItemView_setModel(this, handle__setModel, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_setModel(void* self, QAbstractItemModel* model);
@@ -189,10 +191,12 @@ public:
 			QAbstractItemView::setSelectionModel(selectionModel);
 			return;
 		}
-
+		
 		QItemSelectionModel* sigval1 = selectionModel;
+
 		miqt_exec_callback_QAbstractItemView_setSelectionModel(this, handle__setSelectionModel, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_setSelectionModel(void* self, QItemSelectionModel* selectionModel);
@@ -206,7 +210,7 @@ public:
 			QAbstractItemView::keyboardSearch(search);
 			return;
 		}
-
+		
 		const QString search_ret = search;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray search_b = search_ret.toUtf8();
@@ -215,8 +219,10 @@ public:
 		search_ms.data = static_cast<char*>(malloc(search_ms.len));
 		memcpy(search_ms.data, search_b.data(), search_ms.len);
 		struct miqt_string sigval1 = search_ms;
+
 		miqt_exec_callback_QAbstractItemView_keyboardSearch(this, handle__keyboardSearch, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_keyboardSearch(void* self, struct miqt_string search);
@@ -229,11 +235,13 @@ public:
 		if (handle__visualRect == 0) {
 			return QRect(); // Pure virtual, there is no base we can call
 		}
-
+		
 		const QModelIndex& index_ret = index;
 		// Cast returned reference into pointer
 		QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
+
 		QRect* callback_return_value = miqt_exec_callback_QAbstractItemView_visualRect(this, handle__visualRect, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -245,14 +253,16 @@ public:
 		if (handle__scrollTo == 0) {
 			return; // Pure virtual, there is no base we can call
 		}
-
+		
 		const QModelIndex& index_ret = index;
 		// Cast returned reference into pointer
 		QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
 		QAbstractItemView::ScrollHint hint_ret = hint;
 		int sigval2 = static_cast<int>(hint_ret);
+
 		miqt_exec_callback_QAbstractItemView_scrollTo(this, handle__scrollTo, sigval1, sigval2);
 
+		
 	}
 
 	// cgo.Handle value for overwritten implementation
@@ -263,11 +273,13 @@ public:
 		if (handle__indexAt == 0) {
 			return QModelIndex(); // Pure virtual, there is no base we can call
 		}
-
+		
 		const QPoint& point_ret = point;
 		// Cast returned reference into pointer
 		QPoint* sigval1 = const_cast<QPoint*>(&point_ret);
+
 		QModelIndex* callback_return_value = miqt_exec_callback_QAbstractItemView_indexAt(this, handle__indexAt, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -279,9 +291,11 @@ public:
 		if (handle__sizeHintForRow == 0) {
 			return QAbstractItemView::sizeHintForRow(row);
 		}
-
+		
 		int sigval1 = row;
+
 		int callback_return_value = miqt_exec_callback_QAbstractItemView_sizeHintForRow(this, handle__sizeHintForRow, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -295,9 +309,11 @@ public:
 		if (handle__sizeHintForColumn == 0) {
 			return QAbstractItemView::sizeHintForColumn(column);
 		}
-
+		
 		int sigval1 = column;
+
 		int callback_return_value = miqt_exec_callback_QAbstractItemView_sizeHintForColumn(this, handle__sizeHintForColumn, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -311,10 +327,12 @@ public:
 		if (handle__inputMethodQuery == 0) {
 			return QAbstractItemView::inputMethodQuery(query);
 		}
-
+		
 		Qt::InputMethodQuery query_ret = query;
 		int sigval1 = static_cast<int>(query_ret);
+
 		QVariant* callback_return_value = miqt_exec_callback_QAbstractItemView_inputMethodQuery(this, handle__inputMethodQuery, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -329,9 +347,11 @@ public:
 			QAbstractItemView::reset();
 			return;
 		}
+		
 
 		miqt_exec_callback_QAbstractItemView_reset(this, handle__reset);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_reset(void* self);
@@ -345,12 +365,14 @@ public:
 			QAbstractItemView::setRootIndex(index);
 			return;
 		}
-
+		
 		const QModelIndex& index_ret = index;
 		// Cast returned reference into pointer
 		QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
+
 		miqt_exec_callback_QAbstractItemView_setRootIndex(this, handle__setRootIndex, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_setRootIndex(void* self, QModelIndex* index);
@@ -364,9 +386,11 @@ public:
 			QAbstractItemView::doItemsLayout();
 			return;
 		}
+		
 
 		miqt_exec_callback_QAbstractItemView_doItemsLayout(this, handle__doItemsLayout);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_doItemsLayout(void* self);
@@ -380,9 +404,11 @@ public:
 			QAbstractItemView::selectAll();
 			return;
 		}
+		
 
 		miqt_exec_callback_QAbstractItemView_selectAll(this, handle__selectAll);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_selectAll(void* self);
@@ -396,7 +422,7 @@ public:
 			QAbstractItemView::dataChanged(topLeft, bottomRight, roles);
 			return;
 		}
-
+		
 		const QModelIndex& topLeft_ret = topLeft;
 		// Cast returned reference into pointer
 		QModelIndex* sigval1 = const_cast<QModelIndex*>(&topLeft_ret);
@@ -413,8 +439,10 @@ public:
 		roles_out.len = roles_ret.length();
 		roles_out.data = static_cast<void*>(roles_arr);
 		struct miqt_array /* of int */  sigval3 = roles_out;
+
 		miqt_exec_callback_QAbstractItemView_dataChanged(this, handle__dataChanged, sigval1, sigval2, sigval3);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_dataChanged(void* self, QModelIndex* topLeft, QModelIndex* bottomRight, struct miqt_array /* of int */  roles);
@@ -428,14 +456,16 @@ public:
 			QAbstractItemView::rowsInserted(parent, start, end);
 			return;
 		}
-
+		
 		const QModelIndex& parent_ret = parent;
 		// Cast returned reference into pointer
 		QModelIndex* sigval1 = const_cast<QModelIndex*>(&parent_ret);
 		int sigval2 = start;
 		int sigval3 = end;
+
 		miqt_exec_callback_QAbstractItemView_rowsInserted(this, handle__rowsInserted, sigval1, sigval2, sigval3);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_rowsInserted(void* self, QModelIndex* parent, int start, int end);
@@ -449,14 +479,16 @@ public:
 			QAbstractItemView::rowsAboutToBeRemoved(parent, start, end);
 			return;
 		}
-
+		
 		const QModelIndex& parent_ret = parent;
 		// Cast returned reference into pointer
 		QModelIndex* sigval1 = const_cast<QModelIndex*>(&parent_ret);
 		int sigval2 = start;
 		int sigval3 = end;
+
 		miqt_exec_callback_QAbstractItemView_rowsAboutToBeRemoved(this, handle__rowsAboutToBeRemoved, sigval1, sigval2, sigval3);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_rowsAboutToBeRemoved(void* self, QModelIndex* parent, int start, int end);
@@ -470,15 +502,17 @@ public:
 			QAbstractItemView::selectionChanged(selected, deselected);
 			return;
 		}
-
+		
 		const QItemSelection& selected_ret = selected;
 		// Cast returned reference into pointer
 		QItemSelection* sigval1 = const_cast<QItemSelection*>(&selected_ret);
 		const QItemSelection& deselected_ret = deselected;
 		// Cast returned reference into pointer
 		QItemSelection* sigval2 = const_cast<QItemSelection*>(&deselected_ret);
+
 		miqt_exec_callback_QAbstractItemView_selectionChanged(this, handle__selectionChanged, sigval1, sigval2);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_selectionChanged(void* self, QItemSelection* selected, QItemSelection* deselected);
@@ -492,15 +526,17 @@ public:
 			QAbstractItemView::currentChanged(current, previous);
 			return;
 		}
-
+		
 		const QModelIndex& current_ret = current;
 		// Cast returned reference into pointer
 		QModelIndex* sigval1 = const_cast<QModelIndex*>(&current_ret);
 		const QModelIndex& previous_ret = previous;
 		// Cast returned reference into pointer
 		QModelIndex* sigval2 = const_cast<QModelIndex*>(&previous_ret);
+
 		miqt_exec_callback_QAbstractItemView_currentChanged(this, handle__currentChanged, sigval1, sigval2);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_currentChanged(void* self, QModelIndex* current, QModelIndex* previous);
@@ -514,9 +550,11 @@ public:
 			QAbstractItemView::updateEditorData();
 			return;
 		}
+		
 
 		miqt_exec_callback_QAbstractItemView_updateEditorData(this, handle__updateEditorData);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_updateEditorData(void* self);
@@ -530,9 +568,11 @@ public:
 			QAbstractItemView::updateEditorGeometries();
 			return;
 		}
+		
 
 		miqt_exec_callback_QAbstractItemView_updateEditorGeometries(this, handle__updateEditorGeometries);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_updateEditorGeometries(void* self);
@@ -546,9 +586,11 @@ public:
 			QAbstractItemView::updateGeometries();
 			return;
 		}
+		
 
 		miqt_exec_callback_QAbstractItemView_updateGeometries(this, handle__updateGeometries);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_updateGeometries(void* self);
@@ -562,10 +604,12 @@ public:
 			QAbstractItemView::verticalScrollbarAction(action);
 			return;
 		}
-
+		
 		int sigval1 = action;
+
 		miqt_exec_callback_QAbstractItemView_verticalScrollbarAction(this, handle__verticalScrollbarAction, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_verticalScrollbarAction(void* self, int action);
@@ -579,10 +623,12 @@ public:
 			QAbstractItemView::horizontalScrollbarAction(action);
 			return;
 		}
-
+		
 		int sigval1 = action;
+
 		miqt_exec_callback_QAbstractItemView_horizontalScrollbarAction(this, handle__horizontalScrollbarAction, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_horizontalScrollbarAction(void* self, int action);
@@ -596,10 +642,12 @@ public:
 			QAbstractItemView::verticalScrollbarValueChanged(value);
 			return;
 		}
-
+		
 		int sigval1 = value;
+
 		miqt_exec_callback_QAbstractItemView_verticalScrollbarValueChanged(this, handle__verticalScrollbarValueChanged, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_verticalScrollbarValueChanged(void* self, int value);
@@ -613,10 +661,12 @@ public:
 			QAbstractItemView::horizontalScrollbarValueChanged(value);
 			return;
 		}
-
+		
 		int sigval1 = value;
+
 		miqt_exec_callback_QAbstractItemView_horizontalScrollbarValueChanged(this, handle__horizontalScrollbarValueChanged, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_horizontalScrollbarValueChanged(void* self, int value);
@@ -630,12 +680,14 @@ public:
 			QAbstractItemView::closeEditor(editor, hint);
 			return;
 		}
-
+		
 		QWidget* sigval1 = editor;
 		QAbstractItemDelegate::EndEditHint hint_ret = hint;
 		int sigval2 = static_cast<int>(hint_ret);
+
 		miqt_exec_callback_QAbstractItemView_closeEditor(this, handle__closeEditor, sigval1, sigval2);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_closeEditor(void* self, QWidget* editor, int hint);
@@ -649,10 +701,12 @@ public:
 			QAbstractItemView::commitData(editor);
 			return;
 		}
-
+		
 		QWidget* sigval1 = editor;
+
 		miqt_exec_callback_QAbstractItemView_commitData(this, handle__commitData, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_commitData(void* self, QWidget* editor);
@@ -666,10 +720,12 @@ public:
 			QAbstractItemView::editorDestroyed(editor);
 			return;
 		}
-
+		
 		QObject* sigval1 = editor;
+
 		miqt_exec_callback_QAbstractItemView_editorDestroyed(this, handle__editorDestroyed, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_editorDestroyed(void* self, QObject* editor);
@@ -682,12 +738,14 @@ public:
 		if (handle__moveCursor == 0) {
 			return QModelIndex(); // Pure virtual, there is no base we can call
 		}
-
+		
 		QAbstractItemView::CursorAction cursorAction_ret = cursorAction;
 		int sigval1 = static_cast<int>(cursorAction_ret);
 		Qt::KeyboardModifiers modifiers_ret = modifiers;
 		int sigval2 = static_cast<int>(modifiers_ret);
+
 		QModelIndex* callback_return_value = miqt_exec_callback_QAbstractItemView_moveCursor(this, handle__moveCursor, sigval1, sigval2);
+
 		return *callback_return_value;
 	}
 
@@ -699,8 +757,10 @@ public:
 		if (handle__horizontalOffset == 0) {
 			return 0; // Pure virtual, there is no base we can call
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QAbstractItemView_horizontalOffset(this, handle__horizontalOffset);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -712,8 +772,10 @@ public:
 		if (handle__verticalOffset == 0) {
 			return 0; // Pure virtual, there is no base we can call
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QAbstractItemView_verticalOffset(this, handle__verticalOffset);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -725,11 +787,13 @@ public:
 		if (handle__isIndexHidden == 0) {
 			return false; // Pure virtual, there is no base we can call
 		}
-
+		
 		const QModelIndex& index_ret = index;
 		// Cast returned reference into pointer
 		QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
+
 		bool callback_return_value = miqt_exec_callback_QAbstractItemView_isIndexHidden(this, handle__isIndexHidden, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -741,14 +805,16 @@ public:
 		if (handle__setSelection == 0) {
 			return; // Pure virtual, there is no base we can call
 		}
-
+		
 		const QRect& rect_ret = rect;
 		// Cast returned reference into pointer
 		QRect* sigval1 = const_cast<QRect*>(&rect_ret);
 		QItemSelectionModel::SelectionFlags command_ret = command;
 		int sigval2 = static_cast<int>(command_ret);
+
 		miqt_exec_callback_QAbstractItemView_setSelection(this, handle__setSelection, sigval1, sigval2);
 
+		
 	}
 
 	// cgo.Handle value for overwritten implementation
@@ -759,11 +825,13 @@ public:
 		if (handle__visualRegionForSelection == 0) {
 			return QRegion(); // Pure virtual, there is no base we can call
 		}
-
+		
 		const QItemSelection& selection_ret = selection;
 		// Cast returned reference into pointer
 		QItemSelection* sigval1 = const_cast<QItemSelection*>(&selection_ret);
+
 		QRegion* callback_return_value = miqt_exec_callback_QAbstractItemView_visualRegionForSelection(this, handle__visualRegionForSelection, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -775,6 +843,7 @@ public:
 		if (handle__selectedIndexes == 0) {
 			return QAbstractItemView::selectedIndexes();
 		}
+		
 
 		struct miqt_array /* of QModelIndex* */  callback_return_value = miqt_exec_callback_QAbstractItemView_selectedIndexes(this, handle__selectedIndexes);
 		QModelIndexList callback_return_value_QList;
@@ -783,6 +852,7 @@ public:
 		for(size_t i = 0; i < callback_return_value.len; ++i) {
 			callback_return_value_QList.push_back(*(callback_return_value_arr[i]));
 		}
+
 		return callback_return_value_QList;
 	}
 
@@ -796,14 +866,16 @@ public:
 		if (handle__edit2 == 0) {
 			return QAbstractItemView::edit(index, trigger, event);
 		}
-
+		
 		const QModelIndex& index_ret = index;
 		// Cast returned reference into pointer
 		QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
 		QAbstractItemView::EditTrigger trigger_ret = trigger;
 		int sigval2 = static_cast<int>(trigger_ret);
 		QEvent* sigval3 = event;
+
 		bool callback_return_value = miqt_exec_callback_QAbstractItemView_edit2(this, handle__edit2, sigval1, sigval2, sigval3);
+
 		return callback_return_value;
 	}
 
@@ -817,12 +889,14 @@ public:
 		if (handle__selectionCommand == 0) {
 			return QAbstractItemView::selectionCommand(index, event);
 		}
-
+		
 		const QModelIndex& index_ret = index;
 		// Cast returned reference into pointer
 		QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
 		QEvent* sigval2 = (QEvent*) event;
+
 		int callback_return_value = miqt_exec_callback_QAbstractItemView_selectionCommand(this, handle__selectionCommand, sigval1, sigval2);
+
 		return static_cast<QItemSelectionModel::SelectionFlags>(callback_return_value);
 	}
 
@@ -837,11 +911,13 @@ public:
 			QAbstractItemView::startDrag(supportedActions);
 			return;
 		}
-
+		
 		Qt::DropActions supportedActions_ret = supportedActions;
 		int sigval1 = static_cast<int>(supportedActions_ret);
+
 		miqt_exec_callback_QAbstractItemView_startDrag(this, handle__startDrag, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_startDrag(void* self, int supportedActions);
@@ -854,8 +930,10 @@ public:
 		if (handle__viewOptions == 0) {
 			return QAbstractItemView::viewOptions();
 		}
+		
 
 		QStyleOptionViewItem* callback_return_value = miqt_exec_callback_QAbstractItemView_viewOptions(this, handle__viewOptions);
+
 		return *callback_return_value;
 	}
 
@@ -869,9 +947,11 @@ public:
 		if (handle__focusNextPrevChild == 0) {
 			return QAbstractItemView::focusNextPrevChild(next);
 		}
-
+		
 		bool sigval1 = next;
+
 		bool callback_return_value = miqt_exec_callback_QAbstractItemView_focusNextPrevChild(this, handle__focusNextPrevChild, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -885,9 +965,11 @@ public:
 		if (handle__event == 0) {
 			return QAbstractItemView::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QAbstractItemView_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -901,9 +983,11 @@ public:
 		if (handle__viewportEvent == 0) {
 			return QAbstractItemView::viewportEvent(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QAbstractItemView_viewportEvent(this, handle__viewportEvent, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -918,10 +1002,12 @@ public:
 			QAbstractItemView::mousePressEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_mousePressEvent(this, handle__mousePressEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_mousePressEvent(void* self, QMouseEvent* event);
@@ -935,10 +1021,12 @@ public:
 			QAbstractItemView::mouseMoveEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_mouseMoveEvent(this, handle__mouseMoveEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_mouseMoveEvent(void* self, QMouseEvent* event);
@@ -952,10 +1040,12 @@ public:
 			QAbstractItemView::mouseReleaseEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_mouseReleaseEvent(this, handle__mouseReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_mouseReleaseEvent(void* self, QMouseEvent* event);
@@ -969,10 +1059,12 @@ public:
 			QAbstractItemView::mouseDoubleClickEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_mouseDoubleClickEvent(this, handle__mouseDoubleClickEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_mouseDoubleClickEvent(void* self, QMouseEvent* event);
@@ -986,10 +1078,12 @@ public:
 			QAbstractItemView::dragEnterEvent(event);
 			return;
 		}
-
+		
 		QDragEnterEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_dragEnterEvent(this, handle__dragEnterEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_dragEnterEvent(void* self, QDragEnterEvent* event);
@@ -1003,10 +1097,12 @@ public:
 			QAbstractItemView::dragMoveEvent(event);
 			return;
 		}
-
+		
 		QDragMoveEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_dragMoveEvent(this, handle__dragMoveEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_dragMoveEvent(void* self, QDragMoveEvent* event);
@@ -1020,10 +1116,12 @@ public:
 			QAbstractItemView::dragLeaveEvent(event);
 			return;
 		}
-
+		
 		QDragLeaveEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_dragLeaveEvent(this, handle__dragLeaveEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_dragLeaveEvent(void* self, QDragLeaveEvent* event);
@@ -1037,10 +1135,12 @@ public:
 			QAbstractItemView::dropEvent(event);
 			return;
 		}
-
+		
 		QDropEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_dropEvent(this, handle__dropEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_dropEvent(void* self, QDropEvent* event);
@@ -1054,10 +1154,12 @@ public:
 			QAbstractItemView::focusInEvent(event);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_focusInEvent(this, handle__focusInEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_focusInEvent(void* self, QFocusEvent* event);
@@ -1071,10 +1173,12 @@ public:
 			QAbstractItemView::focusOutEvent(event);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_focusOutEvent(this, handle__focusOutEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_focusOutEvent(void* self, QFocusEvent* event);
@@ -1088,10 +1192,12 @@ public:
 			QAbstractItemView::keyPressEvent(event);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_keyPressEvent(this, handle__keyPressEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_keyPressEvent(void* self, QKeyEvent* event);
@@ -1105,10 +1211,12 @@ public:
 			QAbstractItemView::resizeEvent(event);
 			return;
 		}
-
+		
 		QResizeEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_resizeEvent(this, handle__resizeEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_resizeEvent(void* self, QResizeEvent* event);
@@ -1122,10 +1230,12 @@ public:
 			QAbstractItemView::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -1139,10 +1249,12 @@ public:
 			QAbstractItemView::inputMethodEvent(event);
 			return;
 		}
-
+		
 		QInputMethodEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_inputMethodEvent(this, handle__inputMethodEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* event);
@@ -1155,10 +1267,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QAbstractItemView::eventFilter(object, event);
 		}
-
+		
 		QObject* sigval1 = object;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QAbstractItemView_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -1172,8 +1286,10 @@ public:
 		if (handle__viewportSizeHint == 0) {
 			return QAbstractItemView::viewportSizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_QAbstractItemView_viewportSizeHint(this, handle__viewportSizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -1187,8 +1303,10 @@ public:
 		if (handle__minimumSizeHint == 0) {
 			return QAbstractItemView::minimumSizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_QAbstractItemView_minimumSizeHint(this, handle__minimumSizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -1202,8 +1320,10 @@ public:
 		if (handle__sizeHint == 0) {
 			return QAbstractItemView::sizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_QAbstractItemView_sizeHint(this, handle__sizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -1218,10 +1338,12 @@ public:
 			QAbstractItemView::setupViewport(viewport);
 			return;
 		}
-
+		
 		QWidget* sigval1 = viewport;
+
 		miqt_exec_callback_QAbstractItemView_setupViewport(this, handle__setupViewport, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_setupViewport(void* self, QWidget* viewport);
@@ -1235,10 +1357,12 @@ public:
 			QAbstractItemView::paintEvent(param1);
 			return;
 		}
-
+		
 		QPaintEvent* sigval1 = param1;
+
 		miqt_exec_callback_QAbstractItemView_paintEvent(this, handle__paintEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_paintEvent(void* self, QPaintEvent* param1);
@@ -1252,10 +1376,12 @@ public:
 			QAbstractItemView::wheelEvent(param1);
 			return;
 		}
-
+		
 		QWheelEvent* sigval1 = param1;
+
 		miqt_exec_callback_QAbstractItemView_wheelEvent(this, handle__wheelEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_wheelEvent(void* self, QWheelEvent* param1);
@@ -1269,10 +1395,12 @@ public:
 			QAbstractItemView::contextMenuEvent(param1);
 			return;
 		}
-
+		
 		QContextMenuEvent* sigval1 = param1;
+
 		miqt_exec_callback_QAbstractItemView_contextMenuEvent(this, handle__contextMenuEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_contextMenuEvent(void* self, QContextMenuEvent* param1);
@@ -1286,11 +1414,13 @@ public:
 			QAbstractItemView::scrollContentsBy(dx, dy);
 			return;
 		}
-
+		
 		int sigval1 = dx;
 		int sigval2 = dy;
+
 		miqt_exec_callback_QAbstractItemView_scrollContentsBy(this, handle__scrollContentsBy, sigval1, sigval2);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_scrollContentsBy(void* self, int dx, int dy);
@@ -1304,10 +1434,12 @@ public:
 			QAbstractItemView::changeEvent(param1);
 			return;
 		}
-
+		
 		QEvent* sigval1 = param1;
+
 		miqt_exec_callback_QAbstractItemView_changeEvent(this, handle__changeEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_changeEvent(void* self, QEvent* param1);
@@ -1320,8 +1452,10 @@ public:
 		if (handle__devType == 0) {
 			return QAbstractItemView::devType();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QAbstractItemView_devType(this, handle__devType);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -1336,10 +1470,12 @@ public:
 			QAbstractItemView::setVisible(visible);
 			return;
 		}
-
+		
 		bool sigval1 = visible;
+
 		miqt_exec_callback_QAbstractItemView_setVisible(this, handle__setVisible, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_setVisible(void* self, bool visible);
@@ -1352,9 +1488,11 @@ public:
 		if (handle__heightForWidth == 0) {
 			return QAbstractItemView::heightForWidth(param1);
 		}
-
+		
 		int sigval1 = param1;
+
 		int callback_return_value = miqt_exec_callback_QAbstractItemView_heightForWidth(this, handle__heightForWidth, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -1368,8 +1506,10 @@ public:
 		if (handle__hasHeightForWidth == 0) {
 			return QAbstractItemView::hasHeightForWidth();
 		}
+		
 
 		bool callback_return_value = miqt_exec_callback_QAbstractItemView_hasHeightForWidth(this, handle__hasHeightForWidth);
+
 		return callback_return_value;
 	}
 
@@ -1383,8 +1523,10 @@ public:
 		if (handle__paintEngine == 0) {
 			return QAbstractItemView::paintEngine();
 		}
+		
 
 		QPaintEngine* callback_return_value = miqt_exec_callback_QAbstractItemView_paintEngine(this, handle__paintEngine);
+
 		return callback_return_value;
 	}
 
@@ -1399,10 +1541,12 @@ public:
 			QAbstractItemView::keyReleaseEvent(event);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_keyReleaseEvent(this, handle__keyReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_keyReleaseEvent(void* self, QKeyEvent* event);
@@ -1416,10 +1560,12 @@ public:
 			QAbstractItemView::enterEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_enterEvent(this, handle__enterEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_enterEvent(void* self, QEvent* event);
@@ -1433,10 +1579,12 @@ public:
 			QAbstractItemView::leaveEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_leaveEvent(this, handle__leaveEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_leaveEvent(void* self, QEvent* event);
@@ -1450,10 +1598,12 @@ public:
 			QAbstractItemView::moveEvent(event);
 			return;
 		}
-
+		
 		QMoveEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_moveEvent(this, handle__moveEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_moveEvent(void* self, QMoveEvent* event);
@@ -1467,10 +1617,12 @@ public:
 			QAbstractItemView::closeEvent(event);
 			return;
 		}
-
+		
 		QCloseEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_closeEvent(this, handle__closeEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_closeEvent(void* self, QCloseEvent* event);
@@ -1484,10 +1636,12 @@ public:
 			QAbstractItemView::tabletEvent(event);
 			return;
 		}
-
+		
 		QTabletEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_tabletEvent(this, handle__tabletEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_tabletEvent(void* self, QTabletEvent* event);
@@ -1501,10 +1655,12 @@ public:
 			QAbstractItemView::actionEvent(event);
 			return;
 		}
-
+		
 		QActionEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_actionEvent(this, handle__actionEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_actionEvent(void* self, QActionEvent* event);
@@ -1518,10 +1674,12 @@ public:
 			QAbstractItemView::showEvent(event);
 			return;
 		}
-
+		
 		QShowEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_showEvent(this, handle__showEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_showEvent(void* self, QShowEvent* event);
@@ -1535,10 +1693,12 @@ public:
 			QAbstractItemView::hideEvent(event);
 			return;
 		}
-
+		
 		QHideEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_hideEvent(this, handle__hideEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_hideEvent(void* self, QHideEvent* event);
@@ -1551,7 +1711,7 @@ public:
 		if (handle__nativeEvent == 0) {
 			return QAbstractItemView::nativeEvent(eventType, message, result);
 		}
-
+		
 		const QByteArray eventType_qb = eventType;
 		struct miqt_string eventType_ms;
 		eventType_ms.len = eventType_qb.length();
@@ -1560,7 +1720,9 @@ public:
 		struct miqt_string sigval1 = eventType_ms;
 		void* sigval2 = message;
 		long* sigval3 = result;
+
 		bool callback_return_value = miqt_exec_callback_QAbstractItemView_nativeEvent(this, handle__nativeEvent, sigval1, sigval2, sigval3);
+
 		return callback_return_value;
 	}
 
@@ -1574,10 +1736,12 @@ public:
 		if (handle__metric == 0) {
 			return QAbstractItemView::metric(param1);
 		}
-
+		
 		QPaintDevice::PaintDeviceMetric param1_ret = param1;
 		int sigval1 = static_cast<int>(param1_ret);
+
 		int callback_return_value = miqt_exec_callback_QAbstractItemView_metric(this, handle__metric, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -1592,10 +1756,12 @@ public:
 			QAbstractItemView::initPainter(painter);
 			return;
 		}
-
+		
 		QPainter* sigval1 = painter;
+
 		miqt_exec_callback_QAbstractItemView_initPainter(this, handle__initPainter, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_initPainter(const void* self, QPainter* painter);
@@ -1608,9 +1774,11 @@ public:
 		if (handle__redirected == 0) {
 			return QAbstractItemView::redirected(offset);
 		}
-
+		
 		QPoint* sigval1 = offset;
+
 		QPaintDevice* callback_return_value = miqt_exec_callback_QAbstractItemView_redirected(this, handle__redirected, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -1624,8 +1792,10 @@ public:
 		if (handle__sharedPainter == 0) {
 			return QAbstractItemView::sharedPainter();
 		}
+		
 
 		QPainter* callback_return_value = miqt_exec_callback_QAbstractItemView_sharedPainter(this, handle__sharedPainter);
+
 		return callback_return_value;
 	}
 
@@ -1640,10 +1810,12 @@ public:
 			QAbstractItemView::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -1657,10 +1829,12 @@ public:
 			QAbstractItemView::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractItemView_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_customEvent(void* self, QEvent* event);
@@ -1674,12 +1848,14 @@ public:
 			QAbstractItemView::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QAbstractItemView_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -1693,12 +1869,14 @@ public:
 			QAbstractItemView::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QAbstractItemView_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QAbstractItemView_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -1735,11 +1913,11 @@ public:
 };
 
 QAbstractItemView* QAbstractItemView_new(QWidget* parent) {
-	return new (std::nothrow) MiqtVirtualQAbstractItemView(parent);
+	return new MiqtVirtualQAbstractItemView(parent);
 }
 
 QAbstractItemView* QAbstractItemView_new2() {
-	return new (std::nothrow) MiqtVirtualQAbstractItemView();
+	return new MiqtVirtualQAbstractItemView();
 }
 
 void QAbstractItemView_virtbase(QAbstractItemView* src, QAbstractScrollArea** outptr_QAbstractScrollArea) {
@@ -2070,7 +2248,7 @@ void QAbstractItemView_pressed(QAbstractItemView* self, QModelIndex* index) {
 }
 
 void QAbstractItemView_connect_pressed(QAbstractItemView* self, intptr_t slot) {
-	QAbstractItemView::connect(self, static_cast<void (QAbstractItemView::*)(const QModelIndex&)>(&QAbstractItemView::pressed), self, [=](const QModelIndex& index) {
+	MiqtVirtualQAbstractItemView::connect(self, static_cast<void (QAbstractItemView::*)(const QModelIndex&)>(&QAbstractItemView::pressed), self, [=](const QModelIndex& index) {
 		const QModelIndex& index_ret = index;
 		// Cast returned reference into pointer
 		QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
@@ -2083,7 +2261,7 @@ void QAbstractItemView_clicked(QAbstractItemView* self, QModelIndex* index) {
 }
 
 void QAbstractItemView_connect_clicked(QAbstractItemView* self, intptr_t slot) {
-	QAbstractItemView::connect(self, static_cast<void (QAbstractItemView::*)(const QModelIndex&)>(&QAbstractItemView::clicked), self, [=](const QModelIndex& index) {
+	MiqtVirtualQAbstractItemView::connect(self, static_cast<void (QAbstractItemView::*)(const QModelIndex&)>(&QAbstractItemView::clicked), self, [=](const QModelIndex& index) {
 		const QModelIndex& index_ret = index;
 		// Cast returned reference into pointer
 		QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
@@ -2096,7 +2274,7 @@ void QAbstractItemView_doubleClicked(QAbstractItemView* self, QModelIndex* index
 }
 
 void QAbstractItemView_connect_doubleClicked(QAbstractItemView* self, intptr_t slot) {
-	QAbstractItemView::connect(self, static_cast<void (QAbstractItemView::*)(const QModelIndex&)>(&QAbstractItemView::doubleClicked), self, [=](const QModelIndex& index) {
+	MiqtVirtualQAbstractItemView::connect(self, static_cast<void (QAbstractItemView::*)(const QModelIndex&)>(&QAbstractItemView::doubleClicked), self, [=](const QModelIndex& index) {
 		const QModelIndex& index_ret = index;
 		// Cast returned reference into pointer
 		QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
@@ -2109,7 +2287,7 @@ void QAbstractItemView_activated(QAbstractItemView* self, QModelIndex* index) {
 }
 
 void QAbstractItemView_connect_activated(QAbstractItemView* self, intptr_t slot) {
-	QAbstractItemView::connect(self, static_cast<void (QAbstractItemView::*)(const QModelIndex&)>(&QAbstractItemView::activated), self, [=](const QModelIndex& index) {
+	MiqtVirtualQAbstractItemView::connect(self, static_cast<void (QAbstractItemView::*)(const QModelIndex&)>(&QAbstractItemView::activated), self, [=](const QModelIndex& index) {
 		const QModelIndex& index_ret = index;
 		// Cast returned reference into pointer
 		QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
@@ -2122,7 +2300,7 @@ void QAbstractItemView_entered(QAbstractItemView* self, QModelIndex* index) {
 }
 
 void QAbstractItemView_connect_entered(QAbstractItemView* self, intptr_t slot) {
-	QAbstractItemView::connect(self, static_cast<void (QAbstractItemView::*)(const QModelIndex&)>(&QAbstractItemView::entered), self, [=](const QModelIndex& index) {
+	MiqtVirtualQAbstractItemView::connect(self, static_cast<void (QAbstractItemView::*)(const QModelIndex&)>(&QAbstractItemView::entered), self, [=](const QModelIndex& index) {
 		const QModelIndex& index_ret = index;
 		// Cast returned reference into pointer
 		QModelIndex* sigval1 = const_cast<QModelIndex*>(&index_ret);
@@ -2135,7 +2313,7 @@ void QAbstractItemView_viewportEntered(QAbstractItemView* self) {
 }
 
 void QAbstractItemView_connect_viewportEntered(QAbstractItemView* self, intptr_t slot) {
-	QAbstractItemView::connect(self, static_cast<void (QAbstractItemView::*)()>(&QAbstractItemView::viewportEntered), self, [=]() {
+	MiqtVirtualQAbstractItemView::connect(self, static_cast<void (QAbstractItemView::*)()>(&QAbstractItemView::viewportEntered), self, [=]() {
 		miqt_exec_callback_QAbstractItemView_viewportEntered(slot);
 	});
 }
@@ -2145,7 +2323,7 @@ void QAbstractItemView_iconSizeChanged(QAbstractItemView* self, QSize* size) {
 }
 
 void QAbstractItemView_connect_iconSizeChanged(QAbstractItemView* self, intptr_t slot) {
-	QAbstractItemView::connect(self, static_cast<void (QAbstractItemView::*)(const QSize&)>(&QAbstractItemView::iconSizeChanged), self, [=](const QSize& size) {
+	MiqtVirtualQAbstractItemView::connect(self, static_cast<void (QAbstractItemView::*)(const QSize&)>(&QAbstractItemView::iconSizeChanged), self, [=](const QSize& size) {
 		const QSize& size_ret = size;
 		// Cast returned reference into pointer
 		QSize* sigval1 = const_cast<QSize*>(&size_ret);
@@ -2202,13 +2380,15 @@ bool QAbstractItemView_override_virtual_setModel(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setModel = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_setModel(void* self, QAbstractItemModel* model) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::setModel(model);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::setModel(model);
+
 }
 
 bool QAbstractItemView_override_virtual_setSelectionModel(void* self, intptr_t slot) {
@@ -2216,13 +2396,15 @@ bool QAbstractItemView_override_virtual_setSelectionModel(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setSelectionModel = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_setSelectionModel(void* self, QItemSelectionModel* selectionModel) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::setSelectionModel(selectionModel);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::setSelectionModel(selectionModel);
+
 }
 
 bool QAbstractItemView_override_virtual_keyboardSearch(void* self, intptr_t slot) {
@@ -2230,14 +2412,16 @@ bool QAbstractItemView_override_virtual_keyboardSearch(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyboardSearch = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_keyboardSearch(void* self, struct miqt_string search) {
 	QString search_QString = QString::fromUtf8(search.data, search.len);
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::keyboardSearch(search_QString);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::keyboardSearch(search_QString);
+
 }
 
 bool QAbstractItemView_override_virtual_visualRect(void* self, intptr_t slot) {
@@ -2245,7 +2429,7 @@ bool QAbstractItemView_override_virtual_visualRect(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__visualRect = slot;
 	return true;
 }
@@ -2255,7 +2439,7 @@ bool QAbstractItemView_override_virtual_scrollTo(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__scrollTo = slot;
 	return true;
 }
@@ -2265,7 +2449,7 @@ bool QAbstractItemView_override_virtual_indexAt(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__indexAt = slot;
 	return true;
 }
@@ -2275,13 +2459,15 @@ bool QAbstractItemView_override_virtual_sizeHintForRow(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sizeHintForRow = slot;
 	return true;
 }
 
 int QAbstractItemView_virtualbase_sizeHintForRow(const void* self, int row) {
-	return static_cast<const MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::sizeHintForRow(static_cast<int>(row));
+
+	return ( (const MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::sizeHintForRow(static_cast<int>(row));
+
 }
 
 bool QAbstractItemView_override_virtual_sizeHintForColumn(void* self, intptr_t slot) {
@@ -2289,13 +2475,15 @@ bool QAbstractItemView_override_virtual_sizeHintForColumn(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sizeHintForColumn = slot;
 	return true;
 }
 
 int QAbstractItemView_virtualbase_sizeHintForColumn(const void* self, int column) {
-	return static_cast<const MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::sizeHintForColumn(static_cast<int>(column));
+
+	return ( (const MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::sizeHintForColumn(static_cast<int>(column));
+
 }
 
 bool QAbstractItemView_override_virtual_inputMethodQuery(void* self, intptr_t slot) {
@@ -2303,13 +2491,15 @@ bool QAbstractItemView_override_virtual_inputMethodQuery(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodQuery = slot;
 	return true;
 }
 
 QVariant* QAbstractItemView_virtualbase_inputMethodQuery(const void* self, int query) {
-	return new QVariant(static_cast<const MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
+
+	return new QVariant(( (const MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
+
 }
 
 bool QAbstractItemView_override_virtual_reset(void* self, intptr_t slot) {
@@ -2317,13 +2507,15 @@ bool QAbstractItemView_override_virtual_reset(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__reset = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_reset(void* self) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::reset();
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::reset();
+
 }
 
 bool QAbstractItemView_override_virtual_setRootIndex(void* self, intptr_t slot) {
@@ -2331,13 +2523,15 @@ bool QAbstractItemView_override_virtual_setRootIndex(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setRootIndex = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_setRootIndex(void* self, QModelIndex* index) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::setRootIndex(*index);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::setRootIndex(*index);
+
 }
 
 bool QAbstractItemView_override_virtual_doItemsLayout(void* self, intptr_t slot) {
@@ -2345,13 +2539,15 @@ bool QAbstractItemView_override_virtual_doItemsLayout(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__doItemsLayout = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_doItemsLayout(void* self) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::doItemsLayout();
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::doItemsLayout();
+
 }
 
 bool QAbstractItemView_override_virtual_selectAll(void* self, intptr_t slot) {
@@ -2359,13 +2555,15 @@ bool QAbstractItemView_override_virtual_selectAll(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__selectAll = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_selectAll(void* self) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::selectAll();
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::selectAll();
+
 }
 
 bool QAbstractItemView_override_virtual_dataChanged(void* self, intptr_t slot) {
@@ -2373,7 +2571,7 @@ bool QAbstractItemView_override_virtual_dataChanged(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dataChanged = slot;
 	return true;
 }
@@ -2385,7 +2583,9 @@ void QAbstractItemView_virtualbase_dataChanged(void* self, QModelIndex* topLeft,
 	for(size_t i = 0; i < roles.len; ++i) {
 		roles_QList.push_back(static_cast<int>(roles_arr[i]));
 	}
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::dataChanged(*topLeft, *bottomRight, roles_QList);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::dataChanged(*topLeft, *bottomRight, roles_QList);
+
 }
 
 bool QAbstractItemView_override_virtual_rowsInserted(void* self, intptr_t slot) {
@@ -2393,13 +2593,15 @@ bool QAbstractItemView_override_virtual_rowsInserted(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__rowsInserted = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_rowsInserted(void* self, QModelIndex* parent, int start, int end) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::rowsInserted(*parent, static_cast<int>(start), static_cast<int>(end));
+
 }
 
 bool QAbstractItemView_override_virtual_rowsAboutToBeRemoved(void* self, intptr_t slot) {
@@ -2407,13 +2609,15 @@ bool QAbstractItemView_override_virtual_rowsAboutToBeRemoved(void* self, intptr_
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__rowsAboutToBeRemoved = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_rowsAboutToBeRemoved(void* self, QModelIndex* parent, int start, int end) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::rowsAboutToBeRemoved(*parent, static_cast<int>(start), static_cast<int>(end));
+
 }
 
 bool QAbstractItemView_override_virtual_selectionChanged(void* self, intptr_t slot) {
@@ -2421,13 +2625,15 @@ bool QAbstractItemView_override_virtual_selectionChanged(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__selectionChanged = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_selectionChanged(void* self, QItemSelection* selected, QItemSelection* deselected) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::selectionChanged(*selected, *deselected);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::selectionChanged(*selected, *deselected);
+
 }
 
 bool QAbstractItemView_override_virtual_currentChanged(void* self, intptr_t slot) {
@@ -2435,13 +2641,15 @@ bool QAbstractItemView_override_virtual_currentChanged(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__currentChanged = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_currentChanged(void* self, QModelIndex* current, QModelIndex* previous) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::currentChanged(*current, *previous);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::currentChanged(*current, *previous);
+
 }
 
 bool QAbstractItemView_override_virtual_updateEditorData(void* self, intptr_t slot) {
@@ -2449,13 +2657,15 @@ bool QAbstractItemView_override_virtual_updateEditorData(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__updateEditorData = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_updateEditorData(void* self) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::updateEditorData();
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::updateEditorData();
+
 }
 
 bool QAbstractItemView_override_virtual_updateEditorGeometries(void* self, intptr_t slot) {
@@ -2463,13 +2673,15 @@ bool QAbstractItemView_override_virtual_updateEditorGeometries(void* self, intpt
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__updateEditorGeometries = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_updateEditorGeometries(void* self) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::updateEditorGeometries();
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::updateEditorGeometries();
+
 }
 
 bool QAbstractItemView_override_virtual_updateGeometries(void* self, intptr_t slot) {
@@ -2477,13 +2689,15 @@ bool QAbstractItemView_override_virtual_updateGeometries(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__updateGeometries = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_updateGeometries(void* self) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::updateGeometries();
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::updateGeometries();
+
 }
 
 bool QAbstractItemView_override_virtual_verticalScrollbarAction(void* self, intptr_t slot) {
@@ -2491,13 +2705,15 @@ bool QAbstractItemView_override_virtual_verticalScrollbarAction(void* self, intp
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__verticalScrollbarAction = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_verticalScrollbarAction(void* self, int action) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::verticalScrollbarAction(static_cast<int>(action));
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::verticalScrollbarAction(static_cast<int>(action));
+
 }
 
 bool QAbstractItemView_override_virtual_horizontalScrollbarAction(void* self, intptr_t slot) {
@@ -2505,13 +2721,15 @@ bool QAbstractItemView_override_virtual_horizontalScrollbarAction(void* self, in
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__horizontalScrollbarAction = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_horizontalScrollbarAction(void* self, int action) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::horizontalScrollbarAction(static_cast<int>(action));
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::horizontalScrollbarAction(static_cast<int>(action));
+
 }
 
 bool QAbstractItemView_override_virtual_verticalScrollbarValueChanged(void* self, intptr_t slot) {
@@ -2519,13 +2737,15 @@ bool QAbstractItemView_override_virtual_verticalScrollbarValueChanged(void* self
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__verticalScrollbarValueChanged = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_verticalScrollbarValueChanged(void* self, int value) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::verticalScrollbarValueChanged(static_cast<int>(value));
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::verticalScrollbarValueChanged(static_cast<int>(value));
+
 }
 
 bool QAbstractItemView_override_virtual_horizontalScrollbarValueChanged(void* self, intptr_t slot) {
@@ -2533,13 +2753,15 @@ bool QAbstractItemView_override_virtual_horizontalScrollbarValueChanged(void* se
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__horizontalScrollbarValueChanged = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_horizontalScrollbarValueChanged(void* self, int value) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::horizontalScrollbarValueChanged(static_cast<int>(value));
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::horizontalScrollbarValueChanged(static_cast<int>(value));
+
 }
 
 bool QAbstractItemView_override_virtual_closeEditor(void* self, intptr_t slot) {
@@ -2547,13 +2769,15 @@ bool QAbstractItemView_override_virtual_closeEditor(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__closeEditor = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_closeEditor(void* self, QWidget* editor, int hint) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::closeEditor(editor, static_cast<QAbstractItemDelegate::EndEditHint>(hint));
+
 }
 
 bool QAbstractItemView_override_virtual_commitData(void* self, intptr_t slot) {
@@ -2561,13 +2785,15 @@ bool QAbstractItemView_override_virtual_commitData(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__commitData = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_commitData(void* self, QWidget* editor) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::commitData(editor);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::commitData(editor);
+
 }
 
 bool QAbstractItemView_override_virtual_editorDestroyed(void* self, intptr_t slot) {
@@ -2575,13 +2801,15 @@ bool QAbstractItemView_override_virtual_editorDestroyed(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__editorDestroyed = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_editorDestroyed(void* self, QObject* editor) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::editorDestroyed(editor);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::editorDestroyed(editor);
+
 }
 
 bool QAbstractItemView_override_virtual_moveCursor(void* self, intptr_t slot) {
@@ -2589,7 +2817,7 @@ bool QAbstractItemView_override_virtual_moveCursor(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__moveCursor = slot;
 	return true;
 }
@@ -2599,7 +2827,7 @@ bool QAbstractItemView_override_virtual_horizontalOffset(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__horizontalOffset = slot;
 	return true;
 }
@@ -2609,7 +2837,7 @@ bool QAbstractItemView_override_virtual_verticalOffset(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__verticalOffset = slot;
 	return true;
 }
@@ -2619,7 +2847,7 @@ bool QAbstractItemView_override_virtual_isIndexHidden(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__isIndexHidden = slot;
 	return true;
 }
@@ -2629,7 +2857,7 @@ bool QAbstractItemView_override_virtual_setSelection(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setSelection = slot;
 	return true;
 }
@@ -2639,7 +2867,7 @@ bool QAbstractItemView_override_virtual_visualRegionForSelection(void* self, int
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__visualRegionForSelection = slot;
 	return true;
 }
@@ -2649,13 +2877,14 @@ bool QAbstractItemView_override_virtual_selectedIndexes(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__selectedIndexes = slot;
 	return true;
 }
 
 struct miqt_array /* of QModelIndex* */  QAbstractItemView_virtualbase_selectedIndexes(const void* self) {
-	QModelIndexList _ret = static_cast<const MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::selectedIndexes();
+
+	QModelIndexList _ret = ( (const MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::selectedIndexes();
 	// Convert QList<> from C++ memory to manually-managed C memory
 	QModelIndex** _arr = static_cast<QModelIndex**>(malloc(sizeof(QModelIndex*) * _ret.length()));
 	for (size_t i = 0, e = _ret.length(); i < e; ++i) {
@@ -2665,6 +2894,7 @@ struct miqt_array /* of QModelIndex* */  QAbstractItemView_virtualbase_selectedI
 	_out.len = _ret.length();
 	_out.data = static_cast<void*>(_arr);
 	return _out;
+
 }
 
 bool QAbstractItemView_override_virtual_edit2(void* self, intptr_t slot) {
@@ -2672,13 +2902,15 @@ bool QAbstractItemView_override_virtual_edit2(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__edit2 = slot;
 	return true;
 }
 
 bool QAbstractItemView_virtualbase_edit2(void* self, QModelIndex* index, int trigger, QEvent* event) {
-	return static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::edit(*index, static_cast<MiqtVirtualQAbstractItemView::EditTrigger>(trigger), event);
+
+	return ( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::edit(*index, static_cast<MiqtVirtualQAbstractItemView::EditTrigger>(trigger), event);
+
 }
 
 bool QAbstractItemView_override_virtual_selectionCommand(void* self, intptr_t slot) {
@@ -2686,14 +2918,16 @@ bool QAbstractItemView_override_virtual_selectionCommand(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__selectionCommand = slot;
 	return true;
 }
 
 int QAbstractItemView_virtualbase_selectionCommand(const void* self, QModelIndex* index, QEvent* event) {
-	QItemSelectionModel::SelectionFlags _ret = static_cast<const MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::selectionCommand(*index, event);
+
+	QItemSelectionModel::SelectionFlags _ret = ( (const MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::selectionCommand(*index, event);
 	return static_cast<int>(_ret);
+
 }
 
 bool QAbstractItemView_override_virtual_startDrag(void* self, intptr_t slot) {
@@ -2701,13 +2935,15 @@ bool QAbstractItemView_override_virtual_startDrag(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__startDrag = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_startDrag(void* self, int supportedActions) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::startDrag(static_cast<Qt::DropActions>(supportedActions));
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::startDrag(static_cast<Qt::DropActions>(supportedActions));
+
 }
 
 bool QAbstractItemView_override_virtual_viewOptions(void* self, intptr_t slot) {
@@ -2715,13 +2951,15 @@ bool QAbstractItemView_override_virtual_viewOptions(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__viewOptions = slot;
 	return true;
 }
 
 QStyleOptionViewItem* QAbstractItemView_virtualbase_viewOptions(const void* self) {
-	return new QStyleOptionViewItem(static_cast<const MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::viewOptions());
+
+	return new QStyleOptionViewItem(( (const MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::viewOptions());
+
 }
 
 bool QAbstractItemView_override_virtual_focusNextPrevChild(void* self, intptr_t slot) {
@@ -2729,13 +2967,15 @@ bool QAbstractItemView_override_virtual_focusNextPrevChild(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusNextPrevChild = slot;
 	return true;
 }
 
 bool QAbstractItemView_virtualbase_focusNextPrevChild(void* self, bool next) {
-	return static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::focusNextPrevChild(next);
+
+	return ( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::focusNextPrevChild(next);
+
 }
 
 bool QAbstractItemView_override_virtual_event(void* self, intptr_t slot) {
@@ -2743,13 +2983,15 @@ bool QAbstractItemView_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QAbstractItemView_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::event(event);
+
+	return ( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::event(event);
+
 }
 
 bool QAbstractItemView_override_virtual_viewportEvent(void* self, intptr_t slot) {
@@ -2757,13 +2999,15 @@ bool QAbstractItemView_override_virtual_viewportEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__viewportEvent = slot;
 	return true;
 }
 
 bool QAbstractItemView_virtualbase_viewportEvent(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::viewportEvent(event);
+
+	return ( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::viewportEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_mousePressEvent(void* self, intptr_t slot) {
@@ -2771,13 +3015,15 @@ bool QAbstractItemView_override_virtual_mousePressEvent(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mousePressEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_mousePressEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::mousePressEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::mousePressEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_mouseMoveEvent(void* self, intptr_t slot) {
@@ -2785,13 +3031,15 @@ bool QAbstractItemView_override_virtual_mouseMoveEvent(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseMoveEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_mouseMoveEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::mouseMoveEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::mouseMoveEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_mouseReleaseEvent(void* self, intptr_t slot) {
@@ -2799,13 +3047,15 @@ bool QAbstractItemView_override_virtual_mouseReleaseEvent(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseReleaseEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_mouseReleaseEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::mouseReleaseEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::mouseReleaseEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_mouseDoubleClickEvent(void* self, intptr_t slot) {
@@ -2813,13 +3063,15 @@ bool QAbstractItemView_override_virtual_mouseDoubleClickEvent(void* self, intptr
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseDoubleClickEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_mouseDoubleClickEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::mouseDoubleClickEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::mouseDoubleClickEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_dragEnterEvent(void* self, intptr_t slot) {
@@ -2827,13 +3079,15 @@ bool QAbstractItemView_override_virtual_dragEnterEvent(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragEnterEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_dragEnterEvent(void* self, QDragEnterEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::dragEnterEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::dragEnterEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_dragMoveEvent(void* self, intptr_t slot) {
@@ -2841,13 +3095,15 @@ bool QAbstractItemView_override_virtual_dragMoveEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragMoveEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_dragMoveEvent(void* self, QDragMoveEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::dragMoveEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::dragMoveEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_dragLeaveEvent(void* self, intptr_t slot) {
@@ -2855,13 +3111,15 @@ bool QAbstractItemView_override_virtual_dragLeaveEvent(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragLeaveEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_dragLeaveEvent(void* self, QDragLeaveEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::dragLeaveEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::dragLeaveEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_dropEvent(void* self, intptr_t slot) {
@@ -2869,13 +3127,15 @@ bool QAbstractItemView_override_virtual_dropEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dropEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_dropEvent(void* self, QDropEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::dropEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::dropEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_focusInEvent(void* self, intptr_t slot) {
@@ -2883,13 +3143,15 @@ bool QAbstractItemView_override_virtual_focusInEvent(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusInEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_focusInEvent(void* self, QFocusEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::focusInEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::focusInEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_focusOutEvent(void* self, intptr_t slot) {
@@ -2897,13 +3159,15 @@ bool QAbstractItemView_override_virtual_focusOutEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusOutEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_focusOutEvent(void* self, QFocusEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::focusOutEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::focusOutEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_keyPressEvent(void* self, intptr_t slot) {
@@ -2911,13 +3175,15 @@ bool QAbstractItemView_override_virtual_keyPressEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyPressEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_keyPressEvent(void* self, QKeyEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::keyPressEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::keyPressEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_resizeEvent(void* self, intptr_t slot) {
@@ -2925,13 +3191,15 @@ bool QAbstractItemView_override_virtual_resizeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__resizeEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_resizeEvent(void* self, QResizeEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::resizeEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::resizeEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -2939,13 +3207,15 @@ bool QAbstractItemView_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::timerEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::timerEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_inputMethodEvent(void* self, intptr_t slot) {
@@ -2953,13 +3223,15 @@ bool QAbstractItemView_override_virtual_inputMethodEvent(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::inputMethodEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::inputMethodEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -2967,13 +3239,15 @@ bool QAbstractItemView_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QAbstractItemView_virtualbase_eventFilter(void* self, QObject* object, QEvent* event) {
-	return static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::eventFilter(object, event);
+
+	return ( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::eventFilter(object, event);
+
 }
 
 bool QAbstractItemView_override_virtual_viewportSizeHint(void* self, intptr_t slot) {
@@ -2981,13 +3255,15 @@ bool QAbstractItemView_override_virtual_viewportSizeHint(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__viewportSizeHint = slot;
 	return true;
 }
 
 QSize* QAbstractItemView_virtualbase_viewportSizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::viewportSizeHint());
+
+	return new QSize(( (const MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::viewportSizeHint());
+
 }
 
 bool QAbstractItemView_override_virtual_minimumSizeHint(void* self, intptr_t slot) {
@@ -2995,13 +3271,15 @@ bool QAbstractItemView_override_virtual_minimumSizeHint(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__minimumSizeHint = slot;
 	return true;
 }
 
 QSize* QAbstractItemView_virtualbase_minimumSizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::minimumSizeHint());
+
+	return new QSize(( (const MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::minimumSizeHint());
+
 }
 
 bool QAbstractItemView_override_virtual_sizeHint(void* self, intptr_t slot) {
@@ -3009,13 +3287,15 @@ bool QAbstractItemView_override_virtual_sizeHint(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sizeHint = slot;
 	return true;
 }
 
 QSize* QAbstractItemView_virtualbase_sizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::sizeHint());
+
+	return new QSize(( (const MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::sizeHint());
+
 }
 
 bool QAbstractItemView_override_virtual_setupViewport(void* self, intptr_t slot) {
@@ -3023,13 +3303,15 @@ bool QAbstractItemView_override_virtual_setupViewport(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setupViewport = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_setupViewport(void* self, QWidget* viewport) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::setupViewport(viewport);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::setupViewport(viewport);
+
 }
 
 bool QAbstractItemView_override_virtual_paintEvent(void* self, intptr_t slot) {
@@ -3037,13 +3319,15 @@ bool QAbstractItemView_override_virtual_paintEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paintEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_paintEvent(void* self, QPaintEvent* param1) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::paintEvent(param1);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::paintEvent(param1);
+
 }
 
 bool QAbstractItemView_override_virtual_wheelEvent(void* self, intptr_t slot) {
@@ -3051,13 +3335,15 @@ bool QAbstractItemView_override_virtual_wheelEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__wheelEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_wheelEvent(void* self, QWheelEvent* param1) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::wheelEvent(param1);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::wheelEvent(param1);
+
 }
 
 bool QAbstractItemView_override_virtual_contextMenuEvent(void* self, intptr_t slot) {
@@ -3065,13 +3351,15 @@ bool QAbstractItemView_override_virtual_contextMenuEvent(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__contextMenuEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_contextMenuEvent(void* self, QContextMenuEvent* param1) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::contextMenuEvent(param1);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::contextMenuEvent(param1);
+
 }
 
 bool QAbstractItemView_override_virtual_scrollContentsBy(void* self, intptr_t slot) {
@@ -3079,13 +3367,15 @@ bool QAbstractItemView_override_virtual_scrollContentsBy(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__scrollContentsBy = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_scrollContentsBy(void* self, int dx, int dy) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+
 }
 
 bool QAbstractItemView_override_virtual_changeEvent(void* self, intptr_t slot) {
@@ -3093,13 +3383,15 @@ bool QAbstractItemView_override_virtual_changeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__changeEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_changeEvent(void* self, QEvent* param1) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::changeEvent(param1);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::changeEvent(param1);
+
 }
 
 bool QAbstractItemView_override_virtual_devType(void* self, intptr_t slot) {
@@ -3107,13 +3399,15 @@ bool QAbstractItemView_override_virtual_devType(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__devType = slot;
 	return true;
 }
 
 int QAbstractItemView_virtualbase_devType(const void* self) {
-	return static_cast<const MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::devType();
+
+	return ( (const MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::devType();
+
 }
 
 bool QAbstractItemView_override_virtual_setVisible(void* self, intptr_t slot) {
@@ -3121,13 +3415,15 @@ bool QAbstractItemView_override_virtual_setVisible(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setVisible = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_setVisible(void* self, bool visible) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::setVisible(visible);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::setVisible(visible);
+
 }
 
 bool QAbstractItemView_override_virtual_heightForWidth(void* self, intptr_t slot) {
@@ -3135,13 +3431,15 @@ bool QAbstractItemView_override_virtual_heightForWidth(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__heightForWidth = slot;
 	return true;
 }
 
 int QAbstractItemView_virtualbase_heightForWidth(const void* self, int param1) {
-	return static_cast<const MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::heightForWidth(static_cast<int>(param1));
+
+	return ( (const MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::heightForWidth(static_cast<int>(param1));
+
 }
 
 bool QAbstractItemView_override_virtual_hasHeightForWidth(void* self, intptr_t slot) {
@@ -3149,13 +3447,15 @@ bool QAbstractItemView_override_virtual_hasHeightForWidth(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hasHeightForWidth = slot;
 	return true;
 }
 
 bool QAbstractItemView_virtualbase_hasHeightForWidth(const void* self) {
-	return static_cast<const MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::hasHeightForWidth();
+
+	return ( (const MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::hasHeightForWidth();
+
 }
 
 bool QAbstractItemView_override_virtual_paintEngine(void* self, intptr_t slot) {
@@ -3163,13 +3463,15 @@ bool QAbstractItemView_override_virtual_paintEngine(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paintEngine = slot;
 	return true;
 }
 
 QPaintEngine* QAbstractItemView_virtualbase_paintEngine(const void* self) {
-	return static_cast<const MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::paintEngine();
+
+	return ( (const MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::paintEngine();
+
 }
 
 bool QAbstractItemView_override_virtual_keyReleaseEvent(void* self, intptr_t slot) {
@@ -3177,13 +3479,15 @@ bool QAbstractItemView_override_virtual_keyReleaseEvent(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyReleaseEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_keyReleaseEvent(void* self, QKeyEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::keyReleaseEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::keyReleaseEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_enterEvent(void* self, intptr_t slot) {
@@ -3191,13 +3495,15 @@ bool QAbstractItemView_override_virtual_enterEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__enterEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_enterEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::enterEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::enterEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_leaveEvent(void* self, intptr_t slot) {
@@ -3205,13 +3511,15 @@ bool QAbstractItemView_override_virtual_leaveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__leaveEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_leaveEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::leaveEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::leaveEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_moveEvent(void* self, intptr_t slot) {
@@ -3219,13 +3527,15 @@ bool QAbstractItemView_override_virtual_moveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__moveEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_moveEvent(void* self, QMoveEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::moveEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::moveEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_closeEvent(void* self, intptr_t slot) {
@@ -3233,13 +3543,15 @@ bool QAbstractItemView_override_virtual_closeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__closeEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_closeEvent(void* self, QCloseEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::closeEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::closeEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_tabletEvent(void* self, intptr_t slot) {
@@ -3247,13 +3559,15 @@ bool QAbstractItemView_override_virtual_tabletEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__tabletEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_tabletEvent(void* self, QTabletEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::tabletEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::tabletEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_actionEvent(void* self, intptr_t slot) {
@@ -3261,13 +3575,15 @@ bool QAbstractItemView_override_virtual_actionEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__actionEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_actionEvent(void* self, QActionEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::actionEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::actionEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_showEvent(void* self, intptr_t slot) {
@@ -3275,13 +3591,15 @@ bool QAbstractItemView_override_virtual_showEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__showEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_showEvent(void* self, QShowEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::showEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::showEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_hideEvent(void* self, intptr_t slot) {
@@ -3289,13 +3607,15 @@ bool QAbstractItemView_override_virtual_hideEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hideEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_hideEvent(void* self, QHideEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::hideEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::hideEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_nativeEvent(void* self, intptr_t slot) {
@@ -3303,14 +3623,16 @@ bool QAbstractItemView_override_virtual_nativeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__nativeEvent = slot;
 	return true;
 }
 
 bool QAbstractItemView_virtualbase_nativeEvent(void* self, struct miqt_string eventType, void* message, long* result) {
 	QByteArray eventType_QByteArray(eventType.data, eventType.len);
-	return static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::nativeEvent(eventType_QByteArray, message, static_cast<long*>(result));
+
+	return ( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::nativeEvent(eventType_QByteArray, message, static_cast<long*>(result));
+
 }
 
 bool QAbstractItemView_override_virtual_metric(void* self, intptr_t slot) {
@@ -3318,13 +3640,15 @@ bool QAbstractItemView_override_virtual_metric(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__metric = slot;
 	return true;
 }
 
 int QAbstractItemView_virtualbase_metric(const void* self, int param1) {
-	return static_cast<const MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::metric(static_cast<MiqtVirtualQAbstractItemView::PaintDeviceMetric>(param1));
+
+	return ( (const MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::metric(static_cast<MiqtVirtualQAbstractItemView::PaintDeviceMetric>(param1));
+
 }
 
 bool QAbstractItemView_override_virtual_initPainter(void* self, intptr_t slot) {
@@ -3332,13 +3656,15 @@ bool QAbstractItemView_override_virtual_initPainter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__initPainter = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_initPainter(const void* self, QPainter* painter) {
-	static_cast<const MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::initPainter(painter);
+
+	( (const MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::initPainter(painter);
+
 }
 
 bool QAbstractItemView_override_virtual_redirected(void* self, intptr_t slot) {
@@ -3346,13 +3672,15 @@ bool QAbstractItemView_override_virtual_redirected(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__redirected = slot;
 	return true;
 }
 
 QPaintDevice* QAbstractItemView_virtualbase_redirected(const void* self, QPoint* offset) {
-	return static_cast<const MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::redirected(offset);
+
+	return ( (const MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::redirected(offset);
+
 }
 
 bool QAbstractItemView_override_virtual_sharedPainter(void* self, intptr_t slot) {
@@ -3360,13 +3688,15 @@ bool QAbstractItemView_override_virtual_sharedPainter(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sharedPainter = slot;
 	return true;
 }
 
 QPainter* QAbstractItemView_virtualbase_sharedPainter(const void* self) {
-	return static_cast<const MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::sharedPainter();
+
+	return ( (const MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::sharedPainter();
+
 }
 
 bool QAbstractItemView_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -3374,13 +3704,15 @@ bool QAbstractItemView_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::childEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::childEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -3388,13 +3720,15 @@ bool QAbstractItemView_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::customEvent(event);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::customEvent(event);
+
 }
 
 bool QAbstractItemView_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -3402,13 +3736,15 @@ bool QAbstractItemView_override_virtual_connectNotify(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::connectNotify(*signal);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::connectNotify(*signal);
+
 }
 
 bool QAbstractItemView_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -3416,13 +3752,15 @@ bool QAbstractItemView_override_virtual_disconnectNotify(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QAbstractItemView_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQAbstractItemView*>(self)->QAbstractItemView::disconnectNotify(*signal);
+
+	( (MiqtVirtualQAbstractItemView*)(self) )->QAbstractItemView::disconnectNotify(*signal);
+
 }
 
 void QAbstractItemView_protectedbase_setHorizontalStepsPerItem(bool* _dynamic_cast_ok, void* self, int steps) {
@@ -3431,9 +3769,11 @@ void QAbstractItemView_protectedbase_setHorizontalStepsPerItem(bool* _dynamic_ca
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setHorizontalStepsPerItem(static_cast<int>(steps));
+
 }
 
 int QAbstractItemView_protectedbase_horizontalStepsPerItem(bool* _dynamic_cast_ok, const void* self) {
@@ -3442,9 +3782,11 @@ int QAbstractItemView_protectedbase_horizontalStepsPerItem(bool* _dynamic_cast_o
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->horizontalStepsPerItem();
+
 }
 
 void QAbstractItemView_protectedbase_setVerticalStepsPerItem(bool* _dynamic_cast_ok, void* self, int steps) {
@@ -3453,9 +3795,11 @@ void QAbstractItemView_protectedbase_setVerticalStepsPerItem(bool* _dynamic_cast
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setVerticalStepsPerItem(static_cast<int>(steps));
+
 }
 
 int QAbstractItemView_protectedbase_verticalStepsPerItem(bool* _dynamic_cast_ok, const void* self) {
@@ -3464,9 +3808,11 @@ int QAbstractItemView_protectedbase_verticalStepsPerItem(bool* _dynamic_cast_ok,
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->verticalStepsPerItem();
+
 }
 
 int QAbstractItemView_protectedbase_state(bool* _dynamic_cast_ok, const void* self) {
@@ -3475,10 +3821,12 @@ int QAbstractItemView_protectedbase_state(bool* _dynamic_cast_ok, const void* se
 		*_dynamic_cast_ok = false;
 		return (int)(0);
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	MiqtVirtualQAbstractItemView::State _ret = self_cast->state();
 	return static_cast<int>(_ret);
+
 }
 
 void QAbstractItemView_protectedbase_setState(bool* _dynamic_cast_ok, void* self, int state) {
@@ -3487,9 +3835,11 @@ void QAbstractItemView_protectedbase_setState(bool* _dynamic_cast_ok, void* self
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setState(static_cast<MiqtVirtualQAbstractItemView::State>(state));
+
 }
 
 void QAbstractItemView_protectedbase_scheduleDelayedItemsLayout(bool* _dynamic_cast_ok, void* self) {
@@ -3498,9 +3848,11 @@ void QAbstractItemView_protectedbase_scheduleDelayedItemsLayout(bool* _dynamic_c
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->scheduleDelayedItemsLayout();
+
 }
 
 void QAbstractItemView_protectedbase_executeDelayedItemsLayout(bool* _dynamic_cast_ok, void* self) {
@@ -3509,9 +3861,11 @@ void QAbstractItemView_protectedbase_executeDelayedItemsLayout(bool* _dynamic_ca
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->executeDelayedItemsLayout();
+
 }
 
 void QAbstractItemView_protectedbase_setDirtyRegion(bool* _dynamic_cast_ok, void* self, QRegion* region) {
@@ -3520,9 +3874,11 @@ void QAbstractItemView_protectedbase_setDirtyRegion(bool* _dynamic_cast_ok, void
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setDirtyRegion(*region);
+
 }
 
 void QAbstractItemView_protectedbase_scrollDirtyRegion(bool* _dynamic_cast_ok, void* self, int dx, int dy) {
@@ -3531,9 +3887,11 @@ void QAbstractItemView_protectedbase_scrollDirtyRegion(bool* _dynamic_cast_ok, v
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->scrollDirtyRegion(static_cast<int>(dx), static_cast<int>(dy));
+
 }
 
 QPoint* QAbstractItemView_protectedbase_dirtyRegionOffset(bool* _dynamic_cast_ok, const void* self) {
@@ -3542,9 +3900,11 @@ QPoint* QAbstractItemView_protectedbase_dirtyRegionOffset(bool* _dynamic_cast_ok
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return new QPoint(self_cast->dirtyRegionOffset());
+
 }
 
 void QAbstractItemView_protectedbase_startAutoScroll(bool* _dynamic_cast_ok, void* self) {
@@ -3553,9 +3913,11 @@ void QAbstractItemView_protectedbase_startAutoScroll(bool* _dynamic_cast_ok, voi
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->startAutoScroll();
+
 }
 
 void QAbstractItemView_protectedbase_stopAutoScroll(bool* _dynamic_cast_ok, void* self) {
@@ -3564,9 +3926,11 @@ void QAbstractItemView_protectedbase_stopAutoScroll(bool* _dynamic_cast_ok, void
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->stopAutoScroll();
+
 }
 
 void QAbstractItemView_protectedbase_doAutoScroll(bool* _dynamic_cast_ok, void* self) {
@@ -3575,9 +3939,11 @@ void QAbstractItemView_protectedbase_doAutoScroll(bool* _dynamic_cast_ok, void* 
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->doAutoScroll();
+
 }
 
 int QAbstractItemView_protectedbase_dropIndicatorPosition(bool* _dynamic_cast_ok, const void* self) {
@@ -3586,10 +3952,12 @@ int QAbstractItemView_protectedbase_dropIndicatorPosition(bool* _dynamic_cast_ok
 		*_dynamic_cast_ok = false;
 		return (int)(0);
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	MiqtVirtualQAbstractItemView::DropIndicatorPosition _ret = self_cast->dropIndicatorPosition();
 	return static_cast<int>(_ret);
+
 }
 
 void QAbstractItemView_protectedbase_setViewportMargins(bool* _dynamic_cast_ok, void* self, int left, int top, int right, int bottom) {
@@ -3598,9 +3966,11 @@ void QAbstractItemView_protectedbase_setViewportMargins(bool* _dynamic_cast_ok, 
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+
 }
 
 QMargins* QAbstractItemView_protectedbase_viewportMargins(bool* _dynamic_cast_ok, const void* self) {
@@ -3609,9 +3979,11 @@ QMargins* QAbstractItemView_protectedbase_viewportMargins(bool* _dynamic_cast_ok
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return new QMargins(self_cast->viewportMargins());
+
 }
 
 void QAbstractItemView_protectedbase_drawFrame(bool* _dynamic_cast_ok, void* self, QPainter* param1) {
@@ -3620,9 +3992,11 @@ void QAbstractItemView_protectedbase_drawFrame(bool* _dynamic_cast_ok, void* sel
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->drawFrame(param1);
+
 }
 
 void QAbstractItemView_protectedbase_initStyleOption(bool* _dynamic_cast_ok, const void* self, QStyleOptionFrame* option) {
@@ -3631,9 +4005,11 @@ void QAbstractItemView_protectedbase_initStyleOption(bool* _dynamic_cast_ok, con
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->initStyleOption(option);
+
 }
 
 void QAbstractItemView_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* self) {
@@ -3642,9 +4018,11 @@ void QAbstractItemView_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, vo
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->updateMicroFocus();
+
 }
 
 void QAbstractItemView_protectedbase_create(bool* _dynamic_cast_ok, void* self) {
@@ -3653,9 +4031,11 @@ void QAbstractItemView_protectedbase_create(bool* _dynamic_cast_ok, void* self) 
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->create();
+
 }
 
 void QAbstractItemView_protectedbase_destroy(bool* _dynamic_cast_ok, void* self) {
@@ -3664,9 +4044,11 @@ void QAbstractItemView_protectedbase_destroy(bool* _dynamic_cast_ok, void* self)
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->destroy();
+
 }
 
 bool QAbstractItemView_protectedbase_focusNextChild(bool* _dynamic_cast_ok, void* self) {
@@ -3675,9 +4057,11 @@ bool QAbstractItemView_protectedbase_focusNextChild(bool* _dynamic_cast_ok, void
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->focusNextChild();
+
 }
 
 bool QAbstractItemView_protectedbase_focusPreviousChild(bool* _dynamic_cast_ok, void* self) {
@@ -3686,9 +4070,11 @@ bool QAbstractItemView_protectedbase_focusPreviousChild(bool* _dynamic_cast_ok, 
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->focusPreviousChild();
+
 }
 
 QObject* QAbstractItemView_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -3697,9 +4083,11 @@ QObject* QAbstractItemView_protectedbase_sender(bool* _dynamic_cast_ok, const vo
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QAbstractItemView_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -3708,9 +4096,11 @@ int QAbstractItemView_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, co
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QAbstractItemView_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -3719,9 +4109,11 @@ int QAbstractItemView_protectedbase_receivers(bool* _dynamic_cast_ok, const void
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QAbstractItemView_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -3730,9 +4122,11 @@ bool QAbstractItemView_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, c
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QAbstractItemView_delete(QAbstractItemView* self) {

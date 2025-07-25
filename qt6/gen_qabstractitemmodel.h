@@ -59,7 +59,6 @@ QVariant* QModelRoleData_data(QModelRoleData* self);
 QVariant* QModelRoleData_data2(const QModelRoleData* self);
 void QModelRoleData_clearData(QModelRoleData* self);
 void QModelRoleData_operatorAssign(QModelRoleData* self, QModelRoleData* param1);
-
 void QModelRoleData_delete(QModelRoleData* self);
 
 QModelRoleDataSpan* QModelRoleDataSpan_new();
@@ -73,7 +72,6 @@ QModelRoleData* QModelRoleDataSpan_begin(const QModelRoleDataSpan* self);
 QModelRoleData* QModelRoleDataSpan_end(const QModelRoleDataSpan* self);
 QModelRoleData* QModelRoleDataSpan_operatorSubscript(const QModelRoleDataSpan* self, ptrdiff_t index);
 QVariant* QModelRoleDataSpan_dataForRole(const QModelRoleDataSpan* self, int role);
-
 void QModelRoleDataSpan_delete(QModelRoleDataSpan* self);
 
 QModelIndex* QModelIndex_new();
@@ -96,7 +94,6 @@ bool QModelIndex_operatorEqual(const QModelIndex* self, QModelIndex* other);
 bool QModelIndex_operatorNotEqual(const QModelIndex* self, QModelIndex* other);
 bool QModelIndex_operatorLesser(const QModelIndex* self, QModelIndex* other);
 QVariant* QModelIndex_dataWithRole(const QModelIndex* self, int role);
-
 void QModelIndex_delete(QModelIndex* self);
 
 QPersistentModelIndex* QPersistentModelIndex_new();
@@ -124,7 +121,6 @@ int QPersistentModelIndex_flags(const QPersistentModelIndex* self);
 QAbstractItemModel* QPersistentModelIndex_model(const QPersistentModelIndex* self);
 bool QPersistentModelIndex_isValid(const QPersistentModelIndex* self);
 QVariant* QPersistentModelIndex_dataWithRole(const QPersistentModelIndex* self, int role);
-
 void QPersistentModelIndex_delete(QPersistentModelIndex* self);
 
 QAbstractItemModel* QAbstractItemModel_new();
@@ -204,7 +200,6 @@ void QAbstractItemModel_layoutAboutToBeChangedWithParents(QAbstractItemModel* se
 void QAbstractItemModel_connect_layoutAboutToBeChangedWithParents(QAbstractItemModel* self, intptr_t slot);
 void QAbstractItemModel_layoutAboutToBeChanged2(QAbstractItemModel* self, struct miqt_array /* of QPersistentModelIndex* */  parents, int hint);
 void QAbstractItemModel_connect_layoutAboutToBeChanged2(QAbstractItemModel* self, intptr_t slot);
-
 bool QAbstractItemModel_override_virtual_index(void* self, intptr_t slot);
 QModelIndex* QAbstractItemModel_virtualbase_index(const void* self, int row, int column, QModelIndex* parent);
 bool QAbstractItemModel_override_virtual_parent(void* self, intptr_t slot);
@@ -293,7 +288,6 @@ bool QAbstractItemModel_override_virtual_connectNotify(void* self, intptr_t slot
 void QAbstractItemModel_virtualbase_connectNotify(void* self, QMetaMethod* signal);
 bool QAbstractItemModel_override_virtual_disconnectNotify(void* self, intptr_t slot);
 void QAbstractItemModel_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
-
 QModelIndex* QAbstractItemModel_protectedbase_createIndex(bool* _dynamic_cast_ok, const void* self, int row, int column);
 QModelIndex* QAbstractItemModel_protectedbase_createIndex2(bool* _dynamic_cast_ok, const void* self, int row, int column, uintptr_t id);
 void QAbstractItemModel_protectedbase_encodeData(bool* _dynamic_cast_ok, const void* self, struct miqt_array /* of QModelIndex* */  indexes, QDataStream* stream);
@@ -320,22 +314,6 @@ QObject* QAbstractItemModel_protectedbase_sender(bool* _dynamic_cast_ok, const v
 int QAbstractItemModel_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self);
 int QAbstractItemModel_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal);
 bool QAbstractItemModel_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal);
-
-void QAbstractItemModel_connect_rowsAboutToBeInserted(QAbstractItemModel* self, intptr_t slot);
-void QAbstractItemModel_connect_rowsInserted(QAbstractItemModel* self, intptr_t slot);
-void QAbstractItemModel_connect_rowsAboutToBeRemoved(QAbstractItemModel* self, intptr_t slot);
-void QAbstractItemModel_connect_rowsRemoved(QAbstractItemModel* self, intptr_t slot);
-void QAbstractItemModel_connect_columnsAboutToBeInserted(QAbstractItemModel* self, intptr_t slot);
-void QAbstractItemModel_connect_columnsInserted(QAbstractItemModel* self, intptr_t slot);
-void QAbstractItemModel_connect_columnsAboutToBeRemoved(QAbstractItemModel* self, intptr_t slot);
-void QAbstractItemModel_connect_columnsRemoved(QAbstractItemModel* self, intptr_t slot);
-void QAbstractItemModel_connect_modelAboutToBeReset(QAbstractItemModel* self, intptr_t slot);
-void QAbstractItemModel_connect_modelReset(QAbstractItemModel* self, intptr_t slot);
-void QAbstractItemModel_connect_rowsAboutToBeMoved(QAbstractItemModel* self, intptr_t slot);
-void QAbstractItemModel_connect_rowsMoved(QAbstractItemModel* self, intptr_t slot);
-void QAbstractItemModel_connect_columnsAboutToBeMoved(QAbstractItemModel* self, intptr_t slot);
-void QAbstractItemModel_connect_columnsMoved(QAbstractItemModel* self, intptr_t slot);
-
 void QAbstractItemModel_delete(QAbstractItemModel* self);
 
 QAbstractTableModel* QAbstractTableModel_new();
@@ -350,7 +328,6 @@ bool QAbstractTableModel_dropMimeData(QAbstractTableModel* self, QMimeData* data
 int QAbstractTableModel_flags(const QAbstractTableModel* self, QModelIndex* index);
 struct miqt_string QAbstractTableModel_tr2(const char* s, const char* c);
 struct miqt_string QAbstractTableModel_tr3(const char* s, const char* c, int n);
-
 bool QAbstractTableModel_override_virtual_index(void* self, intptr_t slot);
 QModelIndex* QAbstractTableModel_virtualbase_index(const void* self, int row, int column, QModelIndex* parent);
 bool QAbstractTableModel_override_virtual_sibling(void* self, intptr_t slot);
@@ -435,7 +412,6 @@ bool QAbstractTableModel_override_virtual_connectNotify(void* self, intptr_t slo
 void QAbstractTableModel_virtualbase_connectNotify(void* self, QMetaMethod* signal);
 bool QAbstractTableModel_override_virtual_disconnectNotify(void* self, intptr_t slot);
 void QAbstractTableModel_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
-
 QModelIndex* QAbstractTableModel_protectedbase_createIndex(bool* _dynamic_cast_ok, const void* self, int row, int column);
 void QAbstractTableModel_protectedbase_encodeData(bool* _dynamic_cast_ok, const void* self, struct miqt_array /* of QModelIndex* */  indexes, QDataStream* stream);
 bool QAbstractTableModel_protectedbase_decodeData(bool* _dynamic_cast_ok, void* self, int row, int column, QModelIndex* parent, QDataStream* stream);
@@ -460,7 +436,6 @@ QObject* QAbstractTableModel_protectedbase_sender(bool* _dynamic_cast_ok, const 
 int QAbstractTableModel_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self);
 int QAbstractTableModel_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal);
 bool QAbstractTableModel_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal);
-
 void QAbstractTableModel_delete(QAbstractTableModel* self);
 
 QAbstractListModel* QAbstractListModel_new();
@@ -475,7 +450,6 @@ bool QAbstractListModel_dropMimeData(QAbstractListModel* self, QMimeData* data, 
 int QAbstractListModel_flags(const QAbstractListModel* self, QModelIndex* index);
 struct miqt_string QAbstractListModel_tr2(const char* s, const char* c);
 struct miqt_string QAbstractListModel_tr3(const char* s, const char* c, int n);
-
 bool QAbstractListModel_override_virtual_index(void* self, intptr_t slot);
 QModelIndex* QAbstractListModel_virtualbase_index(const void* self, int row, int column, QModelIndex* parent);
 bool QAbstractListModel_override_virtual_sibling(void* self, intptr_t slot);
@@ -558,7 +532,6 @@ bool QAbstractListModel_override_virtual_connectNotify(void* self, intptr_t slot
 void QAbstractListModel_virtualbase_connectNotify(void* self, QMetaMethod* signal);
 bool QAbstractListModel_override_virtual_disconnectNotify(void* self, intptr_t slot);
 void QAbstractListModel_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
-
 QModelIndex* QAbstractListModel_protectedbase_createIndex(bool* _dynamic_cast_ok, const void* self, int row, int column);
 void QAbstractListModel_protectedbase_encodeData(bool* _dynamic_cast_ok, const void* self, struct miqt_array /* of QModelIndex* */  indexes, QDataStream* stream);
 bool QAbstractListModel_protectedbase_decodeData(bool* _dynamic_cast_ok, void* self, int row, int column, QModelIndex* parent, QDataStream* stream);
@@ -583,7 +556,6 @@ QObject* QAbstractListModel_protectedbase_sender(bool* _dynamic_cast_ok, const v
 int QAbstractListModel_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self);
 int QAbstractListModel_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal);
 bool QAbstractListModel_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal);
-
 void QAbstractListModel_delete(QAbstractListModel* self);
 
 #ifdef __cplusplus

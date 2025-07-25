@@ -40,7 +40,6 @@ struct miqt_array /* of struct miqt_string */  QMimeType_suffixes(const QMimeTyp
 struct miqt_string QMimeType_preferredSuffix(const QMimeType* self);
 bool QMimeType_inherits(const QMimeType* self, struct miqt_string mimeTypeName);
 struct miqt_string QMimeType_filterString(const QMimeType* self);
-
 void QMimeType_delete(QMimeType* self);
 
 #ifdef __cplusplus

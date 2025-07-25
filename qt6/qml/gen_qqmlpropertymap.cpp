@@ -34,8 +34,8 @@ void miqt_exec_callback_QQmlPropertyMap_disconnectNotify(QQmlPropertyMap*, intpt
 class MiqtVirtualQQmlPropertyMap final : public QQmlPropertyMap {
 public:
 
-	MiqtVirtualQQmlPropertyMap(): QQmlPropertyMap() {}
-	MiqtVirtualQQmlPropertyMap(QObject* parent): QQmlPropertyMap(parent) {}
+	MiqtVirtualQQmlPropertyMap(): QQmlPropertyMap() {};
+	MiqtVirtualQQmlPropertyMap(QObject* parent): QQmlPropertyMap(parent) {};
 
 	virtual ~MiqtVirtualQQmlPropertyMap() override = default;
 
@@ -47,7 +47,7 @@ public:
 		if (handle__updateValue == 0) {
 			return QQmlPropertyMap::updateValue(key, input);
 		}
-
+		
 		const QString key_ret = key;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray key_b = key_ret.toUtf8();
@@ -59,7 +59,9 @@ public:
 		const QVariant& input_ret = input;
 		// Cast returned reference into pointer
 		QVariant* sigval2 = const_cast<QVariant*>(&input_ret);
+
 		QVariant* callback_return_value = miqt_exec_callback_QQmlPropertyMap_updateValue(this, handle__updateValue, sigval1, sigval2);
+
 		return *callback_return_value;
 	}
 
@@ -73,9 +75,11 @@ public:
 		if (handle__event == 0) {
 			return QQmlPropertyMap::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QQmlPropertyMap_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -89,10 +93,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QQmlPropertyMap::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QQmlPropertyMap_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -107,10 +113,12 @@ public:
 			QQmlPropertyMap::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QQmlPropertyMap_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QQmlPropertyMap_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -124,10 +132,12 @@ public:
 			QQmlPropertyMap::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QQmlPropertyMap_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QQmlPropertyMap_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -141,10 +151,12 @@ public:
 			QQmlPropertyMap::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QQmlPropertyMap_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QQmlPropertyMap_virtualbase_customEvent(void* self, QEvent* event);
@@ -158,12 +170,14 @@ public:
 			QQmlPropertyMap::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QQmlPropertyMap_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QQmlPropertyMap_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -177,12 +191,14 @@ public:
 			QQmlPropertyMap::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QQmlPropertyMap_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QQmlPropertyMap_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -195,11 +211,11 @@ public:
 };
 
 QQmlPropertyMap* QQmlPropertyMap_new() {
-	return new (std::nothrow) MiqtVirtualQQmlPropertyMap();
+	return new MiqtVirtualQQmlPropertyMap();
 }
 
 QQmlPropertyMap* QQmlPropertyMap_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQQmlPropertyMap(parent);
+	return new MiqtVirtualQQmlPropertyMap(parent);
 }
 
 void QQmlPropertyMap_virtbase(QQmlPropertyMap* src, QObject** outptr_QObject) {
@@ -311,7 +327,7 @@ void QQmlPropertyMap_valueChanged(QQmlPropertyMap* self, struct miqt_string key,
 }
 
 void QQmlPropertyMap_connect_valueChanged(QQmlPropertyMap* self, intptr_t slot) {
-	QQmlPropertyMap::connect(self, static_cast<void (QQmlPropertyMap::*)(const QString&, const QVariant&)>(&QQmlPropertyMap::valueChanged), self, [=](const QString& key, const QVariant& value) {
+	MiqtVirtualQQmlPropertyMap::connect(self, static_cast<void (QQmlPropertyMap::*)(const QString&, const QVariant&)>(&QQmlPropertyMap::valueChanged), self, [=](const QString& key, const QVariant& value) {
 		const QString key_ret = key;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray key_b = key_ret.toUtf8();
@@ -354,14 +370,16 @@ bool QQmlPropertyMap_override_virtual_updateValue(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__updateValue = slot;
 	return true;
 }
 
 QVariant* QQmlPropertyMap_virtualbase_updateValue(void* self, struct miqt_string key, QVariant* input) {
 	QString key_QString = QString::fromUtf8(key.data, key.len);
-	return new QVariant(static_cast<MiqtVirtualQQmlPropertyMap*>(self)->QQmlPropertyMap::updateValue(key_QString, *input));
+
+	return new QVariant(( (MiqtVirtualQQmlPropertyMap*)(self) )->QQmlPropertyMap::updateValue(key_QString, *input));
+
 }
 
 bool QQmlPropertyMap_override_virtual_event(void* self, intptr_t slot) {
@@ -369,13 +387,15 @@ bool QQmlPropertyMap_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QQmlPropertyMap_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQQmlPropertyMap*>(self)->QQmlPropertyMap::event(event);
+
+	return ( (MiqtVirtualQQmlPropertyMap*)(self) )->QQmlPropertyMap::event(event);
+
 }
 
 bool QQmlPropertyMap_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -383,13 +403,15 @@ bool QQmlPropertyMap_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QQmlPropertyMap_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQQmlPropertyMap*>(self)->QQmlPropertyMap::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQQmlPropertyMap*)(self) )->QQmlPropertyMap::eventFilter(watched, event);
+
 }
 
 bool QQmlPropertyMap_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -397,13 +419,15 @@ bool QQmlPropertyMap_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QQmlPropertyMap_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQQmlPropertyMap*>(self)->QQmlPropertyMap::timerEvent(event);
+
+	( (MiqtVirtualQQmlPropertyMap*)(self) )->QQmlPropertyMap::timerEvent(event);
+
 }
 
 bool QQmlPropertyMap_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -411,13 +435,15 @@ bool QQmlPropertyMap_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QQmlPropertyMap_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQQmlPropertyMap*>(self)->QQmlPropertyMap::childEvent(event);
+
+	( (MiqtVirtualQQmlPropertyMap*)(self) )->QQmlPropertyMap::childEvent(event);
+
 }
 
 bool QQmlPropertyMap_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -425,13 +451,15 @@ bool QQmlPropertyMap_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QQmlPropertyMap_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQQmlPropertyMap*>(self)->QQmlPropertyMap::customEvent(event);
+
+	( (MiqtVirtualQQmlPropertyMap*)(self) )->QQmlPropertyMap::customEvent(event);
+
 }
 
 bool QQmlPropertyMap_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -439,13 +467,15 @@ bool QQmlPropertyMap_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QQmlPropertyMap_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQQmlPropertyMap*>(self)->QQmlPropertyMap::connectNotify(*signal);
+
+	( (MiqtVirtualQQmlPropertyMap*)(self) )->QQmlPropertyMap::connectNotify(*signal);
+
 }
 
 bool QQmlPropertyMap_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -453,13 +483,15 @@ bool QQmlPropertyMap_override_virtual_disconnectNotify(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QQmlPropertyMap_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQQmlPropertyMap*>(self)->QQmlPropertyMap::disconnectNotify(*signal);
+
+	( (MiqtVirtualQQmlPropertyMap*)(self) )->QQmlPropertyMap::disconnectNotify(*signal);
+
 }
 
 QObject* QQmlPropertyMap_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -468,9 +500,11 @@ QObject* QQmlPropertyMap_protectedbase_sender(bool* _dynamic_cast_ok, const void
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QQmlPropertyMap_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -479,9 +513,11 @@ int QQmlPropertyMap_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, cons
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QQmlPropertyMap_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -490,9 +526,11 @@ int QQmlPropertyMap_protectedbase_receivers(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QQmlPropertyMap_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -501,9 +539,11 @@ bool QQmlPropertyMap_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, con
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QQmlPropertyMap_delete(QQmlPropertyMap* self) {

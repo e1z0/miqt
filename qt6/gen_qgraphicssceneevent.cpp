@@ -45,7 +45,7 @@ QEvent* miqt_exec_callback_QGraphicsSceneMoveEvent_clone(const QGraphicsSceneMov
 class MiqtVirtualQGraphicsSceneEvent final : public QGraphicsSceneEvent {
 public:
 
-	MiqtVirtualQGraphicsSceneEvent(QEvent::Type type): QGraphicsSceneEvent(type) {}
+	MiqtVirtualQGraphicsSceneEvent(QEvent::Type type): QGraphicsSceneEvent(type) {};
 
 	virtual ~MiqtVirtualQGraphicsSceneEvent() override = default;
 
@@ -58,10 +58,12 @@ public:
 			QGraphicsSceneEvent::setAccepted(accepted);
 			return;
 		}
-
+		
 		bool sigval1 = accepted;
+
 		miqt_exec_callback_QGraphicsSceneEvent_setAccepted(this, handle__setAccepted, sigval1);
 
+		
 	}
 
 	friend void QGraphicsSceneEvent_virtualbase_setAccepted(void* self, bool accepted);
@@ -74,8 +76,10 @@ public:
 		if (handle__clone == 0) {
 			return QGraphicsSceneEvent::clone();
 		}
+		
 
 		QEvent* callback_return_value = miqt_exec_callback_QGraphicsSceneEvent_clone(this, handle__clone);
+
 		return callback_return_value;
 	}
 
@@ -84,7 +88,7 @@ public:
 };
 
 QGraphicsSceneEvent* QGraphicsSceneEvent_new(int type) {
-	return new (std::nothrow) MiqtVirtualQGraphicsSceneEvent(static_cast<QEvent::Type>(type));
+	return new MiqtVirtualQGraphicsSceneEvent(static_cast<QEvent::Type>(type));
 }
 
 void QGraphicsSceneEvent_virtbase(QGraphicsSceneEvent* src, QEvent** outptr_QEvent) {
@@ -113,13 +117,15 @@ bool QGraphicsSceneEvent_override_virtual_setAccepted(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setAccepted = slot;
 	return true;
 }
 
 void QGraphicsSceneEvent_virtualbase_setAccepted(void* self, bool accepted) {
-	static_cast<MiqtVirtualQGraphicsSceneEvent*>(self)->QGraphicsSceneEvent::setAccepted(accepted);
+
+	( (MiqtVirtualQGraphicsSceneEvent*)(self) )->QGraphicsSceneEvent::setAccepted(accepted);
+
 }
 
 bool QGraphicsSceneEvent_override_virtual_clone(void* self, intptr_t slot) {
@@ -127,13 +133,15 @@ bool QGraphicsSceneEvent_override_virtual_clone(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__clone = slot;
 	return true;
 }
 
 QEvent* QGraphicsSceneEvent_virtualbase_clone(const void* self) {
-	return static_cast<const MiqtVirtualQGraphicsSceneEvent*>(self)->QGraphicsSceneEvent::clone();
+
+	return ( (const MiqtVirtualQGraphicsSceneEvent*)(self) )->QGraphicsSceneEvent::clone();
+
 }
 
 void QGraphicsSceneEvent_delete(QGraphicsSceneEvent* self) {
@@ -143,8 +151,8 @@ void QGraphicsSceneEvent_delete(QGraphicsSceneEvent* self) {
 class MiqtVirtualQGraphicsSceneMouseEvent final : public QGraphicsSceneMouseEvent {
 public:
 
-	MiqtVirtualQGraphicsSceneMouseEvent(): QGraphicsSceneMouseEvent() {}
-	MiqtVirtualQGraphicsSceneMouseEvent(QEvent::Type type): QGraphicsSceneMouseEvent(type) {}
+	MiqtVirtualQGraphicsSceneMouseEvent(): QGraphicsSceneMouseEvent() {};
+	MiqtVirtualQGraphicsSceneMouseEvent(QEvent::Type type): QGraphicsSceneMouseEvent(type) {};
 
 	virtual ~MiqtVirtualQGraphicsSceneMouseEvent() override = default;
 
@@ -157,10 +165,12 @@ public:
 			QGraphicsSceneMouseEvent::setAccepted(accepted);
 			return;
 		}
-
+		
 		bool sigval1 = accepted;
+
 		miqt_exec_callback_QGraphicsSceneMouseEvent_setAccepted(this, handle__setAccepted, sigval1);
 
+		
 	}
 
 	friend void QGraphicsSceneMouseEvent_virtualbase_setAccepted(void* self, bool accepted);
@@ -173,8 +183,10 @@ public:
 		if (handle__clone == 0) {
 			return QGraphicsSceneMouseEvent::clone();
 		}
+		
 
 		QEvent* callback_return_value = miqt_exec_callback_QGraphicsSceneMouseEvent_clone(this, handle__clone);
+
 		return callback_return_value;
 	}
 
@@ -183,11 +195,11 @@ public:
 };
 
 QGraphicsSceneMouseEvent* QGraphicsSceneMouseEvent_new() {
-	return new (std::nothrow) MiqtVirtualQGraphicsSceneMouseEvent();
+	return new MiqtVirtualQGraphicsSceneMouseEvent();
 }
 
 QGraphicsSceneMouseEvent* QGraphicsSceneMouseEvent_new2(int type) {
-	return new (std::nothrow) MiqtVirtualQGraphicsSceneMouseEvent(static_cast<QEvent::Type>(type));
+	return new MiqtVirtualQGraphicsSceneMouseEvent(static_cast<QEvent::Type>(type));
 }
 
 void QGraphicsSceneMouseEvent_virtbase(QGraphicsSceneMouseEvent* src, QGraphicsSceneEvent** outptr_QGraphicsSceneEvent) {
@@ -316,13 +328,15 @@ bool QGraphicsSceneMouseEvent_override_virtual_setAccepted(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setAccepted = slot;
 	return true;
 }
 
 void QGraphicsSceneMouseEvent_virtualbase_setAccepted(void* self, bool accepted) {
-	static_cast<MiqtVirtualQGraphicsSceneMouseEvent*>(self)->QGraphicsSceneMouseEvent::setAccepted(accepted);
+
+	( (MiqtVirtualQGraphicsSceneMouseEvent*)(self) )->QGraphicsSceneMouseEvent::setAccepted(accepted);
+
 }
 
 bool QGraphicsSceneMouseEvent_override_virtual_clone(void* self, intptr_t slot) {
@@ -330,13 +344,15 @@ bool QGraphicsSceneMouseEvent_override_virtual_clone(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__clone = slot;
 	return true;
 }
 
 QEvent* QGraphicsSceneMouseEvent_virtualbase_clone(const void* self) {
-	return static_cast<const MiqtVirtualQGraphicsSceneMouseEvent*>(self)->QGraphicsSceneMouseEvent::clone();
+
+	return ( (const MiqtVirtualQGraphicsSceneMouseEvent*)(self) )->QGraphicsSceneMouseEvent::clone();
+
 }
 
 void QGraphicsSceneMouseEvent_delete(QGraphicsSceneMouseEvent* self) {
@@ -346,8 +362,8 @@ void QGraphicsSceneMouseEvent_delete(QGraphicsSceneMouseEvent* self) {
 class MiqtVirtualQGraphicsSceneWheelEvent final : public QGraphicsSceneWheelEvent {
 public:
 
-	MiqtVirtualQGraphicsSceneWheelEvent(): QGraphicsSceneWheelEvent() {}
-	MiqtVirtualQGraphicsSceneWheelEvent(QEvent::Type type): QGraphicsSceneWheelEvent(type) {}
+	MiqtVirtualQGraphicsSceneWheelEvent(): QGraphicsSceneWheelEvent() {};
+	MiqtVirtualQGraphicsSceneWheelEvent(QEvent::Type type): QGraphicsSceneWheelEvent(type) {};
 
 	virtual ~MiqtVirtualQGraphicsSceneWheelEvent() override = default;
 
@@ -360,10 +376,12 @@ public:
 			QGraphicsSceneWheelEvent::setAccepted(accepted);
 			return;
 		}
-
+		
 		bool sigval1 = accepted;
+
 		miqt_exec_callback_QGraphicsSceneWheelEvent_setAccepted(this, handle__setAccepted, sigval1);
 
+		
 	}
 
 	friend void QGraphicsSceneWheelEvent_virtualbase_setAccepted(void* self, bool accepted);
@@ -376,8 +394,10 @@ public:
 		if (handle__clone == 0) {
 			return QGraphicsSceneWheelEvent::clone();
 		}
+		
 
 		QEvent* callback_return_value = miqt_exec_callback_QGraphicsSceneWheelEvent_clone(this, handle__clone);
+
 		return callback_return_value;
 	}
 
@@ -386,11 +406,11 @@ public:
 };
 
 QGraphicsSceneWheelEvent* QGraphicsSceneWheelEvent_new() {
-	return new (std::nothrow) MiqtVirtualQGraphicsSceneWheelEvent();
+	return new MiqtVirtualQGraphicsSceneWheelEvent();
 }
 
 QGraphicsSceneWheelEvent* QGraphicsSceneWheelEvent_new2(int type) {
-	return new (std::nothrow) MiqtVirtualQGraphicsSceneWheelEvent(static_cast<QEvent::Type>(type));
+	return new MiqtVirtualQGraphicsSceneWheelEvent(static_cast<QEvent::Type>(type));
 }
 
 void QGraphicsSceneWheelEvent_virtbase(QGraphicsSceneWheelEvent* src, QGraphicsSceneEvent** outptr_QGraphicsSceneEvent) {
@@ -486,13 +506,15 @@ bool QGraphicsSceneWheelEvent_override_virtual_setAccepted(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setAccepted = slot;
 	return true;
 }
 
 void QGraphicsSceneWheelEvent_virtualbase_setAccepted(void* self, bool accepted) {
-	static_cast<MiqtVirtualQGraphicsSceneWheelEvent*>(self)->QGraphicsSceneWheelEvent::setAccepted(accepted);
+
+	( (MiqtVirtualQGraphicsSceneWheelEvent*)(self) )->QGraphicsSceneWheelEvent::setAccepted(accepted);
+
 }
 
 bool QGraphicsSceneWheelEvent_override_virtual_clone(void* self, intptr_t slot) {
@@ -500,13 +522,15 @@ bool QGraphicsSceneWheelEvent_override_virtual_clone(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__clone = slot;
 	return true;
 }
 
 QEvent* QGraphicsSceneWheelEvent_virtualbase_clone(const void* self) {
-	return static_cast<const MiqtVirtualQGraphicsSceneWheelEvent*>(self)->QGraphicsSceneWheelEvent::clone();
+
+	return ( (const MiqtVirtualQGraphicsSceneWheelEvent*)(self) )->QGraphicsSceneWheelEvent::clone();
+
 }
 
 void QGraphicsSceneWheelEvent_delete(QGraphicsSceneWheelEvent* self) {
@@ -516,8 +540,8 @@ void QGraphicsSceneWheelEvent_delete(QGraphicsSceneWheelEvent* self) {
 class MiqtVirtualQGraphicsSceneContextMenuEvent final : public QGraphicsSceneContextMenuEvent {
 public:
 
-	MiqtVirtualQGraphicsSceneContextMenuEvent(): QGraphicsSceneContextMenuEvent() {}
-	MiqtVirtualQGraphicsSceneContextMenuEvent(QEvent::Type type): QGraphicsSceneContextMenuEvent(type) {}
+	MiqtVirtualQGraphicsSceneContextMenuEvent(): QGraphicsSceneContextMenuEvent() {};
+	MiqtVirtualQGraphicsSceneContextMenuEvent(QEvent::Type type): QGraphicsSceneContextMenuEvent(type) {};
 
 	virtual ~MiqtVirtualQGraphicsSceneContextMenuEvent() override = default;
 
@@ -530,10 +554,12 @@ public:
 			QGraphicsSceneContextMenuEvent::setAccepted(accepted);
 			return;
 		}
-
+		
 		bool sigval1 = accepted;
+
 		miqt_exec_callback_QGraphicsSceneContextMenuEvent_setAccepted(this, handle__setAccepted, sigval1);
 
+		
 	}
 
 	friend void QGraphicsSceneContextMenuEvent_virtualbase_setAccepted(void* self, bool accepted);
@@ -546,8 +572,10 @@ public:
 		if (handle__clone == 0) {
 			return QGraphicsSceneContextMenuEvent::clone();
 		}
+		
 
 		QEvent* callback_return_value = miqt_exec_callback_QGraphicsSceneContextMenuEvent_clone(this, handle__clone);
+
 		return callback_return_value;
 	}
 
@@ -556,11 +584,11 @@ public:
 };
 
 QGraphicsSceneContextMenuEvent* QGraphicsSceneContextMenuEvent_new() {
-	return new (std::nothrow) MiqtVirtualQGraphicsSceneContextMenuEvent();
+	return new MiqtVirtualQGraphicsSceneContextMenuEvent();
 }
 
 QGraphicsSceneContextMenuEvent* QGraphicsSceneContextMenuEvent_new2(int type) {
-	return new (std::nothrow) MiqtVirtualQGraphicsSceneContextMenuEvent(static_cast<QEvent::Type>(type));
+	return new MiqtVirtualQGraphicsSceneContextMenuEvent(static_cast<QEvent::Type>(type));
 }
 
 void QGraphicsSceneContextMenuEvent_virtbase(QGraphicsSceneContextMenuEvent* src, QGraphicsSceneEvent** outptr_QGraphicsSceneEvent) {
@@ -614,13 +642,15 @@ bool QGraphicsSceneContextMenuEvent_override_virtual_setAccepted(void* self, int
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setAccepted = slot;
 	return true;
 }
 
 void QGraphicsSceneContextMenuEvent_virtualbase_setAccepted(void* self, bool accepted) {
-	static_cast<MiqtVirtualQGraphicsSceneContextMenuEvent*>(self)->QGraphicsSceneContextMenuEvent::setAccepted(accepted);
+
+	( (MiqtVirtualQGraphicsSceneContextMenuEvent*)(self) )->QGraphicsSceneContextMenuEvent::setAccepted(accepted);
+
 }
 
 bool QGraphicsSceneContextMenuEvent_override_virtual_clone(void* self, intptr_t slot) {
@@ -628,13 +658,15 @@ bool QGraphicsSceneContextMenuEvent_override_virtual_clone(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__clone = slot;
 	return true;
 }
 
 QEvent* QGraphicsSceneContextMenuEvent_virtualbase_clone(const void* self) {
-	return static_cast<const MiqtVirtualQGraphicsSceneContextMenuEvent*>(self)->QGraphicsSceneContextMenuEvent::clone();
+
+	return ( (const MiqtVirtualQGraphicsSceneContextMenuEvent*)(self) )->QGraphicsSceneContextMenuEvent::clone();
+
 }
 
 void QGraphicsSceneContextMenuEvent_delete(QGraphicsSceneContextMenuEvent* self) {
@@ -644,8 +676,8 @@ void QGraphicsSceneContextMenuEvent_delete(QGraphicsSceneContextMenuEvent* self)
 class MiqtVirtualQGraphicsSceneHoverEvent final : public QGraphicsSceneHoverEvent {
 public:
 
-	MiqtVirtualQGraphicsSceneHoverEvent(): QGraphicsSceneHoverEvent() {}
-	MiqtVirtualQGraphicsSceneHoverEvent(QEvent::Type type): QGraphicsSceneHoverEvent(type) {}
+	MiqtVirtualQGraphicsSceneHoverEvent(): QGraphicsSceneHoverEvent() {};
+	MiqtVirtualQGraphicsSceneHoverEvent(QEvent::Type type): QGraphicsSceneHoverEvent(type) {};
 
 	virtual ~MiqtVirtualQGraphicsSceneHoverEvent() override = default;
 
@@ -658,10 +690,12 @@ public:
 			QGraphicsSceneHoverEvent::setAccepted(accepted);
 			return;
 		}
-
+		
 		bool sigval1 = accepted;
+
 		miqt_exec_callback_QGraphicsSceneHoverEvent_setAccepted(this, handle__setAccepted, sigval1);
 
+		
 	}
 
 	friend void QGraphicsSceneHoverEvent_virtualbase_setAccepted(void* self, bool accepted);
@@ -674,8 +708,10 @@ public:
 		if (handle__clone == 0) {
 			return QGraphicsSceneHoverEvent::clone();
 		}
+		
 
 		QEvent* callback_return_value = miqt_exec_callback_QGraphicsSceneHoverEvent_clone(this, handle__clone);
+
 		return callback_return_value;
 	}
 
@@ -684,11 +720,11 @@ public:
 };
 
 QGraphicsSceneHoverEvent* QGraphicsSceneHoverEvent_new() {
-	return new (std::nothrow) MiqtVirtualQGraphicsSceneHoverEvent();
+	return new MiqtVirtualQGraphicsSceneHoverEvent();
 }
 
 QGraphicsSceneHoverEvent* QGraphicsSceneHoverEvent_new2(int type) {
-	return new (std::nothrow) MiqtVirtualQGraphicsSceneHoverEvent(static_cast<QEvent::Type>(type));
+	return new MiqtVirtualQGraphicsSceneHoverEvent(static_cast<QEvent::Type>(type));
 }
 
 void QGraphicsSceneHoverEvent_virtbase(QGraphicsSceneHoverEvent* src, QGraphicsSceneEvent** outptr_QGraphicsSceneEvent) {
@@ -757,13 +793,15 @@ bool QGraphicsSceneHoverEvent_override_virtual_setAccepted(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setAccepted = slot;
 	return true;
 }
 
 void QGraphicsSceneHoverEvent_virtualbase_setAccepted(void* self, bool accepted) {
-	static_cast<MiqtVirtualQGraphicsSceneHoverEvent*>(self)->QGraphicsSceneHoverEvent::setAccepted(accepted);
+
+	( (MiqtVirtualQGraphicsSceneHoverEvent*)(self) )->QGraphicsSceneHoverEvent::setAccepted(accepted);
+
 }
 
 bool QGraphicsSceneHoverEvent_override_virtual_clone(void* self, intptr_t slot) {
@@ -771,13 +809,15 @@ bool QGraphicsSceneHoverEvent_override_virtual_clone(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__clone = slot;
 	return true;
 }
 
 QEvent* QGraphicsSceneHoverEvent_virtualbase_clone(const void* self) {
-	return static_cast<const MiqtVirtualQGraphicsSceneHoverEvent*>(self)->QGraphicsSceneHoverEvent::clone();
+
+	return ( (const MiqtVirtualQGraphicsSceneHoverEvent*)(self) )->QGraphicsSceneHoverEvent::clone();
+
 }
 
 void QGraphicsSceneHoverEvent_delete(QGraphicsSceneHoverEvent* self) {
@@ -787,8 +827,8 @@ void QGraphicsSceneHoverEvent_delete(QGraphicsSceneHoverEvent* self) {
 class MiqtVirtualQGraphicsSceneHelpEvent final : public QGraphicsSceneHelpEvent {
 public:
 
-	MiqtVirtualQGraphicsSceneHelpEvent(): QGraphicsSceneHelpEvent() {}
-	MiqtVirtualQGraphicsSceneHelpEvent(QEvent::Type type): QGraphicsSceneHelpEvent(type) {}
+	MiqtVirtualQGraphicsSceneHelpEvent(): QGraphicsSceneHelpEvent() {};
+	MiqtVirtualQGraphicsSceneHelpEvent(QEvent::Type type): QGraphicsSceneHelpEvent(type) {};
 
 	virtual ~MiqtVirtualQGraphicsSceneHelpEvent() override = default;
 
@@ -801,10 +841,12 @@ public:
 			QGraphicsSceneHelpEvent::setAccepted(accepted);
 			return;
 		}
-
+		
 		bool sigval1 = accepted;
+
 		miqt_exec_callback_QGraphicsSceneHelpEvent_setAccepted(this, handle__setAccepted, sigval1);
 
+		
 	}
 
 	friend void QGraphicsSceneHelpEvent_virtualbase_setAccepted(void* self, bool accepted);
@@ -817,8 +859,10 @@ public:
 		if (handle__clone == 0) {
 			return QGraphicsSceneHelpEvent::clone();
 		}
+		
 
 		QEvent* callback_return_value = miqt_exec_callback_QGraphicsSceneHelpEvent_clone(this, handle__clone);
+
 		return callback_return_value;
 	}
 
@@ -827,11 +871,11 @@ public:
 };
 
 QGraphicsSceneHelpEvent* QGraphicsSceneHelpEvent_new() {
-	return new (std::nothrow) MiqtVirtualQGraphicsSceneHelpEvent();
+	return new MiqtVirtualQGraphicsSceneHelpEvent();
 }
 
 QGraphicsSceneHelpEvent* QGraphicsSceneHelpEvent_new2(int type) {
-	return new (std::nothrow) MiqtVirtualQGraphicsSceneHelpEvent(static_cast<QEvent::Type>(type));
+	return new MiqtVirtualQGraphicsSceneHelpEvent(static_cast<QEvent::Type>(type));
 }
 
 void QGraphicsSceneHelpEvent_virtbase(QGraphicsSceneHelpEvent* src, QGraphicsSceneEvent** outptr_QGraphicsSceneEvent) {
@@ -859,13 +903,15 @@ bool QGraphicsSceneHelpEvent_override_virtual_setAccepted(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setAccepted = slot;
 	return true;
 }
 
 void QGraphicsSceneHelpEvent_virtualbase_setAccepted(void* self, bool accepted) {
-	static_cast<MiqtVirtualQGraphicsSceneHelpEvent*>(self)->QGraphicsSceneHelpEvent::setAccepted(accepted);
+
+	( (MiqtVirtualQGraphicsSceneHelpEvent*)(self) )->QGraphicsSceneHelpEvent::setAccepted(accepted);
+
 }
 
 bool QGraphicsSceneHelpEvent_override_virtual_clone(void* self, intptr_t slot) {
@@ -873,13 +919,15 @@ bool QGraphicsSceneHelpEvent_override_virtual_clone(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__clone = slot;
 	return true;
 }
 
 QEvent* QGraphicsSceneHelpEvent_virtualbase_clone(const void* self) {
-	return static_cast<const MiqtVirtualQGraphicsSceneHelpEvent*>(self)->QGraphicsSceneHelpEvent::clone();
+
+	return ( (const MiqtVirtualQGraphicsSceneHelpEvent*)(self) )->QGraphicsSceneHelpEvent::clone();
+
 }
 
 void QGraphicsSceneHelpEvent_delete(QGraphicsSceneHelpEvent* self) {
@@ -889,8 +937,8 @@ void QGraphicsSceneHelpEvent_delete(QGraphicsSceneHelpEvent* self) {
 class MiqtVirtualQGraphicsSceneDragDropEvent final : public QGraphicsSceneDragDropEvent {
 public:
 
-	MiqtVirtualQGraphicsSceneDragDropEvent(): QGraphicsSceneDragDropEvent() {}
-	MiqtVirtualQGraphicsSceneDragDropEvent(QEvent::Type type): QGraphicsSceneDragDropEvent(type) {}
+	MiqtVirtualQGraphicsSceneDragDropEvent(): QGraphicsSceneDragDropEvent() {};
+	MiqtVirtualQGraphicsSceneDragDropEvent(QEvent::Type type): QGraphicsSceneDragDropEvent(type) {};
 
 	virtual ~MiqtVirtualQGraphicsSceneDragDropEvent() override = default;
 
@@ -903,10 +951,12 @@ public:
 			QGraphicsSceneDragDropEvent::setAccepted(accepted);
 			return;
 		}
-
+		
 		bool sigval1 = accepted;
+
 		miqt_exec_callback_QGraphicsSceneDragDropEvent_setAccepted(this, handle__setAccepted, sigval1);
 
+		
 	}
 
 	friend void QGraphicsSceneDragDropEvent_virtualbase_setAccepted(void* self, bool accepted);
@@ -919,8 +969,10 @@ public:
 		if (handle__clone == 0) {
 			return QGraphicsSceneDragDropEvent::clone();
 		}
+		
 
 		QEvent* callback_return_value = miqt_exec_callback_QGraphicsSceneDragDropEvent_clone(this, handle__clone);
+
 		return callback_return_value;
 	}
 
@@ -929,11 +981,11 @@ public:
 };
 
 QGraphicsSceneDragDropEvent* QGraphicsSceneDragDropEvent_new() {
-	return new (std::nothrow) MiqtVirtualQGraphicsSceneDragDropEvent();
+	return new MiqtVirtualQGraphicsSceneDragDropEvent();
 }
 
 QGraphicsSceneDragDropEvent* QGraphicsSceneDragDropEvent_new2(int type) {
-	return new (std::nothrow) MiqtVirtualQGraphicsSceneDragDropEvent(static_cast<QEvent::Type>(type));
+	return new MiqtVirtualQGraphicsSceneDragDropEvent(static_cast<QEvent::Type>(type));
 }
 
 void QGraphicsSceneDragDropEvent_virtbase(QGraphicsSceneDragDropEvent* src, QGraphicsSceneEvent** outptr_QGraphicsSceneEvent) {
@@ -1034,13 +1086,15 @@ bool QGraphicsSceneDragDropEvent_override_virtual_setAccepted(void* self, intptr
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setAccepted = slot;
 	return true;
 }
 
 void QGraphicsSceneDragDropEvent_virtualbase_setAccepted(void* self, bool accepted) {
-	static_cast<MiqtVirtualQGraphicsSceneDragDropEvent*>(self)->QGraphicsSceneDragDropEvent::setAccepted(accepted);
+
+	( (MiqtVirtualQGraphicsSceneDragDropEvent*)(self) )->QGraphicsSceneDragDropEvent::setAccepted(accepted);
+
 }
 
 bool QGraphicsSceneDragDropEvent_override_virtual_clone(void* self, intptr_t slot) {
@@ -1048,13 +1102,15 @@ bool QGraphicsSceneDragDropEvent_override_virtual_clone(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__clone = slot;
 	return true;
 }
 
 QEvent* QGraphicsSceneDragDropEvent_virtualbase_clone(const void* self) {
-	return static_cast<const MiqtVirtualQGraphicsSceneDragDropEvent*>(self)->QGraphicsSceneDragDropEvent::clone();
+
+	return ( (const MiqtVirtualQGraphicsSceneDragDropEvent*)(self) )->QGraphicsSceneDragDropEvent::clone();
+
 }
 
 void QGraphicsSceneDragDropEvent_delete(QGraphicsSceneDragDropEvent* self) {
@@ -1064,7 +1120,7 @@ void QGraphicsSceneDragDropEvent_delete(QGraphicsSceneDragDropEvent* self) {
 class MiqtVirtualQGraphicsSceneResizeEvent final : public QGraphicsSceneResizeEvent {
 public:
 
-	MiqtVirtualQGraphicsSceneResizeEvent(): QGraphicsSceneResizeEvent() {}
+	MiqtVirtualQGraphicsSceneResizeEvent(): QGraphicsSceneResizeEvent() {};
 
 	virtual ~MiqtVirtualQGraphicsSceneResizeEvent() override = default;
 
@@ -1077,10 +1133,12 @@ public:
 			QGraphicsSceneResizeEvent::setAccepted(accepted);
 			return;
 		}
-
+		
 		bool sigval1 = accepted;
+
 		miqt_exec_callback_QGraphicsSceneResizeEvent_setAccepted(this, handle__setAccepted, sigval1);
 
+		
 	}
 
 	friend void QGraphicsSceneResizeEvent_virtualbase_setAccepted(void* self, bool accepted);
@@ -1093,8 +1151,10 @@ public:
 		if (handle__clone == 0) {
 			return QGraphicsSceneResizeEvent::clone();
 		}
+		
 
 		QEvent* callback_return_value = miqt_exec_callback_QGraphicsSceneResizeEvent_clone(this, handle__clone);
+
 		return callback_return_value;
 	}
 
@@ -1103,7 +1163,7 @@ public:
 };
 
 QGraphicsSceneResizeEvent* QGraphicsSceneResizeEvent_new() {
-	return new (std::nothrow) MiqtVirtualQGraphicsSceneResizeEvent();
+	return new MiqtVirtualQGraphicsSceneResizeEvent();
 }
 
 void QGraphicsSceneResizeEvent_virtbase(QGraphicsSceneResizeEvent* src, QGraphicsSceneEvent** outptr_QGraphicsSceneEvent) {
@@ -1131,13 +1191,15 @@ bool QGraphicsSceneResizeEvent_override_virtual_setAccepted(void* self, intptr_t
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setAccepted = slot;
 	return true;
 }
 
 void QGraphicsSceneResizeEvent_virtualbase_setAccepted(void* self, bool accepted) {
-	static_cast<MiqtVirtualQGraphicsSceneResizeEvent*>(self)->QGraphicsSceneResizeEvent::setAccepted(accepted);
+
+	( (MiqtVirtualQGraphicsSceneResizeEvent*)(self) )->QGraphicsSceneResizeEvent::setAccepted(accepted);
+
 }
 
 bool QGraphicsSceneResizeEvent_override_virtual_clone(void* self, intptr_t slot) {
@@ -1145,13 +1207,15 @@ bool QGraphicsSceneResizeEvent_override_virtual_clone(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__clone = slot;
 	return true;
 }
 
 QEvent* QGraphicsSceneResizeEvent_virtualbase_clone(const void* self) {
-	return static_cast<const MiqtVirtualQGraphicsSceneResizeEvent*>(self)->QGraphicsSceneResizeEvent::clone();
+
+	return ( (const MiqtVirtualQGraphicsSceneResizeEvent*)(self) )->QGraphicsSceneResizeEvent::clone();
+
 }
 
 void QGraphicsSceneResizeEvent_delete(QGraphicsSceneResizeEvent* self) {
@@ -1161,7 +1225,7 @@ void QGraphicsSceneResizeEvent_delete(QGraphicsSceneResizeEvent* self) {
 class MiqtVirtualQGraphicsSceneMoveEvent final : public QGraphicsSceneMoveEvent {
 public:
 
-	MiqtVirtualQGraphicsSceneMoveEvent(): QGraphicsSceneMoveEvent() {}
+	MiqtVirtualQGraphicsSceneMoveEvent(): QGraphicsSceneMoveEvent() {};
 
 	virtual ~MiqtVirtualQGraphicsSceneMoveEvent() override = default;
 
@@ -1174,10 +1238,12 @@ public:
 			QGraphicsSceneMoveEvent::setAccepted(accepted);
 			return;
 		}
-
+		
 		bool sigval1 = accepted;
+
 		miqt_exec_callback_QGraphicsSceneMoveEvent_setAccepted(this, handle__setAccepted, sigval1);
 
+		
 	}
 
 	friend void QGraphicsSceneMoveEvent_virtualbase_setAccepted(void* self, bool accepted);
@@ -1190,8 +1256,10 @@ public:
 		if (handle__clone == 0) {
 			return QGraphicsSceneMoveEvent::clone();
 		}
+		
 
 		QEvent* callback_return_value = miqt_exec_callback_QGraphicsSceneMoveEvent_clone(this, handle__clone);
+
 		return callback_return_value;
 	}
 
@@ -1200,7 +1268,7 @@ public:
 };
 
 QGraphicsSceneMoveEvent* QGraphicsSceneMoveEvent_new() {
-	return new (std::nothrow) MiqtVirtualQGraphicsSceneMoveEvent();
+	return new MiqtVirtualQGraphicsSceneMoveEvent();
 }
 
 void QGraphicsSceneMoveEvent_virtbase(QGraphicsSceneMoveEvent* src, QGraphicsSceneEvent** outptr_QGraphicsSceneEvent) {
@@ -1228,13 +1296,15 @@ bool QGraphicsSceneMoveEvent_override_virtual_setAccepted(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setAccepted = slot;
 	return true;
 }
 
 void QGraphicsSceneMoveEvent_virtualbase_setAccepted(void* self, bool accepted) {
-	static_cast<MiqtVirtualQGraphicsSceneMoveEvent*>(self)->QGraphicsSceneMoveEvent::setAccepted(accepted);
+
+	( (MiqtVirtualQGraphicsSceneMoveEvent*)(self) )->QGraphicsSceneMoveEvent::setAccepted(accepted);
+
 }
 
 bool QGraphicsSceneMoveEvent_override_virtual_clone(void* self, intptr_t slot) {
@@ -1242,13 +1312,15 @@ bool QGraphicsSceneMoveEvent_override_virtual_clone(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__clone = slot;
 	return true;
 }
 
 QEvent* QGraphicsSceneMoveEvent_virtualbase_clone(const void* self) {
-	return static_cast<const MiqtVirtualQGraphicsSceneMoveEvent*>(self)->QGraphicsSceneMoveEvent::clone();
+
+	return ( (const MiqtVirtualQGraphicsSceneMoveEvent*)(self) )->QGraphicsSceneMoveEvent::clone();
+
 }
 
 void QGraphicsSceneMoveEvent_delete(QGraphicsSceneMoveEvent* self) {

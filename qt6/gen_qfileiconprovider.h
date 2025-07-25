@@ -30,7 +30,6 @@ QFileIconProvider* QFileIconProvider_new();
 void QFileIconProvider_virtbase(QFileIconProvider* src, QAbstractFileIconProvider** outptr_QAbstractFileIconProvider);
 QIcon* QFileIconProvider_icon(const QFileIconProvider* self, int type);
 QIcon* QFileIconProvider_iconWithInfo(const QFileIconProvider* self, QFileInfo* info);
-
 bool QFileIconProvider_override_virtual_icon(void* self, intptr_t slot);
 QIcon* QFileIconProvider_virtualbase_icon(const void* self, int type);
 bool QFileIconProvider_override_virtual_iconWithInfo(void* self, intptr_t slot);
@@ -41,7 +40,6 @@ bool QFileIconProvider_override_virtual_setOptions(void* self, intptr_t slot);
 void QFileIconProvider_virtualbase_setOptions(void* self, int options);
 bool QFileIconProvider_override_virtual_options(void* self, intptr_t slot);
 int QFileIconProvider_virtualbase_options(const void* self);
-
 void QFileIconProvider_delete(QFileIconProvider* self);
 
 #ifdef __cplusplus

@@ -85,7 +85,6 @@ struct miqt_array /* of int */  QCameraExposure_supportedIsoSensitivitiesWithCon
 struct miqt_array /* of double */  QCameraExposure_supportedAperturesWithContinuous(const QCameraExposure* self, bool* continuous);
 struct miqt_array /* of double */  QCameraExposure_supportedShutterSpeedsWithContinuous(const QCameraExposure* self, bool* continuous);
 
-
 #ifdef __cplusplus
 } /* extern C */
 #endif

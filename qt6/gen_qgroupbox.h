@@ -123,7 +123,6 @@ struct miqt_string QGroupBox_tr2(const char* s, const char* c);
 struct miqt_string QGroupBox_tr3(const char* s, const char* c, int n);
 void QGroupBox_clickedWithChecked(QGroupBox* self, bool checked);
 void QGroupBox_connect_clickedWithChecked(QGroupBox* self, intptr_t slot);
-
 bool QGroupBox_override_virtual_minimumSizeHint(void* self, intptr_t slot);
 QSize* QGroupBox_virtualbase_minimumSizeHint(const void* self);
 bool QGroupBox_override_virtual_event(void* self, intptr_t slot);
@@ -220,7 +219,6 @@ bool QGroupBox_override_virtual_connectNotify(void* self, intptr_t slot);
 void QGroupBox_virtualbase_connectNotify(void* self, QMetaMethod* signal);
 bool QGroupBox_override_virtual_disconnectNotify(void* self, intptr_t slot);
 void QGroupBox_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
-
 void QGroupBox_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* self);
 void QGroupBox_protectedbase_create(bool* _dynamic_cast_ok, void* self);
 void QGroupBox_protectedbase_destroy(bool* _dynamic_cast_ok, void* self);
@@ -230,7 +228,6 @@ QObject* QGroupBox_protectedbase_sender(bool* _dynamic_cast_ok, const void* self
 int QGroupBox_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self);
 int QGroupBox_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal);
 bool QGroupBox_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal);
-
 void QGroupBox_delete(QGroupBox* self);
 
 #ifdef __cplusplus

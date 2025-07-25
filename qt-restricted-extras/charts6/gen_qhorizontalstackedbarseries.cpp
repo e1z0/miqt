@@ -32,8 +32,8 @@ void miqt_exec_callback_QHorizontalStackedBarSeries_disconnectNotify(QHorizontal
 class MiqtVirtualQHorizontalStackedBarSeries final : public QHorizontalStackedBarSeries {
 public:
 
-	MiqtVirtualQHorizontalStackedBarSeries(): QHorizontalStackedBarSeries() {}
-	MiqtVirtualQHorizontalStackedBarSeries(QObject* parent): QHorizontalStackedBarSeries(parent) {}
+	MiqtVirtualQHorizontalStackedBarSeries(): QHorizontalStackedBarSeries() {};
+	MiqtVirtualQHorizontalStackedBarSeries(QObject* parent): QHorizontalStackedBarSeries(parent) {};
 
 	virtual ~MiqtVirtualQHorizontalStackedBarSeries() override = default;
 
@@ -45,8 +45,10 @@ public:
 		if (handle__type == 0) {
 			return QHorizontalStackedBarSeries::type();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QHorizontalStackedBarSeries_type(this, handle__type);
+
 		return static_cast<QAbstractSeries::SeriesType>(callback_return_value);
 	}
 
@@ -60,9 +62,11 @@ public:
 		if (handle__event == 0) {
 			return QHorizontalStackedBarSeries::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QHorizontalStackedBarSeries_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -76,10 +80,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QHorizontalStackedBarSeries::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QHorizontalStackedBarSeries_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -94,10 +100,12 @@ public:
 			QHorizontalStackedBarSeries::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QHorizontalStackedBarSeries_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QHorizontalStackedBarSeries_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -111,10 +119,12 @@ public:
 			QHorizontalStackedBarSeries::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QHorizontalStackedBarSeries_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QHorizontalStackedBarSeries_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -128,10 +138,12 @@ public:
 			QHorizontalStackedBarSeries::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QHorizontalStackedBarSeries_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QHorizontalStackedBarSeries_virtualbase_customEvent(void* self, QEvent* event);
@@ -145,12 +157,14 @@ public:
 			QHorizontalStackedBarSeries::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QHorizontalStackedBarSeries_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QHorizontalStackedBarSeries_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -164,12 +178,14 @@ public:
 			QHorizontalStackedBarSeries::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QHorizontalStackedBarSeries_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QHorizontalStackedBarSeries_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -182,11 +198,11 @@ public:
 };
 
 QHorizontalStackedBarSeries* QHorizontalStackedBarSeries_new() {
-	return new (std::nothrow) MiqtVirtualQHorizontalStackedBarSeries();
+	return new MiqtVirtualQHorizontalStackedBarSeries();
 }
 
 QHorizontalStackedBarSeries* QHorizontalStackedBarSeries_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQHorizontalStackedBarSeries(parent);
+	return new MiqtVirtualQHorizontalStackedBarSeries(parent);
 }
 
 void QHorizontalStackedBarSeries_virtbase(QHorizontalStackedBarSeries* src, QAbstractBarSeries** outptr_QAbstractBarSeries) {
@@ -244,14 +260,16 @@ bool QHorizontalStackedBarSeries_override_virtual_type(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__type = slot;
 	return true;
 }
 
 int QHorizontalStackedBarSeries_virtualbase_type(const void* self) {
-	MiqtVirtualQHorizontalStackedBarSeries::SeriesType _ret = static_cast<const MiqtVirtualQHorizontalStackedBarSeries*>(self)->QHorizontalStackedBarSeries::type();
+
+	MiqtVirtualQHorizontalStackedBarSeries::SeriesType _ret = ( (const MiqtVirtualQHorizontalStackedBarSeries*)(self) )->QHorizontalStackedBarSeries::type();
 	return static_cast<int>(_ret);
+
 }
 
 bool QHorizontalStackedBarSeries_override_virtual_event(void* self, intptr_t slot) {
@@ -259,13 +277,15 @@ bool QHorizontalStackedBarSeries_override_virtual_event(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QHorizontalStackedBarSeries_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQHorizontalStackedBarSeries*>(self)->QHorizontalStackedBarSeries::event(event);
+
+	return ( (MiqtVirtualQHorizontalStackedBarSeries*)(self) )->QHorizontalStackedBarSeries::event(event);
+
 }
 
 bool QHorizontalStackedBarSeries_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -273,13 +293,15 @@ bool QHorizontalStackedBarSeries_override_virtual_eventFilter(void* self, intptr
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QHorizontalStackedBarSeries_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQHorizontalStackedBarSeries*>(self)->QHorizontalStackedBarSeries::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQHorizontalStackedBarSeries*)(self) )->QHorizontalStackedBarSeries::eventFilter(watched, event);
+
 }
 
 bool QHorizontalStackedBarSeries_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -287,13 +309,15 @@ bool QHorizontalStackedBarSeries_override_virtual_timerEvent(void* self, intptr_
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QHorizontalStackedBarSeries_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQHorizontalStackedBarSeries*>(self)->QHorizontalStackedBarSeries::timerEvent(event);
+
+	( (MiqtVirtualQHorizontalStackedBarSeries*)(self) )->QHorizontalStackedBarSeries::timerEvent(event);
+
 }
 
 bool QHorizontalStackedBarSeries_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -301,13 +325,15 @@ bool QHorizontalStackedBarSeries_override_virtual_childEvent(void* self, intptr_
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QHorizontalStackedBarSeries_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQHorizontalStackedBarSeries*>(self)->QHorizontalStackedBarSeries::childEvent(event);
+
+	( (MiqtVirtualQHorizontalStackedBarSeries*)(self) )->QHorizontalStackedBarSeries::childEvent(event);
+
 }
 
 bool QHorizontalStackedBarSeries_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -315,13 +341,15 @@ bool QHorizontalStackedBarSeries_override_virtual_customEvent(void* self, intptr
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QHorizontalStackedBarSeries_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQHorizontalStackedBarSeries*>(self)->QHorizontalStackedBarSeries::customEvent(event);
+
+	( (MiqtVirtualQHorizontalStackedBarSeries*)(self) )->QHorizontalStackedBarSeries::customEvent(event);
+
 }
 
 bool QHorizontalStackedBarSeries_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -329,13 +357,15 @@ bool QHorizontalStackedBarSeries_override_virtual_connectNotify(void* self, intp
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QHorizontalStackedBarSeries_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQHorizontalStackedBarSeries*>(self)->QHorizontalStackedBarSeries::connectNotify(*signal);
+
+	( (MiqtVirtualQHorizontalStackedBarSeries*)(self) )->QHorizontalStackedBarSeries::connectNotify(*signal);
+
 }
 
 bool QHorizontalStackedBarSeries_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -343,13 +373,15 @@ bool QHorizontalStackedBarSeries_override_virtual_disconnectNotify(void* self, i
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QHorizontalStackedBarSeries_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQHorizontalStackedBarSeries*>(self)->QHorizontalStackedBarSeries::disconnectNotify(*signal);
+
+	( (MiqtVirtualQHorizontalStackedBarSeries*)(self) )->QHorizontalStackedBarSeries::disconnectNotify(*signal);
+
 }
 
 QObject* QHorizontalStackedBarSeries_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -358,9 +390,11 @@ QObject* QHorizontalStackedBarSeries_protectedbase_sender(bool* _dynamic_cast_ok
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QHorizontalStackedBarSeries_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -369,9 +403,11 @@ int QHorizontalStackedBarSeries_protectedbase_senderSignalIndex(bool* _dynamic_c
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QHorizontalStackedBarSeries_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -380,9 +416,11 @@ int QHorizontalStackedBarSeries_protectedbase_receivers(bool* _dynamic_cast_ok, 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QHorizontalStackedBarSeries_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -391,9 +429,11 @@ bool QHorizontalStackedBarSeries_protectedbase_isSignalConnected(bool* _dynamic_
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QHorizontalStackedBarSeries_delete(QHorizontalStackedBarSeries* self) {

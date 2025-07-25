@@ -31,8 +31,8 @@ void miqt_exec_callback_QAccessiblePlugin_disconnectNotify(QAccessiblePlugin*, i
 class MiqtVirtualQAccessiblePlugin final : public QAccessiblePlugin {
 public:
 
-	MiqtVirtualQAccessiblePlugin(): QAccessiblePlugin() {}
-	MiqtVirtualQAccessiblePlugin(QObject* parent): QAccessiblePlugin(parent) {}
+	MiqtVirtualQAccessiblePlugin(): QAccessiblePlugin() {};
+	MiqtVirtualQAccessiblePlugin(QObject* parent): QAccessiblePlugin(parent) {};
 
 	virtual ~MiqtVirtualQAccessiblePlugin() override = default;
 
@@ -44,7 +44,7 @@ public:
 		if (handle__create == 0) {
 			return nullptr; // Pure virtual, there is no base we can call
 		}
-
+		
 		const QString key_ret = key;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray key_b = key_ret.toUtf8();
@@ -54,7 +54,9 @@ public:
 		memcpy(key_ms.data, key_b.data(), key_ms.len);
 		struct miqt_string sigval1 = key_ms;
 		QObject* sigval2 = object;
+
 		QAccessibleInterface* callback_return_value = miqt_exec_callback_QAccessiblePlugin_create(this, handle__create, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -66,9 +68,11 @@ public:
 		if (handle__event == 0) {
 			return QAccessiblePlugin::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QAccessiblePlugin_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -82,10 +86,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QAccessiblePlugin::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QAccessiblePlugin_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -100,10 +106,12 @@ public:
 			QAccessiblePlugin::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QAccessiblePlugin_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QAccessiblePlugin_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -117,10 +125,12 @@ public:
 			QAccessiblePlugin::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QAccessiblePlugin_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QAccessiblePlugin_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -134,10 +144,12 @@ public:
 			QAccessiblePlugin::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QAccessiblePlugin_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QAccessiblePlugin_virtualbase_customEvent(void* self, QEvent* event);
@@ -151,12 +163,14 @@ public:
 			QAccessiblePlugin::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QAccessiblePlugin_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QAccessiblePlugin_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -170,12 +184,14 @@ public:
 			QAccessiblePlugin::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QAccessiblePlugin_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QAccessiblePlugin_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -188,11 +204,11 @@ public:
 };
 
 QAccessiblePlugin* QAccessiblePlugin_new() {
-	return new (std::nothrow) MiqtVirtualQAccessiblePlugin();
+	return new MiqtVirtualQAccessiblePlugin();
 }
 
 QAccessiblePlugin* QAccessiblePlugin_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQAccessiblePlugin(parent);
+	return new MiqtVirtualQAccessiblePlugin(parent);
 }
 
 void QAccessiblePlugin_virtbase(QAccessiblePlugin* src, QObject** outptr_QObject) {
@@ -250,7 +266,7 @@ bool QAccessiblePlugin_override_virtual_create(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__create = slot;
 	return true;
 }
@@ -260,13 +276,15 @@ bool QAccessiblePlugin_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QAccessiblePlugin_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQAccessiblePlugin*>(self)->QAccessiblePlugin::event(event);
+
+	return ( (MiqtVirtualQAccessiblePlugin*)(self) )->QAccessiblePlugin::event(event);
+
 }
 
 bool QAccessiblePlugin_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -274,13 +292,15 @@ bool QAccessiblePlugin_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QAccessiblePlugin_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQAccessiblePlugin*>(self)->QAccessiblePlugin::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQAccessiblePlugin*)(self) )->QAccessiblePlugin::eventFilter(watched, event);
+
 }
 
 bool QAccessiblePlugin_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -288,13 +308,15 @@ bool QAccessiblePlugin_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QAccessiblePlugin_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQAccessiblePlugin*>(self)->QAccessiblePlugin::timerEvent(event);
+
+	( (MiqtVirtualQAccessiblePlugin*)(self) )->QAccessiblePlugin::timerEvent(event);
+
 }
 
 bool QAccessiblePlugin_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -302,13 +324,15 @@ bool QAccessiblePlugin_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QAccessiblePlugin_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQAccessiblePlugin*>(self)->QAccessiblePlugin::childEvent(event);
+
+	( (MiqtVirtualQAccessiblePlugin*)(self) )->QAccessiblePlugin::childEvent(event);
+
 }
 
 bool QAccessiblePlugin_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -316,13 +340,15 @@ bool QAccessiblePlugin_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QAccessiblePlugin_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQAccessiblePlugin*>(self)->QAccessiblePlugin::customEvent(event);
+
+	( (MiqtVirtualQAccessiblePlugin*)(self) )->QAccessiblePlugin::customEvent(event);
+
 }
 
 bool QAccessiblePlugin_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -330,13 +356,15 @@ bool QAccessiblePlugin_override_virtual_connectNotify(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QAccessiblePlugin_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQAccessiblePlugin*>(self)->QAccessiblePlugin::connectNotify(*signal);
+
+	( (MiqtVirtualQAccessiblePlugin*)(self) )->QAccessiblePlugin::connectNotify(*signal);
+
 }
 
 bool QAccessiblePlugin_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -344,13 +372,15 @@ bool QAccessiblePlugin_override_virtual_disconnectNotify(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QAccessiblePlugin_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQAccessiblePlugin*>(self)->QAccessiblePlugin::disconnectNotify(*signal);
+
+	( (MiqtVirtualQAccessiblePlugin*)(self) )->QAccessiblePlugin::disconnectNotify(*signal);
+
 }
 
 QObject* QAccessiblePlugin_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -359,9 +389,11 @@ QObject* QAccessiblePlugin_protectedbase_sender(bool* _dynamic_cast_ok, const vo
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QAccessiblePlugin_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -370,9 +402,11 @@ int QAccessiblePlugin_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, co
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QAccessiblePlugin_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -381,9 +415,11 @@ int QAccessiblePlugin_protectedbase_receivers(bool* _dynamic_cast_ok, const void
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QAccessiblePlugin_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -392,9 +428,11 @@ bool QAccessiblePlugin_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, c
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QAccessiblePlugin_delete(QAccessiblePlugin* self) {

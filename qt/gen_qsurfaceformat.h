@@ -66,7 +66,6 @@ void QSurfaceFormat_setColorSpace(QSurfaceFormat* self, int colorSpace);
 void QSurfaceFormat_setDefaultFormat(QSurfaceFormat* format);
 QSurfaceFormat* QSurfaceFormat_defaultFormat();
 void QSurfaceFormat_setOption2(QSurfaceFormat* self, int option, bool on);
-
 void QSurfaceFormat_delete(QSurfaceFormat* self);
 
 #ifdef __cplusplus

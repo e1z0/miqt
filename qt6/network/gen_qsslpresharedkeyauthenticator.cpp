@@ -12,11 +12,11 @@ extern "C" {
 #endif
 
 QSslPreSharedKeyAuthenticator* QSslPreSharedKeyAuthenticator_new() {
-	return new (std::nothrow) QSslPreSharedKeyAuthenticator();
+	return new QSslPreSharedKeyAuthenticator();
 }
 
 QSslPreSharedKeyAuthenticator* QSslPreSharedKeyAuthenticator_new2(QSslPreSharedKeyAuthenticator* authenticator) {
-	return new (std::nothrow) QSslPreSharedKeyAuthenticator(*authenticator);
+	return new QSslPreSharedKeyAuthenticator(*authenticator);
 }
 
 void QSslPreSharedKeyAuthenticator_operatorAssign(QSslPreSharedKeyAuthenticator* self, QSslPreSharedKeyAuthenticator* authenticator) {

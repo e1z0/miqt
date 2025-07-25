@@ -71,7 +71,6 @@ bool QJsonValue_operatorNotEqual(const QJsonValue* self, QJsonValue* other);
 bool QJsonValue_toBoolWithDefaultValue(const QJsonValue* self, bool defaultValue);
 int QJsonValue_toIntWithDefaultValue(const QJsonValue* self, int defaultValue);
 double QJsonValue_toDoubleWithDefaultValue(const QJsonValue* self, double defaultValue);
-
 void QJsonValue_delete(QJsonValue* self);
 
 QJsonValueRef* QJsonValueRef_new(QJsonValueRef* param1);
@@ -101,7 +100,6 @@ double QJsonValueRef_toDoubleWithDefaultValue(const QJsonValueRef* self, double 
 struct miqt_string QJsonValueRef_toStringWithDefaultValue(const QJsonValueRef* self, struct miqt_string defaultValue);
 bool QJsonValueRef_operatorEqual(const QJsonValueRef* self, QJsonValue* other);
 bool QJsonValueRef_operatorNotEqual(const QJsonValueRef* self, QJsonValue* other);
-
 void QJsonValueRef_delete(QJsonValueRef* self);
 
 QJsonValuePtr* QJsonValuePtr_new(QJsonValue* val);
@@ -109,7 +107,6 @@ QJsonValuePtr* QJsonValuePtr_new2(QJsonValuePtr* param1);
 QJsonValue* QJsonValuePtr_operatorMultiply(QJsonValuePtr* self);
 QJsonValue* QJsonValuePtr_operatorMinusGreater(QJsonValuePtr* self);
 void QJsonValuePtr_operatorAssign(QJsonValuePtr* self, QJsonValuePtr* param1);
-
 void QJsonValuePtr_delete(QJsonValuePtr* self);
 
 QJsonValueRefPtr* QJsonValueRefPtr_new(QJsonArray* array, int idx);
@@ -118,7 +115,6 @@ QJsonValueRefPtr* QJsonValueRefPtr_new3(QJsonValueRefPtr* param1);
 QJsonValueRef* QJsonValueRefPtr_operatorMultiply(QJsonValueRefPtr* self);
 QJsonValueRef* QJsonValueRefPtr_operatorMinusGreater(QJsonValueRefPtr* self);
 void QJsonValueRefPtr_operatorAssign(QJsonValueRefPtr* self, QJsonValueRefPtr* param1);
-
 void QJsonValueRefPtr_delete(QJsonValueRefPtr* self);
 
 #ifdef __cplusplus

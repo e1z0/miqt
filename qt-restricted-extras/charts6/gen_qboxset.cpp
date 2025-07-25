@@ -42,12 +42,12 @@ void miqt_exec_callback_QBoxSet_disconnectNotify(QBoxSet*, intptr_t, QMetaMethod
 class MiqtVirtualQBoxSet final : public QBoxSet {
 public:
 
-	MiqtVirtualQBoxSet(): QBoxSet() {}
-	MiqtVirtualQBoxSet(const qreal le, const qreal lq, const qreal m, const qreal uq, const qreal ue): QBoxSet(le, lq, m, uq, ue) {}
-	MiqtVirtualQBoxSet(const QString label): QBoxSet(label) {}
-	MiqtVirtualQBoxSet(const QString label, QObject* parent): QBoxSet(label, parent) {}
-	MiqtVirtualQBoxSet(const qreal le, const qreal lq, const qreal m, const qreal uq, const qreal ue, const QString label): QBoxSet(le, lq, m, uq, ue, label) {}
-	MiqtVirtualQBoxSet(const qreal le, const qreal lq, const qreal m, const qreal uq, const qreal ue, const QString label, QObject* parent): QBoxSet(le, lq, m, uq, ue, label, parent) {}
+	MiqtVirtualQBoxSet(): QBoxSet() {};
+	MiqtVirtualQBoxSet(const qreal le, const qreal lq, const qreal m, const qreal uq, const qreal ue): QBoxSet(le, lq, m, uq, ue) {};
+	MiqtVirtualQBoxSet(const QString label): QBoxSet(label) {};
+	MiqtVirtualQBoxSet(const QString label, QObject* parent): QBoxSet(label, parent) {};
+	MiqtVirtualQBoxSet(const qreal le, const qreal lq, const qreal m, const qreal uq, const qreal ue, const QString label): QBoxSet(le, lq, m, uq, ue, label) {};
+	MiqtVirtualQBoxSet(const qreal le, const qreal lq, const qreal m, const qreal uq, const qreal ue, const QString label, QObject* parent): QBoxSet(le, lq, m, uq, ue, label, parent) {};
 
 	virtual ~MiqtVirtualQBoxSet() override = default;
 
@@ -59,9 +59,11 @@ public:
 		if (handle__event == 0) {
 			return QBoxSet::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QBoxSet_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -75,10 +77,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QBoxSet::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QBoxSet_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -93,10 +97,12 @@ public:
 			QBoxSet::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QBoxSet_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QBoxSet_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -110,10 +116,12 @@ public:
 			QBoxSet::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QBoxSet_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QBoxSet_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -127,10 +135,12 @@ public:
 			QBoxSet::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QBoxSet_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QBoxSet_virtualbase_customEvent(void* self, QEvent* event);
@@ -144,12 +154,14 @@ public:
 			QBoxSet::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QBoxSet_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QBoxSet_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -163,12 +175,14 @@ public:
 			QBoxSet::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QBoxSet_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QBoxSet_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -181,31 +195,31 @@ public:
 };
 
 QBoxSet* QBoxSet_new() {
-	return new (std::nothrow) MiqtVirtualQBoxSet();
+	return new MiqtVirtualQBoxSet();
 }
 
 QBoxSet* QBoxSet_new2(const double le, const double lq, const double m, const double uq, const double ue) {
-	return new (std::nothrow) MiqtVirtualQBoxSet(static_cast<const qreal>(le), static_cast<const qreal>(lq), static_cast<const qreal>(m), static_cast<const qreal>(uq), static_cast<const qreal>(ue));
+	return new MiqtVirtualQBoxSet(static_cast<const qreal>(le), static_cast<const qreal>(lq), static_cast<const qreal>(m), static_cast<const qreal>(uq), static_cast<const qreal>(ue));
 }
 
 QBoxSet* QBoxSet_new3(struct miqt_string label) {
 	QString label_QString = QString::fromUtf8(label.data, label.len);
-	return new (std::nothrow) MiqtVirtualQBoxSet(label_QString);
+	return new MiqtVirtualQBoxSet(label_QString);
 }
 
 QBoxSet* QBoxSet_new4(struct miqt_string label, QObject* parent) {
 	QString label_QString = QString::fromUtf8(label.data, label.len);
-	return new (std::nothrow) MiqtVirtualQBoxSet(label_QString, parent);
+	return new MiqtVirtualQBoxSet(label_QString, parent);
 }
 
 QBoxSet* QBoxSet_new5(const double le, const double lq, const double m, const double uq, const double ue, struct miqt_string label) {
 	QString label_QString = QString::fromUtf8(label.data, label.len);
-	return new (std::nothrow) MiqtVirtualQBoxSet(static_cast<const qreal>(le), static_cast<const qreal>(lq), static_cast<const qreal>(m), static_cast<const qreal>(uq), static_cast<const qreal>(ue), label_QString);
+	return new MiqtVirtualQBoxSet(static_cast<const qreal>(le), static_cast<const qreal>(lq), static_cast<const qreal>(m), static_cast<const qreal>(uq), static_cast<const qreal>(ue), label_QString);
 }
 
 QBoxSet* QBoxSet_new6(const double le, const double lq, const double m, const double uq, const double ue, struct miqt_string label, QObject* parent) {
 	QString label_QString = QString::fromUtf8(label.data, label.len);
-	return new (std::nothrow) MiqtVirtualQBoxSet(static_cast<const qreal>(le), static_cast<const qreal>(lq), static_cast<const qreal>(m), static_cast<const qreal>(uq), static_cast<const qreal>(ue), label_QString, parent);
+	return new MiqtVirtualQBoxSet(static_cast<const qreal>(le), static_cast<const qreal>(lq), static_cast<const qreal>(m), static_cast<const qreal>(uq), static_cast<const qreal>(ue), label_QString, parent);
 }
 
 void QBoxSet_virtbase(QBoxSet* src, QObject** outptr_QObject) {
@@ -310,7 +324,7 @@ void QBoxSet_clicked(QBoxSet* self) {
 }
 
 void QBoxSet_connect_clicked(QBoxSet* self, intptr_t slot) {
-	QBoxSet::connect(self, static_cast<void (QBoxSet::*)()>(&QBoxSet::clicked), self, [=]() {
+	MiqtVirtualQBoxSet::connect(self, static_cast<void (QBoxSet::*)()>(&QBoxSet::clicked), self, [=]() {
 		miqt_exec_callback_QBoxSet_clicked(slot);
 	});
 }
@@ -320,7 +334,7 @@ void QBoxSet_hovered(QBoxSet* self, bool status) {
 }
 
 void QBoxSet_connect_hovered(QBoxSet* self, intptr_t slot) {
-	QBoxSet::connect(self, static_cast<void (QBoxSet::*)(bool)>(&QBoxSet::hovered), self, [=](bool status) {
+	MiqtVirtualQBoxSet::connect(self, static_cast<void (QBoxSet::*)(bool)>(&QBoxSet::hovered), self, [=](bool status) {
 		bool sigval1 = status;
 		miqt_exec_callback_QBoxSet_hovered(slot, sigval1);
 	});
@@ -331,7 +345,7 @@ void QBoxSet_pressed(QBoxSet* self) {
 }
 
 void QBoxSet_connect_pressed(QBoxSet* self, intptr_t slot) {
-	QBoxSet::connect(self, static_cast<void (QBoxSet::*)()>(&QBoxSet::pressed), self, [=]() {
+	MiqtVirtualQBoxSet::connect(self, static_cast<void (QBoxSet::*)()>(&QBoxSet::pressed), self, [=]() {
 		miqt_exec_callback_QBoxSet_pressed(slot);
 	});
 }
@@ -341,7 +355,7 @@ void QBoxSet_released(QBoxSet* self) {
 }
 
 void QBoxSet_connect_released(QBoxSet* self, intptr_t slot) {
-	QBoxSet::connect(self, static_cast<void (QBoxSet::*)()>(&QBoxSet::released), self, [=]() {
+	MiqtVirtualQBoxSet::connect(self, static_cast<void (QBoxSet::*)()>(&QBoxSet::released), self, [=]() {
 		miqt_exec_callback_QBoxSet_released(slot);
 	});
 }
@@ -351,7 +365,7 @@ void QBoxSet_doubleClicked(QBoxSet* self) {
 }
 
 void QBoxSet_connect_doubleClicked(QBoxSet* self, intptr_t slot) {
-	QBoxSet::connect(self, static_cast<void (QBoxSet::*)()>(&QBoxSet::doubleClicked), self, [=]() {
+	MiqtVirtualQBoxSet::connect(self, static_cast<void (QBoxSet::*)()>(&QBoxSet::doubleClicked), self, [=]() {
 		miqt_exec_callback_QBoxSet_doubleClicked(slot);
 	});
 }
@@ -361,7 +375,7 @@ void QBoxSet_penChanged(QBoxSet* self) {
 }
 
 void QBoxSet_connect_penChanged(QBoxSet* self, intptr_t slot) {
-	QBoxSet::connect(self, static_cast<void (QBoxSet::*)()>(&QBoxSet::penChanged), self, [=]() {
+	MiqtVirtualQBoxSet::connect(self, static_cast<void (QBoxSet::*)()>(&QBoxSet::penChanged), self, [=]() {
 		miqt_exec_callback_QBoxSet_penChanged(slot);
 	});
 }
@@ -371,7 +385,7 @@ void QBoxSet_brushChanged(QBoxSet* self) {
 }
 
 void QBoxSet_connect_brushChanged(QBoxSet* self, intptr_t slot) {
-	QBoxSet::connect(self, static_cast<void (QBoxSet::*)()>(&QBoxSet::brushChanged), self, [=]() {
+	MiqtVirtualQBoxSet::connect(self, static_cast<void (QBoxSet::*)()>(&QBoxSet::brushChanged), self, [=]() {
 		miqt_exec_callback_QBoxSet_brushChanged(slot);
 	});
 }
@@ -381,7 +395,7 @@ void QBoxSet_valuesChanged(QBoxSet* self) {
 }
 
 void QBoxSet_connect_valuesChanged(QBoxSet* self, intptr_t slot) {
-	QBoxSet::connect(self, static_cast<void (QBoxSet::*)()>(&QBoxSet::valuesChanged), self, [=]() {
+	MiqtVirtualQBoxSet::connect(self, static_cast<void (QBoxSet::*)()>(&QBoxSet::valuesChanged), self, [=]() {
 		miqt_exec_callback_QBoxSet_valuesChanged(slot);
 	});
 }
@@ -391,7 +405,7 @@ void QBoxSet_valueChanged(QBoxSet* self, int index) {
 }
 
 void QBoxSet_connect_valueChanged(QBoxSet* self, intptr_t slot) {
-	QBoxSet::connect(self, static_cast<void (QBoxSet::*)(int)>(&QBoxSet::valueChanged), self, [=](int index) {
+	MiqtVirtualQBoxSet::connect(self, static_cast<void (QBoxSet::*)(int)>(&QBoxSet::valueChanged), self, [=](int index) {
 		int sigval1 = index;
 		miqt_exec_callback_QBoxSet_valueChanged(slot, sigval1);
 	});
@@ -402,7 +416,7 @@ void QBoxSet_cleared(QBoxSet* self) {
 }
 
 void QBoxSet_connect_cleared(QBoxSet* self, intptr_t slot) {
-	QBoxSet::connect(self, static_cast<void (QBoxSet::*)()>(&QBoxSet::cleared), self, [=]() {
+	MiqtVirtualQBoxSet::connect(self, static_cast<void (QBoxSet::*)()>(&QBoxSet::cleared), self, [=]() {
 		miqt_exec_callback_QBoxSet_cleared(slot);
 	});
 }
@@ -434,13 +448,15 @@ bool QBoxSet_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QBoxSet_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQBoxSet*>(self)->QBoxSet::event(event);
+
+	return ( (MiqtVirtualQBoxSet*)(self) )->QBoxSet::event(event);
+
 }
 
 bool QBoxSet_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -448,13 +464,15 @@ bool QBoxSet_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QBoxSet_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQBoxSet*>(self)->QBoxSet::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQBoxSet*)(self) )->QBoxSet::eventFilter(watched, event);
+
 }
 
 bool QBoxSet_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -462,13 +480,15 @@ bool QBoxSet_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QBoxSet_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQBoxSet*>(self)->QBoxSet::timerEvent(event);
+
+	( (MiqtVirtualQBoxSet*)(self) )->QBoxSet::timerEvent(event);
+
 }
 
 bool QBoxSet_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -476,13 +496,15 @@ bool QBoxSet_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QBoxSet_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQBoxSet*>(self)->QBoxSet::childEvent(event);
+
+	( (MiqtVirtualQBoxSet*)(self) )->QBoxSet::childEvent(event);
+
 }
 
 bool QBoxSet_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -490,13 +512,15 @@ bool QBoxSet_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QBoxSet_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQBoxSet*>(self)->QBoxSet::customEvent(event);
+
+	( (MiqtVirtualQBoxSet*)(self) )->QBoxSet::customEvent(event);
+
 }
 
 bool QBoxSet_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -504,13 +528,15 @@ bool QBoxSet_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QBoxSet_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQBoxSet*>(self)->QBoxSet::connectNotify(*signal);
+
+	( (MiqtVirtualQBoxSet*)(self) )->QBoxSet::connectNotify(*signal);
+
 }
 
 bool QBoxSet_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -518,13 +544,15 @@ bool QBoxSet_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QBoxSet_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQBoxSet*>(self)->QBoxSet::disconnectNotify(*signal);
+
+	( (MiqtVirtualQBoxSet*)(self) )->QBoxSet::disconnectNotify(*signal);
+
 }
 
 QObject* QBoxSet_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -533,9 +561,11 @@ QObject* QBoxSet_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) 
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QBoxSet_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -544,9 +574,11 @@ int QBoxSet_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QBoxSet_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -555,9 +587,11 @@ int QBoxSet_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, co
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QBoxSet_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -566,9 +600,11 @@ bool QBoxSet_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void*
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QBoxSet_delete(QBoxSet* self) {

@@ -34,7 +34,7 @@ void miqt_exec_callback_QDrag_disconnectNotify(QDrag*, intptr_t, QMetaMethod*);
 class MiqtVirtualQDrag final : public QDrag {
 public:
 
-	MiqtVirtualQDrag(QObject* dragSource): QDrag(dragSource) {}
+	MiqtVirtualQDrag(QObject* dragSource): QDrag(dragSource) {};
 
 	virtual ~MiqtVirtualQDrag() override = default;
 
@@ -46,9 +46,11 @@ public:
 		if (handle__event == 0) {
 			return QDrag::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QDrag_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -62,10 +64,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QDrag::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QDrag_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -80,10 +84,12 @@ public:
 			QDrag::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QDrag_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QDrag_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -97,10 +103,12 @@ public:
 			QDrag::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QDrag_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QDrag_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -114,10 +122,12 @@ public:
 			QDrag::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QDrag_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QDrag_virtualbase_customEvent(void* self, QEvent* event);
@@ -131,12 +141,14 @@ public:
 			QDrag::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QDrag_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QDrag_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -150,12 +162,14 @@ public:
 			QDrag::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QDrag_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QDrag_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -168,7 +182,7 @@ public:
 };
 
 QDrag* QDrag_new(QObject* dragSource) {
-	return new (std::nothrow) MiqtVirtualQDrag(dragSource);
+	return new MiqtVirtualQDrag(dragSource);
 }
 
 void QDrag_virtbase(QDrag* src, QObject** outptr_QObject) {
@@ -279,7 +293,7 @@ void QDrag_actionChanged(QDrag* self, int action) {
 }
 
 void QDrag_connect_actionChanged(QDrag* self, intptr_t slot) {
-	QDrag::connect(self, static_cast<void (QDrag::*)(Qt::DropAction)>(&QDrag::actionChanged), self, [=](Qt::DropAction action) {
+	MiqtVirtualQDrag::connect(self, static_cast<void (QDrag::*)(Qt::DropAction)>(&QDrag::actionChanged), self, [=](Qt::DropAction action) {
 		Qt::DropAction action_ret = action;
 		int sigval1 = static_cast<int>(action_ret);
 		miqt_exec_callback_QDrag_actionChanged(slot, sigval1);
@@ -291,7 +305,7 @@ void QDrag_targetChanged(QDrag* self, QObject* newTarget) {
 }
 
 void QDrag_connect_targetChanged(QDrag* self, intptr_t slot) {
-	QDrag::connect(self, static_cast<void (QDrag::*)(QObject*)>(&QDrag::targetChanged), self, [=](QObject* newTarget) {
+	MiqtVirtualQDrag::connect(self, static_cast<void (QDrag::*)(QObject*)>(&QDrag::targetChanged), self, [=](QObject* newTarget) {
 		QObject* sigval1 = newTarget;
 		miqt_exec_callback_QDrag_targetChanged(slot, sigval1);
 	});
@@ -356,13 +370,15 @@ bool QDrag_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QDrag_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQDrag*>(self)->QDrag::event(event);
+
+	return ( (MiqtVirtualQDrag*)(self) )->QDrag::event(event);
+
 }
 
 bool QDrag_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -370,13 +386,15 @@ bool QDrag_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QDrag_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQDrag*>(self)->QDrag::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQDrag*)(self) )->QDrag::eventFilter(watched, event);
+
 }
 
 bool QDrag_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -384,13 +402,15 @@ bool QDrag_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QDrag_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQDrag*>(self)->QDrag::timerEvent(event);
+
+	( (MiqtVirtualQDrag*)(self) )->QDrag::timerEvent(event);
+
 }
 
 bool QDrag_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -398,13 +418,15 @@ bool QDrag_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QDrag_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQDrag*>(self)->QDrag::childEvent(event);
+
+	( (MiqtVirtualQDrag*)(self) )->QDrag::childEvent(event);
+
 }
 
 bool QDrag_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -412,13 +434,15 @@ bool QDrag_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QDrag_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQDrag*>(self)->QDrag::customEvent(event);
+
+	( (MiqtVirtualQDrag*)(self) )->QDrag::customEvent(event);
+
 }
 
 bool QDrag_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -426,13 +450,15 @@ bool QDrag_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QDrag_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQDrag*>(self)->QDrag::connectNotify(*signal);
+
+	( (MiqtVirtualQDrag*)(self) )->QDrag::connectNotify(*signal);
+
 }
 
 bool QDrag_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -440,13 +466,15 @@ bool QDrag_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QDrag_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQDrag*>(self)->QDrag::disconnectNotify(*signal);
+
+	( (MiqtVirtualQDrag*)(self) )->QDrag::disconnectNotify(*signal);
+
 }
 
 QObject* QDrag_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -455,9 +483,11 @@ QObject* QDrag_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QDrag_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -466,9 +496,11 @@ int QDrag_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* se
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QDrag_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -477,9 +509,11 @@ int QDrag_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, cons
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QDrag_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -488,9 +522,11 @@ bool QDrag_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* s
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QDrag_delete(QDrag* self) {

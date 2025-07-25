@@ -50,7 +50,6 @@ struct miqt_string QCameraExposureControl_tr2(const char* s, const char* c);
 struct miqt_string QCameraExposureControl_tr3(const char* s, const char* c, int n);
 struct miqt_string QCameraExposureControl_trUtf82(const char* s, const char* c);
 struct miqt_string QCameraExposureControl_trUtf83(const char* s, const char* c, int n);
-
 void QCameraExposureControl_delete(QCameraExposureControl* self);
 
 #ifdef __cplusplus

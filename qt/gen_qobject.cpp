@@ -24,7 +24,6 @@ extern "C" {
 
 void miqt_exec_callback_QObject_destroyed(intptr_t);
 void miqt_exec_callback_QObject_destroyedWithQObject(intptr_t, QObject*);
-void miqt_exec_callback_QObject_objectNameChanged(intptr_t, struct miqt_string);
 bool miqt_exec_callback_QObject_event(QObject*, intptr_t, QEvent*);
 bool miqt_exec_callback_QObject_eventFilter(QObject*, intptr_t, QObject*, QEvent*);
 void miqt_exec_callback_QObject_timerEvent(QObject*, intptr_t, QTimerEvent*);
@@ -47,8 +46,8 @@ void QObjectData_delete(QObjectData* self) {
 class MiqtVirtualQObject final : public QObject {
 public:
 
-	MiqtVirtualQObject(): QObject() {}
-	MiqtVirtualQObject(QObject* parent): QObject(parent) {}
+	MiqtVirtualQObject(): QObject() {};
+	MiqtVirtualQObject(QObject* parent): QObject(parent) {};
 
 	virtual ~MiqtVirtualQObject() override = default;
 
@@ -60,9 +59,11 @@ public:
 		if (handle__event == 0) {
 			return QObject::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QObject_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -76,10 +77,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QObject::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QObject_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -94,10 +97,12 @@ public:
 			QObject::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QObject_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QObject_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -111,10 +116,12 @@ public:
 			QObject::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QObject_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QObject_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -128,10 +135,12 @@ public:
 			QObject::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QObject_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QObject_virtualbase_customEvent(void* self, QEvent* event);
@@ -145,12 +154,14 @@ public:
 			QObject::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QObject_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QObject_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -164,12 +175,14 @@ public:
 			QObject::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QObject_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QObject_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -182,11 +195,11 @@ public:
 };
 
 QObject* QObject_new() {
-	return new (std::nothrow) MiqtVirtualQObject();
+	return new MiqtVirtualQObject();
 }
 
 QObject* QObject_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQObject(parent);
+	return new MiqtVirtualQObject(parent);
 }
 
 QMetaObject* QObject_metaObject(const QObject* self) {
@@ -376,7 +389,7 @@ void QObject_destroyed(QObject* self) {
 }
 
 void QObject_connect_destroyed(QObject* self, intptr_t slot) {
-	QObject::connect(self, static_cast<void (QObject::*)(QObject*)>(&QObject::destroyed), self, [=]() {
+	MiqtVirtualQObject::connect(self, static_cast<void (QObject::*)(QObject*)>(&QObject::destroyed), self, [=]() {
 		miqt_exec_callback_QObject_destroyed(slot);
 	});
 }
@@ -454,7 +467,7 @@ void QObject_destroyedWithQObject(QObject* self, QObject* param1) {
 }
 
 void QObject_connect_destroyedWithQObject(QObject* self, intptr_t slot) {
-	QObject::connect(self, static_cast<void (QObject::*)(QObject*)>(&QObject::destroyed), self, [=](QObject* param1) {
+	MiqtVirtualQObject::connect(self, static_cast<void (QObject::*)(QObject*)>(&QObject::destroyed), self, [=](QObject* param1) {
 		QObject* sigval1 = param1;
 		miqt_exec_callback_QObject_destroyedWithQObject(slot, sigval1);
 	});
@@ -465,13 +478,15 @@ bool QObject_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QObject_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQObject*>(self)->QObject::event(event);
+
+	return ( (MiqtVirtualQObject*)(self) )->QObject::event(event);
+
 }
 
 bool QObject_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -479,13 +494,15 @@ bool QObject_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QObject_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQObject*>(self)->QObject::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQObject*)(self) )->QObject::eventFilter(watched, event);
+
 }
 
 bool QObject_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -493,13 +510,15 @@ bool QObject_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QObject_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQObject*>(self)->QObject::timerEvent(event);
+
+	( (MiqtVirtualQObject*)(self) )->QObject::timerEvent(event);
+
 }
 
 bool QObject_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -507,13 +526,15 @@ bool QObject_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QObject_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQObject*>(self)->QObject::childEvent(event);
+
+	( (MiqtVirtualQObject*)(self) )->QObject::childEvent(event);
+
 }
 
 bool QObject_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -521,13 +542,15 @@ bool QObject_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QObject_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQObject*>(self)->QObject::customEvent(event);
+
+	( (MiqtVirtualQObject*)(self) )->QObject::customEvent(event);
+
 }
 
 bool QObject_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -535,13 +558,15 @@ bool QObject_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QObject_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQObject*>(self)->QObject::connectNotify(*signal);
+
+	( (MiqtVirtualQObject*)(self) )->QObject::connectNotify(*signal);
+
 }
 
 bool QObject_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -549,13 +574,15 @@ bool QObject_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QObject_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQObject*>(self)->QObject::disconnectNotify(*signal);
+
+	( (MiqtVirtualQObject*)(self) )->QObject::disconnectNotify(*signal);
+
 }
 
 QObject* QObject_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -564,9 +591,11 @@ QObject* QObject_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) 
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QObject_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -575,9 +604,11 @@ int QObject_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QObject_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -586,9 +617,11 @@ int QObject_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, co
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QObject_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -597,23 +630,11 @@ bool QObject_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void*
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
-}
 
-void QObject_connect_objectNameChanged(QObject* self, intptr_t slot) {
-	QObject::connect(self, &QObject::objectNameChanged, self, [=](const QString& objectName) {
-		const QString objectName_ret = objectName;
-		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-		QByteArray objectName_b = objectName_ret.toUtf8();
-		struct miqt_string objectName_ms;
-		objectName_ms.len = objectName_b.length();
-		objectName_ms.data = static_cast<char*>(malloc(objectName_ms.len));
-		memcpy(objectName_ms.data, objectName_b.data(), objectName_ms.len);
-		struct miqt_string sigval1 = objectName_ms;
-		miqt_exec_callback_QObject_objectNameChanged(slot, sigval1);
-	});
 }
 
 void QObject_delete(QObject* self) {
@@ -621,7 +642,7 @@ void QObject_delete(QObject* self) {
 }
 
 QObjectUserData* QObjectUserData_new() {
-	return new (std::nothrow) QObjectUserData();
+	return new QObjectUserData();
 }
 
 void QObjectUserData_delete(QObjectUserData* self) {
@@ -629,11 +650,11 @@ void QObjectUserData_delete(QObjectUserData* self) {
 }
 
 QSignalBlocker* QSignalBlocker_new(QObject* o) {
-	return new (std::nothrow) QSignalBlocker(o);
+	return new QSignalBlocker(o);
 }
 
 QSignalBlocker* QSignalBlocker_new2(QObject* o) {
-	return new (std::nothrow) QSignalBlocker(*o);
+	return new QSignalBlocker(*o);
 }
 
 void QSignalBlocker_reblock(QSignalBlocker* self) {

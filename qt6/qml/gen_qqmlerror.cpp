@@ -16,11 +16,11 @@ extern "C" {
 #endif
 
 QQmlError* QQmlError_new() {
-	return new (std::nothrow) QQmlError();
+	return new QQmlError();
 }
 
 QQmlError* QQmlError_new2(QQmlError* param1) {
-	return new (std::nothrow) QQmlError(*param1);
+	return new QQmlError(*param1);
 }
 
 void QQmlError_operatorAssign(QQmlError* self, QQmlError* param1) {

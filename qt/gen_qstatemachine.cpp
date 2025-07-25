@@ -24,8 +24,6 @@ extern "C" {
 #endif
 
 void miqt_exec_callback_QStateMachine_runningChanged(intptr_t, bool);
-void miqt_exec_callback_QStateMachine_started(intptr_t);
-void miqt_exec_callback_QStateMachine_stopped(intptr_t);
 bool miqt_exec_callback_QStateMachine_eventFilter(QStateMachine*, intptr_t, QObject*, QEvent*);
 void miqt_exec_callback_QStateMachine_onEntry(QStateMachine*, intptr_t, QEvent*);
 void miqt_exec_callback_QStateMachine_onExit(QStateMachine*, intptr_t, QEvent*);
@@ -46,10 +44,10 @@ void miqt_exec_callback_QStateMachine_disconnectNotify(QStateMachine*, intptr_t,
 class MiqtVirtualQStateMachine final : public QStateMachine {
 public:
 
-	MiqtVirtualQStateMachine(): QStateMachine() {}
-	MiqtVirtualQStateMachine(QState::ChildMode childMode): QStateMachine(childMode) {}
-	MiqtVirtualQStateMachine(QObject* parent): QStateMachine(parent) {}
-	MiqtVirtualQStateMachine(QState::ChildMode childMode, QObject* parent): QStateMachine(childMode, parent) {}
+	MiqtVirtualQStateMachine(): QStateMachine() {};
+	MiqtVirtualQStateMachine(QState::ChildMode childMode): QStateMachine(childMode) {};
+	MiqtVirtualQStateMachine(QObject* parent): QStateMachine(parent) {};
+	MiqtVirtualQStateMachine(QState::ChildMode childMode, QObject* parent): QStateMachine(childMode, parent) {};
 
 	virtual ~MiqtVirtualQStateMachine() override = default;
 
@@ -61,10 +59,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QStateMachine::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QStateMachine_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -79,10 +79,12 @@ public:
 			QStateMachine::onEntry(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QStateMachine_onEntry(this, handle__onEntry, sigval1);
 
+		
 	}
 
 	friend void QStateMachine_virtualbase_onEntry(void* self, QEvent* event);
@@ -96,10 +98,12 @@ public:
 			QStateMachine::onExit(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QStateMachine_onExit(this, handle__onExit, sigval1);
 
+		
 	}
 
 	friend void QStateMachine_virtualbase_onExit(void* self, QEvent* event);
@@ -113,10 +117,12 @@ public:
 			QStateMachine::beginSelectTransitions(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QStateMachine_beginSelectTransitions(this, handle__beginSelectTransitions, sigval1);
 
+		
 	}
 
 	friend void QStateMachine_virtualbase_beginSelectTransitions(void* self, QEvent* event);
@@ -130,10 +136,12 @@ public:
 			QStateMachine::endSelectTransitions(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QStateMachine_endSelectTransitions(this, handle__endSelectTransitions, sigval1);
 
+		
 	}
 
 	friend void QStateMachine_virtualbase_endSelectTransitions(void* self, QEvent* event);
@@ -147,10 +155,12 @@ public:
 			QStateMachine::beginMicrostep(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QStateMachine_beginMicrostep(this, handle__beginMicrostep, sigval1);
 
+		
 	}
 
 	friend void QStateMachine_virtualbase_beginMicrostep(void* self, QEvent* event);
@@ -164,10 +174,12 @@ public:
 			QStateMachine::endMicrostep(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QStateMachine_endMicrostep(this, handle__endMicrostep, sigval1);
 
+		
 	}
 
 	friend void QStateMachine_virtualbase_endMicrostep(void* self, QEvent* event);
@@ -180,9 +192,11 @@ public:
 		if (handle__event == 0) {
 			return QStateMachine::event(e);
 		}
-
+		
 		QEvent* sigval1 = e;
+
 		bool callback_return_value = miqt_exec_callback_QStateMachine_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -197,10 +211,12 @@ public:
 			QStateMachine::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QStateMachine_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QStateMachine_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -214,10 +230,12 @@ public:
 			QStateMachine::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QStateMachine_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QStateMachine_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -231,10 +249,12 @@ public:
 			QStateMachine::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QStateMachine_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QStateMachine_virtualbase_customEvent(void* self, QEvent* event);
@@ -248,12 +268,14 @@ public:
 			QStateMachine::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QStateMachine_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QStateMachine_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -267,12 +289,14 @@ public:
 			QStateMachine::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QStateMachine_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QStateMachine_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -285,19 +309,19 @@ public:
 };
 
 QStateMachine* QStateMachine_new() {
-	return new (std::nothrow) MiqtVirtualQStateMachine();
+	return new MiqtVirtualQStateMachine();
 }
 
 QStateMachine* QStateMachine_new2(int childMode) {
-	return new (std::nothrow) MiqtVirtualQStateMachine(static_cast<QState::ChildMode>(childMode));
+	return new MiqtVirtualQStateMachine(static_cast<QState::ChildMode>(childMode));
 }
 
 QStateMachine* QStateMachine_new3(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQStateMachine(parent);
+	return new MiqtVirtualQStateMachine(parent);
 }
 
 QStateMachine* QStateMachine_new4(int childMode, QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQStateMachine(static_cast<QState::ChildMode>(childMode), parent);
+	return new MiqtVirtualQStateMachine(static_cast<QState::ChildMode>(childMode), parent);
 }
 
 void QStateMachine_virtbase(QStateMachine* src, QState** outptr_QState) {
@@ -452,7 +476,7 @@ void QStateMachine_runningChanged(QStateMachine* self, bool running) {
 }
 
 void QStateMachine_connect_runningChanged(QStateMachine* self, intptr_t slot) {
-	QStateMachine::connect(self, static_cast<void (QStateMachine::*)(bool)>(&QStateMachine::runningChanged), self, [=](bool running) {
+	MiqtVirtualQStateMachine::connect(self, static_cast<void (QStateMachine::*)(bool)>(&QStateMachine::runningChanged), self, [=](bool running) {
 		bool sigval1 = running;
 		miqt_exec_callback_QStateMachine_runningChanged(slot, sigval1);
 	});
@@ -511,13 +535,15 @@ bool QStateMachine_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QStateMachine_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQStateMachine*>(self)->QStateMachine::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQStateMachine*)(self) )->QStateMachine::eventFilter(watched, event);
+
 }
 
 bool QStateMachine_override_virtual_onEntry(void* self, intptr_t slot) {
@@ -525,13 +551,15 @@ bool QStateMachine_override_virtual_onEntry(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__onEntry = slot;
 	return true;
 }
 
 void QStateMachine_virtualbase_onEntry(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQStateMachine*>(self)->QStateMachine::onEntry(event);
+
+	( (MiqtVirtualQStateMachine*)(self) )->QStateMachine::onEntry(event);
+
 }
 
 bool QStateMachine_override_virtual_onExit(void* self, intptr_t slot) {
@@ -539,13 +567,15 @@ bool QStateMachine_override_virtual_onExit(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__onExit = slot;
 	return true;
 }
 
 void QStateMachine_virtualbase_onExit(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQStateMachine*>(self)->QStateMachine::onExit(event);
+
+	( (MiqtVirtualQStateMachine*)(self) )->QStateMachine::onExit(event);
+
 }
 
 bool QStateMachine_override_virtual_beginSelectTransitions(void* self, intptr_t slot) {
@@ -553,13 +583,15 @@ bool QStateMachine_override_virtual_beginSelectTransitions(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__beginSelectTransitions = slot;
 	return true;
 }
 
 void QStateMachine_virtualbase_beginSelectTransitions(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQStateMachine*>(self)->QStateMachine::beginSelectTransitions(event);
+
+	( (MiqtVirtualQStateMachine*)(self) )->QStateMachine::beginSelectTransitions(event);
+
 }
 
 bool QStateMachine_override_virtual_endSelectTransitions(void* self, intptr_t slot) {
@@ -567,13 +599,15 @@ bool QStateMachine_override_virtual_endSelectTransitions(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__endSelectTransitions = slot;
 	return true;
 }
 
 void QStateMachine_virtualbase_endSelectTransitions(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQStateMachine*>(self)->QStateMachine::endSelectTransitions(event);
+
+	( (MiqtVirtualQStateMachine*)(self) )->QStateMachine::endSelectTransitions(event);
+
 }
 
 bool QStateMachine_override_virtual_beginMicrostep(void* self, intptr_t slot) {
@@ -581,13 +615,15 @@ bool QStateMachine_override_virtual_beginMicrostep(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__beginMicrostep = slot;
 	return true;
 }
 
 void QStateMachine_virtualbase_beginMicrostep(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQStateMachine*>(self)->QStateMachine::beginMicrostep(event);
+
+	( (MiqtVirtualQStateMachine*)(self) )->QStateMachine::beginMicrostep(event);
+
 }
 
 bool QStateMachine_override_virtual_endMicrostep(void* self, intptr_t slot) {
@@ -595,13 +631,15 @@ bool QStateMachine_override_virtual_endMicrostep(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__endMicrostep = slot;
 	return true;
 }
 
 void QStateMachine_virtualbase_endMicrostep(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQStateMachine*>(self)->QStateMachine::endMicrostep(event);
+
+	( (MiqtVirtualQStateMachine*)(self) )->QStateMachine::endMicrostep(event);
+
 }
 
 bool QStateMachine_override_virtual_event(void* self, intptr_t slot) {
@@ -609,13 +647,15 @@ bool QStateMachine_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QStateMachine_virtualbase_event(void* self, QEvent* e) {
-	return static_cast<MiqtVirtualQStateMachine*>(self)->QStateMachine::event(e);
+
+	return ( (MiqtVirtualQStateMachine*)(self) )->QStateMachine::event(e);
+
 }
 
 bool QStateMachine_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -623,13 +663,15 @@ bool QStateMachine_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QStateMachine_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQStateMachine*>(self)->QStateMachine::timerEvent(event);
+
+	( (MiqtVirtualQStateMachine*)(self) )->QStateMachine::timerEvent(event);
+
 }
 
 bool QStateMachine_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -637,13 +679,15 @@ bool QStateMachine_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QStateMachine_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQStateMachine*>(self)->QStateMachine::childEvent(event);
+
+	( (MiqtVirtualQStateMachine*)(self) )->QStateMachine::childEvent(event);
+
 }
 
 bool QStateMachine_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -651,13 +695,15 @@ bool QStateMachine_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QStateMachine_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQStateMachine*>(self)->QStateMachine::customEvent(event);
+
+	( (MiqtVirtualQStateMachine*)(self) )->QStateMachine::customEvent(event);
+
 }
 
 bool QStateMachine_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -665,13 +711,15 @@ bool QStateMachine_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QStateMachine_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQStateMachine*>(self)->QStateMachine::connectNotify(*signal);
+
+	( (MiqtVirtualQStateMachine*)(self) )->QStateMachine::connectNotify(*signal);
+
 }
 
 bool QStateMachine_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -679,13 +727,15 @@ bool QStateMachine_override_virtual_disconnectNotify(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QStateMachine_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQStateMachine*>(self)->QStateMachine::disconnectNotify(*signal);
+
+	( (MiqtVirtualQStateMachine*)(self) )->QStateMachine::disconnectNotify(*signal);
+
 }
 
 QObject* QStateMachine_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -694,9 +744,11 @@ QObject* QStateMachine_protectedbase_sender(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QStateMachine_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -705,9 +757,11 @@ int QStateMachine_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QStateMachine_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -716,9 +770,11 @@ int QStateMachine_protectedbase_receivers(bool* _dynamic_cast_ok, const void* se
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QStateMachine_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -727,21 +783,11 @@ bool QStateMachine_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
-}
 
-void QStateMachine_connect_started(QStateMachine* self, intptr_t slot) {
-	QStateMachine::connect(self, &QStateMachine::started, self, [=]() {
-		miqt_exec_callback_QStateMachine_started(slot);
-	});
-}
-
-void QStateMachine_connect_stopped(QStateMachine* self, intptr_t slot) {
-	QStateMachine::connect(self, &QStateMachine::stopped, self, [=]() {
-		miqt_exec_callback_QStateMachine_stopped(slot);
-	});
 }
 
 void QStateMachine_delete(QStateMachine* self) {
@@ -755,11 +801,11 @@ QStateMachine__SignalEvent* QStateMachine__SignalEvent_new(QObject* sender, int 
 	for(size_t i = 0; i < arguments.len; ++i) {
 		arguments_QList.push_back(*(arguments_arr[i]));
 	}
-	return new (std::nothrow) QStateMachine::SignalEvent(sender, static_cast<int>(signalIndex), arguments_QList);
+	return new QStateMachine::SignalEvent(sender, static_cast<int>(signalIndex), arguments_QList);
 }
 
 QStateMachine__SignalEvent* QStateMachine__SignalEvent_new2(QStateMachine__SignalEvent* param1) {
-	return new (std::nothrow) QStateMachine::SignalEvent(*param1);
+	return new QStateMachine::SignalEvent(*param1);
 }
 
 void QStateMachine__SignalEvent_virtbase(QStateMachine__SignalEvent* src, QEvent** outptr_QEvent) {
@@ -792,11 +838,11 @@ void QStateMachine__SignalEvent_delete(QStateMachine__SignalEvent* self) {
 }
 
 QStateMachine__WrappedEvent* QStateMachine__WrappedEvent_new(QObject* object, QEvent* event) {
-	return new (std::nothrow) QStateMachine::WrappedEvent(object, event);
+	return new QStateMachine::WrappedEvent(object, event);
 }
 
 QStateMachine__WrappedEvent* QStateMachine__WrappedEvent_new2(QStateMachine__WrappedEvent* param1) {
-	return new (std::nothrow) QStateMachine::WrappedEvent(*param1);
+	return new QStateMachine::WrappedEvent(*param1);
 }
 
 void QStateMachine__WrappedEvent_virtbase(QStateMachine__WrappedEvent* src, QEvent** outptr_QEvent) {

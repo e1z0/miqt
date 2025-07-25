@@ -193,6 +193,11 @@ const (
 	VsPrivate                   = 3
 )
 
+type ClassParentName struct {
+	Unqualified string
+	Qualified   string
+}
+
 // processClassType parses a single C++ class definition into our intermediate format.
 func processClassType(node map[string]interface{}, addNamePrefix string) (CppClass, error) {
 	var ret CppClass
@@ -265,7 +270,15 @@ func processClassType(node map[string]interface{}, addNamePrefix string) (CppCla
 
 			if typ, ok := base["type"].(map[string]interface{}); ok {
 				if qualType, ok := typ["qualType"].(string); ok {
-					ret.DirectInherits = append(ret.DirectInherits, qualType)
+					// The name that we're inheriting may- or may not- be
+					// Even `qualType` doesn't necessarily figure this out
+					// for us
+					// Stash both the qualified + unqualified names for later
+					// resolution
+					ret.DirectInherits = append(ret.DirectInherits, ClassParentName{
+						Qualified:   addNamePrefix + qualType,
+						Unqualified: qualType,
+					})
 				}
 			}
 		}
@@ -461,15 +474,6 @@ nextMethod:
 				return CppClass{}, err
 			}
 
-			// Check for private signal
-			if i, ok := isPrivateSignal(&mm); ok {
-				// Remove only the QPrivateSignal parameter, keep other parameters
-				mm.Parameters = append(mm.Parameters[:i], mm.Parameters[i+1:]...)
-				mm.IsSignal = true
-				ret.PrivateSignals = append(ret.PrivateSignals, mm)
-				continue nextMethod
-			}
-
 			mm.IsSignal = isSignal && !mm.IsStatic && AllowSignal(mm)
 			mm.IsProtected = (visibility == VsProtected)
 
@@ -522,17 +526,6 @@ func isExplicitlyDeleted(node map[string]interface{}) bool {
 	}
 
 	return false
-}
-
-// isPrivateSignal checks if a method is a private signal by looking for a
-// QPrivateSignal parameter
-func isPrivateSignal(method *CppMethod) (int, bool) {
-	for i, param := range method.Parameters {
-		if strings.HasSuffix(param.ParameterType, "::QPrivateSignal") {
-			return i, true
-		}
-	}
-	return -1, false
 }
 
 // processEnum parses a Clang enum into our CppEnum intermediate format.

@@ -12,11 +12,11 @@ extern "C" {
 #endif
 
 QCameraViewfinderSettings* QCameraViewfinderSettings_new() {
-	return new (std::nothrow) QCameraViewfinderSettings();
+	return new QCameraViewfinderSettings();
 }
 
 QCameraViewfinderSettings* QCameraViewfinderSettings_new2(QCameraViewfinderSettings* other) {
-	return new (std::nothrow) QCameraViewfinderSettings(*other);
+	return new QCameraViewfinderSettings(*other);
 }
 
 void QCameraViewfinderSettings_operatorAssign(QCameraViewfinderSettings* self, QCameraViewfinderSettings* other) {

@@ -156,10 +156,10 @@ void miqt_exec_callback_QPlainTextDocumentLayout_disconnectNotify(QPlainTextDocu
 class MiqtVirtualQPlainTextEdit final : public QPlainTextEdit {
 public:
 
-	MiqtVirtualQPlainTextEdit(QWidget* parent): QPlainTextEdit(parent) {}
-	MiqtVirtualQPlainTextEdit(): QPlainTextEdit() {}
-	MiqtVirtualQPlainTextEdit(const QString& text): QPlainTextEdit(text) {}
-	MiqtVirtualQPlainTextEdit(const QString& text, QWidget* parent): QPlainTextEdit(text, parent) {}
+	MiqtVirtualQPlainTextEdit(QWidget* parent): QPlainTextEdit(parent) {};
+	MiqtVirtualQPlainTextEdit(): QPlainTextEdit() {};
+	MiqtVirtualQPlainTextEdit(const QString& text): QPlainTextEdit(text) {};
+	MiqtVirtualQPlainTextEdit(const QString& text, QWidget* parent): QPlainTextEdit(text, parent) {};
 
 	virtual ~MiqtVirtualQPlainTextEdit() override = default;
 
@@ -171,12 +171,14 @@ public:
 		if (handle__loadResource == 0) {
 			return QPlainTextEdit::loadResource(type, name);
 		}
-
+		
 		int sigval1 = type;
 		const QUrl& name_ret = name;
 		// Cast returned reference into pointer
 		QUrl* sigval2 = const_cast<QUrl*>(&name_ret);
+
 		QVariant* callback_return_value = miqt_exec_callback_QPlainTextEdit_loadResource(this, handle__loadResource, sigval1, sigval2);
+
 		return *callback_return_value;
 	}
 
@@ -190,10 +192,12 @@ public:
 		if (handle__inputMethodQuery == 0) {
 			return QPlainTextEdit::inputMethodQuery(property);
 		}
-
+		
 		Qt::InputMethodQuery property_ret = property;
 		int sigval1 = static_cast<int>(property_ret);
+
 		QVariant* callback_return_value = miqt_exec_callback_QPlainTextEdit_inputMethodQuery(this, handle__inputMethodQuery, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -207,9 +211,11 @@ public:
 		if (handle__event == 0) {
 			return QPlainTextEdit::event(e);
 		}
-
+		
 		QEvent* sigval1 = e;
+
 		bool callback_return_value = miqt_exec_callback_QPlainTextEdit_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -224,10 +230,12 @@ public:
 			QPlainTextEdit::timerEvent(e);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_timerEvent(void* self, QTimerEvent* e);
@@ -241,10 +249,12 @@ public:
 			QPlainTextEdit::keyPressEvent(e);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_keyPressEvent(this, handle__keyPressEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_keyPressEvent(void* self, QKeyEvent* e);
@@ -258,10 +268,12 @@ public:
 			QPlainTextEdit::keyReleaseEvent(e);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_keyReleaseEvent(this, handle__keyReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_keyReleaseEvent(void* self, QKeyEvent* e);
@@ -275,10 +287,12 @@ public:
 			QPlainTextEdit::resizeEvent(e);
 			return;
 		}
-
+		
 		QResizeEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_resizeEvent(this, handle__resizeEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_resizeEvent(void* self, QResizeEvent* e);
@@ -292,10 +306,12 @@ public:
 			QPlainTextEdit::paintEvent(e);
 			return;
 		}
-
+		
 		QPaintEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_paintEvent(this, handle__paintEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_paintEvent(void* self, QPaintEvent* e);
@@ -309,10 +325,12 @@ public:
 			QPlainTextEdit::mousePressEvent(e);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_mousePressEvent(this, handle__mousePressEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_mousePressEvent(void* self, QMouseEvent* e);
@@ -326,10 +344,12 @@ public:
 			QPlainTextEdit::mouseMoveEvent(e);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_mouseMoveEvent(this, handle__mouseMoveEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_mouseMoveEvent(void* self, QMouseEvent* e);
@@ -343,10 +363,12 @@ public:
 			QPlainTextEdit::mouseReleaseEvent(e);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_mouseReleaseEvent(this, handle__mouseReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_mouseReleaseEvent(void* self, QMouseEvent* e);
@@ -360,10 +382,12 @@ public:
 			QPlainTextEdit::mouseDoubleClickEvent(e);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_mouseDoubleClickEvent(this, handle__mouseDoubleClickEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_mouseDoubleClickEvent(void* self, QMouseEvent* e);
@@ -376,9 +400,11 @@ public:
 		if (handle__focusNextPrevChild == 0) {
 			return QPlainTextEdit::focusNextPrevChild(next);
 		}
-
+		
 		bool sigval1 = next;
+
 		bool callback_return_value = miqt_exec_callback_QPlainTextEdit_focusNextPrevChild(this, handle__focusNextPrevChild, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -393,10 +419,12 @@ public:
 			QPlainTextEdit::contextMenuEvent(e);
 			return;
 		}
-
+		
 		QContextMenuEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_contextMenuEvent(this, handle__contextMenuEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_contextMenuEvent(void* self, QContextMenuEvent* e);
@@ -410,10 +438,12 @@ public:
 			QPlainTextEdit::dragEnterEvent(e);
 			return;
 		}
-
+		
 		QDragEnterEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_dragEnterEvent(this, handle__dragEnterEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_dragEnterEvent(void* self, QDragEnterEvent* e);
@@ -427,10 +457,12 @@ public:
 			QPlainTextEdit::dragLeaveEvent(e);
 			return;
 		}
-
+		
 		QDragLeaveEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_dragLeaveEvent(this, handle__dragLeaveEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_dragLeaveEvent(void* self, QDragLeaveEvent* e);
@@ -444,10 +476,12 @@ public:
 			QPlainTextEdit::dragMoveEvent(e);
 			return;
 		}
-
+		
 		QDragMoveEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_dragMoveEvent(this, handle__dragMoveEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_dragMoveEvent(void* self, QDragMoveEvent* e);
@@ -461,10 +495,12 @@ public:
 			QPlainTextEdit::dropEvent(e);
 			return;
 		}
-
+		
 		QDropEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_dropEvent(this, handle__dropEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_dropEvent(void* self, QDropEvent* e);
@@ -478,10 +514,12 @@ public:
 			QPlainTextEdit::focusInEvent(e);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_focusInEvent(this, handle__focusInEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_focusInEvent(void* self, QFocusEvent* e);
@@ -495,10 +533,12 @@ public:
 			QPlainTextEdit::focusOutEvent(e);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_focusOutEvent(this, handle__focusOutEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_focusOutEvent(void* self, QFocusEvent* e);
@@ -512,10 +552,12 @@ public:
 			QPlainTextEdit::showEvent(param1);
 			return;
 		}
-
+		
 		QShowEvent* sigval1 = param1;
+
 		miqt_exec_callback_QPlainTextEdit_showEvent(this, handle__showEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_showEvent(void* self, QShowEvent* param1);
@@ -529,10 +571,12 @@ public:
 			QPlainTextEdit::changeEvent(e);
 			return;
 		}
-
+		
 		QEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_changeEvent(this, handle__changeEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_changeEvent(void* self, QEvent* e);
@@ -546,10 +590,12 @@ public:
 			QPlainTextEdit::wheelEvent(e);
 			return;
 		}
-
+		
 		QWheelEvent* sigval1 = e;
+
 		miqt_exec_callback_QPlainTextEdit_wheelEvent(this, handle__wheelEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_wheelEvent(void* self, QWheelEvent* e);
@@ -562,8 +608,10 @@ public:
 		if (handle__createMimeDataFromSelection == 0) {
 			return QPlainTextEdit::createMimeDataFromSelection();
 		}
+		
 
 		QMimeData* callback_return_value = miqt_exec_callback_QPlainTextEdit_createMimeDataFromSelection(this, handle__createMimeDataFromSelection);
+
 		return callback_return_value;
 	}
 
@@ -577,9 +625,11 @@ public:
 		if (handle__canInsertFromMimeData == 0) {
 			return QPlainTextEdit::canInsertFromMimeData(source);
 		}
-
+		
 		QMimeData* sigval1 = (QMimeData*) source;
+
 		bool callback_return_value = miqt_exec_callback_QPlainTextEdit_canInsertFromMimeData(this, handle__canInsertFromMimeData, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -594,10 +644,12 @@ public:
 			QPlainTextEdit::insertFromMimeData(source);
 			return;
 		}
-
+		
 		QMimeData* sigval1 = (QMimeData*) source;
+
 		miqt_exec_callback_QPlainTextEdit_insertFromMimeData(this, handle__insertFromMimeData, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_insertFromMimeData(void* self, QMimeData* source);
@@ -611,10 +663,12 @@ public:
 			QPlainTextEdit::inputMethodEvent(param1);
 			return;
 		}
-
+		
 		QInputMethodEvent* sigval1 = param1;
+
 		miqt_exec_callback_QPlainTextEdit_inputMethodEvent(this, handle__inputMethodEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* param1);
@@ -628,11 +682,13 @@ public:
 			QPlainTextEdit::scrollContentsBy(dx, dy);
 			return;
 		}
-
+		
 		int sigval1 = dx;
 		int sigval2 = dy;
+
 		miqt_exec_callback_QPlainTextEdit_scrollContentsBy(this, handle__scrollContentsBy, sigval1, sigval2);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_scrollContentsBy(void* self, int dx, int dy);
@@ -646,12 +702,14 @@ public:
 			QPlainTextEdit::doSetTextCursor(cursor);
 			return;
 		}
-
+		
 		const QTextCursor& cursor_ret = cursor;
 		// Cast returned reference into pointer
 		QTextCursor* sigval1 = const_cast<QTextCursor*>(&cursor_ret);
+
 		miqt_exec_callback_QPlainTextEdit_doSetTextCursor(this, handle__doSetTextCursor, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_doSetTextCursor(void* self, QTextCursor* cursor);
@@ -664,8 +722,10 @@ public:
 		if (handle__minimumSizeHint == 0) {
 			return QPlainTextEdit::minimumSizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_QPlainTextEdit_minimumSizeHint(this, handle__minimumSizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -679,8 +739,10 @@ public:
 		if (handle__sizeHint == 0) {
 			return QPlainTextEdit::sizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_QPlainTextEdit_sizeHint(this, handle__sizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -695,10 +757,12 @@ public:
 			QPlainTextEdit::setupViewport(viewport);
 			return;
 		}
-
+		
 		QWidget* sigval1 = viewport;
+
 		miqt_exec_callback_QPlainTextEdit_setupViewport(this, handle__setupViewport, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_setupViewport(void* self, QWidget* viewport);
@@ -711,10 +775,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QPlainTextEdit::eventFilter(param1, param2);
 		}
-
+		
 		QObject* sigval1 = param1;
 		QEvent* sigval2 = param2;
+
 		bool callback_return_value = miqt_exec_callback_QPlainTextEdit_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -728,9 +794,11 @@ public:
 		if (handle__viewportEvent == 0) {
 			return QPlainTextEdit::viewportEvent(param1);
 		}
-
+		
 		QEvent* sigval1 = param1;
+
 		bool callback_return_value = miqt_exec_callback_QPlainTextEdit_viewportEvent(this, handle__viewportEvent, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -744,8 +812,10 @@ public:
 		if (handle__viewportSizeHint == 0) {
 			return QPlainTextEdit::viewportSizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_QPlainTextEdit_viewportSizeHint(this, handle__viewportSizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -759,8 +829,10 @@ public:
 		if (handle__devType == 0) {
 			return QPlainTextEdit::devType();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QPlainTextEdit_devType(this, handle__devType);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -775,10 +847,12 @@ public:
 			QPlainTextEdit::setVisible(visible);
 			return;
 		}
-
+		
 		bool sigval1 = visible;
+
 		miqt_exec_callback_QPlainTextEdit_setVisible(this, handle__setVisible, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_setVisible(void* self, bool visible);
@@ -791,9 +865,11 @@ public:
 		if (handle__heightForWidth == 0) {
 			return QPlainTextEdit::heightForWidth(param1);
 		}
-
+		
 		int sigval1 = param1;
+
 		int callback_return_value = miqt_exec_callback_QPlainTextEdit_heightForWidth(this, handle__heightForWidth, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -807,8 +883,10 @@ public:
 		if (handle__hasHeightForWidth == 0) {
 			return QPlainTextEdit::hasHeightForWidth();
 		}
+		
 
 		bool callback_return_value = miqt_exec_callback_QPlainTextEdit_hasHeightForWidth(this, handle__hasHeightForWidth);
+
 		return callback_return_value;
 	}
 
@@ -822,8 +900,10 @@ public:
 		if (handle__paintEngine == 0) {
 			return QPlainTextEdit::paintEngine();
 		}
+		
 
 		QPaintEngine* callback_return_value = miqt_exec_callback_QPlainTextEdit_paintEngine(this, handle__paintEngine);
+
 		return callback_return_value;
 	}
 
@@ -838,10 +918,12 @@ public:
 			QPlainTextEdit::enterEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QPlainTextEdit_enterEvent(this, handle__enterEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_enterEvent(void* self, QEvent* event);
@@ -855,10 +937,12 @@ public:
 			QPlainTextEdit::leaveEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QPlainTextEdit_leaveEvent(this, handle__leaveEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_leaveEvent(void* self, QEvent* event);
@@ -872,10 +956,12 @@ public:
 			QPlainTextEdit::moveEvent(event);
 			return;
 		}
-
+		
 		QMoveEvent* sigval1 = event;
+
 		miqt_exec_callback_QPlainTextEdit_moveEvent(this, handle__moveEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_moveEvent(void* self, QMoveEvent* event);
@@ -889,10 +975,12 @@ public:
 			QPlainTextEdit::closeEvent(event);
 			return;
 		}
-
+		
 		QCloseEvent* sigval1 = event;
+
 		miqt_exec_callback_QPlainTextEdit_closeEvent(this, handle__closeEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_closeEvent(void* self, QCloseEvent* event);
@@ -906,10 +994,12 @@ public:
 			QPlainTextEdit::tabletEvent(event);
 			return;
 		}
-
+		
 		QTabletEvent* sigval1 = event;
+
 		miqt_exec_callback_QPlainTextEdit_tabletEvent(this, handle__tabletEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_tabletEvent(void* self, QTabletEvent* event);
@@ -923,10 +1013,12 @@ public:
 			QPlainTextEdit::actionEvent(event);
 			return;
 		}
-
+		
 		QActionEvent* sigval1 = event;
+
 		miqt_exec_callback_QPlainTextEdit_actionEvent(this, handle__actionEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_actionEvent(void* self, QActionEvent* event);
@@ -940,10 +1032,12 @@ public:
 			QPlainTextEdit::hideEvent(event);
 			return;
 		}
-
+		
 		QHideEvent* sigval1 = event;
+
 		miqt_exec_callback_QPlainTextEdit_hideEvent(this, handle__hideEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_hideEvent(void* self, QHideEvent* event);
@@ -956,7 +1050,7 @@ public:
 		if (handle__nativeEvent == 0) {
 			return QPlainTextEdit::nativeEvent(eventType, message, result);
 		}
-
+		
 		const QByteArray eventType_qb = eventType;
 		struct miqt_string eventType_ms;
 		eventType_ms.len = eventType_qb.length();
@@ -965,7 +1059,9 @@ public:
 		struct miqt_string sigval1 = eventType_ms;
 		void* sigval2 = message;
 		long* sigval3 = result;
+
 		bool callback_return_value = miqt_exec_callback_QPlainTextEdit_nativeEvent(this, handle__nativeEvent, sigval1, sigval2, sigval3);
+
 		return callback_return_value;
 	}
 
@@ -979,10 +1075,12 @@ public:
 		if (handle__metric == 0) {
 			return QPlainTextEdit::metric(param1);
 		}
-
+		
 		QPaintDevice::PaintDeviceMetric param1_ret = param1;
 		int sigval1 = static_cast<int>(param1_ret);
+
 		int callback_return_value = miqt_exec_callback_QPlainTextEdit_metric(this, handle__metric, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -997,10 +1095,12 @@ public:
 			QPlainTextEdit::initPainter(painter);
 			return;
 		}
-
+		
 		QPainter* sigval1 = painter;
+
 		miqt_exec_callback_QPlainTextEdit_initPainter(this, handle__initPainter, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_initPainter(const void* self, QPainter* painter);
@@ -1013,9 +1113,11 @@ public:
 		if (handle__redirected == 0) {
 			return QPlainTextEdit::redirected(offset);
 		}
-
+		
 		QPoint* sigval1 = offset;
+
 		QPaintDevice* callback_return_value = miqt_exec_callback_QPlainTextEdit_redirected(this, handle__redirected, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -1029,8 +1131,10 @@ public:
 		if (handle__sharedPainter == 0) {
 			return QPlainTextEdit::sharedPainter();
 		}
+		
 
 		QPainter* callback_return_value = miqt_exec_callback_QPlainTextEdit_sharedPainter(this, handle__sharedPainter);
+
 		return callback_return_value;
 	}
 
@@ -1045,10 +1149,12 @@ public:
 			QPlainTextEdit::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QPlainTextEdit_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -1062,10 +1168,12 @@ public:
 			QPlainTextEdit::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QPlainTextEdit_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_customEvent(void* self, QEvent* event);
@@ -1079,12 +1187,14 @@ public:
 			QPlainTextEdit::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QPlainTextEdit_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -1098,12 +1208,14 @@ public:
 			QPlainTextEdit::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QPlainTextEdit_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QPlainTextEdit_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -1131,21 +1243,21 @@ public:
 };
 
 QPlainTextEdit* QPlainTextEdit_new(QWidget* parent) {
-	return new (std::nothrow) MiqtVirtualQPlainTextEdit(parent);
+	return new MiqtVirtualQPlainTextEdit(parent);
 }
 
 QPlainTextEdit* QPlainTextEdit_new2() {
-	return new (std::nothrow) MiqtVirtualQPlainTextEdit();
+	return new MiqtVirtualQPlainTextEdit();
 }
 
 QPlainTextEdit* QPlainTextEdit_new3(struct miqt_string text) {
 	QString text_QString = QString::fromUtf8(text.data, text.len);
-	return new (std::nothrow) MiqtVirtualQPlainTextEdit(text_QString);
+	return new MiqtVirtualQPlainTextEdit(text_QString);
 }
 
 QPlainTextEdit* QPlainTextEdit_new4(struct miqt_string text, QWidget* parent) {
 	QString text_QString = QString::fromUtf8(text.data, text.len);
-	return new (std::nothrow) MiqtVirtualQPlainTextEdit(text_QString, parent);
+	return new MiqtVirtualQPlainTextEdit(text_QString, parent);
 }
 
 void QPlainTextEdit_virtbase(QPlainTextEdit* src, QAbstractScrollArea** outptr_QAbstractScrollArea) {
@@ -1525,7 +1637,7 @@ void QPlainTextEdit_textChanged(QPlainTextEdit* self) {
 }
 
 void QPlainTextEdit_connect_textChanged(QPlainTextEdit* self, intptr_t slot) {
-	QPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)()>(&QPlainTextEdit::textChanged), self, [=]() {
+	MiqtVirtualQPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)()>(&QPlainTextEdit::textChanged), self, [=]() {
 		miqt_exec_callback_QPlainTextEdit_textChanged(slot);
 	});
 }
@@ -1535,7 +1647,7 @@ void QPlainTextEdit_undoAvailable(QPlainTextEdit* self, bool b) {
 }
 
 void QPlainTextEdit_connect_undoAvailable(QPlainTextEdit* self, intptr_t slot) {
-	QPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)(bool)>(&QPlainTextEdit::undoAvailable), self, [=](bool b) {
+	MiqtVirtualQPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)(bool)>(&QPlainTextEdit::undoAvailable), self, [=](bool b) {
 		bool sigval1 = b;
 		miqt_exec_callback_QPlainTextEdit_undoAvailable(slot, sigval1);
 	});
@@ -1546,7 +1658,7 @@ void QPlainTextEdit_redoAvailable(QPlainTextEdit* self, bool b) {
 }
 
 void QPlainTextEdit_connect_redoAvailable(QPlainTextEdit* self, intptr_t slot) {
-	QPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)(bool)>(&QPlainTextEdit::redoAvailable), self, [=](bool b) {
+	MiqtVirtualQPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)(bool)>(&QPlainTextEdit::redoAvailable), self, [=](bool b) {
 		bool sigval1 = b;
 		miqt_exec_callback_QPlainTextEdit_redoAvailable(slot, sigval1);
 	});
@@ -1557,7 +1669,7 @@ void QPlainTextEdit_copyAvailable(QPlainTextEdit* self, bool b) {
 }
 
 void QPlainTextEdit_connect_copyAvailable(QPlainTextEdit* self, intptr_t slot) {
-	QPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)(bool)>(&QPlainTextEdit::copyAvailable), self, [=](bool b) {
+	MiqtVirtualQPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)(bool)>(&QPlainTextEdit::copyAvailable), self, [=](bool b) {
 		bool sigval1 = b;
 		miqt_exec_callback_QPlainTextEdit_copyAvailable(slot, sigval1);
 	});
@@ -1568,7 +1680,7 @@ void QPlainTextEdit_selectionChanged(QPlainTextEdit* self) {
 }
 
 void QPlainTextEdit_connect_selectionChanged(QPlainTextEdit* self, intptr_t slot) {
-	QPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)()>(&QPlainTextEdit::selectionChanged), self, [=]() {
+	MiqtVirtualQPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)()>(&QPlainTextEdit::selectionChanged), self, [=]() {
 		miqt_exec_callback_QPlainTextEdit_selectionChanged(slot);
 	});
 }
@@ -1578,7 +1690,7 @@ void QPlainTextEdit_cursorPositionChanged(QPlainTextEdit* self) {
 }
 
 void QPlainTextEdit_connect_cursorPositionChanged(QPlainTextEdit* self, intptr_t slot) {
-	QPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)()>(&QPlainTextEdit::cursorPositionChanged), self, [=]() {
+	MiqtVirtualQPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)()>(&QPlainTextEdit::cursorPositionChanged), self, [=]() {
 		miqt_exec_callback_QPlainTextEdit_cursorPositionChanged(slot);
 	});
 }
@@ -1588,7 +1700,7 @@ void QPlainTextEdit_updateRequest(QPlainTextEdit* self, QRect* rect, int dy) {
 }
 
 void QPlainTextEdit_connect_updateRequest(QPlainTextEdit* self, intptr_t slot) {
-	QPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)(const QRect&, int)>(&QPlainTextEdit::updateRequest), self, [=](const QRect& rect, int dy) {
+	MiqtVirtualQPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)(const QRect&, int)>(&QPlainTextEdit::updateRequest), self, [=](const QRect& rect, int dy) {
 		const QRect& rect_ret = rect;
 		// Cast returned reference into pointer
 		QRect* sigval1 = const_cast<QRect*>(&rect_ret);
@@ -1602,7 +1714,7 @@ void QPlainTextEdit_blockCountChanged(QPlainTextEdit* self, int newBlockCount) {
 }
 
 void QPlainTextEdit_connect_blockCountChanged(QPlainTextEdit* self, intptr_t slot) {
-	QPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)(int)>(&QPlainTextEdit::blockCountChanged), self, [=](int newBlockCount) {
+	MiqtVirtualQPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)(int)>(&QPlainTextEdit::blockCountChanged), self, [=](int newBlockCount) {
 		int sigval1 = newBlockCount;
 		miqt_exec_callback_QPlainTextEdit_blockCountChanged(slot, sigval1);
 	});
@@ -1613,7 +1725,7 @@ void QPlainTextEdit_modificationChanged(QPlainTextEdit* self, bool param1) {
 }
 
 void QPlainTextEdit_connect_modificationChanged(QPlainTextEdit* self, intptr_t slot) {
-	QPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)(bool)>(&QPlainTextEdit::modificationChanged), self, [=](bool param1) {
+	MiqtVirtualQPlainTextEdit::connect(self, static_cast<void (QPlainTextEdit::*)(bool)>(&QPlainTextEdit::modificationChanged), self, [=](bool param1) {
 		bool sigval1 = param1;
 		miqt_exec_callback_QPlainTextEdit_modificationChanged(slot, sigval1);
 	});
@@ -1693,13 +1805,15 @@ bool QPlainTextEdit_override_virtual_loadResource(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__loadResource = slot;
 	return true;
 }
 
 QVariant* QPlainTextEdit_virtualbase_loadResource(void* self, int type, QUrl* name) {
-	return new QVariant(static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::loadResource(static_cast<int>(type), *name));
+
+	return new QVariant(( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::loadResource(static_cast<int>(type), *name));
+
 }
 
 bool QPlainTextEdit_override_virtual_inputMethodQuery(void* self, intptr_t slot) {
@@ -1707,13 +1821,15 @@ bool QPlainTextEdit_override_virtual_inputMethodQuery(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodQuery = slot;
 	return true;
 }
 
 QVariant* QPlainTextEdit_virtualbase_inputMethodQuery(const void* self, int property) {
-	return new QVariant(static_cast<const MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
+
+	return new QVariant(( (const MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::inputMethodQuery(static_cast<Qt::InputMethodQuery>(property)));
+
 }
 
 bool QPlainTextEdit_override_virtual_event(void* self, intptr_t slot) {
@@ -1721,13 +1837,15 @@ bool QPlainTextEdit_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QPlainTextEdit_virtualbase_event(void* self, QEvent* e) {
-	return static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::event(e);
+
+	return ( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::event(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -1735,13 +1853,15 @@ bool QPlainTextEdit_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_timerEvent(void* self, QTimerEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::timerEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::timerEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_keyPressEvent(void* self, intptr_t slot) {
@@ -1749,13 +1869,15 @@ bool QPlainTextEdit_override_virtual_keyPressEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyPressEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_keyPressEvent(void* self, QKeyEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::keyPressEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::keyPressEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_keyReleaseEvent(void* self, intptr_t slot) {
@@ -1763,13 +1885,15 @@ bool QPlainTextEdit_override_virtual_keyReleaseEvent(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyReleaseEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_keyReleaseEvent(void* self, QKeyEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::keyReleaseEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::keyReleaseEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_resizeEvent(void* self, intptr_t slot) {
@@ -1777,13 +1901,15 @@ bool QPlainTextEdit_override_virtual_resizeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__resizeEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_resizeEvent(void* self, QResizeEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::resizeEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::resizeEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_paintEvent(void* self, intptr_t slot) {
@@ -1791,13 +1917,15 @@ bool QPlainTextEdit_override_virtual_paintEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paintEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_paintEvent(void* self, QPaintEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::paintEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::paintEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_mousePressEvent(void* self, intptr_t slot) {
@@ -1805,13 +1933,15 @@ bool QPlainTextEdit_override_virtual_mousePressEvent(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mousePressEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_mousePressEvent(void* self, QMouseEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::mousePressEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::mousePressEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_mouseMoveEvent(void* self, intptr_t slot) {
@@ -1819,13 +1949,15 @@ bool QPlainTextEdit_override_virtual_mouseMoveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseMoveEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_mouseMoveEvent(void* self, QMouseEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::mouseMoveEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::mouseMoveEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_mouseReleaseEvent(void* self, intptr_t slot) {
@@ -1833,13 +1965,15 @@ bool QPlainTextEdit_override_virtual_mouseReleaseEvent(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseReleaseEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_mouseReleaseEvent(void* self, QMouseEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::mouseReleaseEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::mouseReleaseEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_mouseDoubleClickEvent(void* self, intptr_t slot) {
@@ -1847,13 +1981,15 @@ bool QPlainTextEdit_override_virtual_mouseDoubleClickEvent(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseDoubleClickEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_mouseDoubleClickEvent(void* self, QMouseEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::mouseDoubleClickEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::mouseDoubleClickEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_focusNextPrevChild(void* self, intptr_t slot) {
@@ -1861,13 +1997,15 @@ bool QPlainTextEdit_override_virtual_focusNextPrevChild(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusNextPrevChild = slot;
 	return true;
 }
 
 bool QPlainTextEdit_virtualbase_focusNextPrevChild(void* self, bool next) {
-	return static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::focusNextPrevChild(next);
+
+	return ( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::focusNextPrevChild(next);
+
 }
 
 bool QPlainTextEdit_override_virtual_contextMenuEvent(void* self, intptr_t slot) {
@@ -1875,13 +2013,15 @@ bool QPlainTextEdit_override_virtual_contextMenuEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__contextMenuEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_contextMenuEvent(void* self, QContextMenuEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::contextMenuEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::contextMenuEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_dragEnterEvent(void* self, intptr_t slot) {
@@ -1889,13 +2029,15 @@ bool QPlainTextEdit_override_virtual_dragEnterEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragEnterEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_dragEnterEvent(void* self, QDragEnterEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::dragEnterEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::dragEnterEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_dragLeaveEvent(void* self, intptr_t slot) {
@@ -1903,13 +2045,15 @@ bool QPlainTextEdit_override_virtual_dragLeaveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragLeaveEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_dragLeaveEvent(void* self, QDragLeaveEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::dragLeaveEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::dragLeaveEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_dragMoveEvent(void* self, intptr_t slot) {
@@ -1917,13 +2061,15 @@ bool QPlainTextEdit_override_virtual_dragMoveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragMoveEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_dragMoveEvent(void* self, QDragMoveEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::dragMoveEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::dragMoveEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_dropEvent(void* self, intptr_t slot) {
@@ -1931,13 +2077,15 @@ bool QPlainTextEdit_override_virtual_dropEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dropEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_dropEvent(void* self, QDropEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::dropEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::dropEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_focusInEvent(void* self, intptr_t slot) {
@@ -1945,13 +2093,15 @@ bool QPlainTextEdit_override_virtual_focusInEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusInEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_focusInEvent(void* self, QFocusEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::focusInEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::focusInEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_focusOutEvent(void* self, intptr_t slot) {
@@ -1959,13 +2109,15 @@ bool QPlainTextEdit_override_virtual_focusOutEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusOutEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_focusOutEvent(void* self, QFocusEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::focusOutEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::focusOutEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_showEvent(void* self, intptr_t slot) {
@@ -1973,13 +2125,15 @@ bool QPlainTextEdit_override_virtual_showEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__showEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_showEvent(void* self, QShowEvent* param1) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::showEvent(param1);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::showEvent(param1);
+
 }
 
 bool QPlainTextEdit_override_virtual_changeEvent(void* self, intptr_t slot) {
@@ -1987,13 +2141,15 @@ bool QPlainTextEdit_override_virtual_changeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__changeEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_changeEvent(void* self, QEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::changeEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::changeEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_wheelEvent(void* self, intptr_t slot) {
@@ -2001,13 +2157,15 @@ bool QPlainTextEdit_override_virtual_wheelEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__wheelEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_wheelEvent(void* self, QWheelEvent* e) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::wheelEvent(e);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::wheelEvent(e);
+
 }
 
 bool QPlainTextEdit_override_virtual_createMimeDataFromSelection(void* self, intptr_t slot) {
@@ -2015,13 +2173,15 @@ bool QPlainTextEdit_override_virtual_createMimeDataFromSelection(void* self, int
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__createMimeDataFromSelection = slot;
 	return true;
 }
 
 QMimeData* QPlainTextEdit_virtualbase_createMimeDataFromSelection(const void* self) {
-	return static_cast<const MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::createMimeDataFromSelection();
+
+	return ( (const MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::createMimeDataFromSelection();
+
 }
 
 bool QPlainTextEdit_override_virtual_canInsertFromMimeData(void* self, intptr_t slot) {
@@ -2029,13 +2189,15 @@ bool QPlainTextEdit_override_virtual_canInsertFromMimeData(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__canInsertFromMimeData = slot;
 	return true;
 }
 
 bool QPlainTextEdit_virtualbase_canInsertFromMimeData(const void* self, QMimeData* source) {
-	return static_cast<const MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::canInsertFromMimeData(source);
+
+	return ( (const MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::canInsertFromMimeData(source);
+
 }
 
 bool QPlainTextEdit_override_virtual_insertFromMimeData(void* self, intptr_t slot) {
@@ -2043,13 +2205,15 @@ bool QPlainTextEdit_override_virtual_insertFromMimeData(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__insertFromMimeData = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_insertFromMimeData(void* self, QMimeData* source) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::insertFromMimeData(source);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::insertFromMimeData(source);
+
 }
 
 bool QPlainTextEdit_override_virtual_inputMethodEvent(void* self, intptr_t slot) {
@@ -2057,13 +2221,15 @@ bool QPlainTextEdit_override_virtual_inputMethodEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* param1) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::inputMethodEvent(param1);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::inputMethodEvent(param1);
+
 }
 
 bool QPlainTextEdit_override_virtual_scrollContentsBy(void* self, intptr_t slot) {
@@ -2071,13 +2237,15 @@ bool QPlainTextEdit_override_virtual_scrollContentsBy(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__scrollContentsBy = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_scrollContentsBy(void* self, int dx, int dy) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
+
 }
 
 bool QPlainTextEdit_override_virtual_doSetTextCursor(void* self, intptr_t slot) {
@@ -2085,13 +2253,15 @@ bool QPlainTextEdit_override_virtual_doSetTextCursor(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__doSetTextCursor = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_doSetTextCursor(void* self, QTextCursor* cursor) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::doSetTextCursor(*cursor);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::doSetTextCursor(*cursor);
+
 }
 
 bool QPlainTextEdit_override_virtual_minimumSizeHint(void* self, intptr_t slot) {
@@ -2099,13 +2269,15 @@ bool QPlainTextEdit_override_virtual_minimumSizeHint(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__minimumSizeHint = slot;
 	return true;
 }
 
 QSize* QPlainTextEdit_virtualbase_minimumSizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::minimumSizeHint());
+
+	return new QSize(( (const MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::minimumSizeHint());
+
 }
 
 bool QPlainTextEdit_override_virtual_sizeHint(void* self, intptr_t slot) {
@@ -2113,13 +2285,15 @@ bool QPlainTextEdit_override_virtual_sizeHint(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sizeHint = slot;
 	return true;
 }
 
 QSize* QPlainTextEdit_virtualbase_sizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::sizeHint());
+
+	return new QSize(( (const MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::sizeHint());
+
 }
 
 bool QPlainTextEdit_override_virtual_setupViewport(void* self, intptr_t slot) {
@@ -2127,13 +2301,15 @@ bool QPlainTextEdit_override_virtual_setupViewport(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setupViewport = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_setupViewport(void* self, QWidget* viewport) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::setupViewport(viewport);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::setupViewport(viewport);
+
 }
 
 bool QPlainTextEdit_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -2141,13 +2317,15 @@ bool QPlainTextEdit_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QPlainTextEdit_virtualbase_eventFilter(void* self, QObject* param1, QEvent* param2) {
-	return static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::eventFilter(param1, param2);
+
+	return ( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::eventFilter(param1, param2);
+
 }
 
 bool QPlainTextEdit_override_virtual_viewportEvent(void* self, intptr_t slot) {
@@ -2155,13 +2333,15 @@ bool QPlainTextEdit_override_virtual_viewportEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__viewportEvent = slot;
 	return true;
 }
 
 bool QPlainTextEdit_virtualbase_viewportEvent(void* self, QEvent* param1) {
-	return static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::viewportEvent(param1);
+
+	return ( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::viewportEvent(param1);
+
 }
 
 bool QPlainTextEdit_override_virtual_viewportSizeHint(void* self, intptr_t slot) {
@@ -2169,13 +2349,15 @@ bool QPlainTextEdit_override_virtual_viewportSizeHint(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__viewportSizeHint = slot;
 	return true;
 }
 
 QSize* QPlainTextEdit_virtualbase_viewportSizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::viewportSizeHint());
+
+	return new QSize(( (const MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::viewportSizeHint());
+
 }
 
 bool QPlainTextEdit_override_virtual_devType(void* self, intptr_t slot) {
@@ -2183,13 +2365,15 @@ bool QPlainTextEdit_override_virtual_devType(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__devType = slot;
 	return true;
 }
 
 int QPlainTextEdit_virtualbase_devType(const void* self) {
-	return static_cast<const MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::devType();
+
+	return ( (const MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::devType();
+
 }
 
 bool QPlainTextEdit_override_virtual_setVisible(void* self, intptr_t slot) {
@@ -2197,13 +2381,15 @@ bool QPlainTextEdit_override_virtual_setVisible(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setVisible = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_setVisible(void* self, bool visible) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::setVisible(visible);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::setVisible(visible);
+
 }
 
 bool QPlainTextEdit_override_virtual_heightForWidth(void* self, intptr_t slot) {
@@ -2211,13 +2397,15 @@ bool QPlainTextEdit_override_virtual_heightForWidth(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__heightForWidth = slot;
 	return true;
 }
 
 int QPlainTextEdit_virtualbase_heightForWidth(const void* self, int param1) {
-	return static_cast<const MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::heightForWidth(static_cast<int>(param1));
+
+	return ( (const MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::heightForWidth(static_cast<int>(param1));
+
 }
 
 bool QPlainTextEdit_override_virtual_hasHeightForWidth(void* self, intptr_t slot) {
@@ -2225,13 +2413,15 @@ bool QPlainTextEdit_override_virtual_hasHeightForWidth(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hasHeightForWidth = slot;
 	return true;
 }
 
 bool QPlainTextEdit_virtualbase_hasHeightForWidth(const void* self) {
-	return static_cast<const MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::hasHeightForWidth();
+
+	return ( (const MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::hasHeightForWidth();
+
 }
 
 bool QPlainTextEdit_override_virtual_paintEngine(void* self, intptr_t slot) {
@@ -2239,13 +2429,15 @@ bool QPlainTextEdit_override_virtual_paintEngine(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paintEngine = slot;
 	return true;
 }
 
 QPaintEngine* QPlainTextEdit_virtualbase_paintEngine(const void* self) {
-	return static_cast<const MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::paintEngine();
+
+	return ( (const MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::paintEngine();
+
 }
 
 bool QPlainTextEdit_override_virtual_enterEvent(void* self, intptr_t slot) {
@@ -2253,13 +2445,15 @@ bool QPlainTextEdit_override_virtual_enterEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__enterEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_enterEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::enterEvent(event);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::enterEvent(event);
+
 }
 
 bool QPlainTextEdit_override_virtual_leaveEvent(void* self, intptr_t slot) {
@@ -2267,13 +2461,15 @@ bool QPlainTextEdit_override_virtual_leaveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__leaveEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_leaveEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::leaveEvent(event);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::leaveEvent(event);
+
 }
 
 bool QPlainTextEdit_override_virtual_moveEvent(void* self, intptr_t slot) {
@@ -2281,13 +2477,15 @@ bool QPlainTextEdit_override_virtual_moveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__moveEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_moveEvent(void* self, QMoveEvent* event) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::moveEvent(event);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::moveEvent(event);
+
 }
 
 bool QPlainTextEdit_override_virtual_closeEvent(void* self, intptr_t slot) {
@@ -2295,13 +2493,15 @@ bool QPlainTextEdit_override_virtual_closeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__closeEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_closeEvent(void* self, QCloseEvent* event) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::closeEvent(event);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::closeEvent(event);
+
 }
 
 bool QPlainTextEdit_override_virtual_tabletEvent(void* self, intptr_t slot) {
@@ -2309,13 +2509,15 @@ bool QPlainTextEdit_override_virtual_tabletEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__tabletEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_tabletEvent(void* self, QTabletEvent* event) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::tabletEvent(event);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::tabletEvent(event);
+
 }
 
 bool QPlainTextEdit_override_virtual_actionEvent(void* self, intptr_t slot) {
@@ -2323,13 +2525,15 @@ bool QPlainTextEdit_override_virtual_actionEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__actionEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_actionEvent(void* self, QActionEvent* event) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::actionEvent(event);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::actionEvent(event);
+
 }
 
 bool QPlainTextEdit_override_virtual_hideEvent(void* self, intptr_t slot) {
@@ -2337,13 +2541,15 @@ bool QPlainTextEdit_override_virtual_hideEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hideEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_hideEvent(void* self, QHideEvent* event) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::hideEvent(event);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::hideEvent(event);
+
 }
 
 bool QPlainTextEdit_override_virtual_nativeEvent(void* self, intptr_t slot) {
@@ -2351,14 +2557,16 @@ bool QPlainTextEdit_override_virtual_nativeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__nativeEvent = slot;
 	return true;
 }
 
 bool QPlainTextEdit_virtualbase_nativeEvent(void* self, struct miqt_string eventType, void* message, long* result) {
 	QByteArray eventType_QByteArray(eventType.data, eventType.len);
-	return static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::nativeEvent(eventType_QByteArray, message, static_cast<long*>(result));
+
+	return ( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::nativeEvent(eventType_QByteArray, message, static_cast<long*>(result));
+
 }
 
 bool QPlainTextEdit_override_virtual_metric(void* self, intptr_t slot) {
@@ -2366,13 +2574,15 @@ bool QPlainTextEdit_override_virtual_metric(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__metric = slot;
 	return true;
 }
 
 int QPlainTextEdit_virtualbase_metric(const void* self, int param1) {
-	return static_cast<const MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::metric(static_cast<MiqtVirtualQPlainTextEdit::PaintDeviceMetric>(param1));
+
+	return ( (const MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::metric(static_cast<MiqtVirtualQPlainTextEdit::PaintDeviceMetric>(param1));
+
 }
 
 bool QPlainTextEdit_override_virtual_initPainter(void* self, intptr_t slot) {
@@ -2380,13 +2590,15 @@ bool QPlainTextEdit_override_virtual_initPainter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__initPainter = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_initPainter(const void* self, QPainter* painter) {
-	static_cast<const MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::initPainter(painter);
+
+	( (const MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::initPainter(painter);
+
 }
 
 bool QPlainTextEdit_override_virtual_redirected(void* self, intptr_t slot) {
@@ -2394,13 +2606,15 @@ bool QPlainTextEdit_override_virtual_redirected(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__redirected = slot;
 	return true;
 }
 
 QPaintDevice* QPlainTextEdit_virtualbase_redirected(const void* self, QPoint* offset) {
-	return static_cast<const MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::redirected(offset);
+
+	return ( (const MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::redirected(offset);
+
 }
 
 bool QPlainTextEdit_override_virtual_sharedPainter(void* self, intptr_t slot) {
@@ -2408,13 +2622,15 @@ bool QPlainTextEdit_override_virtual_sharedPainter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sharedPainter = slot;
 	return true;
 }
 
 QPainter* QPlainTextEdit_virtualbase_sharedPainter(const void* self) {
-	return static_cast<const MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::sharedPainter();
+
+	return ( (const MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::sharedPainter();
+
 }
 
 bool QPlainTextEdit_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -2422,13 +2638,15 @@ bool QPlainTextEdit_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::childEvent(event);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::childEvent(event);
+
 }
 
 bool QPlainTextEdit_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -2436,13 +2654,15 @@ bool QPlainTextEdit_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::customEvent(event);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::customEvent(event);
+
 }
 
 bool QPlainTextEdit_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -2450,13 +2670,15 @@ bool QPlainTextEdit_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::connectNotify(*signal);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::connectNotify(*signal);
+
 }
 
 bool QPlainTextEdit_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -2464,13 +2686,15 @@ bool QPlainTextEdit_override_virtual_disconnectNotify(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QPlainTextEdit_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQPlainTextEdit*>(self)->QPlainTextEdit::disconnectNotify(*signal);
+
+	( (MiqtVirtualQPlainTextEdit*)(self) )->QPlainTextEdit::disconnectNotify(*signal);
+
 }
 
 QTextBlock* QPlainTextEdit_protectedbase_firstVisibleBlock(bool* _dynamic_cast_ok, const void* self) {
@@ -2479,9 +2703,11 @@ QTextBlock* QPlainTextEdit_protectedbase_firstVisibleBlock(bool* _dynamic_cast_o
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return new QTextBlock(self_cast->firstVisibleBlock());
+
 }
 
 QPointF* QPlainTextEdit_protectedbase_contentOffset(bool* _dynamic_cast_ok, const void* self) {
@@ -2490,9 +2716,11 @@ QPointF* QPlainTextEdit_protectedbase_contentOffset(bool* _dynamic_cast_ok, cons
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return new QPointF(self_cast->contentOffset());
+
 }
 
 QRectF* QPlainTextEdit_protectedbase_blockBoundingRect(bool* _dynamic_cast_ok, const void* self, QTextBlock* block) {
@@ -2501,9 +2729,11 @@ QRectF* QPlainTextEdit_protectedbase_blockBoundingRect(bool* _dynamic_cast_ok, c
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return new QRectF(self_cast->blockBoundingRect(*block));
+
 }
 
 QRectF* QPlainTextEdit_protectedbase_blockBoundingGeometry(bool* _dynamic_cast_ok, const void* self, QTextBlock* block) {
@@ -2512,9 +2742,11 @@ QRectF* QPlainTextEdit_protectedbase_blockBoundingGeometry(bool* _dynamic_cast_o
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return new QRectF(self_cast->blockBoundingGeometry(*block));
+
 }
 
 QAbstractTextDocumentLayout__PaintContext* QPlainTextEdit_protectedbase_getPaintContext(bool* _dynamic_cast_ok, const void* self) {
@@ -2523,9 +2755,11 @@ QAbstractTextDocumentLayout__PaintContext* QPlainTextEdit_protectedbase_getPaint
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return new QAbstractTextDocumentLayout::PaintContext(self_cast->getPaintContext());
+
 }
 
 void QPlainTextEdit_protectedbase_zoomInF(bool* _dynamic_cast_ok, void* self, float range) {
@@ -2534,9 +2768,11 @@ void QPlainTextEdit_protectedbase_zoomInF(bool* _dynamic_cast_ok, void* self, fl
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->zoomInF(static_cast<float>(range));
+
 }
 
 void QPlainTextEdit_protectedbase_setViewportMargins(bool* _dynamic_cast_ok, void* self, int left, int top, int right, int bottom) {
@@ -2545,9 +2781,11 @@ void QPlainTextEdit_protectedbase_setViewportMargins(bool* _dynamic_cast_ok, voi
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+
 }
 
 QMargins* QPlainTextEdit_protectedbase_viewportMargins(bool* _dynamic_cast_ok, const void* self) {
@@ -2556,9 +2794,11 @@ QMargins* QPlainTextEdit_protectedbase_viewportMargins(bool* _dynamic_cast_ok, c
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return new QMargins(self_cast->viewportMargins());
+
 }
 
 void QPlainTextEdit_protectedbase_drawFrame(bool* _dynamic_cast_ok, void* self, QPainter* param1) {
@@ -2567,9 +2807,11 @@ void QPlainTextEdit_protectedbase_drawFrame(bool* _dynamic_cast_ok, void* self, 
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->drawFrame(param1);
+
 }
 
 void QPlainTextEdit_protectedbase_initStyleOption(bool* _dynamic_cast_ok, const void* self, QStyleOptionFrame* option) {
@@ -2578,9 +2820,11 @@ void QPlainTextEdit_protectedbase_initStyleOption(bool* _dynamic_cast_ok, const 
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->initStyleOption(option);
+
 }
 
 void QPlainTextEdit_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* self) {
@@ -2589,9 +2833,11 @@ void QPlainTextEdit_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void*
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->updateMicroFocus();
+
 }
 
 void QPlainTextEdit_protectedbase_create(bool* _dynamic_cast_ok, void* self) {
@@ -2600,9 +2846,11 @@ void QPlainTextEdit_protectedbase_create(bool* _dynamic_cast_ok, void* self) {
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->create();
+
 }
 
 void QPlainTextEdit_protectedbase_destroy(bool* _dynamic_cast_ok, void* self) {
@@ -2611,9 +2859,11 @@ void QPlainTextEdit_protectedbase_destroy(bool* _dynamic_cast_ok, void* self) {
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->destroy();
+
 }
 
 bool QPlainTextEdit_protectedbase_focusNextChild(bool* _dynamic_cast_ok, void* self) {
@@ -2622,9 +2872,11 @@ bool QPlainTextEdit_protectedbase_focusNextChild(bool* _dynamic_cast_ok, void* s
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->focusNextChild();
+
 }
 
 bool QPlainTextEdit_protectedbase_focusPreviousChild(bool* _dynamic_cast_ok, void* self) {
@@ -2633,9 +2885,11 @@ bool QPlainTextEdit_protectedbase_focusPreviousChild(bool* _dynamic_cast_ok, voi
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->focusPreviousChild();
+
 }
 
 QObject* QPlainTextEdit_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -2644,9 +2898,11 @@ QObject* QPlainTextEdit_protectedbase_sender(bool* _dynamic_cast_ok, const void*
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QPlainTextEdit_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -2655,9 +2911,11 @@ int QPlainTextEdit_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QPlainTextEdit_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -2666,9 +2924,11 @@ int QPlainTextEdit_protectedbase_receivers(bool* _dynamic_cast_ok, const void* s
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QPlainTextEdit_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -2677,9 +2937,11 @@ bool QPlainTextEdit_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, cons
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QPlainTextEdit_delete(QPlainTextEdit* self) {
@@ -2689,7 +2951,7 @@ void QPlainTextEdit_delete(QPlainTextEdit* self) {
 class MiqtVirtualQPlainTextDocumentLayout final : public QPlainTextDocumentLayout {
 public:
 
-	MiqtVirtualQPlainTextDocumentLayout(QTextDocument* document): QPlainTextDocumentLayout(document) {}
+	MiqtVirtualQPlainTextDocumentLayout(QTextDocument* document): QPlainTextDocumentLayout(document) {};
 
 	virtual ~MiqtVirtualQPlainTextDocumentLayout() override = default;
 
@@ -2702,13 +2964,15 @@ public:
 			QPlainTextDocumentLayout::draw(param1, param2);
 			return;
 		}
-
+		
 		QPainter* sigval1 = param1;
 		const QAbstractTextDocumentLayout::PaintContext& param2_ret = param2;
 		// Cast returned reference into pointer
 		QAbstractTextDocumentLayout__PaintContext* sigval2 = const_cast<QAbstractTextDocumentLayout::PaintContext*>(&param2_ret);
+
 		miqt_exec_callback_QPlainTextDocumentLayout_draw(this, handle__draw, sigval1, sigval2);
 
+		
 	}
 
 	friend void QPlainTextDocumentLayout_virtualbase_draw(void* self, QPainter* param1, QAbstractTextDocumentLayout__PaintContext* param2);
@@ -2721,13 +2985,15 @@ public:
 		if (handle__hitTest == 0) {
 			return QPlainTextDocumentLayout::hitTest(param1, param2);
 		}
-
+		
 		const QPointF& param1_ret = param1;
 		// Cast returned reference into pointer
 		QPointF* sigval1 = const_cast<QPointF*>(&param1_ret);
 		Qt::HitTestAccuracy param2_ret = param2;
 		int sigval2 = static_cast<int>(param2_ret);
+
 		int callback_return_value = miqt_exec_callback_QPlainTextDocumentLayout_hitTest(this, handle__hitTest, sigval1, sigval2);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -2741,8 +3007,10 @@ public:
 		if (handle__pageCount == 0) {
 			return QPlainTextDocumentLayout::pageCount();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QPlainTextDocumentLayout_pageCount(this, handle__pageCount);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -2756,8 +3024,10 @@ public:
 		if (handle__documentSize == 0) {
 			return QPlainTextDocumentLayout::documentSize();
 		}
+		
 
 		QSizeF* callback_return_value = miqt_exec_callback_QPlainTextDocumentLayout_documentSize(this, handle__documentSize);
+
 		return *callback_return_value;
 	}
 
@@ -2771,9 +3041,11 @@ public:
 		if (handle__frameBoundingRect == 0) {
 			return QPlainTextDocumentLayout::frameBoundingRect(param1);
 		}
-
+		
 		QTextFrame* sigval1 = param1;
+
 		QRectF* callback_return_value = miqt_exec_callback_QPlainTextDocumentLayout_frameBoundingRect(this, handle__frameBoundingRect, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -2787,11 +3059,13 @@ public:
 		if (handle__blockBoundingRect == 0) {
 			return QPlainTextDocumentLayout::blockBoundingRect(block);
 		}
-
+		
 		const QTextBlock& block_ret = block;
 		// Cast returned reference into pointer
 		QTextBlock* sigval1 = const_cast<QTextBlock*>(&block_ret);
+
 		QRectF* callback_return_value = miqt_exec_callback_QPlainTextDocumentLayout_blockBoundingRect(this, handle__blockBoundingRect, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -2806,12 +3080,14 @@ public:
 			QPlainTextDocumentLayout::documentChanged(from, param2, charsAdded);
 			return;
 		}
-
+		
 		int sigval1 = from;
 		int sigval2 = param2;
 		int sigval3 = charsAdded;
+
 		miqt_exec_callback_QPlainTextDocumentLayout_documentChanged(this, handle__documentChanged, sigval1, sigval2, sigval3);
 
+		
 	}
 
 	friend void QPlainTextDocumentLayout_virtualbase_documentChanged(void* self, int from, int param2, int charsAdded);
@@ -2825,14 +3101,16 @@ public:
 			QPlainTextDocumentLayout::resizeInlineObject(item, posInDocument, format);
 			return;
 		}
-
+		
 		QTextInlineObject* sigval1 = new QTextInlineObject(item);
 		int sigval2 = posInDocument;
 		const QTextFormat& format_ret = format;
 		// Cast returned reference into pointer
 		QTextFormat* sigval3 = const_cast<QTextFormat*>(&format_ret);
+
 		miqt_exec_callback_QPlainTextDocumentLayout_resizeInlineObject(this, handle__resizeInlineObject, sigval1, sigval2, sigval3);
 
+		
 	}
 
 	friend void QPlainTextDocumentLayout_virtualbase_resizeInlineObject(void* self, QTextInlineObject* item, int posInDocument, QTextFormat* format);
@@ -2846,14 +3124,16 @@ public:
 			QPlainTextDocumentLayout::positionInlineObject(item, posInDocument, format);
 			return;
 		}
-
+		
 		QTextInlineObject* sigval1 = new QTextInlineObject(item);
 		int sigval2 = posInDocument;
 		const QTextFormat& format_ret = format;
 		// Cast returned reference into pointer
 		QTextFormat* sigval3 = const_cast<QTextFormat*>(&format_ret);
+
 		miqt_exec_callback_QPlainTextDocumentLayout_positionInlineObject(this, handle__positionInlineObject, sigval1, sigval2, sigval3);
 
+		
 	}
 
 	friend void QPlainTextDocumentLayout_virtualbase_positionInlineObject(void* self, QTextInlineObject* item, int posInDocument, QTextFormat* format);
@@ -2867,7 +3147,7 @@ public:
 			QPlainTextDocumentLayout::drawInlineObject(painter, rect, object, posInDocument, format);
 			return;
 		}
-
+		
 		QPainter* sigval1 = painter;
 		const QRectF& rect_ret = rect;
 		// Cast returned reference into pointer
@@ -2877,8 +3157,10 @@ public:
 		const QTextFormat& format_ret = format;
 		// Cast returned reference into pointer
 		QTextFormat* sigval5 = const_cast<QTextFormat*>(&format_ret);
+
 		miqt_exec_callback_QPlainTextDocumentLayout_drawInlineObject(this, handle__drawInlineObject, sigval1, sigval2, sigval3, sigval4, sigval5);
 
+		
 	}
 
 	friend void QPlainTextDocumentLayout_virtualbase_drawInlineObject(void* self, QPainter* painter, QRectF* rect, QTextInlineObject* object, int posInDocument, QTextFormat* format);
@@ -2891,9 +3173,11 @@ public:
 		if (handle__event == 0) {
 			return QPlainTextDocumentLayout::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QPlainTextDocumentLayout_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -2907,10 +3191,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QPlainTextDocumentLayout::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QPlainTextDocumentLayout_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -2925,10 +3211,12 @@ public:
 			QPlainTextDocumentLayout::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QPlainTextDocumentLayout_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextDocumentLayout_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -2942,10 +3230,12 @@ public:
 			QPlainTextDocumentLayout::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QPlainTextDocumentLayout_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextDocumentLayout_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -2959,10 +3249,12 @@ public:
 			QPlainTextDocumentLayout::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QPlainTextDocumentLayout_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QPlainTextDocumentLayout_virtualbase_customEvent(void* self, QEvent* event);
@@ -2976,12 +3268,14 @@ public:
 			QPlainTextDocumentLayout::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QPlainTextDocumentLayout_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QPlainTextDocumentLayout_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -2995,12 +3289,14 @@ public:
 			QPlainTextDocumentLayout::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QPlainTextDocumentLayout_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QPlainTextDocumentLayout_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -3015,7 +3311,7 @@ public:
 };
 
 QPlainTextDocumentLayout* QPlainTextDocumentLayout_new(QTextDocument* document) {
-	return new (std::nothrow) MiqtVirtualQPlainTextDocumentLayout(document);
+	return new MiqtVirtualQPlainTextDocumentLayout(document);
 }
 
 void QPlainTextDocumentLayout_virtbase(QPlainTextDocumentLayout* src, QAbstractTextDocumentLayout** outptr_QAbstractTextDocumentLayout) {
@@ -3141,13 +3437,15 @@ bool QPlainTextDocumentLayout_override_virtual_draw(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__draw = slot;
 	return true;
 }
 
 void QPlainTextDocumentLayout_virtualbase_draw(void* self, QPainter* param1, QAbstractTextDocumentLayout__PaintContext* param2) {
-	static_cast<MiqtVirtualQPlainTextDocumentLayout*>(self)->QPlainTextDocumentLayout::draw(param1, *param2);
+
+	( (MiqtVirtualQPlainTextDocumentLayout*)(self) )->QPlainTextDocumentLayout::draw(param1, *param2);
+
 }
 
 bool QPlainTextDocumentLayout_override_virtual_hitTest(void* self, intptr_t slot) {
@@ -3155,13 +3453,15 @@ bool QPlainTextDocumentLayout_override_virtual_hitTest(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hitTest = slot;
 	return true;
 }
 
 int QPlainTextDocumentLayout_virtualbase_hitTest(const void* self, QPointF* param1, int param2) {
-	return static_cast<const MiqtVirtualQPlainTextDocumentLayout*>(self)->QPlainTextDocumentLayout::hitTest(*param1, static_cast<Qt::HitTestAccuracy>(param2));
+
+	return ( (const MiqtVirtualQPlainTextDocumentLayout*)(self) )->QPlainTextDocumentLayout::hitTest(*param1, static_cast<Qt::HitTestAccuracy>(param2));
+
 }
 
 bool QPlainTextDocumentLayout_override_virtual_pageCount(void* self, intptr_t slot) {
@@ -3169,13 +3469,15 @@ bool QPlainTextDocumentLayout_override_virtual_pageCount(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__pageCount = slot;
 	return true;
 }
 
 int QPlainTextDocumentLayout_virtualbase_pageCount(const void* self) {
-	return static_cast<const MiqtVirtualQPlainTextDocumentLayout*>(self)->QPlainTextDocumentLayout::pageCount();
+
+	return ( (const MiqtVirtualQPlainTextDocumentLayout*)(self) )->QPlainTextDocumentLayout::pageCount();
+
 }
 
 bool QPlainTextDocumentLayout_override_virtual_documentSize(void* self, intptr_t slot) {
@@ -3183,13 +3485,15 @@ bool QPlainTextDocumentLayout_override_virtual_documentSize(void* self, intptr_t
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__documentSize = slot;
 	return true;
 }
 
 QSizeF* QPlainTextDocumentLayout_virtualbase_documentSize(const void* self) {
-	return new QSizeF(static_cast<const MiqtVirtualQPlainTextDocumentLayout*>(self)->QPlainTextDocumentLayout::documentSize());
+
+	return new QSizeF(( (const MiqtVirtualQPlainTextDocumentLayout*)(self) )->QPlainTextDocumentLayout::documentSize());
+
 }
 
 bool QPlainTextDocumentLayout_override_virtual_frameBoundingRect(void* self, intptr_t slot) {
@@ -3197,13 +3501,15 @@ bool QPlainTextDocumentLayout_override_virtual_frameBoundingRect(void* self, int
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__frameBoundingRect = slot;
 	return true;
 }
 
 QRectF* QPlainTextDocumentLayout_virtualbase_frameBoundingRect(const void* self, QTextFrame* param1) {
-	return new QRectF(static_cast<const MiqtVirtualQPlainTextDocumentLayout*>(self)->QPlainTextDocumentLayout::frameBoundingRect(param1));
+
+	return new QRectF(( (const MiqtVirtualQPlainTextDocumentLayout*)(self) )->QPlainTextDocumentLayout::frameBoundingRect(param1));
+
 }
 
 bool QPlainTextDocumentLayout_override_virtual_blockBoundingRect(void* self, intptr_t slot) {
@@ -3211,13 +3517,15 @@ bool QPlainTextDocumentLayout_override_virtual_blockBoundingRect(void* self, int
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__blockBoundingRect = slot;
 	return true;
 }
 
 QRectF* QPlainTextDocumentLayout_virtualbase_blockBoundingRect(const void* self, QTextBlock* block) {
-	return new QRectF(static_cast<const MiqtVirtualQPlainTextDocumentLayout*>(self)->QPlainTextDocumentLayout::blockBoundingRect(*block));
+
+	return new QRectF(( (const MiqtVirtualQPlainTextDocumentLayout*)(self) )->QPlainTextDocumentLayout::blockBoundingRect(*block));
+
 }
 
 bool QPlainTextDocumentLayout_override_virtual_documentChanged(void* self, intptr_t slot) {
@@ -3225,13 +3533,15 @@ bool QPlainTextDocumentLayout_override_virtual_documentChanged(void* self, intpt
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__documentChanged = slot;
 	return true;
 }
 
 void QPlainTextDocumentLayout_virtualbase_documentChanged(void* self, int from, int param2, int charsAdded) {
-	static_cast<MiqtVirtualQPlainTextDocumentLayout*>(self)->QPlainTextDocumentLayout::documentChanged(static_cast<int>(from), static_cast<int>(param2), static_cast<int>(charsAdded));
+
+	( (MiqtVirtualQPlainTextDocumentLayout*)(self) )->QPlainTextDocumentLayout::documentChanged(static_cast<int>(from), static_cast<int>(param2), static_cast<int>(charsAdded));
+
 }
 
 bool QPlainTextDocumentLayout_override_virtual_resizeInlineObject(void* self, intptr_t slot) {
@@ -3239,13 +3549,15 @@ bool QPlainTextDocumentLayout_override_virtual_resizeInlineObject(void* self, in
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__resizeInlineObject = slot;
 	return true;
 }
 
 void QPlainTextDocumentLayout_virtualbase_resizeInlineObject(void* self, QTextInlineObject* item, int posInDocument, QTextFormat* format) {
-	static_cast<MiqtVirtualQPlainTextDocumentLayout*>(self)->QPlainTextDocumentLayout::resizeInlineObject(*item, static_cast<int>(posInDocument), *format);
+
+	( (MiqtVirtualQPlainTextDocumentLayout*)(self) )->QPlainTextDocumentLayout::resizeInlineObject(*item, static_cast<int>(posInDocument), *format);
+
 }
 
 bool QPlainTextDocumentLayout_override_virtual_positionInlineObject(void* self, intptr_t slot) {
@@ -3253,13 +3565,15 @@ bool QPlainTextDocumentLayout_override_virtual_positionInlineObject(void* self, 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__positionInlineObject = slot;
 	return true;
 }
 
 void QPlainTextDocumentLayout_virtualbase_positionInlineObject(void* self, QTextInlineObject* item, int posInDocument, QTextFormat* format) {
-	static_cast<MiqtVirtualQPlainTextDocumentLayout*>(self)->QPlainTextDocumentLayout::positionInlineObject(*item, static_cast<int>(posInDocument), *format);
+
+	( (MiqtVirtualQPlainTextDocumentLayout*)(self) )->QPlainTextDocumentLayout::positionInlineObject(*item, static_cast<int>(posInDocument), *format);
+
 }
 
 bool QPlainTextDocumentLayout_override_virtual_drawInlineObject(void* self, intptr_t slot) {
@@ -3267,13 +3581,15 @@ bool QPlainTextDocumentLayout_override_virtual_drawInlineObject(void* self, intp
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__drawInlineObject = slot;
 	return true;
 }
 
 void QPlainTextDocumentLayout_virtualbase_drawInlineObject(void* self, QPainter* painter, QRectF* rect, QTextInlineObject* object, int posInDocument, QTextFormat* format) {
-	static_cast<MiqtVirtualQPlainTextDocumentLayout*>(self)->QPlainTextDocumentLayout::drawInlineObject(painter, *rect, *object, static_cast<int>(posInDocument), *format);
+
+	( (MiqtVirtualQPlainTextDocumentLayout*)(self) )->QPlainTextDocumentLayout::drawInlineObject(painter, *rect, *object, static_cast<int>(posInDocument), *format);
+
 }
 
 bool QPlainTextDocumentLayout_override_virtual_event(void* self, intptr_t slot) {
@@ -3281,13 +3597,15 @@ bool QPlainTextDocumentLayout_override_virtual_event(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QPlainTextDocumentLayout_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQPlainTextDocumentLayout*>(self)->QPlainTextDocumentLayout::event(event);
+
+	return ( (MiqtVirtualQPlainTextDocumentLayout*)(self) )->QPlainTextDocumentLayout::event(event);
+
 }
 
 bool QPlainTextDocumentLayout_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -3295,13 +3613,15 @@ bool QPlainTextDocumentLayout_override_virtual_eventFilter(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QPlainTextDocumentLayout_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQPlainTextDocumentLayout*>(self)->QPlainTextDocumentLayout::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQPlainTextDocumentLayout*)(self) )->QPlainTextDocumentLayout::eventFilter(watched, event);
+
 }
 
 bool QPlainTextDocumentLayout_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -3309,13 +3629,15 @@ bool QPlainTextDocumentLayout_override_virtual_timerEvent(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QPlainTextDocumentLayout_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQPlainTextDocumentLayout*>(self)->QPlainTextDocumentLayout::timerEvent(event);
+
+	( (MiqtVirtualQPlainTextDocumentLayout*)(self) )->QPlainTextDocumentLayout::timerEvent(event);
+
 }
 
 bool QPlainTextDocumentLayout_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -3323,13 +3645,15 @@ bool QPlainTextDocumentLayout_override_virtual_childEvent(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QPlainTextDocumentLayout_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQPlainTextDocumentLayout*>(self)->QPlainTextDocumentLayout::childEvent(event);
+
+	( (MiqtVirtualQPlainTextDocumentLayout*)(self) )->QPlainTextDocumentLayout::childEvent(event);
+
 }
 
 bool QPlainTextDocumentLayout_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -3337,13 +3661,15 @@ bool QPlainTextDocumentLayout_override_virtual_customEvent(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QPlainTextDocumentLayout_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQPlainTextDocumentLayout*>(self)->QPlainTextDocumentLayout::customEvent(event);
+
+	( (MiqtVirtualQPlainTextDocumentLayout*)(self) )->QPlainTextDocumentLayout::customEvent(event);
+
 }
 
 bool QPlainTextDocumentLayout_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -3351,13 +3677,15 @@ bool QPlainTextDocumentLayout_override_virtual_connectNotify(void* self, intptr_
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QPlainTextDocumentLayout_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQPlainTextDocumentLayout*>(self)->QPlainTextDocumentLayout::connectNotify(*signal);
+
+	( (MiqtVirtualQPlainTextDocumentLayout*)(self) )->QPlainTextDocumentLayout::connectNotify(*signal);
+
 }
 
 bool QPlainTextDocumentLayout_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -3365,13 +3693,15 @@ bool QPlainTextDocumentLayout_override_virtual_disconnectNotify(void* self, intp
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QPlainTextDocumentLayout_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQPlainTextDocumentLayout*>(self)->QPlainTextDocumentLayout::disconnectNotify(*signal);
+
+	( (MiqtVirtualQPlainTextDocumentLayout*)(self) )->QPlainTextDocumentLayout::disconnectNotify(*signal);
+
 }
 
 int QPlainTextDocumentLayout_protectedbase_formatIndex(bool* _dynamic_cast_ok, void* self, int pos) {
@@ -3380,9 +3710,11 @@ int QPlainTextDocumentLayout_protectedbase_formatIndex(bool* _dynamic_cast_ok, v
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->formatIndex(static_cast<int>(pos));
+
 }
 
 QTextCharFormat* QPlainTextDocumentLayout_protectedbase_format(bool* _dynamic_cast_ok, void* self, int pos) {
@@ -3391,9 +3723,11 @@ QTextCharFormat* QPlainTextDocumentLayout_protectedbase_format(bool* _dynamic_ca
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return new QTextCharFormat(self_cast->format(static_cast<int>(pos)));
+
 }
 
 QObject* QPlainTextDocumentLayout_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -3402,9 +3736,11 @@ QObject* QPlainTextDocumentLayout_protectedbase_sender(bool* _dynamic_cast_ok, c
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QPlainTextDocumentLayout_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -3413,9 +3749,11 @@ int QPlainTextDocumentLayout_protectedbase_senderSignalIndex(bool* _dynamic_cast
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QPlainTextDocumentLayout_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -3424,9 +3762,11 @@ int QPlainTextDocumentLayout_protectedbase_receivers(bool* _dynamic_cast_ok, con
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QPlainTextDocumentLayout_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -3435,9 +3775,11 @@ bool QPlainTextDocumentLayout_protectedbase_isSignalConnected(bool* _dynamic_cas
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QPlainTextDocumentLayout_delete(QPlainTextDocumentLayout* self) {

@@ -14,7 +14,7 @@ extern "C" {
 #endif
 
 QScriptable* QScriptable_new() {
-	return new (std::nothrow) QScriptable();
+	return new QScriptable();
 }
 
 QScriptEngine* QScriptable_engine(const QScriptable* self) {

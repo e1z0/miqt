@@ -8,16 +8,6 @@ import (
 func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 
 	AllowAllHeaders := func(string) bool { return true }
-	OnlyHeaders := func(s ...string) func(fullpath string) bool {
-		return func(fullpath string) bool {
-			return slice_contains(s, filepath.Base(fullpath))
-		}
-	}
-	ExceptHeaders := func(s ...string) func(fullpath string) bool {
-		return func(fullpath string) bool {
-			return !slice_contains(s, filepath.Base(fullpath))
-		}
-	}
 
 	flushKnownTypes()
 	InsertTypedefs(false)
@@ -84,45 +74,12 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		ClangMatchSameHeaderDefinitionOnly,
 	)
 
-	// Qt 5 Network (1/3)
-
 	generate(
 		"qt/network",
 		[]string{
 			"/usr/include/x86_64-linux-gnu/qt5/QtNetwork",
 		},
-		ExceptHeaders("qdtls.h", "qsctpserver.h", "qsctpsocket.h"),
-		clangBin,
-		pkgConfigCflags("Qt5Network"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-	)
-
-	// Qt 5 Network (2/3)
-
-	generate(
-		"qt/network/sctp",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt5/QtNetwork",
-		},
-		OnlyHeaders("qsctpserver.h", "qsctpsocket.h"),
-		clangBin,
-		pkgConfigCflags("Qt5Network"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-	)
-
-	// Qt 5 Network (3/3) - split out DTLS into subpackage because macOS Brew is
-	// compiled with it disabled
-	// There are still some extra functions to move out from qsslconfiguration.h
-	// @ref https://github.com/mappu/miqt/issues/151
-
-	generate(
-		"qt/network/dtls",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt5/QtNetwork",
-		},
-		OnlyHeaders("qdtls.h"),
+		AllowAllHeaders,
 		clangBin,
 		pkgConfigCflags("Qt5Network"),
 		outDir,
@@ -193,42 +150,57 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			"/usr/include/x86_64-linux-gnu/qt5/QtWebEngineCore",
 			"/usr/include/x86_64-linux-gnu/qt5/QtWebEngineWidgets",
 		},
-		ExceptHeaders("qquickwebengineprofile.h", "qquickwebenginescript.h"),
+
+		func(fullpath string) bool {
+			baseName := filepath.Base(fullpath)
+			if baseName == "qquickwebengineprofile.h" || baseName == "qquickwebenginescript.h" {
+				return false
+			}
+			return true
+		},
 		clangBin,
 		pkgConfigCflags("Qt5WebEngineWidgets"),
 		outDir,
 		ClangMatchSameHeaderDefinitionOnly,
 	)
 
-	// Qt 5 PDF
-	// Depends on QtCore/Gui/Widgets
+	// Depends on QtCore/Gui/Widgets, QPrintSupport
 	generate(
-		"qt/pdf",
+		"qt-restricted-extras/qscintilla",
 		[]string{
-			"/usr/include/x86_64-linux-gnu/qt5/QtPdf",
-			"/usr/include/x86_64-linux-gnu/qt5/QtPdfWidgets",
+			"/usr/include/x86_64-linux-gnu/qt5/Qsci",
 		},
 		AllowAllHeaders,
 		clangBin,
-		pkgConfigCflags("Qt5PdfWidgets"),
+		pkgConfigCflags("Qt5PrintSupport"),
 		outDir,
 		ClangMatchSameHeaderDefinitionOnly,
 	)
 
-        // qtermwidget
-        generate(
-                "qt-restricted-extras/qtermwidget",
-                []string{
-                        "/usr/local/include/qtermwidget5",
-                },
-                OnlyHeaders("qtermwidget_export.h","qtermwidget.h"),
-                clangBin,
-                pkgConfigCflags("qtermwidget5"),
-                outDir,
-                ClangMatchSameHeaderDefinitionOnly,
-        )
+	// Depends on QtCore/Gui/Widgets
+	generate(
+		"qt-extras/scintillaedit",
+		[]string{
+			filepath.Join(extraLibsDir, "scintilla/qt/ScintillaEdit/ScintillaEdit.h"),
+		},
+		AllowAllHeaders,
+		clangBin,
+		"--std=c++1z "+pkgConfigCflags("ScintillaEdit"),
+		outDir,
+		(&clangMatchUnderPath{filepath.Join(extraLibsDir, "scintilla")}).Match,
+	)
 
-
+	generate(
+		"qt-restricted-extras/qtermwidget",
+		[]string{
+			"/usr/local/include/qtermwidget5",
+		},
+		AllowAllHeaders,
+		clangBin,
+		pkgConfigCflags("qtermwidget5"),
+		outDir,
+		ClangMatchSameHeaderDefinitionOnly,
+	)
 
 	// FLUSH all known typedefs / ...
 
@@ -314,47 +286,16 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		ClangMatchSameHeaderDefinitionOnly,
 	)
 
-	// Qt 6 QtNetwork (1/3)
+	// Qt 6 QtNetwork
 	generate(
 		"qt6/network",
 		[]string{
 			"/usr/include/x86_64-linux-gnu/qt6/QtNetwork",
 		},
-		ExceptHeaders("qtnetwork-config.h", "qsctpserver.h", "qsctpsocket.h", "qdtls.h"),
-		clangBin,
-		"--std=c++17 "+pkgConfigCflags("Qt6Network"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-	)
-
-	// Qt 6 Network (2/3) - split out SCTP into subpackage because Arch Linux is
-	// compiled with it disabled
-	// @ref https://github.com/mappu/miqt/issues/150
-	// @ref https://github.com/mappu/miqt/issues/194
-
-	generate(
-		"qt6/network/sctp",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt6/QtNetwork",
+		func(fullpath string) bool {
+			fname := filepath.Base(fullpath)
+			return fname != "qtnetwork-config.h"
 		},
-		OnlyHeaders("qsctpserver.h", "qsctpsocket.h"),
-		clangBin,
-		"--std=c++17 "+pkgConfigCflags("Qt6Network"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-	)
-
-	// Qt 6 Network (3/3) - split out DTLS into subpackage because macOS Brew is
-	// compiled with it disabled
-	// There are still some extra functions to move out from qsslconfiguration.h
-	// @ref https://github.com/mappu/miqt/issues/151
-
-	generate(
-		"qt6/network/dtls",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt6/QtNetwork",
-		},
-		OnlyHeaders("qdtls.h"),
 		clangBin,
 		"--std=c++17 "+pkgConfigCflags("Qt6Network"),
 		outDir,
@@ -388,30 +329,13 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		ClangMatchSameHeaderDefinitionOnly,
 	)
 
-	// Qt 6 QWebChannel (1/2)
-	// Exclude qqmlwebchannel because Arch Linux packages it differently
-	// @ref https://github.com/mappu/miqt/issues/150
-	// @ref https://github.com/mappu/miqt/issues/194
+	// Qt 6 QWebChannel
 	generate(
 		"qt6/webchannel",
 		[]string{
 			"/usr/include/x86_64-linux-gnu/qt6/QtWebChannel",
 		},
-		ExceptHeaders("qqmlwebchannel.h"),
-		clangBin,
-		"--std=c++17 "+pkgConfigCflags("Qt6WebChannel"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-	)
-
-	// Qt 6 WebChannel (2/2)
-	// Just the Qt Quick part of qqmlwebchannel
-	generate(
-		"qt6/webchannel/qmlwebchannel",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt6/QtWebChannel",
-		},
-		OnlyHeaders("qqmlwebchannel.h"),
+		AllowAllHeaders,
 		clangBin,
 		"--std=c++17 "+pkgConfigCflags("Qt6WebChannel"),
 		outDir,
@@ -438,23 +362,6 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		ClangMatchSameHeaderDefinitionOnly,
 	)
 
-
-	// Qt 6 PDF
-	generate(
-		"qt6/pdf",
-		[]string{
-			"/usr/include/x86_64-linux-gnu/qt6/QtPdf",
-			"/usr/include/x86_64-linux-gnu/qt6/QtPdfWidgets",
-		},
-		AllowAllHeaders,
-		clangBin,
-		"--std=c++17 "+pkgConfigCflags("Qt6PdfWidgets"),
-		outDir,
-		ClangMatchSameHeaderDefinitionOnly,
-	)
-
-
-
 	// Qt 6 Charts
 	// Depends on QtCore/Gui/Widgets
 	generate(
@@ -469,4 +376,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 		ClangMatchSameHeaderDefinitionOnly,
 	)
 
+	// Qt 6 QScintilla
+	// Depends on QtCore/Gui/Widgets, QPrintSupport
+	generate(
+		"qt-restricted-extras/qscintilla6",
+		[]string{
+			"/usr/include/x86_64-linux-gnu/qt6/Qsci",
+		},
+		AllowAllHeaders,
+		clangBin,
+		"--std=c++17 "+pkgConfigCflags("Qt6PrintSupport"),
+		outDir,
+		ClangMatchSameHeaderDefinitionOnly,
+	)
 }

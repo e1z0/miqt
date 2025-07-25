@@ -40,8 +40,8 @@ void miqt_exec_callback_QValueAxis_disconnectNotify(QValueAxis*, intptr_t, QMeta
 class MiqtVirtualQValueAxis final : public QValueAxis {
 public:
 
-	MiqtVirtualQValueAxis(): QValueAxis() {}
-	MiqtVirtualQValueAxis(QObject* parent): QValueAxis(parent) {}
+	MiqtVirtualQValueAxis(): QValueAxis() {};
+	MiqtVirtualQValueAxis(QObject* parent): QValueAxis(parent) {};
 
 	virtual ~MiqtVirtualQValueAxis() override = default;
 
@@ -53,8 +53,10 @@ public:
 		if (handle__type == 0) {
 			return QValueAxis::type();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QValueAxis_type(this, handle__type);
+
 		return static_cast<QAbstractAxis::AxisType>(callback_return_value);
 	}
 
@@ -68,9 +70,11 @@ public:
 		if (handle__event == 0) {
 			return QValueAxis::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QValueAxis_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -84,10 +88,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QValueAxis::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QValueAxis_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -102,10 +108,12 @@ public:
 			QValueAxis::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QValueAxis_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QValueAxis_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -119,10 +127,12 @@ public:
 			QValueAxis::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QValueAxis_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QValueAxis_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -136,10 +146,12 @@ public:
 			QValueAxis::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QValueAxis_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QValueAxis_virtualbase_customEvent(void* self, QEvent* event);
@@ -153,12 +165,14 @@ public:
 			QValueAxis::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QValueAxis_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QValueAxis_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -172,12 +186,14 @@ public:
 			QValueAxis::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QValueAxis_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QValueAxis_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -190,11 +206,11 @@ public:
 };
 
 QValueAxis* QValueAxis_new() {
-	return new (std::nothrow) MiqtVirtualQValueAxis();
+	return new MiqtVirtualQValueAxis();
 }
 
 QValueAxis* QValueAxis_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQValueAxis(parent);
+	return new MiqtVirtualQValueAxis(parent);
 }
 
 void QValueAxis_virtbase(QValueAxis* src, QAbstractAxis** outptr_QAbstractAxis) {
@@ -315,7 +331,7 @@ void QValueAxis_minChanged(QValueAxis* self, double min) {
 }
 
 void QValueAxis_connect_minChanged(QValueAxis* self, intptr_t slot) {
-	QValueAxis::connect(self, static_cast<void (QValueAxis::*)(qreal)>(&QValueAxis::minChanged), self, [=](qreal min) {
+	MiqtVirtualQValueAxis::connect(self, static_cast<void (QValueAxis::*)(qreal)>(&QValueAxis::minChanged), self, [=](qreal min) {
 		qreal min_ret = min;
 		double sigval1 = static_cast<double>(min_ret);
 		miqt_exec_callback_QValueAxis_minChanged(slot, sigval1);
@@ -327,7 +343,7 @@ void QValueAxis_maxChanged(QValueAxis* self, double max) {
 }
 
 void QValueAxis_connect_maxChanged(QValueAxis* self, intptr_t slot) {
-	QValueAxis::connect(self, static_cast<void (QValueAxis::*)(qreal)>(&QValueAxis::maxChanged), self, [=](qreal max) {
+	MiqtVirtualQValueAxis::connect(self, static_cast<void (QValueAxis::*)(qreal)>(&QValueAxis::maxChanged), self, [=](qreal max) {
 		qreal max_ret = max;
 		double sigval1 = static_cast<double>(max_ret);
 		miqt_exec_callback_QValueAxis_maxChanged(slot, sigval1);
@@ -339,7 +355,7 @@ void QValueAxis_rangeChanged(QValueAxis* self, double min, double max) {
 }
 
 void QValueAxis_connect_rangeChanged(QValueAxis* self, intptr_t slot) {
-	QValueAxis::connect(self, static_cast<void (QValueAxis::*)(qreal, qreal)>(&QValueAxis::rangeChanged), self, [=](qreal min, qreal max) {
+	MiqtVirtualQValueAxis::connect(self, static_cast<void (QValueAxis::*)(qreal, qreal)>(&QValueAxis::rangeChanged), self, [=](qreal min, qreal max) {
 		qreal min_ret = min;
 		double sigval1 = static_cast<double>(min_ret);
 		qreal max_ret = max;
@@ -353,7 +369,7 @@ void QValueAxis_tickCountChanged(QValueAxis* self, int tickCount) {
 }
 
 void QValueAxis_connect_tickCountChanged(QValueAxis* self, intptr_t slot) {
-	QValueAxis::connect(self, static_cast<void (QValueAxis::*)(int)>(&QValueAxis::tickCountChanged), self, [=](int tickCount) {
+	MiqtVirtualQValueAxis::connect(self, static_cast<void (QValueAxis::*)(int)>(&QValueAxis::tickCountChanged), self, [=](int tickCount) {
 		int sigval1 = tickCount;
 		miqt_exec_callback_QValueAxis_tickCountChanged(slot, sigval1);
 	});
@@ -364,7 +380,7 @@ void QValueAxis_minorTickCountChanged(QValueAxis* self, int tickCount) {
 }
 
 void QValueAxis_connect_minorTickCountChanged(QValueAxis* self, intptr_t slot) {
-	QValueAxis::connect(self, static_cast<void (QValueAxis::*)(int)>(&QValueAxis::minorTickCountChanged), self, [=](int tickCount) {
+	MiqtVirtualQValueAxis::connect(self, static_cast<void (QValueAxis::*)(int)>(&QValueAxis::minorTickCountChanged), self, [=](int tickCount) {
 		int sigval1 = tickCount;
 		miqt_exec_callback_QValueAxis_minorTickCountChanged(slot, sigval1);
 	});
@@ -376,7 +392,7 @@ void QValueAxis_labelFormatChanged(QValueAxis* self, struct miqt_string format) 
 }
 
 void QValueAxis_connect_labelFormatChanged(QValueAxis* self, intptr_t slot) {
-	QValueAxis::connect(self, static_cast<void (QValueAxis::*)(const QString&)>(&QValueAxis::labelFormatChanged), self, [=](const QString& format) {
+	MiqtVirtualQValueAxis::connect(self, static_cast<void (QValueAxis::*)(const QString&)>(&QValueAxis::labelFormatChanged), self, [=](const QString& format) {
 		const QString format_ret = format;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray format_b = format_ret.toUtf8();
@@ -394,7 +410,7 @@ void QValueAxis_tickIntervalChanged(QValueAxis* self, double interval) {
 }
 
 void QValueAxis_connect_tickIntervalChanged(QValueAxis* self, intptr_t slot) {
-	QValueAxis::connect(self, static_cast<void (QValueAxis::*)(qreal)>(&QValueAxis::tickIntervalChanged), self, [=](qreal interval) {
+	MiqtVirtualQValueAxis::connect(self, static_cast<void (QValueAxis::*)(qreal)>(&QValueAxis::tickIntervalChanged), self, [=](qreal interval) {
 		qreal interval_ret = interval;
 		double sigval1 = static_cast<double>(interval_ret);
 		miqt_exec_callback_QValueAxis_tickIntervalChanged(slot, sigval1);
@@ -406,7 +422,7 @@ void QValueAxis_tickAnchorChanged(QValueAxis* self, double anchor) {
 }
 
 void QValueAxis_connect_tickAnchorChanged(QValueAxis* self, intptr_t slot) {
-	QValueAxis::connect(self, static_cast<void (QValueAxis::*)(qreal)>(&QValueAxis::tickAnchorChanged), self, [=](qreal anchor) {
+	MiqtVirtualQValueAxis::connect(self, static_cast<void (QValueAxis::*)(qreal)>(&QValueAxis::tickAnchorChanged), self, [=](qreal anchor) {
 		qreal anchor_ret = anchor;
 		double sigval1 = static_cast<double>(anchor_ret);
 		miqt_exec_callback_QValueAxis_tickAnchorChanged(slot, sigval1);
@@ -418,7 +434,7 @@ void QValueAxis_tickTypeChanged(QValueAxis* self, int type) {
 }
 
 void QValueAxis_connect_tickTypeChanged(QValueAxis* self, intptr_t slot) {
-	QValueAxis::connect(self, static_cast<void (QValueAxis::*)(QValueAxis::TickType)>(&QValueAxis::tickTypeChanged), self, [=](QValueAxis::TickType type) {
+	MiqtVirtualQValueAxis::connect(self, static_cast<void (QValueAxis::*)(QValueAxis::TickType)>(&QValueAxis::tickTypeChanged), self, [=](QValueAxis::TickType type) {
 		QValueAxis::TickType type_ret = type;
 		int sigval1 = static_cast<int>(type_ret);
 		miqt_exec_callback_QValueAxis_tickTypeChanged(slot, sigval1);
@@ -452,14 +468,16 @@ bool QValueAxis_override_virtual_type(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__type = slot;
 	return true;
 }
 
 int QValueAxis_virtualbase_type(const void* self) {
-	MiqtVirtualQValueAxis::AxisType _ret = static_cast<const MiqtVirtualQValueAxis*>(self)->QValueAxis::type();
+
+	MiqtVirtualQValueAxis::AxisType _ret = ( (const MiqtVirtualQValueAxis*)(self) )->QValueAxis::type();
 	return static_cast<int>(_ret);
+
 }
 
 bool QValueAxis_override_virtual_event(void* self, intptr_t slot) {
@@ -467,13 +485,15 @@ bool QValueAxis_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QValueAxis_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQValueAxis*>(self)->QValueAxis::event(event);
+
+	return ( (MiqtVirtualQValueAxis*)(self) )->QValueAxis::event(event);
+
 }
 
 bool QValueAxis_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -481,13 +501,15 @@ bool QValueAxis_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QValueAxis_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQValueAxis*>(self)->QValueAxis::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQValueAxis*)(self) )->QValueAxis::eventFilter(watched, event);
+
 }
 
 bool QValueAxis_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -495,13 +517,15 @@ bool QValueAxis_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QValueAxis_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQValueAxis*>(self)->QValueAxis::timerEvent(event);
+
+	( (MiqtVirtualQValueAxis*)(self) )->QValueAxis::timerEvent(event);
+
 }
 
 bool QValueAxis_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -509,13 +533,15 @@ bool QValueAxis_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QValueAxis_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQValueAxis*>(self)->QValueAxis::childEvent(event);
+
+	( (MiqtVirtualQValueAxis*)(self) )->QValueAxis::childEvent(event);
+
 }
 
 bool QValueAxis_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -523,13 +549,15 @@ bool QValueAxis_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QValueAxis_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQValueAxis*>(self)->QValueAxis::customEvent(event);
+
+	( (MiqtVirtualQValueAxis*)(self) )->QValueAxis::customEvent(event);
+
 }
 
 bool QValueAxis_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -537,13 +565,15 @@ bool QValueAxis_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QValueAxis_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQValueAxis*>(self)->QValueAxis::connectNotify(*signal);
+
+	( (MiqtVirtualQValueAxis*)(self) )->QValueAxis::connectNotify(*signal);
+
 }
 
 bool QValueAxis_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -551,13 +581,15 @@ bool QValueAxis_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QValueAxis_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQValueAxis*>(self)->QValueAxis::disconnectNotify(*signal);
+
+	( (MiqtVirtualQValueAxis*)(self) )->QValueAxis::disconnectNotify(*signal);
+
 }
 
 QObject* QValueAxis_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -566,9 +598,11 @@ QObject* QValueAxis_protectedbase_sender(bool* _dynamic_cast_ok, const void* sel
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QValueAxis_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -577,9 +611,11 @@ int QValueAxis_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const voi
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QValueAxis_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -588,9 +624,11 @@ int QValueAxis_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self,
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QValueAxis_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -599,9 +637,11 @@ bool QValueAxis_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const vo
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QValueAxis_delete(QValueAxis* self) {

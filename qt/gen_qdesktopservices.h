@@ -27,7 +27,6 @@ typedef struct QUrl QUrl;
 bool QDesktopServices_openUrl(QUrl* url);
 void QDesktopServices_setUrlHandler(struct miqt_string scheme, QObject* receiver, const char* method);
 void QDesktopServices_unsetUrlHandler(struct miqt_string scheme);
-
 void QDesktopServices_delete(QDesktopServices* self);
 
 #ifdef __cplusplus

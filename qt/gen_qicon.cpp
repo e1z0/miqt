@@ -22,24 +22,24 @@ extern "C" {
 #endif
 
 QIcon* QIcon_new() {
-	return new (std::nothrow) QIcon();
+	return new QIcon();
 }
 
 QIcon* QIcon_new2(QPixmap* pixmap) {
-	return new (std::nothrow) QIcon(*pixmap);
+	return new QIcon(*pixmap);
 }
 
 QIcon* QIcon_new3(QIcon* other) {
-	return new (std::nothrow) QIcon(*other);
+	return new QIcon(*other);
 }
 
 QIcon* QIcon_new4(struct miqt_string fileName) {
 	QString fileName_QString = QString::fromUtf8(fileName.data, fileName.len);
-	return new (std::nothrow) QIcon(fileName_QString);
+	return new QIcon(fileName_QString);
 }
 
 QIcon* QIcon_new5(QIconEngine* engine) {
-	return new (std::nothrow) QIcon(engine);
+	return new QIcon(engine);
 }
 
 void QIcon_operatorAssign(QIcon* self, QIcon* other) {

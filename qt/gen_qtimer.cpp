@@ -15,7 +15,6 @@
 extern "C" {
 #endif
 
-void miqt_exec_callback_QTimer_timeout(intptr_t);
 void miqt_exec_callback_QTimer_timerEvent(QTimer*, intptr_t, QTimerEvent*);
 bool miqt_exec_callback_QTimer_event(QTimer*, intptr_t, QEvent*);
 bool miqt_exec_callback_QTimer_eventFilter(QTimer*, intptr_t, QObject*, QEvent*);
@@ -30,8 +29,8 @@ void miqt_exec_callback_QTimer_disconnectNotify(QTimer*, intptr_t, QMetaMethod*)
 class MiqtVirtualQTimer final : public QTimer {
 public:
 
-	MiqtVirtualQTimer(): QTimer() {}
-	MiqtVirtualQTimer(QObject* parent): QTimer(parent) {}
+	MiqtVirtualQTimer(): QTimer() {};
+	MiqtVirtualQTimer(QObject* parent): QTimer(parent) {};
 
 	virtual ~MiqtVirtualQTimer() override = default;
 
@@ -44,10 +43,12 @@ public:
 			QTimer::timerEvent(param1);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = param1;
+
 		miqt_exec_callback_QTimer_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QTimer_virtualbase_timerEvent(void* self, QTimerEvent* param1);
@@ -60,9 +61,11 @@ public:
 		if (handle__event == 0) {
 			return QTimer::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QTimer_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -76,10 +79,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QTimer::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QTimer_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -94,10 +99,12 @@ public:
 			QTimer::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QTimer_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QTimer_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -111,10 +118,12 @@ public:
 			QTimer::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QTimer_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QTimer_virtualbase_customEvent(void* self, QEvent* event);
@@ -128,12 +137,14 @@ public:
 			QTimer::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QTimer_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QTimer_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -147,12 +158,14 @@ public:
 			QTimer::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QTimer_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QTimer_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -165,11 +178,11 @@ public:
 };
 
 QTimer* QTimer_new() {
-	return new (std::nothrow) MiqtVirtualQTimer();
+	return new MiqtVirtualQTimer();
 }
 
 QTimer* QTimer_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQTimer(parent);
+	return new MiqtVirtualQTimer(parent);
 }
 
 void QTimer_virtbase(QTimer* src, QObject** outptr_QObject) {
@@ -304,13 +317,15 @@ bool QTimer_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QTimer_virtualbase_timerEvent(void* self, QTimerEvent* param1) {
-	static_cast<MiqtVirtualQTimer*>(self)->QTimer::timerEvent(param1);
+
+	( (MiqtVirtualQTimer*)(self) )->QTimer::timerEvent(param1);
+
 }
 
 bool QTimer_override_virtual_event(void* self, intptr_t slot) {
@@ -318,13 +333,15 @@ bool QTimer_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QTimer_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQTimer*>(self)->QTimer::event(event);
+
+	return ( (MiqtVirtualQTimer*)(self) )->QTimer::event(event);
+
 }
 
 bool QTimer_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -332,13 +349,15 @@ bool QTimer_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QTimer_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQTimer*>(self)->QTimer::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQTimer*)(self) )->QTimer::eventFilter(watched, event);
+
 }
 
 bool QTimer_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -346,13 +365,15 @@ bool QTimer_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QTimer_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQTimer*>(self)->QTimer::childEvent(event);
+
+	( (MiqtVirtualQTimer*)(self) )->QTimer::childEvent(event);
+
 }
 
 bool QTimer_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -360,13 +381,15 @@ bool QTimer_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QTimer_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQTimer*>(self)->QTimer::customEvent(event);
+
+	( (MiqtVirtualQTimer*)(self) )->QTimer::customEvent(event);
+
 }
 
 bool QTimer_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -374,13 +397,15 @@ bool QTimer_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QTimer_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQTimer*>(self)->QTimer::connectNotify(*signal);
+
+	( (MiqtVirtualQTimer*)(self) )->QTimer::connectNotify(*signal);
+
 }
 
 bool QTimer_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -388,13 +413,15 @@ bool QTimer_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QTimer_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQTimer*>(self)->QTimer::disconnectNotify(*signal);
+
+	( (MiqtVirtualQTimer*)(self) )->QTimer::disconnectNotify(*signal);
+
 }
 
 QObject* QTimer_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -403,9 +430,11 @@ QObject* QTimer_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QTimer_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -414,9 +443,11 @@ int QTimer_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* s
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QTimer_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -425,9 +456,11 @@ int QTimer_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, con
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QTimer_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -436,15 +469,11 @@ bool QTimer_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
-}
 
-void QTimer_connect_timeout(QTimer* self, intptr_t slot) {
-	QTimer::connect(self, &QTimer::timeout, self, [=]() {
-		miqt_exec_callback_QTimer_timeout(slot);
-	});
 }
 
 void QTimer_delete(QTimer* self) {

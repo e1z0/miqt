@@ -32,11 +32,11 @@ void miqt_exec_callback_QInputDevice_disconnectNotify(QInputDevice*, intptr_t, Q
 class MiqtVirtualQInputDevice final : public QInputDevice {
 public:
 
-	MiqtVirtualQInputDevice(): QInputDevice() {}
-	MiqtVirtualQInputDevice(const QString& name, qint64 systemId, QInputDevice::DeviceType type): QInputDevice(name, systemId, type) {}
-	MiqtVirtualQInputDevice(QObject* parent): QInputDevice(parent) {}
-	MiqtVirtualQInputDevice(const QString& name, qint64 systemId, QInputDevice::DeviceType type, const QString& seatName): QInputDevice(name, systemId, type, seatName) {}
-	MiqtVirtualQInputDevice(const QString& name, qint64 systemId, QInputDevice::DeviceType type, const QString& seatName, QObject* parent): QInputDevice(name, systemId, type, seatName, parent) {}
+	MiqtVirtualQInputDevice(): QInputDevice() {};
+	MiqtVirtualQInputDevice(const QString& name, qint64 systemId, QInputDevice::DeviceType type): QInputDevice(name, systemId, type) {};
+	MiqtVirtualQInputDevice(QObject* parent): QInputDevice(parent) {};
+	MiqtVirtualQInputDevice(const QString& name, qint64 systemId, QInputDevice::DeviceType type, const QString& seatName): QInputDevice(name, systemId, type, seatName) {};
+	MiqtVirtualQInputDevice(const QString& name, qint64 systemId, QInputDevice::DeviceType type, const QString& seatName, QObject* parent): QInputDevice(name, systemId, type, seatName, parent) {};
 
 	virtual ~MiqtVirtualQInputDevice() override = default;
 
@@ -48,9 +48,11 @@ public:
 		if (handle__event == 0) {
 			return QInputDevice::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QInputDevice_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -64,10 +66,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QInputDevice::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QInputDevice_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -82,10 +86,12 @@ public:
 			QInputDevice::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QInputDevice_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QInputDevice_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -99,10 +105,12 @@ public:
 			QInputDevice::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QInputDevice_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QInputDevice_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -116,10 +124,12 @@ public:
 			QInputDevice::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QInputDevice_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QInputDevice_virtualbase_customEvent(void* self, QEvent* event);
@@ -133,12 +143,14 @@ public:
 			QInputDevice::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QInputDevice_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QInputDevice_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -152,12 +164,14 @@ public:
 			QInputDevice::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QInputDevice_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QInputDevice_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -170,28 +184,28 @@ public:
 };
 
 QInputDevice* QInputDevice_new() {
-	return new (std::nothrow) MiqtVirtualQInputDevice();
+	return new MiqtVirtualQInputDevice();
 }
 
 QInputDevice* QInputDevice_new2(struct miqt_string name, long long systemId, int type) {
 	QString name_QString = QString::fromUtf8(name.data, name.len);
-	return new (std::nothrow) MiqtVirtualQInputDevice(name_QString, static_cast<qint64>(systemId), static_cast<QInputDevice::DeviceType>(type));
+	return new MiqtVirtualQInputDevice(name_QString, static_cast<qint64>(systemId), static_cast<QInputDevice::DeviceType>(type));
 }
 
 QInputDevice* QInputDevice_new3(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQInputDevice(parent);
+	return new MiqtVirtualQInputDevice(parent);
 }
 
 QInputDevice* QInputDevice_new4(struct miqt_string name, long long systemId, int type, struct miqt_string seatName) {
 	QString name_QString = QString::fromUtf8(name.data, name.len);
 	QString seatName_QString = QString::fromUtf8(seatName.data, seatName.len);
-	return new (std::nothrow) MiqtVirtualQInputDevice(name_QString, static_cast<qint64>(systemId), static_cast<QInputDevice::DeviceType>(type), seatName_QString);
+	return new MiqtVirtualQInputDevice(name_QString, static_cast<qint64>(systemId), static_cast<QInputDevice::DeviceType>(type), seatName_QString);
 }
 
 QInputDevice* QInputDevice_new5(struct miqt_string name, long long systemId, int type, struct miqt_string seatName, QObject* parent) {
 	QString name_QString = QString::fromUtf8(name.data, name.len);
 	QString seatName_QString = QString::fromUtf8(seatName.data, seatName.len);
-	return new (std::nothrow) MiqtVirtualQInputDevice(name_QString, static_cast<qint64>(systemId), static_cast<QInputDevice::DeviceType>(type), seatName_QString, parent);
+	return new MiqtVirtualQInputDevice(name_QString, static_cast<qint64>(systemId), static_cast<QInputDevice::DeviceType>(type), seatName_QString, parent);
 }
 
 void QInputDevice_virtbase(QInputDevice* src, QObject** outptr_QObject) {
@@ -308,7 +322,7 @@ void QInputDevice_availableVirtualGeometryChanged(QInputDevice* self, QRect* are
 }
 
 void QInputDevice_connect_availableVirtualGeometryChanged(QInputDevice* self, intptr_t slot) {
-	QInputDevice::connect(self, static_cast<void (QInputDevice::*)(QRect)>(&QInputDevice::availableVirtualGeometryChanged), self, [=](QRect area) {
+	MiqtVirtualQInputDevice::connect(self, static_cast<void (QInputDevice::*)(QRect)>(&QInputDevice::availableVirtualGeometryChanged), self, [=](QRect area) {
 		QRect* sigval1 = new QRect(area);
 		miqt_exec_callback_QInputDevice_availableVirtualGeometryChanged(slot, sigval1);
 	});
@@ -346,13 +360,15 @@ bool QInputDevice_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QInputDevice_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQInputDevice*>(self)->QInputDevice::event(event);
+
+	return ( (MiqtVirtualQInputDevice*)(self) )->QInputDevice::event(event);
+
 }
 
 bool QInputDevice_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -360,13 +376,15 @@ bool QInputDevice_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QInputDevice_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQInputDevice*>(self)->QInputDevice::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQInputDevice*)(self) )->QInputDevice::eventFilter(watched, event);
+
 }
 
 bool QInputDevice_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -374,13 +392,15 @@ bool QInputDevice_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QInputDevice_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQInputDevice*>(self)->QInputDevice::timerEvent(event);
+
+	( (MiqtVirtualQInputDevice*)(self) )->QInputDevice::timerEvent(event);
+
 }
 
 bool QInputDevice_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -388,13 +408,15 @@ bool QInputDevice_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QInputDevice_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQInputDevice*>(self)->QInputDevice::childEvent(event);
+
+	( (MiqtVirtualQInputDevice*)(self) )->QInputDevice::childEvent(event);
+
 }
 
 bool QInputDevice_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -402,13 +424,15 @@ bool QInputDevice_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QInputDevice_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQInputDevice*>(self)->QInputDevice::customEvent(event);
+
+	( (MiqtVirtualQInputDevice*)(self) )->QInputDevice::customEvent(event);
+
 }
 
 bool QInputDevice_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -416,13 +440,15 @@ bool QInputDevice_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QInputDevice_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQInputDevice*>(self)->QInputDevice::connectNotify(*signal);
+
+	( (MiqtVirtualQInputDevice*)(self) )->QInputDevice::connectNotify(*signal);
+
 }
 
 bool QInputDevice_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -430,13 +456,15 @@ bool QInputDevice_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QInputDevice_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQInputDevice*>(self)->QInputDevice::disconnectNotify(*signal);
+
+	( (MiqtVirtualQInputDevice*)(self) )->QInputDevice::disconnectNotify(*signal);
+
 }
 
 QObject* QInputDevice_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -445,9 +473,11 @@ QObject* QInputDevice_protectedbase_sender(bool* _dynamic_cast_ok, const void* s
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QInputDevice_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -456,9 +486,11 @@ int QInputDevice_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const v
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QInputDevice_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -467,9 +499,11 @@ int QInputDevice_protectedbase_receivers(bool* _dynamic_cast_ok, const void* sel
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QInputDevice_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -478,9 +512,11 @@ bool QInputDevice_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const 
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QInputDevice_delete(QInputDevice* self) {

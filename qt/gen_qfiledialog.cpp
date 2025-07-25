@@ -116,12 +116,12 @@ void miqt_exec_callback_QFileDialog_disconnectNotify(QFileDialog*, intptr_t, QMe
 class MiqtVirtualQFileDialog final : public QFileDialog {
 public:
 
-	MiqtVirtualQFileDialog(QWidget* parent): QFileDialog(parent) {}
-	MiqtVirtualQFileDialog(QWidget* parent, Qt::WindowFlags f): QFileDialog(parent, f) {}
-	MiqtVirtualQFileDialog(): QFileDialog() {}
-	MiqtVirtualQFileDialog(QWidget* parent, const QString& caption): QFileDialog(parent, caption) {}
-	MiqtVirtualQFileDialog(QWidget* parent, const QString& caption, const QString& directory): QFileDialog(parent, caption, directory) {}
-	MiqtVirtualQFileDialog(QWidget* parent, const QString& caption, const QString& directory, const QString& filter): QFileDialog(parent, caption, directory, filter) {}
+	MiqtVirtualQFileDialog(QWidget* parent): QFileDialog(parent) {};
+	MiqtVirtualQFileDialog(QWidget* parent, Qt::WindowFlags f): QFileDialog(parent, f) {};
+	MiqtVirtualQFileDialog(): QFileDialog() {};
+	MiqtVirtualQFileDialog(QWidget* parent, const QString& caption): QFileDialog(parent, caption) {};
+	MiqtVirtualQFileDialog(QWidget* parent, const QString& caption, const QString& directory): QFileDialog(parent, caption, directory) {};
+	MiqtVirtualQFileDialog(QWidget* parent, const QString& caption, const QString& directory, const QString& filter): QFileDialog(parent, caption, directory, filter) {};
 
 	virtual ~MiqtVirtualQFileDialog() override = default;
 
@@ -134,10 +134,12 @@ public:
 			QFileDialog::setVisible(visible);
 			return;
 		}
-
+		
 		bool sigval1 = visible;
+
 		miqt_exec_callback_QFileDialog_setVisible(this, handle__setVisible, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_setVisible(void* self, bool visible);
@@ -151,10 +153,12 @@ public:
 			QFileDialog::done(result);
 			return;
 		}
-
+		
 		int sigval1 = result;
+
 		miqt_exec_callback_QFileDialog_done(this, handle__done, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_done(void* self, int result);
@@ -168,9 +172,11 @@ public:
 			QFileDialog::accept();
 			return;
 		}
+		
 
 		miqt_exec_callback_QFileDialog_accept(this, handle__accept);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_accept(void* self);
@@ -184,10 +190,12 @@ public:
 			QFileDialog::changeEvent(e);
 			return;
 		}
-
+		
 		QEvent* sigval1 = e;
+
 		miqt_exec_callback_QFileDialog_changeEvent(this, handle__changeEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_changeEvent(void* self, QEvent* e);
@@ -200,8 +208,10 @@ public:
 		if (handle__sizeHint == 0) {
 			return QFileDialog::sizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_QFileDialog_sizeHint(this, handle__sizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -215,8 +225,10 @@ public:
 		if (handle__minimumSizeHint == 0) {
 			return QFileDialog::minimumSizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_QFileDialog_minimumSizeHint(this, handle__minimumSizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -231,9 +243,11 @@ public:
 			QFileDialog::open();
 			return;
 		}
+		
 
 		miqt_exec_callback_QFileDialog_open(this, handle__open);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_open(void* self);
@@ -246,8 +260,10 @@ public:
 		if (handle__exec == 0) {
 			return QFileDialog::exec();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QFileDialog_exec(this, handle__exec);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -262,9 +278,11 @@ public:
 			QFileDialog::reject();
 			return;
 		}
+		
 
 		miqt_exec_callback_QFileDialog_reject(this, handle__reject);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_reject(void* self);
@@ -278,10 +296,12 @@ public:
 			QFileDialog::keyPressEvent(param1);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = param1;
+
 		miqt_exec_callback_QFileDialog_keyPressEvent(this, handle__keyPressEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_keyPressEvent(void* self, QKeyEvent* param1);
@@ -295,10 +315,12 @@ public:
 			QFileDialog::closeEvent(param1);
 			return;
 		}
-
+		
 		QCloseEvent* sigval1 = param1;
+
 		miqt_exec_callback_QFileDialog_closeEvent(this, handle__closeEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_closeEvent(void* self, QCloseEvent* param1);
@@ -312,10 +334,12 @@ public:
 			QFileDialog::showEvent(param1);
 			return;
 		}
-
+		
 		QShowEvent* sigval1 = param1;
+
 		miqt_exec_callback_QFileDialog_showEvent(this, handle__showEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_showEvent(void* self, QShowEvent* param1);
@@ -329,10 +353,12 @@ public:
 			QFileDialog::resizeEvent(param1);
 			return;
 		}
-
+		
 		QResizeEvent* sigval1 = param1;
+
 		miqt_exec_callback_QFileDialog_resizeEvent(this, handle__resizeEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_resizeEvent(void* self, QResizeEvent* param1);
@@ -346,10 +372,12 @@ public:
 			QFileDialog::contextMenuEvent(param1);
 			return;
 		}
-
+		
 		QContextMenuEvent* sigval1 = param1;
+
 		miqt_exec_callback_QFileDialog_contextMenuEvent(this, handle__contextMenuEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_contextMenuEvent(void* self, QContextMenuEvent* param1);
@@ -362,10 +390,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QFileDialog::eventFilter(param1, param2);
 		}
-
+		
 		QObject* sigval1 = param1;
 		QEvent* sigval2 = param2;
+
 		bool callback_return_value = miqt_exec_callback_QFileDialog_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -379,8 +409,10 @@ public:
 		if (handle__devType == 0) {
 			return QFileDialog::devType();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QFileDialog_devType(this, handle__devType);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -394,9 +426,11 @@ public:
 		if (handle__heightForWidth == 0) {
 			return QFileDialog::heightForWidth(param1);
 		}
-
+		
 		int sigval1 = param1;
+
 		int callback_return_value = miqt_exec_callback_QFileDialog_heightForWidth(this, handle__heightForWidth, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -410,8 +444,10 @@ public:
 		if (handle__hasHeightForWidth == 0) {
 			return QFileDialog::hasHeightForWidth();
 		}
+		
 
 		bool callback_return_value = miqt_exec_callback_QFileDialog_hasHeightForWidth(this, handle__hasHeightForWidth);
+
 		return callback_return_value;
 	}
 
@@ -425,8 +461,10 @@ public:
 		if (handle__paintEngine == 0) {
 			return QFileDialog::paintEngine();
 		}
+		
 
 		QPaintEngine* callback_return_value = miqt_exec_callback_QFileDialog_paintEngine(this, handle__paintEngine);
+
 		return callback_return_value;
 	}
 
@@ -440,9 +478,11 @@ public:
 		if (handle__event == 0) {
 			return QFileDialog::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QFileDialog_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -457,10 +497,12 @@ public:
 			QFileDialog::mousePressEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_mousePressEvent(this, handle__mousePressEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_mousePressEvent(void* self, QMouseEvent* event);
@@ -474,10 +516,12 @@ public:
 			QFileDialog::mouseReleaseEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_mouseReleaseEvent(this, handle__mouseReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_mouseReleaseEvent(void* self, QMouseEvent* event);
@@ -491,10 +535,12 @@ public:
 			QFileDialog::mouseDoubleClickEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_mouseDoubleClickEvent(this, handle__mouseDoubleClickEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_mouseDoubleClickEvent(void* self, QMouseEvent* event);
@@ -508,10 +554,12 @@ public:
 			QFileDialog::mouseMoveEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_mouseMoveEvent(this, handle__mouseMoveEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_mouseMoveEvent(void* self, QMouseEvent* event);
@@ -525,10 +573,12 @@ public:
 			QFileDialog::wheelEvent(event);
 			return;
 		}
-
+		
 		QWheelEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_wheelEvent(this, handle__wheelEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_wheelEvent(void* self, QWheelEvent* event);
@@ -542,10 +592,12 @@ public:
 			QFileDialog::keyReleaseEvent(event);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_keyReleaseEvent(this, handle__keyReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_keyReleaseEvent(void* self, QKeyEvent* event);
@@ -559,10 +611,12 @@ public:
 			QFileDialog::focusInEvent(event);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_focusInEvent(this, handle__focusInEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_focusInEvent(void* self, QFocusEvent* event);
@@ -576,10 +630,12 @@ public:
 			QFileDialog::focusOutEvent(event);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_focusOutEvent(this, handle__focusOutEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_focusOutEvent(void* self, QFocusEvent* event);
@@ -593,10 +649,12 @@ public:
 			QFileDialog::enterEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_enterEvent(this, handle__enterEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_enterEvent(void* self, QEvent* event);
@@ -610,10 +668,12 @@ public:
 			QFileDialog::leaveEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_leaveEvent(this, handle__leaveEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_leaveEvent(void* self, QEvent* event);
@@ -627,10 +687,12 @@ public:
 			QFileDialog::paintEvent(event);
 			return;
 		}
-
+		
 		QPaintEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_paintEvent(this, handle__paintEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_paintEvent(void* self, QPaintEvent* event);
@@ -644,10 +706,12 @@ public:
 			QFileDialog::moveEvent(event);
 			return;
 		}
-
+		
 		QMoveEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_moveEvent(this, handle__moveEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_moveEvent(void* self, QMoveEvent* event);
@@ -661,10 +725,12 @@ public:
 			QFileDialog::tabletEvent(event);
 			return;
 		}
-
+		
 		QTabletEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_tabletEvent(this, handle__tabletEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_tabletEvent(void* self, QTabletEvent* event);
@@ -678,10 +744,12 @@ public:
 			QFileDialog::actionEvent(event);
 			return;
 		}
-
+		
 		QActionEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_actionEvent(this, handle__actionEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_actionEvent(void* self, QActionEvent* event);
@@ -695,10 +763,12 @@ public:
 			QFileDialog::dragEnterEvent(event);
 			return;
 		}
-
+		
 		QDragEnterEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_dragEnterEvent(this, handle__dragEnterEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_dragEnterEvent(void* self, QDragEnterEvent* event);
@@ -712,10 +782,12 @@ public:
 			QFileDialog::dragMoveEvent(event);
 			return;
 		}
-
+		
 		QDragMoveEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_dragMoveEvent(this, handle__dragMoveEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_dragMoveEvent(void* self, QDragMoveEvent* event);
@@ -729,10 +801,12 @@ public:
 			QFileDialog::dragLeaveEvent(event);
 			return;
 		}
-
+		
 		QDragLeaveEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_dragLeaveEvent(this, handle__dragLeaveEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_dragLeaveEvent(void* self, QDragLeaveEvent* event);
@@ -746,10 +820,12 @@ public:
 			QFileDialog::dropEvent(event);
 			return;
 		}
-
+		
 		QDropEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_dropEvent(this, handle__dropEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_dropEvent(void* self, QDropEvent* event);
@@ -763,10 +839,12 @@ public:
 			QFileDialog::hideEvent(event);
 			return;
 		}
-
+		
 		QHideEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_hideEvent(this, handle__hideEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_hideEvent(void* self, QHideEvent* event);
@@ -779,7 +857,7 @@ public:
 		if (handle__nativeEvent == 0) {
 			return QFileDialog::nativeEvent(eventType, message, result);
 		}
-
+		
 		const QByteArray eventType_qb = eventType;
 		struct miqt_string eventType_ms;
 		eventType_ms.len = eventType_qb.length();
@@ -788,7 +866,9 @@ public:
 		struct miqt_string sigval1 = eventType_ms;
 		void* sigval2 = message;
 		long* sigval3 = result;
+
 		bool callback_return_value = miqt_exec_callback_QFileDialog_nativeEvent(this, handle__nativeEvent, sigval1, sigval2, sigval3);
+
 		return callback_return_value;
 	}
 
@@ -802,10 +882,12 @@ public:
 		if (handle__metric == 0) {
 			return QFileDialog::metric(param1);
 		}
-
+		
 		QPaintDevice::PaintDeviceMetric param1_ret = param1;
 		int sigval1 = static_cast<int>(param1_ret);
+
 		int callback_return_value = miqt_exec_callback_QFileDialog_metric(this, handle__metric, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -820,10 +902,12 @@ public:
 			QFileDialog::initPainter(painter);
 			return;
 		}
-
+		
 		QPainter* sigval1 = painter;
+
 		miqt_exec_callback_QFileDialog_initPainter(this, handle__initPainter, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_initPainter(const void* self, QPainter* painter);
@@ -836,9 +920,11 @@ public:
 		if (handle__redirected == 0) {
 			return QFileDialog::redirected(offset);
 		}
-
+		
 		QPoint* sigval1 = offset;
+
 		QPaintDevice* callback_return_value = miqt_exec_callback_QFileDialog_redirected(this, handle__redirected, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -852,8 +938,10 @@ public:
 		if (handle__sharedPainter == 0) {
 			return QFileDialog::sharedPainter();
 		}
+		
 
 		QPainter* callback_return_value = miqt_exec_callback_QFileDialog_sharedPainter(this, handle__sharedPainter);
+
 		return callback_return_value;
 	}
 
@@ -868,10 +956,12 @@ public:
 			QFileDialog::inputMethodEvent(param1);
 			return;
 		}
-
+		
 		QInputMethodEvent* sigval1 = param1;
+
 		miqt_exec_callback_QFileDialog_inputMethodEvent(this, handle__inputMethodEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* param1);
@@ -884,10 +974,12 @@ public:
 		if (handle__inputMethodQuery == 0) {
 			return QFileDialog::inputMethodQuery(param1);
 		}
-
+		
 		Qt::InputMethodQuery param1_ret = param1;
 		int sigval1 = static_cast<int>(param1_ret);
+
 		QVariant* callback_return_value = miqt_exec_callback_QFileDialog_inputMethodQuery(this, handle__inputMethodQuery, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -901,9 +993,11 @@ public:
 		if (handle__focusNextPrevChild == 0) {
 			return QFileDialog::focusNextPrevChild(next);
 		}
-
+		
 		bool sigval1 = next;
+
 		bool callback_return_value = miqt_exec_callback_QFileDialog_focusNextPrevChild(this, handle__focusNextPrevChild, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -918,10 +1012,12 @@ public:
 			QFileDialog::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -935,10 +1031,12 @@ public:
 			QFileDialog::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -952,10 +1050,12 @@ public:
 			QFileDialog::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QFileDialog_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_customEvent(void* self, QEvent* event);
@@ -969,12 +1069,14 @@ public:
 			QFileDialog::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QFileDialog_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -988,12 +1090,14 @@ public:
 			QFileDialog::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QFileDialog_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QFileDialog_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -1012,33 +1116,33 @@ public:
 };
 
 QFileDialog* QFileDialog_new(QWidget* parent) {
-	return new (std::nothrow) MiqtVirtualQFileDialog(parent);
+	return new MiqtVirtualQFileDialog(parent);
 }
 
 QFileDialog* QFileDialog_new2(QWidget* parent, int f) {
-	return new (std::nothrow) MiqtVirtualQFileDialog(parent, static_cast<Qt::WindowFlags>(f));
+	return new MiqtVirtualQFileDialog(parent, static_cast<Qt::WindowFlags>(f));
 }
 
 QFileDialog* QFileDialog_new3() {
-	return new (std::nothrow) MiqtVirtualQFileDialog();
+	return new MiqtVirtualQFileDialog();
 }
 
 QFileDialog* QFileDialog_new4(QWidget* parent, struct miqt_string caption) {
 	QString caption_QString = QString::fromUtf8(caption.data, caption.len);
-	return new (std::nothrow) MiqtVirtualQFileDialog(parent, caption_QString);
+	return new MiqtVirtualQFileDialog(parent, caption_QString);
 }
 
 QFileDialog* QFileDialog_new5(QWidget* parent, struct miqt_string caption, struct miqt_string directory) {
 	QString caption_QString = QString::fromUtf8(caption.data, caption.len);
 	QString directory_QString = QString::fromUtf8(directory.data, directory.len);
-	return new (std::nothrow) MiqtVirtualQFileDialog(parent, caption_QString, directory_QString);
+	return new MiqtVirtualQFileDialog(parent, caption_QString, directory_QString);
 }
 
 QFileDialog* QFileDialog_new6(QWidget* parent, struct miqt_string caption, struct miqt_string directory, struct miqt_string filter) {
 	QString caption_QString = QString::fromUtf8(caption.data, caption.len);
 	QString directory_QString = QString::fromUtf8(directory.data, directory.len);
 	QString filter_QString = QString::fromUtf8(filter.data, filter.len);
-	return new (std::nothrow) MiqtVirtualQFileDialog(parent, caption_QString, directory_QString, filter_QString);
+	return new MiqtVirtualQFileDialog(parent, caption_QString, directory_QString, filter_QString);
 }
 
 void QFileDialog_virtbase(QFileDialog* src, QDialog** outptr_QDialog) {
@@ -1487,7 +1591,7 @@ void QFileDialog_fileSelected(QFileDialog* self, struct miqt_string file) {
 }
 
 void QFileDialog_connect_fileSelected(QFileDialog* self, intptr_t slot) {
-	QFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QString&)>(&QFileDialog::fileSelected), self, [=](const QString& file) {
+	MiqtVirtualQFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QString&)>(&QFileDialog::fileSelected), self, [=](const QString& file) {
 		const QString file_ret = file;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray file_b = file_ret.toUtf8();
@@ -1512,7 +1616,7 @@ void QFileDialog_filesSelected(QFileDialog* self, struct miqt_array /* of struct
 }
 
 void QFileDialog_connect_filesSelected(QFileDialog* self, intptr_t slot) {
-	QFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QStringList&)>(&QFileDialog::filesSelected), self, [=](const QStringList& files) {
+	MiqtVirtualQFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QStringList&)>(&QFileDialog::filesSelected), self, [=](const QStringList& files) {
 		const QStringList& files_ret = files;
 		// Convert QList<> from C++ memory to manually-managed C memory
 		struct miqt_string* files_arr = static_cast<struct miqt_string*>(malloc(sizeof(struct miqt_string) * files_ret.length()));
@@ -1540,7 +1644,7 @@ void QFileDialog_currentChanged(QFileDialog* self, struct miqt_string path) {
 }
 
 void QFileDialog_connect_currentChanged(QFileDialog* self, intptr_t slot) {
-	QFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QString&)>(&QFileDialog::currentChanged), self, [=](const QString& path) {
+	MiqtVirtualQFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QString&)>(&QFileDialog::currentChanged), self, [=](const QString& path) {
 		const QString path_ret = path;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray path_b = path_ret.toUtf8();
@@ -1559,7 +1663,7 @@ void QFileDialog_directoryEntered(QFileDialog* self, struct miqt_string director
 }
 
 void QFileDialog_connect_directoryEntered(QFileDialog* self, intptr_t slot) {
-	QFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QString&)>(&QFileDialog::directoryEntered), self, [=](const QString& directory) {
+	MiqtVirtualQFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QString&)>(&QFileDialog::directoryEntered), self, [=](const QString& directory) {
 		const QString directory_ret = directory;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray directory_b = directory_ret.toUtf8();
@@ -1577,7 +1681,7 @@ void QFileDialog_urlSelected(QFileDialog* self, QUrl* url) {
 }
 
 void QFileDialog_connect_urlSelected(QFileDialog* self, intptr_t slot) {
-	QFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QUrl&)>(&QFileDialog::urlSelected), self, [=](const QUrl& url) {
+	MiqtVirtualQFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QUrl&)>(&QFileDialog::urlSelected), self, [=](const QUrl& url) {
 		const QUrl& url_ret = url;
 		// Cast returned reference into pointer
 		QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
@@ -1596,7 +1700,7 @@ void QFileDialog_urlsSelected(QFileDialog* self, struct miqt_array /* of QUrl* *
 }
 
 void QFileDialog_connect_urlsSelected(QFileDialog* self, intptr_t slot) {
-	QFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QList<QUrl>&)>(&QFileDialog::urlsSelected), self, [=](const QList<QUrl>& urls) {
+	MiqtVirtualQFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QList<QUrl>&)>(&QFileDialog::urlsSelected), self, [=](const QList<QUrl>& urls) {
 		const QList<QUrl>& urls_ret = urls;
 		// Convert QList<> from C++ memory to manually-managed C memory
 		QUrl** urls_arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * urls_ret.length()));
@@ -1616,7 +1720,7 @@ void QFileDialog_currentUrlChanged(QFileDialog* self, QUrl* url) {
 }
 
 void QFileDialog_connect_currentUrlChanged(QFileDialog* self, intptr_t slot) {
-	QFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QUrl&)>(&QFileDialog::currentUrlChanged), self, [=](const QUrl& url) {
+	MiqtVirtualQFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QUrl&)>(&QFileDialog::currentUrlChanged), self, [=](const QUrl& url) {
 		const QUrl& url_ret = url;
 		// Cast returned reference into pointer
 		QUrl* sigval1 = const_cast<QUrl*>(&url_ret);
@@ -1629,7 +1733,7 @@ void QFileDialog_directoryUrlEntered(QFileDialog* self, QUrl* directory) {
 }
 
 void QFileDialog_connect_directoryUrlEntered(QFileDialog* self, intptr_t slot) {
-	QFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QUrl&)>(&QFileDialog::directoryUrlEntered), self, [=](const QUrl& directory) {
+	MiqtVirtualQFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QUrl&)>(&QFileDialog::directoryUrlEntered), self, [=](const QUrl& directory) {
 		const QUrl& directory_ret = directory;
 		// Cast returned reference into pointer
 		QUrl* sigval1 = const_cast<QUrl*>(&directory_ret);
@@ -1643,7 +1747,7 @@ void QFileDialog_filterSelected(QFileDialog* self, struct miqt_string filter) {
 }
 
 void QFileDialog_connect_filterSelected(QFileDialog* self, intptr_t slot) {
-	QFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QString&)>(&QFileDialog::filterSelected), self, [=](const QString& filter) {
+	MiqtVirtualQFileDialog::connect(self, static_cast<void (QFileDialog::*)(const QString&)>(&QFileDialog::filterSelected), self, [=](const QString& filter) {
 		const QString filter_ret = filter;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray filter_b = filter_ret.toUtf8();
@@ -2155,13 +2259,15 @@ bool QFileDialog_override_virtual_setVisible(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setVisible = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_setVisible(void* self, bool visible) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::setVisible(visible);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::setVisible(visible);
+
 }
 
 bool QFileDialog_override_virtual_done(void* self, intptr_t slot) {
@@ -2169,13 +2275,15 @@ bool QFileDialog_override_virtual_done(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__done = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_done(void* self, int result) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::done(static_cast<int>(result));
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::done(static_cast<int>(result));
+
 }
 
 bool QFileDialog_override_virtual_accept(void* self, intptr_t slot) {
@@ -2183,13 +2291,15 @@ bool QFileDialog_override_virtual_accept(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__accept = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_accept(void* self) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::accept();
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::accept();
+
 }
 
 bool QFileDialog_override_virtual_changeEvent(void* self, intptr_t slot) {
@@ -2197,13 +2307,15 @@ bool QFileDialog_override_virtual_changeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__changeEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_changeEvent(void* self, QEvent* e) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::changeEvent(e);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::changeEvent(e);
+
 }
 
 bool QFileDialog_override_virtual_sizeHint(void* self, intptr_t slot) {
@@ -2211,13 +2323,15 @@ bool QFileDialog_override_virtual_sizeHint(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sizeHint = slot;
 	return true;
 }
 
 QSize* QFileDialog_virtualbase_sizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualQFileDialog*>(self)->QFileDialog::sizeHint());
+
+	return new QSize(( (const MiqtVirtualQFileDialog*)(self) )->QFileDialog::sizeHint());
+
 }
 
 bool QFileDialog_override_virtual_minimumSizeHint(void* self, intptr_t slot) {
@@ -2225,13 +2339,15 @@ bool QFileDialog_override_virtual_minimumSizeHint(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__minimumSizeHint = slot;
 	return true;
 }
 
 QSize* QFileDialog_virtualbase_minimumSizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualQFileDialog*>(self)->QFileDialog::minimumSizeHint());
+
+	return new QSize(( (const MiqtVirtualQFileDialog*)(self) )->QFileDialog::minimumSizeHint());
+
 }
 
 bool QFileDialog_override_virtual_open(void* self, intptr_t slot) {
@@ -2239,13 +2355,15 @@ bool QFileDialog_override_virtual_open(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__open = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_open(void* self) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::open();
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::open();
+
 }
 
 bool QFileDialog_override_virtual_exec(void* self, intptr_t slot) {
@@ -2253,13 +2371,15 @@ bool QFileDialog_override_virtual_exec(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__exec = slot;
 	return true;
 }
 
 int QFileDialog_virtualbase_exec(void* self) {
-	return static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::exec();
+
+	return ( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::exec();
+
 }
 
 bool QFileDialog_override_virtual_reject(void* self, intptr_t slot) {
@@ -2267,13 +2387,15 @@ bool QFileDialog_override_virtual_reject(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__reject = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_reject(void* self) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::reject();
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::reject();
+
 }
 
 bool QFileDialog_override_virtual_keyPressEvent(void* self, intptr_t slot) {
@@ -2281,13 +2403,15 @@ bool QFileDialog_override_virtual_keyPressEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyPressEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_keyPressEvent(void* self, QKeyEvent* param1) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::keyPressEvent(param1);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::keyPressEvent(param1);
+
 }
 
 bool QFileDialog_override_virtual_closeEvent(void* self, intptr_t slot) {
@@ -2295,13 +2419,15 @@ bool QFileDialog_override_virtual_closeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__closeEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_closeEvent(void* self, QCloseEvent* param1) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::closeEvent(param1);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::closeEvent(param1);
+
 }
 
 bool QFileDialog_override_virtual_showEvent(void* self, intptr_t slot) {
@@ -2309,13 +2435,15 @@ bool QFileDialog_override_virtual_showEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__showEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_showEvent(void* self, QShowEvent* param1) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::showEvent(param1);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::showEvent(param1);
+
 }
 
 bool QFileDialog_override_virtual_resizeEvent(void* self, intptr_t slot) {
@@ -2323,13 +2451,15 @@ bool QFileDialog_override_virtual_resizeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__resizeEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_resizeEvent(void* self, QResizeEvent* param1) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::resizeEvent(param1);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::resizeEvent(param1);
+
 }
 
 bool QFileDialog_override_virtual_contextMenuEvent(void* self, intptr_t slot) {
@@ -2337,13 +2467,15 @@ bool QFileDialog_override_virtual_contextMenuEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__contextMenuEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_contextMenuEvent(void* self, QContextMenuEvent* param1) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::contextMenuEvent(param1);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::contextMenuEvent(param1);
+
 }
 
 bool QFileDialog_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -2351,13 +2483,15 @@ bool QFileDialog_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QFileDialog_virtualbase_eventFilter(void* self, QObject* param1, QEvent* param2) {
-	return static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::eventFilter(param1, param2);
+
+	return ( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::eventFilter(param1, param2);
+
 }
 
 bool QFileDialog_override_virtual_devType(void* self, intptr_t slot) {
@@ -2365,13 +2499,15 @@ bool QFileDialog_override_virtual_devType(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__devType = slot;
 	return true;
 }
 
 int QFileDialog_virtualbase_devType(const void* self) {
-	return static_cast<const MiqtVirtualQFileDialog*>(self)->QFileDialog::devType();
+
+	return ( (const MiqtVirtualQFileDialog*)(self) )->QFileDialog::devType();
+
 }
 
 bool QFileDialog_override_virtual_heightForWidth(void* self, intptr_t slot) {
@@ -2379,13 +2515,15 @@ bool QFileDialog_override_virtual_heightForWidth(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__heightForWidth = slot;
 	return true;
 }
 
 int QFileDialog_virtualbase_heightForWidth(const void* self, int param1) {
-	return static_cast<const MiqtVirtualQFileDialog*>(self)->QFileDialog::heightForWidth(static_cast<int>(param1));
+
+	return ( (const MiqtVirtualQFileDialog*)(self) )->QFileDialog::heightForWidth(static_cast<int>(param1));
+
 }
 
 bool QFileDialog_override_virtual_hasHeightForWidth(void* self, intptr_t slot) {
@@ -2393,13 +2531,15 @@ bool QFileDialog_override_virtual_hasHeightForWidth(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hasHeightForWidth = slot;
 	return true;
 }
 
 bool QFileDialog_virtualbase_hasHeightForWidth(const void* self) {
-	return static_cast<const MiqtVirtualQFileDialog*>(self)->QFileDialog::hasHeightForWidth();
+
+	return ( (const MiqtVirtualQFileDialog*)(self) )->QFileDialog::hasHeightForWidth();
+
 }
 
 bool QFileDialog_override_virtual_paintEngine(void* self, intptr_t slot) {
@@ -2407,13 +2547,15 @@ bool QFileDialog_override_virtual_paintEngine(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paintEngine = slot;
 	return true;
 }
 
 QPaintEngine* QFileDialog_virtualbase_paintEngine(const void* self) {
-	return static_cast<const MiqtVirtualQFileDialog*>(self)->QFileDialog::paintEngine();
+
+	return ( (const MiqtVirtualQFileDialog*)(self) )->QFileDialog::paintEngine();
+
 }
 
 bool QFileDialog_override_virtual_event(void* self, intptr_t slot) {
@@ -2421,13 +2563,15 @@ bool QFileDialog_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QFileDialog_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::event(event);
+
+	return ( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::event(event);
+
 }
 
 bool QFileDialog_override_virtual_mousePressEvent(void* self, intptr_t slot) {
@@ -2435,13 +2579,15 @@ bool QFileDialog_override_virtual_mousePressEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mousePressEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_mousePressEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::mousePressEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::mousePressEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_mouseReleaseEvent(void* self, intptr_t slot) {
@@ -2449,13 +2595,15 @@ bool QFileDialog_override_virtual_mouseReleaseEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseReleaseEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_mouseReleaseEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::mouseReleaseEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::mouseReleaseEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_mouseDoubleClickEvent(void* self, intptr_t slot) {
@@ -2463,13 +2611,15 @@ bool QFileDialog_override_virtual_mouseDoubleClickEvent(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseDoubleClickEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_mouseDoubleClickEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::mouseDoubleClickEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::mouseDoubleClickEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_mouseMoveEvent(void* self, intptr_t slot) {
@@ -2477,13 +2627,15 @@ bool QFileDialog_override_virtual_mouseMoveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseMoveEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_mouseMoveEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::mouseMoveEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::mouseMoveEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_wheelEvent(void* self, intptr_t slot) {
@@ -2491,13 +2643,15 @@ bool QFileDialog_override_virtual_wheelEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__wheelEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_wheelEvent(void* self, QWheelEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::wheelEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::wheelEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_keyReleaseEvent(void* self, intptr_t slot) {
@@ -2505,13 +2659,15 @@ bool QFileDialog_override_virtual_keyReleaseEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyReleaseEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_keyReleaseEvent(void* self, QKeyEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::keyReleaseEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::keyReleaseEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_focusInEvent(void* self, intptr_t slot) {
@@ -2519,13 +2675,15 @@ bool QFileDialog_override_virtual_focusInEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusInEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_focusInEvent(void* self, QFocusEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::focusInEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::focusInEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_focusOutEvent(void* self, intptr_t slot) {
@@ -2533,13 +2691,15 @@ bool QFileDialog_override_virtual_focusOutEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusOutEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_focusOutEvent(void* self, QFocusEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::focusOutEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::focusOutEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_enterEvent(void* self, intptr_t slot) {
@@ -2547,13 +2707,15 @@ bool QFileDialog_override_virtual_enterEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__enterEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_enterEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::enterEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::enterEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_leaveEvent(void* self, intptr_t slot) {
@@ -2561,13 +2723,15 @@ bool QFileDialog_override_virtual_leaveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__leaveEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_leaveEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::leaveEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::leaveEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_paintEvent(void* self, intptr_t slot) {
@@ -2575,13 +2739,15 @@ bool QFileDialog_override_virtual_paintEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paintEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_paintEvent(void* self, QPaintEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::paintEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::paintEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_moveEvent(void* self, intptr_t slot) {
@@ -2589,13 +2755,15 @@ bool QFileDialog_override_virtual_moveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__moveEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_moveEvent(void* self, QMoveEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::moveEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::moveEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_tabletEvent(void* self, intptr_t slot) {
@@ -2603,13 +2771,15 @@ bool QFileDialog_override_virtual_tabletEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__tabletEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_tabletEvent(void* self, QTabletEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::tabletEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::tabletEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_actionEvent(void* self, intptr_t slot) {
@@ -2617,13 +2787,15 @@ bool QFileDialog_override_virtual_actionEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__actionEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_actionEvent(void* self, QActionEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::actionEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::actionEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_dragEnterEvent(void* self, intptr_t slot) {
@@ -2631,13 +2803,15 @@ bool QFileDialog_override_virtual_dragEnterEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragEnterEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_dragEnterEvent(void* self, QDragEnterEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::dragEnterEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::dragEnterEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_dragMoveEvent(void* self, intptr_t slot) {
@@ -2645,13 +2819,15 @@ bool QFileDialog_override_virtual_dragMoveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragMoveEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_dragMoveEvent(void* self, QDragMoveEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::dragMoveEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::dragMoveEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_dragLeaveEvent(void* self, intptr_t slot) {
@@ -2659,13 +2835,15 @@ bool QFileDialog_override_virtual_dragLeaveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragLeaveEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_dragLeaveEvent(void* self, QDragLeaveEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::dragLeaveEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::dragLeaveEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_dropEvent(void* self, intptr_t slot) {
@@ -2673,13 +2851,15 @@ bool QFileDialog_override_virtual_dropEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dropEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_dropEvent(void* self, QDropEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::dropEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::dropEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_hideEvent(void* self, intptr_t slot) {
@@ -2687,13 +2867,15 @@ bool QFileDialog_override_virtual_hideEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hideEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_hideEvent(void* self, QHideEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::hideEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::hideEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_nativeEvent(void* self, intptr_t slot) {
@@ -2701,14 +2883,16 @@ bool QFileDialog_override_virtual_nativeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__nativeEvent = slot;
 	return true;
 }
 
 bool QFileDialog_virtualbase_nativeEvent(void* self, struct miqt_string eventType, void* message, long* result) {
 	QByteArray eventType_QByteArray(eventType.data, eventType.len);
-	return static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::nativeEvent(eventType_QByteArray, message, static_cast<long*>(result));
+
+	return ( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::nativeEvent(eventType_QByteArray, message, static_cast<long*>(result));
+
 }
 
 bool QFileDialog_override_virtual_metric(void* self, intptr_t slot) {
@@ -2716,13 +2900,15 @@ bool QFileDialog_override_virtual_metric(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__metric = slot;
 	return true;
 }
 
 int QFileDialog_virtualbase_metric(const void* self, int param1) {
-	return static_cast<const MiqtVirtualQFileDialog*>(self)->QFileDialog::metric(static_cast<MiqtVirtualQFileDialog::PaintDeviceMetric>(param1));
+
+	return ( (const MiqtVirtualQFileDialog*)(self) )->QFileDialog::metric(static_cast<MiqtVirtualQFileDialog::PaintDeviceMetric>(param1));
+
 }
 
 bool QFileDialog_override_virtual_initPainter(void* self, intptr_t slot) {
@@ -2730,13 +2916,15 @@ bool QFileDialog_override_virtual_initPainter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__initPainter = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_initPainter(const void* self, QPainter* painter) {
-	static_cast<const MiqtVirtualQFileDialog*>(self)->QFileDialog::initPainter(painter);
+
+	( (const MiqtVirtualQFileDialog*)(self) )->QFileDialog::initPainter(painter);
+
 }
 
 bool QFileDialog_override_virtual_redirected(void* self, intptr_t slot) {
@@ -2744,13 +2932,15 @@ bool QFileDialog_override_virtual_redirected(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__redirected = slot;
 	return true;
 }
 
 QPaintDevice* QFileDialog_virtualbase_redirected(const void* self, QPoint* offset) {
-	return static_cast<const MiqtVirtualQFileDialog*>(self)->QFileDialog::redirected(offset);
+
+	return ( (const MiqtVirtualQFileDialog*)(self) )->QFileDialog::redirected(offset);
+
 }
 
 bool QFileDialog_override_virtual_sharedPainter(void* self, intptr_t slot) {
@@ -2758,13 +2948,15 @@ bool QFileDialog_override_virtual_sharedPainter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sharedPainter = slot;
 	return true;
 }
 
 QPainter* QFileDialog_virtualbase_sharedPainter(const void* self) {
-	return static_cast<const MiqtVirtualQFileDialog*>(self)->QFileDialog::sharedPainter();
+
+	return ( (const MiqtVirtualQFileDialog*)(self) )->QFileDialog::sharedPainter();
+
 }
 
 bool QFileDialog_override_virtual_inputMethodEvent(void* self, intptr_t slot) {
@@ -2772,13 +2964,15 @@ bool QFileDialog_override_virtual_inputMethodEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* param1) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::inputMethodEvent(param1);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::inputMethodEvent(param1);
+
 }
 
 bool QFileDialog_override_virtual_inputMethodQuery(void* self, intptr_t slot) {
@@ -2786,13 +2980,15 @@ bool QFileDialog_override_virtual_inputMethodQuery(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodQuery = slot;
 	return true;
 }
 
 QVariant* QFileDialog_virtualbase_inputMethodQuery(const void* self, int param1) {
-	return new QVariant(static_cast<const MiqtVirtualQFileDialog*>(self)->QFileDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+
+	return new QVariant(( (const MiqtVirtualQFileDialog*)(self) )->QFileDialog::inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
+
 }
 
 bool QFileDialog_override_virtual_focusNextPrevChild(void* self, intptr_t slot) {
@@ -2800,13 +2996,15 @@ bool QFileDialog_override_virtual_focusNextPrevChild(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusNextPrevChild = slot;
 	return true;
 }
 
 bool QFileDialog_virtualbase_focusNextPrevChild(void* self, bool next) {
-	return static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::focusNextPrevChild(next);
+
+	return ( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::focusNextPrevChild(next);
+
 }
 
 bool QFileDialog_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -2814,13 +3012,15 @@ bool QFileDialog_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::timerEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::timerEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -2828,13 +3028,15 @@ bool QFileDialog_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::childEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::childEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -2842,13 +3044,15 @@ bool QFileDialog_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::customEvent(event);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::customEvent(event);
+
 }
 
 bool QFileDialog_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -2856,13 +3060,15 @@ bool QFileDialog_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::connectNotify(*signal);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::connectNotify(*signal);
+
 }
 
 bool QFileDialog_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -2870,13 +3076,15 @@ bool QFileDialog_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QFileDialog_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQFileDialog*>(self)->QFileDialog::disconnectNotify(*signal);
+
+	( (MiqtVirtualQFileDialog*)(self) )->QFileDialog::disconnectNotify(*signal);
+
 }
 
 void QFileDialog_protectedbase_adjustPosition(bool* _dynamic_cast_ok, void* self, QWidget* param1) {
@@ -2885,9 +3093,11 @@ void QFileDialog_protectedbase_adjustPosition(bool* _dynamic_cast_ok, void* self
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->adjustPosition(param1);
+
 }
 
 void QFileDialog_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* self) {
@@ -2896,9 +3106,11 @@ void QFileDialog_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* se
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->updateMicroFocus();
+
 }
 
 void QFileDialog_protectedbase_create(bool* _dynamic_cast_ok, void* self) {
@@ -2907,9 +3119,11 @@ void QFileDialog_protectedbase_create(bool* _dynamic_cast_ok, void* self) {
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->create();
+
 }
 
 void QFileDialog_protectedbase_destroy(bool* _dynamic_cast_ok, void* self) {
@@ -2918,9 +3132,11 @@ void QFileDialog_protectedbase_destroy(bool* _dynamic_cast_ok, void* self) {
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->destroy();
+
 }
 
 bool QFileDialog_protectedbase_focusNextChild(bool* _dynamic_cast_ok, void* self) {
@@ -2929,9 +3145,11 @@ bool QFileDialog_protectedbase_focusNextChild(bool* _dynamic_cast_ok, void* self
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->focusNextChild();
+
 }
 
 bool QFileDialog_protectedbase_focusPreviousChild(bool* _dynamic_cast_ok, void* self) {
@@ -2940,9 +3158,11 @@ bool QFileDialog_protectedbase_focusPreviousChild(bool* _dynamic_cast_ok, void* 
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->focusPreviousChild();
+
 }
 
 QObject* QFileDialog_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -2951,9 +3171,11 @@ QObject* QFileDialog_protectedbase_sender(bool* _dynamic_cast_ok, const void* se
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QFileDialog_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -2962,9 +3184,11 @@ int QFileDialog_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const vo
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QFileDialog_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -2973,9 +3197,11 @@ int QFileDialog_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QFileDialog_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -2984,9 +3210,11 @@ bool QFileDialog_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const v
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QFileDialog_delete(QFileDialog* self) {

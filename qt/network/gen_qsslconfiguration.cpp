@@ -23,11 +23,11 @@ extern "C" {
 #endif
 
 QSslConfiguration* QSslConfiguration_new() {
-	return new (std::nothrow) QSslConfiguration();
+	return new QSslConfiguration();
 }
 
 QSslConfiguration* QSslConfiguration_new2(QSslConfiguration* other) {
-	return new (std::nothrow) QSslConfiguration(*other);
+	return new QSslConfiguration(*other);
 }
 
 void QSslConfiguration_operatorAssign(QSslConfiguration* self, QSslConfiguration* other) {
@@ -338,37 +338,19 @@ void QSslConfiguration_setDefaultConfiguration(QSslConfiguration* configuration)
 }
 
 bool QSslConfiguration_dtlsCookieVerificationEnabled(const QSslConfiguration* self) {
-#if QT_CONFIG(dtls)
 	return self->dtlsCookieVerificationEnabled();
-#else
-	bool _ret_unavailable;
-	return _ret_unavailable;
-#endif
 }
 
 void QSslConfiguration_setDtlsCookieVerificationEnabled(QSslConfiguration* self, bool enable) {
-#if QT_CONFIG(dtls)
 	self->setDtlsCookieVerificationEnabled(enable);
-#else
-	return;
-#endif
 }
 
 QSslConfiguration* QSslConfiguration_defaultDtlsConfiguration() {
-#if QT_CONFIG(dtls)
 	return new QSslConfiguration(QSslConfiguration::defaultDtlsConfiguration());
-#else
-	QSslConfiguration* _ret_unavailable;
-	return _ret_unavailable;
-#endif
 }
 
 void QSslConfiguration_setDefaultDtlsConfiguration(QSslConfiguration* configuration) {
-#if QT_CONFIG(dtls)
 	QSslConfiguration::setDefaultDtlsConfiguration(*configuration);
-#else
-	return;
-#endif
 }
 
 void QSslConfiguration_setOcspStaplingEnabled(QSslConfiguration* self, bool enable) {

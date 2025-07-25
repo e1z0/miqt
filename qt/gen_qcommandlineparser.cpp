@@ -17,7 +17,7 @@ extern "C" {
 #endif
 
 QCommandLineParser* QCommandLineParser_new() {
-	return new (std::nothrow) QCommandLineParser();
+	return new QCommandLineParser();
 }
 
 struct miqt_string QCommandLineParser_tr(const char* sourceText) {

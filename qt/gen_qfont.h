@@ -108,7 +108,6 @@ QFont* QFont_resolve(const QFont* self, QFont* param1);
 unsigned int QFont_resolve2(const QFont* self);
 void QFont_resolveWithMask(QFont* self, unsigned int mask);
 void QFont_setStyleHint2(QFont* self, int param1, int param2);
-
 void QFont_delete(QFont* self);
 
 #ifdef __cplusplus

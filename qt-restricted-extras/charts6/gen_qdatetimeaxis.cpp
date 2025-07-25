@@ -37,8 +37,8 @@ void miqt_exec_callback_QDateTimeAxis_disconnectNotify(QDateTimeAxis*, intptr_t,
 class MiqtVirtualQDateTimeAxis final : public QDateTimeAxis {
 public:
 
-	MiqtVirtualQDateTimeAxis(): QDateTimeAxis() {}
-	MiqtVirtualQDateTimeAxis(QObject* parent): QDateTimeAxis(parent) {}
+	MiqtVirtualQDateTimeAxis(): QDateTimeAxis() {};
+	MiqtVirtualQDateTimeAxis(QObject* parent): QDateTimeAxis(parent) {};
 
 	virtual ~MiqtVirtualQDateTimeAxis() override = default;
 
@@ -50,8 +50,10 @@ public:
 		if (handle__type == 0) {
 			return QDateTimeAxis::type();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QDateTimeAxis_type(this, handle__type);
+
 		return static_cast<QAbstractAxis::AxisType>(callback_return_value);
 	}
 
@@ -65,9 +67,11 @@ public:
 		if (handle__event == 0) {
 			return QDateTimeAxis::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QDateTimeAxis_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -81,10 +85,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QDateTimeAxis::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QDateTimeAxis_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -99,10 +105,12 @@ public:
 			QDateTimeAxis::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QDateTimeAxis_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QDateTimeAxis_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -116,10 +124,12 @@ public:
 			QDateTimeAxis::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QDateTimeAxis_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QDateTimeAxis_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -133,10 +143,12 @@ public:
 			QDateTimeAxis::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QDateTimeAxis_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QDateTimeAxis_virtualbase_customEvent(void* self, QEvent* event);
@@ -150,12 +162,14 @@ public:
 			QDateTimeAxis::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QDateTimeAxis_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QDateTimeAxis_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -169,12 +183,14 @@ public:
 			QDateTimeAxis::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QDateTimeAxis_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QDateTimeAxis_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -187,11 +203,11 @@ public:
 };
 
 QDateTimeAxis* QDateTimeAxis_new() {
-	return new (std::nothrow) MiqtVirtualQDateTimeAxis();
+	return new MiqtVirtualQDateTimeAxis();
 }
 
 QDateTimeAxis* QDateTimeAxis_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQDateTimeAxis(parent);
+	return new MiqtVirtualQDateTimeAxis(parent);
 }
 
 void QDateTimeAxis_virtbase(QDateTimeAxis* src, QAbstractAxis** outptr_QAbstractAxis) {
@@ -271,7 +287,7 @@ void QDateTimeAxis_minChanged(QDateTimeAxis* self, QDateTime* min) {
 }
 
 void QDateTimeAxis_connect_minChanged(QDateTimeAxis* self, intptr_t slot) {
-	QDateTimeAxis::connect(self, static_cast<void (QDateTimeAxis::*)(QDateTime)>(&QDateTimeAxis::minChanged), self, [=](QDateTime min) {
+	MiqtVirtualQDateTimeAxis::connect(self, static_cast<void (QDateTimeAxis::*)(QDateTime)>(&QDateTimeAxis::minChanged), self, [=](QDateTime min) {
 		QDateTime* sigval1 = new QDateTime(min);
 		miqt_exec_callback_QDateTimeAxis_minChanged(slot, sigval1);
 	});
@@ -282,7 +298,7 @@ void QDateTimeAxis_maxChanged(QDateTimeAxis* self, QDateTime* max) {
 }
 
 void QDateTimeAxis_connect_maxChanged(QDateTimeAxis* self, intptr_t slot) {
-	QDateTimeAxis::connect(self, static_cast<void (QDateTimeAxis::*)(QDateTime)>(&QDateTimeAxis::maxChanged), self, [=](QDateTime max) {
+	MiqtVirtualQDateTimeAxis::connect(self, static_cast<void (QDateTimeAxis::*)(QDateTime)>(&QDateTimeAxis::maxChanged), self, [=](QDateTime max) {
 		QDateTime* sigval1 = new QDateTime(max);
 		miqt_exec_callback_QDateTimeAxis_maxChanged(slot, sigval1);
 	});
@@ -293,7 +309,7 @@ void QDateTimeAxis_rangeChanged(QDateTimeAxis* self, QDateTime* min, QDateTime* 
 }
 
 void QDateTimeAxis_connect_rangeChanged(QDateTimeAxis* self, intptr_t slot) {
-	QDateTimeAxis::connect(self, static_cast<void (QDateTimeAxis::*)(QDateTime, QDateTime)>(&QDateTimeAxis::rangeChanged), self, [=](QDateTime min, QDateTime max) {
+	MiqtVirtualQDateTimeAxis::connect(self, static_cast<void (QDateTimeAxis::*)(QDateTime, QDateTime)>(&QDateTimeAxis::rangeChanged), self, [=](QDateTime min, QDateTime max) {
 		QDateTime* sigval1 = new QDateTime(min);
 		QDateTime* sigval2 = new QDateTime(max);
 		miqt_exec_callback_QDateTimeAxis_rangeChanged(slot, sigval1, sigval2);
@@ -306,7 +322,7 @@ void QDateTimeAxis_formatChanged(QDateTimeAxis* self, struct miqt_string format)
 }
 
 void QDateTimeAxis_connect_formatChanged(QDateTimeAxis* self, intptr_t slot) {
-	QDateTimeAxis::connect(self, static_cast<void (QDateTimeAxis::*)(QString)>(&QDateTimeAxis::formatChanged), self, [=](QString format) {
+	MiqtVirtualQDateTimeAxis::connect(self, static_cast<void (QDateTimeAxis::*)(QString)>(&QDateTimeAxis::formatChanged), self, [=](QString format) {
 		QString format_ret = format;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray format_b = format_ret.toUtf8();
@@ -324,7 +340,7 @@ void QDateTimeAxis_tickCountChanged(QDateTimeAxis* self, int tick) {
 }
 
 void QDateTimeAxis_connect_tickCountChanged(QDateTimeAxis* self, intptr_t slot) {
-	QDateTimeAxis::connect(self, static_cast<void (QDateTimeAxis::*)(int)>(&QDateTimeAxis::tickCountChanged), self, [=](int tick) {
+	MiqtVirtualQDateTimeAxis::connect(self, static_cast<void (QDateTimeAxis::*)(int)>(&QDateTimeAxis::tickCountChanged), self, [=](int tick) {
 		int sigval1 = tick;
 		miqt_exec_callback_QDateTimeAxis_tickCountChanged(slot, sigval1);
 	});
@@ -357,14 +373,16 @@ bool QDateTimeAxis_override_virtual_type(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__type = slot;
 	return true;
 }
 
 int QDateTimeAxis_virtualbase_type(const void* self) {
-	MiqtVirtualQDateTimeAxis::AxisType _ret = static_cast<const MiqtVirtualQDateTimeAxis*>(self)->QDateTimeAxis::type();
+
+	MiqtVirtualQDateTimeAxis::AxisType _ret = ( (const MiqtVirtualQDateTimeAxis*)(self) )->QDateTimeAxis::type();
 	return static_cast<int>(_ret);
+
 }
 
 bool QDateTimeAxis_override_virtual_event(void* self, intptr_t slot) {
@@ -372,13 +390,15 @@ bool QDateTimeAxis_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QDateTimeAxis_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQDateTimeAxis*>(self)->QDateTimeAxis::event(event);
+
+	return ( (MiqtVirtualQDateTimeAxis*)(self) )->QDateTimeAxis::event(event);
+
 }
 
 bool QDateTimeAxis_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -386,13 +406,15 @@ bool QDateTimeAxis_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QDateTimeAxis_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQDateTimeAxis*>(self)->QDateTimeAxis::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQDateTimeAxis*)(self) )->QDateTimeAxis::eventFilter(watched, event);
+
 }
 
 bool QDateTimeAxis_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -400,13 +422,15 @@ bool QDateTimeAxis_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QDateTimeAxis_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQDateTimeAxis*>(self)->QDateTimeAxis::timerEvent(event);
+
+	( (MiqtVirtualQDateTimeAxis*)(self) )->QDateTimeAxis::timerEvent(event);
+
 }
 
 bool QDateTimeAxis_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -414,13 +438,15 @@ bool QDateTimeAxis_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QDateTimeAxis_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQDateTimeAxis*>(self)->QDateTimeAxis::childEvent(event);
+
+	( (MiqtVirtualQDateTimeAxis*)(self) )->QDateTimeAxis::childEvent(event);
+
 }
 
 bool QDateTimeAxis_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -428,13 +454,15 @@ bool QDateTimeAxis_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QDateTimeAxis_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQDateTimeAxis*>(self)->QDateTimeAxis::customEvent(event);
+
+	( (MiqtVirtualQDateTimeAxis*)(self) )->QDateTimeAxis::customEvent(event);
+
 }
 
 bool QDateTimeAxis_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -442,13 +470,15 @@ bool QDateTimeAxis_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QDateTimeAxis_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQDateTimeAxis*>(self)->QDateTimeAxis::connectNotify(*signal);
+
+	( (MiqtVirtualQDateTimeAxis*)(self) )->QDateTimeAxis::connectNotify(*signal);
+
 }
 
 bool QDateTimeAxis_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -456,13 +486,15 @@ bool QDateTimeAxis_override_virtual_disconnectNotify(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QDateTimeAxis_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQDateTimeAxis*>(self)->QDateTimeAxis::disconnectNotify(*signal);
+
+	( (MiqtVirtualQDateTimeAxis*)(self) )->QDateTimeAxis::disconnectNotify(*signal);
+
 }
 
 QObject* QDateTimeAxis_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -471,9 +503,11 @@ QObject* QDateTimeAxis_protectedbase_sender(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QDateTimeAxis_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -482,9 +516,11 @@ int QDateTimeAxis_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QDateTimeAxis_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -493,9 +529,11 @@ int QDateTimeAxis_protectedbase_receivers(bool* _dynamic_cast_ok, const void* se
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QDateTimeAxis_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -504,9 +542,11 @@ bool QDateTimeAxis_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QDateTimeAxis_delete(QDateTimeAxis* self) {

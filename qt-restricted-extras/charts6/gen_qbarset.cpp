@@ -52,8 +52,8 @@ void miqt_exec_callback_QBarSet_disconnectNotify(QBarSet*, intptr_t, QMetaMethod
 class MiqtVirtualQBarSet final : public QBarSet {
 public:
 
-	MiqtVirtualQBarSet(const QString label): QBarSet(label) {}
-	MiqtVirtualQBarSet(const QString label, QObject* parent): QBarSet(label, parent) {}
+	MiqtVirtualQBarSet(const QString label): QBarSet(label) {};
+	MiqtVirtualQBarSet(const QString label, QObject* parent): QBarSet(label, parent) {};
 
 	virtual ~MiqtVirtualQBarSet() override = default;
 
@@ -65,9 +65,11 @@ public:
 		if (handle__event == 0) {
 			return QBarSet::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QBarSet_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -81,10 +83,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QBarSet::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QBarSet_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -99,10 +103,12 @@ public:
 			QBarSet::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QBarSet_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QBarSet_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -116,10 +122,12 @@ public:
 			QBarSet::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QBarSet_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QBarSet_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -133,10 +141,12 @@ public:
 			QBarSet::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QBarSet_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QBarSet_virtualbase_customEvent(void* self, QEvent* event);
@@ -150,12 +160,14 @@ public:
 			QBarSet::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QBarSet_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QBarSet_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -169,12 +181,14 @@ public:
 			QBarSet::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QBarSet_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QBarSet_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -188,12 +202,12 @@ public:
 
 QBarSet* QBarSet_new(struct miqt_string label) {
 	QString label_QString = QString::fromUtf8(label.data, label.len);
-	return new (std::nothrow) MiqtVirtualQBarSet(label_QString);
+	return new MiqtVirtualQBarSet(label_QString);
 }
 
 QBarSet* QBarSet_new2(struct miqt_string label, QObject* parent) {
 	QString label_QString = QString::fromUtf8(label.data, label.len);
-	return new (std::nothrow) MiqtVirtualQBarSet(label_QString, parent);
+	return new MiqtVirtualQBarSet(label_QString, parent);
 }
 
 void QBarSet_virtbase(QBarSet* src, QObject** outptr_QObject) {
@@ -422,7 +436,7 @@ void QBarSet_clicked(QBarSet* self, int index) {
 }
 
 void QBarSet_connect_clicked(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)(int)>(&QBarSet::clicked), self, [=](int index) {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)(int)>(&QBarSet::clicked), self, [=](int index) {
 		int sigval1 = index;
 		miqt_exec_callback_QBarSet_clicked(slot, sigval1);
 	});
@@ -433,7 +447,7 @@ void QBarSet_hovered(QBarSet* self, bool status, int index) {
 }
 
 void QBarSet_connect_hovered(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)(bool, int)>(&QBarSet::hovered), self, [=](bool status, int index) {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)(bool, int)>(&QBarSet::hovered), self, [=](bool status, int index) {
 		bool sigval1 = status;
 		int sigval2 = index;
 		miqt_exec_callback_QBarSet_hovered(slot, sigval1, sigval2);
@@ -445,7 +459,7 @@ void QBarSet_pressed(QBarSet* self, int index) {
 }
 
 void QBarSet_connect_pressed(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)(int)>(&QBarSet::pressed), self, [=](int index) {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)(int)>(&QBarSet::pressed), self, [=](int index) {
 		int sigval1 = index;
 		miqt_exec_callback_QBarSet_pressed(slot, sigval1);
 	});
@@ -456,7 +470,7 @@ void QBarSet_released(QBarSet* self, int index) {
 }
 
 void QBarSet_connect_released(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)(int)>(&QBarSet::released), self, [=](int index) {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)(int)>(&QBarSet::released), self, [=](int index) {
 		int sigval1 = index;
 		miqt_exec_callback_QBarSet_released(slot, sigval1);
 	});
@@ -467,7 +481,7 @@ void QBarSet_doubleClicked(QBarSet* self, int index) {
 }
 
 void QBarSet_connect_doubleClicked(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)(int)>(&QBarSet::doubleClicked), self, [=](int index) {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)(int)>(&QBarSet::doubleClicked), self, [=](int index) {
 		int sigval1 = index;
 		miqt_exec_callback_QBarSet_doubleClicked(slot, sigval1);
 	});
@@ -478,7 +492,7 @@ void QBarSet_penChanged(QBarSet* self) {
 }
 
 void QBarSet_connect_penChanged(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)()>(&QBarSet::penChanged), self, [=]() {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)()>(&QBarSet::penChanged), self, [=]() {
 		miqt_exec_callback_QBarSet_penChanged(slot);
 	});
 }
@@ -488,7 +502,7 @@ void QBarSet_brushChanged(QBarSet* self) {
 }
 
 void QBarSet_connect_brushChanged(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)()>(&QBarSet::brushChanged), self, [=]() {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)()>(&QBarSet::brushChanged), self, [=]() {
 		miqt_exec_callback_QBarSet_brushChanged(slot);
 	});
 }
@@ -498,7 +512,7 @@ void QBarSet_labelChanged(QBarSet* self) {
 }
 
 void QBarSet_connect_labelChanged(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)()>(&QBarSet::labelChanged), self, [=]() {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)()>(&QBarSet::labelChanged), self, [=]() {
 		miqt_exec_callback_QBarSet_labelChanged(slot);
 	});
 }
@@ -508,7 +522,7 @@ void QBarSet_labelBrushChanged(QBarSet* self) {
 }
 
 void QBarSet_connect_labelBrushChanged(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)()>(&QBarSet::labelBrushChanged), self, [=]() {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)()>(&QBarSet::labelBrushChanged), self, [=]() {
 		miqt_exec_callback_QBarSet_labelBrushChanged(slot);
 	});
 }
@@ -518,7 +532,7 @@ void QBarSet_labelFontChanged(QBarSet* self) {
 }
 
 void QBarSet_connect_labelFontChanged(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)()>(&QBarSet::labelFontChanged), self, [=]() {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)()>(&QBarSet::labelFontChanged), self, [=]() {
 		miqt_exec_callback_QBarSet_labelFontChanged(slot);
 	});
 }
@@ -528,7 +542,7 @@ void QBarSet_colorChanged(QBarSet* self, QColor* color) {
 }
 
 void QBarSet_connect_colorChanged(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)(QColor)>(&QBarSet::colorChanged), self, [=](QColor color) {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)(QColor)>(&QBarSet::colorChanged), self, [=](QColor color) {
 		QColor* sigval1 = new QColor(color);
 		miqt_exec_callback_QBarSet_colorChanged(slot, sigval1);
 	});
@@ -539,7 +553,7 @@ void QBarSet_borderColorChanged(QBarSet* self, QColor* color) {
 }
 
 void QBarSet_connect_borderColorChanged(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)(QColor)>(&QBarSet::borderColorChanged), self, [=](QColor color) {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)(QColor)>(&QBarSet::borderColorChanged), self, [=](QColor color) {
 		QColor* sigval1 = new QColor(color);
 		miqt_exec_callback_QBarSet_borderColorChanged(slot, sigval1);
 	});
@@ -550,7 +564,7 @@ void QBarSet_labelColorChanged(QBarSet* self, QColor* color) {
 }
 
 void QBarSet_connect_labelColorChanged(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)(QColor)>(&QBarSet::labelColorChanged), self, [=](QColor color) {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)(QColor)>(&QBarSet::labelColorChanged), self, [=](QColor color) {
 		QColor* sigval1 = new QColor(color);
 		miqt_exec_callback_QBarSet_labelColorChanged(slot, sigval1);
 	});
@@ -561,7 +575,7 @@ void QBarSet_selectedColorChanged(QBarSet* self, QColor* color) {
 }
 
 void QBarSet_connect_selectedColorChanged(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)(const QColor&)>(&QBarSet::selectedColorChanged), self, [=](const QColor& color) {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)(const QColor&)>(&QBarSet::selectedColorChanged), self, [=](const QColor& color) {
 		const QColor& color_ret = color;
 		// Cast returned reference into pointer
 		QColor* sigval1 = const_cast<QColor*>(&color_ret);
@@ -574,7 +588,7 @@ void QBarSet_valuesAdded(QBarSet* self, int index, int count) {
 }
 
 void QBarSet_connect_valuesAdded(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)(int, int)>(&QBarSet::valuesAdded), self, [=](int index, int count) {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)(int, int)>(&QBarSet::valuesAdded), self, [=](int index, int count) {
 		int sigval1 = index;
 		int sigval2 = count;
 		miqt_exec_callback_QBarSet_valuesAdded(slot, sigval1, sigval2);
@@ -586,7 +600,7 @@ void QBarSet_valuesRemoved(QBarSet* self, int index, int count) {
 }
 
 void QBarSet_connect_valuesRemoved(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)(int, int)>(&QBarSet::valuesRemoved), self, [=](int index, int count) {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)(int, int)>(&QBarSet::valuesRemoved), self, [=](int index, int count) {
 		int sigval1 = index;
 		int sigval2 = count;
 		miqt_exec_callback_QBarSet_valuesRemoved(slot, sigval1, sigval2);
@@ -598,7 +612,7 @@ void QBarSet_valueChanged(QBarSet* self, int index) {
 }
 
 void QBarSet_connect_valueChanged(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)(int)>(&QBarSet::valueChanged), self, [=](int index) {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)(int)>(&QBarSet::valueChanged), self, [=](int index) {
 		int sigval1 = index;
 		miqt_exec_callback_QBarSet_valueChanged(slot, sigval1);
 	});
@@ -615,7 +629,7 @@ void QBarSet_selectedBarsChanged(QBarSet* self, struct miqt_array /* of int */  
 }
 
 void QBarSet_connect_selectedBarsChanged(QBarSet* self, intptr_t slot) {
-	QBarSet::connect(self, static_cast<void (QBarSet::*)(const QList<int>&)>(&QBarSet::selectedBarsChanged), self, [=](const QList<int>& indexes) {
+	MiqtVirtualQBarSet::connect(self, static_cast<void (QBarSet::*)(const QList<int>&)>(&QBarSet::selectedBarsChanged), self, [=](const QList<int>& indexes) {
 		const QList<int>& indexes_ret = indexes;
 		// Convert QList<> from C++ memory to manually-managed C memory
 		int* indexes_arr = static_cast<int*>(malloc(sizeof(int) * indexes_ret.length()));
@@ -661,13 +675,15 @@ bool QBarSet_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QBarSet_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQBarSet*>(self)->QBarSet::event(event);
+
+	return ( (MiqtVirtualQBarSet*)(self) )->QBarSet::event(event);
+
 }
 
 bool QBarSet_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -675,13 +691,15 @@ bool QBarSet_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QBarSet_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQBarSet*>(self)->QBarSet::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQBarSet*)(self) )->QBarSet::eventFilter(watched, event);
+
 }
 
 bool QBarSet_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -689,13 +707,15 @@ bool QBarSet_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QBarSet_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQBarSet*>(self)->QBarSet::timerEvent(event);
+
+	( (MiqtVirtualQBarSet*)(self) )->QBarSet::timerEvent(event);
+
 }
 
 bool QBarSet_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -703,13 +723,15 @@ bool QBarSet_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QBarSet_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQBarSet*>(self)->QBarSet::childEvent(event);
+
+	( (MiqtVirtualQBarSet*)(self) )->QBarSet::childEvent(event);
+
 }
 
 bool QBarSet_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -717,13 +739,15 @@ bool QBarSet_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QBarSet_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQBarSet*>(self)->QBarSet::customEvent(event);
+
+	( (MiqtVirtualQBarSet*)(self) )->QBarSet::customEvent(event);
+
 }
 
 bool QBarSet_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -731,13 +755,15 @@ bool QBarSet_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QBarSet_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQBarSet*>(self)->QBarSet::connectNotify(*signal);
+
+	( (MiqtVirtualQBarSet*)(self) )->QBarSet::connectNotify(*signal);
+
 }
 
 bool QBarSet_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -745,13 +771,15 @@ bool QBarSet_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QBarSet_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQBarSet*>(self)->QBarSet::disconnectNotify(*signal);
+
+	( (MiqtVirtualQBarSet*)(self) )->QBarSet::disconnectNotify(*signal);
+
 }
 
 QObject* QBarSet_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -760,9 +788,11 @@ QObject* QBarSet_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) 
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QBarSet_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -771,9 +801,11 @@ int QBarSet_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QBarSet_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -782,9 +814,11 @@ int QBarSet_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, co
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QBarSet_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -793,9 +827,11 @@ bool QBarSet_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void*
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QBarSet_delete(QBarSet* self) {

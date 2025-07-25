@@ -25,7 +25,6 @@ QWebEngineFindTextResult* QWebEngineFindTextResult_new2(QWebEngineFindTextResult
 int QWebEngineFindTextResult_numberOfMatches(const QWebEngineFindTextResult* self);
 int QWebEngineFindTextResult_activeMatch(const QWebEngineFindTextResult* self);
 void QWebEngineFindTextResult_operatorAssign(QWebEngineFindTextResult* self, QWebEngineFindTextResult* other);
-
 void QWebEngineFindTextResult_delete(QWebEngineFindTextResult* self);
 
 #ifdef __cplusplus

@@ -34,10 +34,10 @@ void miqt_exec_callback_QPauseAnimation_disconnectNotify(QPauseAnimation*, intpt
 class MiqtVirtualQPauseAnimation final : public QPauseAnimation {
 public:
 
-	MiqtVirtualQPauseAnimation(): QPauseAnimation() {}
-	MiqtVirtualQPauseAnimation(int msecs): QPauseAnimation(msecs) {}
-	MiqtVirtualQPauseAnimation(QObject* parent): QPauseAnimation(parent) {}
-	MiqtVirtualQPauseAnimation(int msecs, QObject* parent): QPauseAnimation(msecs, parent) {}
+	MiqtVirtualQPauseAnimation(): QPauseAnimation() {};
+	MiqtVirtualQPauseAnimation(int msecs): QPauseAnimation(msecs) {};
+	MiqtVirtualQPauseAnimation(QObject* parent): QPauseAnimation(parent) {};
+	MiqtVirtualQPauseAnimation(int msecs, QObject* parent): QPauseAnimation(msecs, parent) {};
 
 	virtual ~MiqtVirtualQPauseAnimation() override = default;
 
@@ -49,8 +49,10 @@ public:
 		if (handle__duration == 0) {
 			return QPauseAnimation::duration();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QPauseAnimation_duration(this, handle__duration);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -64,9 +66,11 @@ public:
 		if (handle__event == 0) {
 			return QPauseAnimation::event(e);
 		}
-
+		
 		QEvent* sigval1 = e;
+
 		bool callback_return_value = miqt_exec_callback_QPauseAnimation_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -81,10 +85,12 @@ public:
 			QPauseAnimation::updateCurrentTime(param1);
 			return;
 		}
-
+		
 		int sigval1 = param1;
+
 		miqt_exec_callback_QPauseAnimation_updateCurrentTime(this, handle__updateCurrentTime, sigval1);
 
+		
 	}
 
 	friend void QPauseAnimation_virtualbase_updateCurrentTime(void* self, int param1);
@@ -98,13 +104,15 @@ public:
 			QPauseAnimation::updateState(newState, oldState);
 			return;
 		}
-
+		
 		QAbstractAnimation::State newState_ret = newState;
 		int sigval1 = static_cast<int>(newState_ret);
 		QAbstractAnimation::State oldState_ret = oldState;
 		int sigval2 = static_cast<int>(oldState_ret);
+
 		miqt_exec_callback_QPauseAnimation_updateState(this, handle__updateState, sigval1, sigval2);
 
+		
 	}
 
 	friend void QPauseAnimation_virtualbase_updateState(void* self, int newState, int oldState);
@@ -118,11 +126,13 @@ public:
 			QPauseAnimation::updateDirection(direction);
 			return;
 		}
-
+		
 		QAbstractAnimation::Direction direction_ret = direction;
 		int sigval1 = static_cast<int>(direction_ret);
+
 		miqt_exec_callback_QPauseAnimation_updateDirection(this, handle__updateDirection, sigval1);
 
+		
 	}
 
 	friend void QPauseAnimation_virtualbase_updateDirection(void* self, int direction);
@@ -135,10 +145,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QPauseAnimation::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QPauseAnimation_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -153,10 +165,12 @@ public:
 			QPauseAnimation::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QPauseAnimation_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QPauseAnimation_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -170,10 +184,12 @@ public:
 			QPauseAnimation::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QPauseAnimation_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QPauseAnimation_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -187,10 +203,12 @@ public:
 			QPauseAnimation::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QPauseAnimation_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QPauseAnimation_virtualbase_customEvent(void* self, QEvent* event);
@@ -204,12 +222,14 @@ public:
 			QPauseAnimation::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QPauseAnimation_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QPauseAnimation_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -223,12 +243,14 @@ public:
 			QPauseAnimation::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QPauseAnimation_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QPauseAnimation_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -241,19 +263,19 @@ public:
 };
 
 QPauseAnimation* QPauseAnimation_new() {
-	return new (std::nothrow) MiqtVirtualQPauseAnimation();
+	return new MiqtVirtualQPauseAnimation();
 }
 
 QPauseAnimation* QPauseAnimation_new2(int msecs) {
-	return new (std::nothrow) MiqtVirtualQPauseAnimation(static_cast<int>(msecs));
+	return new MiqtVirtualQPauseAnimation(static_cast<int>(msecs));
 }
 
 QPauseAnimation* QPauseAnimation_new3(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQPauseAnimation(parent);
+	return new MiqtVirtualQPauseAnimation(parent);
 }
 
 QPauseAnimation* QPauseAnimation_new4(int msecs, QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQPauseAnimation(static_cast<int>(msecs), parent);
+	return new MiqtVirtualQPauseAnimation(static_cast<int>(msecs), parent);
 }
 
 void QPauseAnimation_virtbase(QPauseAnimation* src, QAbstractAnimation** outptr_QAbstractAnimation) {
@@ -347,13 +369,15 @@ bool QPauseAnimation_override_virtual_duration(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__duration = slot;
 	return true;
 }
 
 int QPauseAnimation_virtualbase_duration(const void* self) {
-	return static_cast<const MiqtVirtualQPauseAnimation*>(self)->QPauseAnimation::duration();
+
+	return ( (const MiqtVirtualQPauseAnimation*)(self) )->QPauseAnimation::duration();
+
 }
 
 bool QPauseAnimation_override_virtual_event(void* self, intptr_t slot) {
@@ -361,13 +385,15 @@ bool QPauseAnimation_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QPauseAnimation_virtualbase_event(void* self, QEvent* e) {
-	return static_cast<MiqtVirtualQPauseAnimation*>(self)->QPauseAnimation::event(e);
+
+	return ( (MiqtVirtualQPauseAnimation*)(self) )->QPauseAnimation::event(e);
+
 }
 
 bool QPauseAnimation_override_virtual_updateCurrentTime(void* self, intptr_t slot) {
@@ -375,13 +401,15 @@ bool QPauseAnimation_override_virtual_updateCurrentTime(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__updateCurrentTime = slot;
 	return true;
 }
 
 void QPauseAnimation_virtualbase_updateCurrentTime(void* self, int param1) {
-	static_cast<MiqtVirtualQPauseAnimation*>(self)->QPauseAnimation::updateCurrentTime(static_cast<int>(param1));
+
+	( (MiqtVirtualQPauseAnimation*)(self) )->QPauseAnimation::updateCurrentTime(static_cast<int>(param1));
+
 }
 
 bool QPauseAnimation_override_virtual_updateState(void* self, intptr_t slot) {
@@ -389,13 +417,15 @@ bool QPauseAnimation_override_virtual_updateState(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__updateState = slot;
 	return true;
 }
 
 void QPauseAnimation_virtualbase_updateState(void* self, int newState, int oldState) {
-	static_cast<MiqtVirtualQPauseAnimation*>(self)->QPauseAnimation::updateState(static_cast<MiqtVirtualQPauseAnimation::State>(newState), static_cast<MiqtVirtualQPauseAnimation::State>(oldState));
+
+	( (MiqtVirtualQPauseAnimation*)(self) )->QPauseAnimation::updateState(static_cast<MiqtVirtualQPauseAnimation::State>(newState), static_cast<MiqtVirtualQPauseAnimation::State>(oldState));
+
 }
 
 bool QPauseAnimation_override_virtual_updateDirection(void* self, intptr_t slot) {
@@ -403,13 +433,15 @@ bool QPauseAnimation_override_virtual_updateDirection(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__updateDirection = slot;
 	return true;
 }
 
 void QPauseAnimation_virtualbase_updateDirection(void* self, int direction) {
-	static_cast<MiqtVirtualQPauseAnimation*>(self)->QPauseAnimation::updateDirection(static_cast<MiqtVirtualQPauseAnimation::Direction>(direction));
+
+	( (MiqtVirtualQPauseAnimation*)(self) )->QPauseAnimation::updateDirection(static_cast<MiqtVirtualQPauseAnimation::Direction>(direction));
+
 }
 
 bool QPauseAnimation_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -417,13 +449,15 @@ bool QPauseAnimation_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QPauseAnimation_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQPauseAnimation*>(self)->QPauseAnimation::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQPauseAnimation*)(self) )->QPauseAnimation::eventFilter(watched, event);
+
 }
 
 bool QPauseAnimation_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -431,13 +465,15 @@ bool QPauseAnimation_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QPauseAnimation_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQPauseAnimation*>(self)->QPauseAnimation::timerEvent(event);
+
+	( (MiqtVirtualQPauseAnimation*)(self) )->QPauseAnimation::timerEvent(event);
+
 }
 
 bool QPauseAnimation_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -445,13 +481,15 @@ bool QPauseAnimation_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QPauseAnimation_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQPauseAnimation*>(self)->QPauseAnimation::childEvent(event);
+
+	( (MiqtVirtualQPauseAnimation*)(self) )->QPauseAnimation::childEvent(event);
+
 }
 
 bool QPauseAnimation_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -459,13 +497,15 @@ bool QPauseAnimation_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QPauseAnimation_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQPauseAnimation*>(self)->QPauseAnimation::customEvent(event);
+
+	( (MiqtVirtualQPauseAnimation*)(self) )->QPauseAnimation::customEvent(event);
+
 }
 
 bool QPauseAnimation_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -473,13 +513,15 @@ bool QPauseAnimation_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QPauseAnimation_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQPauseAnimation*>(self)->QPauseAnimation::connectNotify(*signal);
+
+	( (MiqtVirtualQPauseAnimation*)(self) )->QPauseAnimation::connectNotify(*signal);
+
 }
 
 bool QPauseAnimation_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -487,13 +529,15 @@ bool QPauseAnimation_override_virtual_disconnectNotify(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QPauseAnimation_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQPauseAnimation*>(self)->QPauseAnimation::disconnectNotify(*signal);
+
+	( (MiqtVirtualQPauseAnimation*)(self) )->QPauseAnimation::disconnectNotify(*signal);
+
 }
 
 QObject* QPauseAnimation_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -502,9 +546,11 @@ QObject* QPauseAnimation_protectedbase_sender(bool* _dynamic_cast_ok, const void
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QPauseAnimation_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -513,9 +559,11 @@ int QPauseAnimation_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, cons
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QPauseAnimation_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -524,9 +572,11 @@ int QPauseAnimation_protectedbase_receivers(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QPauseAnimation_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -535,9 +585,11 @@ bool QPauseAnimation_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, con
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QPauseAnimation_delete(QPauseAnimation* self) {

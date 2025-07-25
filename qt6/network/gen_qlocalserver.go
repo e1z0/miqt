@@ -9,7 +9,7 @@ package network
 import "C"
 
 import (
-	"github.com/e1z0/miqt/qt6"
+	"github.com/mappu/miqt/qt6"
 	"runtime"
 	"runtime/cgo"
 	"unsafe"

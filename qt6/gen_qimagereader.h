@@ -88,7 +88,6 @@ int QImageReader_allocationLimit();
 void QImageReader_setAllocationLimit(int mbLimit);
 struct miqt_string QImageReader_tr2(const char* sourceText, const char* disambiguation);
 struct miqt_string QImageReader_tr3(const char* sourceText, const char* disambiguation, int n);
-
 void QImageReader_delete(QImageReader* self);
 
 #ifdef __cplusplus

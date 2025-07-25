@@ -38,8 +38,8 @@ void miqt_exec_callback_QVXYModelMapper_disconnectNotify(QVXYModelMapper*, intpt
 class MiqtVirtualQVXYModelMapper final : public QVXYModelMapper {
 public:
 
-	MiqtVirtualQVXYModelMapper(): QVXYModelMapper() {}
-	MiqtVirtualQVXYModelMapper(QObject* parent): QVXYModelMapper(parent) {}
+	MiqtVirtualQVXYModelMapper(): QVXYModelMapper() {};
+	MiqtVirtualQVXYModelMapper(QObject* parent): QVXYModelMapper(parent) {};
 
 	virtual ~MiqtVirtualQVXYModelMapper() override = default;
 
@@ -51,9 +51,11 @@ public:
 		if (handle__event == 0) {
 			return QVXYModelMapper::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QVXYModelMapper_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -67,10 +69,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QVXYModelMapper::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QVXYModelMapper_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -85,10 +89,12 @@ public:
 			QVXYModelMapper::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QVXYModelMapper_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QVXYModelMapper_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -102,10 +108,12 @@ public:
 			QVXYModelMapper::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QVXYModelMapper_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QVXYModelMapper_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -119,10 +127,12 @@ public:
 			QVXYModelMapper::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QVXYModelMapper_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QVXYModelMapper_virtualbase_customEvent(void* self, QEvent* event);
@@ -136,12 +146,14 @@ public:
 			QVXYModelMapper::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QVXYModelMapper_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QVXYModelMapper_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -155,12 +167,14 @@ public:
 			QVXYModelMapper::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QVXYModelMapper_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QVXYModelMapper_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -183,11 +197,11 @@ public:
 };
 
 QVXYModelMapper* QVXYModelMapper_new() {
-	return new (std::nothrow) MiqtVirtualQVXYModelMapper();
+	return new MiqtVirtualQVXYModelMapper();
 }
 
 QVXYModelMapper* QVXYModelMapper_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQVXYModelMapper(parent);
+	return new MiqtVirtualQVXYModelMapper(parent);
 }
 
 void QVXYModelMapper_virtbase(QVXYModelMapper* src, QXYModelMapper** outptr_QXYModelMapper) {
@@ -266,7 +280,7 @@ void QVXYModelMapper_seriesReplaced(QVXYModelMapper* self) {
 }
 
 void QVXYModelMapper_connect_seriesReplaced(QVXYModelMapper* self, intptr_t slot) {
-	QVXYModelMapper::connect(self, static_cast<void (QVXYModelMapper::*)()>(&QVXYModelMapper::seriesReplaced), self, [=]() {
+	MiqtVirtualQVXYModelMapper::connect(self, static_cast<void (QVXYModelMapper::*)()>(&QVXYModelMapper::seriesReplaced), self, [=]() {
 		miqt_exec_callback_QVXYModelMapper_seriesReplaced(slot);
 	});
 }
@@ -276,7 +290,7 @@ void QVXYModelMapper_modelReplaced(QVXYModelMapper* self) {
 }
 
 void QVXYModelMapper_connect_modelReplaced(QVXYModelMapper* self, intptr_t slot) {
-	QVXYModelMapper::connect(self, static_cast<void (QVXYModelMapper::*)()>(&QVXYModelMapper::modelReplaced), self, [=]() {
+	MiqtVirtualQVXYModelMapper::connect(self, static_cast<void (QVXYModelMapper::*)()>(&QVXYModelMapper::modelReplaced), self, [=]() {
 		miqt_exec_callback_QVXYModelMapper_modelReplaced(slot);
 	});
 }
@@ -286,7 +300,7 @@ void QVXYModelMapper_xColumnChanged(QVXYModelMapper* self) {
 }
 
 void QVXYModelMapper_connect_xColumnChanged(QVXYModelMapper* self, intptr_t slot) {
-	QVXYModelMapper::connect(self, static_cast<void (QVXYModelMapper::*)()>(&QVXYModelMapper::xColumnChanged), self, [=]() {
+	MiqtVirtualQVXYModelMapper::connect(self, static_cast<void (QVXYModelMapper::*)()>(&QVXYModelMapper::xColumnChanged), self, [=]() {
 		miqt_exec_callback_QVXYModelMapper_xColumnChanged(slot);
 	});
 }
@@ -296,7 +310,7 @@ void QVXYModelMapper_yColumnChanged(QVXYModelMapper* self) {
 }
 
 void QVXYModelMapper_connect_yColumnChanged(QVXYModelMapper* self, intptr_t slot) {
-	QVXYModelMapper::connect(self, static_cast<void (QVXYModelMapper::*)()>(&QVXYModelMapper::yColumnChanged), self, [=]() {
+	MiqtVirtualQVXYModelMapper::connect(self, static_cast<void (QVXYModelMapper::*)()>(&QVXYModelMapper::yColumnChanged), self, [=]() {
 		miqt_exec_callback_QVXYModelMapper_yColumnChanged(slot);
 	});
 }
@@ -306,7 +320,7 @@ void QVXYModelMapper_firstRowChanged(QVXYModelMapper* self) {
 }
 
 void QVXYModelMapper_connect_firstRowChanged(QVXYModelMapper* self, intptr_t slot) {
-	QVXYModelMapper::connect(self, static_cast<void (QVXYModelMapper::*)()>(&QVXYModelMapper::firstRowChanged), self, [=]() {
+	MiqtVirtualQVXYModelMapper::connect(self, static_cast<void (QVXYModelMapper::*)()>(&QVXYModelMapper::firstRowChanged), self, [=]() {
 		miqt_exec_callback_QVXYModelMapper_firstRowChanged(slot);
 	});
 }
@@ -316,7 +330,7 @@ void QVXYModelMapper_rowCountChanged(QVXYModelMapper* self) {
 }
 
 void QVXYModelMapper_connect_rowCountChanged(QVXYModelMapper* self, intptr_t slot) {
-	QVXYModelMapper::connect(self, static_cast<void (QVXYModelMapper::*)()>(&QVXYModelMapper::rowCountChanged), self, [=]() {
+	MiqtVirtualQVXYModelMapper::connect(self, static_cast<void (QVXYModelMapper::*)()>(&QVXYModelMapper::rowCountChanged), self, [=]() {
 		miqt_exec_callback_QVXYModelMapper_rowCountChanged(slot);
 	});
 }
@@ -348,13 +362,15 @@ bool QVXYModelMapper_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QVXYModelMapper_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQVXYModelMapper*>(self)->QVXYModelMapper::event(event);
+
+	return ( (MiqtVirtualQVXYModelMapper*)(self) )->QVXYModelMapper::event(event);
+
 }
 
 bool QVXYModelMapper_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -362,13 +378,15 @@ bool QVXYModelMapper_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QVXYModelMapper_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQVXYModelMapper*>(self)->QVXYModelMapper::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQVXYModelMapper*)(self) )->QVXYModelMapper::eventFilter(watched, event);
+
 }
 
 bool QVXYModelMapper_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -376,13 +394,15 @@ bool QVXYModelMapper_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QVXYModelMapper_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQVXYModelMapper*>(self)->QVXYModelMapper::timerEvent(event);
+
+	( (MiqtVirtualQVXYModelMapper*)(self) )->QVXYModelMapper::timerEvent(event);
+
 }
 
 bool QVXYModelMapper_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -390,13 +410,15 @@ bool QVXYModelMapper_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QVXYModelMapper_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQVXYModelMapper*>(self)->QVXYModelMapper::childEvent(event);
+
+	( (MiqtVirtualQVXYModelMapper*)(self) )->QVXYModelMapper::childEvent(event);
+
 }
 
 bool QVXYModelMapper_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -404,13 +426,15 @@ bool QVXYModelMapper_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QVXYModelMapper_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQVXYModelMapper*>(self)->QVXYModelMapper::customEvent(event);
+
+	( (MiqtVirtualQVXYModelMapper*)(self) )->QVXYModelMapper::customEvent(event);
+
 }
 
 bool QVXYModelMapper_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -418,13 +442,15 @@ bool QVXYModelMapper_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QVXYModelMapper_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQVXYModelMapper*>(self)->QVXYModelMapper::connectNotify(*signal);
+
+	( (MiqtVirtualQVXYModelMapper*)(self) )->QVXYModelMapper::connectNotify(*signal);
+
 }
 
 bool QVXYModelMapper_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -432,13 +458,15 @@ bool QVXYModelMapper_override_virtual_disconnectNotify(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QVXYModelMapper_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQVXYModelMapper*>(self)->QVXYModelMapper::disconnectNotify(*signal);
+
+	( (MiqtVirtualQVXYModelMapper*)(self) )->QVXYModelMapper::disconnectNotify(*signal);
+
 }
 
 int QVXYModelMapper_protectedbase_first(bool* _dynamic_cast_ok, const void* self) {
@@ -447,9 +475,11 @@ int QVXYModelMapper_protectedbase_first(bool* _dynamic_cast_ok, const void* self
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->first();
+
 }
 
 void QVXYModelMapper_protectedbase_setFirst(bool* _dynamic_cast_ok, void* self, int first) {
@@ -458,9 +488,11 @@ void QVXYModelMapper_protectedbase_setFirst(bool* _dynamic_cast_ok, void* self, 
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setFirst(static_cast<int>(first));
+
 }
 
 int QVXYModelMapper_protectedbase_count(bool* _dynamic_cast_ok, const void* self) {
@@ -469,9 +501,11 @@ int QVXYModelMapper_protectedbase_count(bool* _dynamic_cast_ok, const void* self
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->count();
+
 }
 
 void QVXYModelMapper_protectedbase_setCount(bool* _dynamic_cast_ok, void* self, int count) {
@@ -480,9 +514,11 @@ void QVXYModelMapper_protectedbase_setCount(bool* _dynamic_cast_ok, void* self, 
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setCount(static_cast<int>(count));
+
 }
 
 int QVXYModelMapper_protectedbase_orientation(bool* _dynamic_cast_ok, const void* self) {
@@ -491,10 +527,12 @@ int QVXYModelMapper_protectedbase_orientation(bool* _dynamic_cast_ok, const void
 		*_dynamic_cast_ok = false;
 		return (int)(0);
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	Qt::Orientation _ret = self_cast->orientation();
 	return static_cast<int>(_ret);
+
 }
 
 void QVXYModelMapper_protectedbase_setOrientation(bool* _dynamic_cast_ok, void* self, int orientation) {
@@ -503,9 +541,11 @@ void QVXYModelMapper_protectedbase_setOrientation(bool* _dynamic_cast_ok, void* 
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setOrientation(static_cast<Qt::Orientation>(orientation));
+
 }
 
 int QVXYModelMapper_protectedbase_xSection(bool* _dynamic_cast_ok, const void* self) {
@@ -514,9 +554,11 @@ int QVXYModelMapper_protectedbase_xSection(bool* _dynamic_cast_ok, const void* s
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->xSection();
+
 }
 
 void QVXYModelMapper_protectedbase_setXSection(bool* _dynamic_cast_ok, void* self, int xSection) {
@@ -525,9 +567,11 @@ void QVXYModelMapper_protectedbase_setXSection(bool* _dynamic_cast_ok, void* sel
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setXSection(static_cast<int>(xSection));
+
 }
 
 int QVXYModelMapper_protectedbase_ySection(bool* _dynamic_cast_ok, const void* self) {
@@ -536,9 +580,11 @@ int QVXYModelMapper_protectedbase_ySection(bool* _dynamic_cast_ok, const void* s
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->ySection();
+
 }
 
 void QVXYModelMapper_protectedbase_setYSection(bool* _dynamic_cast_ok, void* self, int ySection) {
@@ -547,9 +593,11 @@ void QVXYModelMapper_protectedbase_setYSection(bool* _dynamic_cast_ok, void* sel
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setYSection(static_cast<int>(ySection));
+
 }
 
 QObject* QVXYModelMapper_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -558,9 +606,11 @@ QObject* QVXYModelMapper_protectedbase_sender(bool* _dynamic_cast_ok, const void
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QVXYModelMapper_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -569,9 +619,11 @@ int QVXYModelMapper_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, cons
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QVXYModelMapper_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -580,9 +632,11 @@ int QVXYModelMapper_protectedbase_receivers(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QVXYModelMapper_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -591,9 +645,11 @@ bool QVXYModelMapper_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, con
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QVXYModelMapper_delete(QVXYModelMapper* self) {

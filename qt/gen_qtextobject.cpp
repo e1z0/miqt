@@ -229,7 +229,7 @@ void QTextFrameLayoutData_delete(QTextFrameLayoutData* self) {
 class MiqtVirtualQTextFrame final : public QTextFrame {
 public:
 
-	MiqtVirtualQTextFrame(QTextDocument* doc): QTextFrame(doc) {}
+	MiqtVirtualQTextFrame(QTextDocument* doc): QTextFrame(doc) {};
 
 	virtual ~MiqtVirtualQTextFrame() override = default;
 
@@ -241,9 +241,11 @@ public:
 		if (handle__event == 0) {
 			return QTextFrame::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QTextFrame_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -257,10 +259,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QTextFrame::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QTextFrame_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -275,10 +279,12 @@ public:
 			QTextFrame::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QTextFrame_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QTextFrame_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -292,10 +298,12 @@ public:
 			QTextFrame::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QTextFrame_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QTextFrame_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -309,10 +317,12 @@ public:
 			QTextFrame::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QTextFrame_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QTextFrame_virtualbase_customEvent(void* self, QEvent* event);
@@ -326,12 +336,14 @@ public:
 			QTextFrame::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QTextFrame_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QTextFrame_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -345,12 +357,14 @@ public:
 			QTextFrame::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QTextFrame_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QTextFrame_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -364,7 +378,7 @@ public:
 };
 
 QTextFrame* QTextFrame_new(QTextDocument* doc) {
-	return new (std::nothrow) MiqtVirtualQTextFrame(doc);
+	return new MiqtVirtualQTextFrame(doc);
 }
 
 void QTextFrame_virtbase(QTextFrame* src, QTextObject** outptr_QTextObject) {
@@ -507,13 +521,15 @@ bool QTextFrame_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QTextFrame_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQTextFrame*>(self)->QTextFrame::event(event);
+
+	return ( (MiqtVirtualQTextFrame*)(self) )->QTextFrame::event(event);
+
 }
 
 bool QTextFrame_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -521,13 +537,15 @@ bool QTextFrame_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QTextFrame_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQTextFrame*>(self)->QTextFrame::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQTextFrame*)(self) )->QTextFrame::eventFilter(watched, event);
+
 }
 
 bool QTextFrame_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -535,13 +553,15 @@ bool QTextFrame_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QTextFrame_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQTextFrame*>(self)->QTextFrame::timerEvent(event);
+
+	( (MiqtVirtualQTextFrame*)(self) )->QTextFrame::timerEvent(event);
+
 }
 
 bool QTextFrame_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -549,13 +569,15 @@ bool QTextFrame_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QTextFrame_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQTextFrame*>(self)->QTextFrame::childEvent(event);
+
+	( (MiqtVirtualQTextFrame*)(self) )->QTextFrame::childEvent(event);
+
 }
 
 bool QTextFrame_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -563,13 +585,15 @@ bool QTextFrame_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QTextFrame_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQTextFrame*>(self)->QTextFrame::customEvent(event);
+
+	( (MiqtVirtualQTextFrame*)(self) )->QTextFrame::customEvent(event);
+
 }
 
 bool QTextFrame_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -577,13 +601,15 @@ bool QTextFrame_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QTextFrame_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQTextFrame*>(self)->QTextFrame::connectNotify(*signal);
+
+	( (MiqtVirtualQTextFrame*)(self) )->QTextFrame::connectNotify(*signal);
+
 }
 
 bool QTextFrame_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -591,13 +617,15 @@ bool QTextFrame_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QTextFrame_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQTextFrame*>(self)->QTextFrame::disconnectNotify(*signal);
+
+	( (MiqtVirtualQTextFrame*)(self) )->QTextFrame::disconnectNotify(*signal);
+
 }
 
 void QTextFrame_protectedbase_setFormat(bool* _dynamic_cast_ok, void* self, QTextFormat* format) {
@@ -606,9 +634,11 @@ void QTextFrame_protectedbase_setFormat(bool* _dynamic_cast_ok, void* self, QTex
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setFormat(*format);
+
 }
 
 QObject* QTextFrame_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -617,9 +647,11 @@ QObject* QTextFrame_protectedbase_sender(bool* _dynamic_cast_ok, const void* sel
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QTextFrame_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -628,9 +660,11 @@ int QTextFrame_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const voi
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QTextFrame_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -639,9 +673,11 @@ int QTextFrame_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self,
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QTextFrame_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -650,9 +686,11 @@ bool QTextFrame_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const vo
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QTextFrame_delete(QTextFrame* self) {
@@ -668,11 +706,11 @@ void QTextBlockUserData_delete(QTextBlockUserData* self) {
 }
 
 QTextBlock* QTextBlock_new() {
-	return new (std::nothrow) QTextBlock();
+	return new QTextBlock();
 }
 
 QTextBlock* QTextBlock_new2(QTextBlock* o) {
-	return new (std::nothrow) QTextBlock(*o);
+	return new QTextBlock(*o);
 }
 
 void QTextBlock_operatorAssign(QTextBlock* self, QTextBlock* o) {
@@ -841,11 +879,11 @@ void QTextBlock_delete(QTextBlock* self) {
 }
 
 QTextFragment* QTextFragment_new() {
-	return new (std::nothrow) QTextFragment();
+	return new QTextFragment();
 }
 
 QTextFragment* QTextFragment_new2(QTextFragment* o) {
-	return new (std::nothrow) QTextFragment(*o);
+	return new QTextFragment(*o);
 }
 
 void QTextFragment_operatorAssign(QTextFragment* self, QTextFragment* o) {
@@ -943,11 +981,11 @@ void QTextFragment_delete(QTextFragment* self) {
 }
 
 QTextFrame__iterator* QTextFrame__iterator_new() {
-	return new (std::nothrow) QTextFrame::iterator();
+	return new QTextFrame::iterator();
 }
 
 QTextFrame__iterator* QTextFrame__iterator_new2(QTextFrame__iterator* o) {
-	return new (std::nothrow) QTextFrame::iterator(*o);
+	return new QTextFrame::iterator(*o);
 }
 
 void QTextFrame__iterator_operatorAssign(QTextFrame__iterator* self, QTextFrame__iterator* o) {
@@ -1003,11 +1041,11 @@ void QTextFrame__iterator_delete(QTextFrame__iterator* self) {
 }
 
 QTextBlock__iterator* QTextBlock__iterator_new() {
-	return new (std::nothrow) QTextBlock::iterator();
+	return new QTextBlock::iterator();
 }
 
 QTextBlock__iterator* QTextBlock__iterator_new2(QTextBlock__iterator* o) {
-	return new (std::nothrow) QTextBlock::iterator(*o);
+	return new QTextBlock::iterator(*o);
 }
 
 void QTextBlock__iterator_operatorAssign(QTextBlock__iterator* self, QTextBlock__iterator* o) {

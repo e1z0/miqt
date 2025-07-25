@@ -41,7 +41,6 @@ typedef struct QTimerEvent QTimerEvent;
 void QAccessibleBridge_setRootObject(QAccessibleBridge* self, QAccessibleInterface* rootObject);
 void QAccessibleBridge_notifyAccessibilityUpdate(QAccessibleBridge* self, QAccessibleEvent* event);
 void QAccessibleBridge_operatorAssign(QAccessibleBridge* self, QAccessibleBridge* param1);
-
 void QAccessibleBridge_delete(QAccessibleBridge* self);
 
 QAccessibleBridgePlugin* QAccessibleBridgePlugin_new();
@@ -56,7 +55,6 @@ struct miqt_string QAccessibleBridgePlugin_tr2(const char* s, const char* c);
 struct miqt_string QAccessibleBridgePlugin_tr3(const char* s, const char* c, int n);
 struct miqt_string QAccessibleBridgePlugin_trUtf82(const char* s, const char* c);
 struct miqt_string QAccessibleBridgePlugin_trUtf83(const char* s, const char* c, int n);
-
 bool QAccessibleBridgePlugin_override_virtual_create(void* self, intptr_t slot);
 QAccessibleBridge* QAccessibleBridgePlugin_virtualbase_create(void* self, struct miqt_string key);
 bool QAccessibleBridgePlugin_override_virtual_event(void* self, intptr_t slot);
@@ -73,12 +71,10 @@ bool QAccessibleBridgePlugin_override_virtual_connectNotify(void* self, intptr_t
 void QAccessibleBridgePlugin_virtualbase_connectNotify(void* self, QMetaMethod* signal);
 bool QAccessibleBridgePlugin_override_virtual_disconnectNotify(void* self, intptr_t slot);
 void QAccessibleBridgePlugin_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
-
 QObject* QAccessibleBridgePlugin_protectedbase_sender(bool* _dynamic_cast_ok, const void* self);
 int QAccessibleBridgePlugin_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self);
 int QAccessibleBridgePlugin_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal);
 bool QAccessibleBridgePlugin_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal);
-
 void QAccessibleBridgePlugin_delete(QAccessibleBridgePlugin* self);
 
 #ifdef __cplusplus

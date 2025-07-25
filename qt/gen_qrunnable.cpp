@@ -14,7 +14,7 @@ void miqt_exec_callback_QRunnable_run(QRunnable*, intptr_t);
 class MiqtVirtualQRunnable final : public QRunnable {
 public:
 
-	MiqtVirtualQRunnable(): QRunnable() {}
+	MiqtVirtualQRunnable(): QRunnable() {};
 
 	virtual ~MiqtVirtualQRunnable() override = default;
 
@@ -26,15 +26,17 @@ public:
 		if (handle__run == 0) {
 			return; // Pure virtual, there is no base we can call
 		}
+		
 
 		miqt_exec_callback_QRunnable_run(this, handle__run);
 
+		
 	}
 
 };
 
 QRunnable* QRunnable_new() {
-	return new (std::nothrow) MiqtVirtualQRunnable();
+	return new MiqtVirtualQRunnable();
 }
 
 void QRunnable_run(QRunnable* self) {
@@ -58,7 +60,7 @@ bool QRunnable_override_virtual_run(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__run = slot;
 	return true;
 }

@@ -14,7 +14,7 @@ extern "C" {
 #endif
 
 QBasicMutex* QBasicMutex_new() {
-	return new (std::nothrow) QBasicMutex();
+	return new QBasicMutex();
 }
 
 void QBasicMutex_lock(QBasicMutex* self) {
@@ -46,11 +46,11 @@ void QBasicMutex_delete(QBasicMutex* self) {
 }
 
 QMutex* QMutex_new() {
-	return new (std::nothrow) QMutex();
+	return new QMutex();
 }
 
 QMutex* QMutex_new2(int mode) {
-	return new (std::nothrow) QMutex(static_cast<QMutex::RecursionMode>(mode));
+	return new QMutex(static_cast<QMutex::RecursionMode>(mode));
 }
 
 void QMutex_virtbase(QMutex* src, QBasicMutex** outptr_QBasicMutex) {
@@ -86,7 +86,7 @@ void QMutex_delete(QMutex* self) {
 }
 
 QRecursiveMutex* QRecursiveMutex_new() {
-	return new (std::nothrow) QRecursiveMutex();
+	return new QRecursiveMutex();
 }
 
 void QRecursiveMutex_delete(QRecursiveMutex* self) {
@@ -94,11 +94,11 @@ void QRecursiveMutex_delete(QRecursiveMutex* self) {
 }
 
 QMutexLocker* QMutexLocker_new(QBasicMutex* m) {
-	return new (std::nothrow) QMutexLocker(m);
+	return new QMutexLocker(m);
 }
 
 QMutexLocker* QMutexLocker_new2(QRecursiveMutex* m) {
-	return new (std::nothrow) QMutexLocker(m);
+	return new QMutexLocker(m);
 }
 
 void QMutexLocker_unlock(QMutexLocker* self) {

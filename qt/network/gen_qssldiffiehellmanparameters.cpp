@@ -16,11 +16,11 @@ extern "C" {
 #endif
 
 QSslDiffieHellmanParameters* QSslDiffieHellmanParameters_new() {
-	return new (std::nothrow) QSslDiffieHellmanParameters();
+	return new QSslDiffieHellmanParameters();
 }
 
 QSslDiffieHellmanParameters* QSslDiffieHellmanParameters_new2(QSslDiffieHellmanParameters* other) {
-	return new (std::nothrow) QSslDiffieHellmanParameters(*other);
+	return new QSslDiffieHellmanParameters(*other);
 }
 
 QSslDiffieHellmanParameters* QSslDiffieHellmanParameters_defaultParameters() {

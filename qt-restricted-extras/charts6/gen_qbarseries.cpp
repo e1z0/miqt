@@ -32,8 +32,8 @@ void miqt_exec_callback_QBarSeries_disconnectNotify(QBarSeries*, intptr_t, QMeta
 class MiqtVirtualQBarSeries final : public QBarSeries {
 public:
 
-	MiqtVirtualQBarSeries(): QBarSeries() {}
-	MiqtVirtualQBarSeries(QObject* parent): QBarSeries(parent) {}
+	MiqtVirtualQBarSeries(): QBarSeries() {};
+	MiqtVirtualQBarSeries(QObject* parent): QBarSeries(parent) {};
 
 	virtual ~MiqtVirtualQBarSeries() override = default;
 
@@ -45,8 +45,10 @@ public:
 		if (handle__type == 0) {
 			return QBarSeries::type();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QBarSeries_type(this, handle__type);
+
 		return static_cast<QAbstractSeries::SeriesType>(callback_return_value);
 	}
 
@@ -60,9 +62,11 @@ public:
 		if (handle__event == 0) {
 			return QBarSeries::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QBarSeries_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -76,10 +80,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QBarSeries::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QBarSeries_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -94,10 +100,12 @@ public:
 			QBarSeries::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QBarSeries_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QBarSeries_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -111,10 +119,12 @@ public:
 			QBarSeries::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QBarSeries_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QBarSeries_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -128,10 +138,12 @@ public:
 			QBarSeries::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QBarSeries_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QBarSeries_virtualbase_customEvent(void* self, QEvent* event);
@@ -145,12 +157,14 @@ public:
 			QBarSeries::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QBarSeries_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QBarSeries_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -164,12 +178,14 @@ public:
 			QBarSeries::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QBarSeries_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QBarSeries_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -182,11 +198,11 @@ public:
 };
 
 QBarSeries* QBarSeries_new() {
-	return new (std::nothrow) MiqtVirtualQBarSeries();
+	return new MiqtVirtualQBarSeries();
 }
 
 QBarSeries* QBarSeries_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQBarSeries(parent);
+	return new MiqtVirtualQBarSeries(parent);
 }
 
 void QBarSeries_virtbase(QBarSeries* src, QAbstractBarSeries** outptr_QAbstractBarSeries) {
@@ -244,14 +260,16 @@ bool QBarSeries_override_virtual_type(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__type = slot;
 	return true;
 }
 
 int QBarSeries_virtualbase_type(const void* self) {
-	MiqtVirtualQBarSeries::SeriesType _ret = static_cast<const MiqtVirtualQBarSeries*>(self)->QBarSeries::type();
+
+	MiqtVirtualQBarSeries::SeriesType _ret = ( (const MiqtVirtualQBarSeries*)(self) )->QBarSeries::type();
 	return static_cast<int>(_ret);
+
 }
 
 bool QBarSeries_override_virtual_event(void* self, intptr_t slot) {
@@ -259,13 +277,15 @@ bool QBarSeries_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QBarSeries_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQBarSeries*>(self)->QBarSeries::event(event);
+
+	return ( (MiqtVirtualQBarSeries*)(self) )->QBarSeries::event(event);
+
 }
 
 bool QBarSeries_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -273,13 +293,15 @@ bool QBarSeries_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QBarSeries_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQBarSeries*>(self)->QBarSeries::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQBarSeries*)(self) )->QBarSeries::eventFilter(watched, event);
+
 }
 
 bool QBarSeries_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -287,13 +309,15 @@ bool QBarSeries_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QBarSeries_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQBarSeries*>(self)->QBarSeries::timerEvent(event);
+
+	( (MiqtVirtualQBarSeries*)(self) )->QBarSeries::timerEvent(event);
+
 }
 
 bool QBarSeries_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -301,13 +325,15 @@ bool QBarSeries_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QBarSeries_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQBarSeries*>(self)->QBarSeries::childEvent(event);
+
+	( (MiqtVirtualQBarSeries*)(self) )->QBarSeries::childEvent(event);
+
 }
 
 bool QBarSeries_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -315,13 +341,15 @@ bool QBarSeries_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QBarSeries_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQBarSeries*>(self)->QBarSeries::customEvent(event);
+
+	( (MiqtVirtualQBarSeries*)(self) )->QBarSeries::customEvent(event);
+
 }
 
 bool QBarSeries_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -329,13 +357,15 @@ bool QBarSeries_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QBarSeries_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQBarSeries*>(self)->QBarSeries::connectNotify(*signal);
+
+	( (MiqtVirtualQBarSeries*)(self) )->QBarSeries::connectNotify(*signal);
+
 }
 
 bool QBarSeries_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -343,13 +373,15 @@ bool QBarSeries_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QBarSeries_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQBarSeries*>(self)->QBarSeries::disconnectNotify(*signal);
+
+	( (MiqtVirtualQBarSeries*)(self) )->QBarSeries::disconnectNotify(*signal);
+
 }
 
 QObject* QBarSeries_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -358,9 +390,11 @@ QObject* QBarSeries_protectedbase_sender(bool* _dynamic_cast_ok, const void* sel
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QBarSeries_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -369,9 +403,11 @@ int QBarSeries_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const voi
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QBarSeries_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -380,9 +416,11 @@ int QBarSeries_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self,
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QBarSeries_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -391,9 +429,11 @@ bool QBarSeries_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const vo
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QBarSeries_delete(QBarSeries* self) {

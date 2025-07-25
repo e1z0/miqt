@@ -15,11 +15,11 @@ extern "C" {
 #endif
 
 QWebEngineScript* QWebEngineScript_new() {
-	return new (std::nothrow) QWebEngineScript();
+	return new QWebEngineScript();
 }
 
 QWebEngineScript* QWebEngineScript_new2(QWebEngineScript* other) {
-	return new (std::nothrow) QWebEngineScript(*other);
+	return new QWebEngineScript(*other);
 }
 
 void QWebEngineScript_operatorAssign(QWebEngineScript* self, QWebEngineScript* other) {

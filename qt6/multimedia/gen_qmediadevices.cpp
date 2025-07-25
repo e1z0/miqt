@@ -35,8 +35,8 @@ void miqt_exec_callback_QMediaDevices_disconnectNotify(QMediaDevices*, intptr_t,
 class MiqtVirtualQMediaDevices final : public QMediaDevices {
 public:
 
-	MiqtVirtualQMediaDevices(): QMediaDevices() {}
-	MiqtVirtualQMediaDevices(QObject* parent): QMediaDevices(parent) {}
+	MiqtVirtualQMediaDevices(): QMediaDevices() {};
+	MiqtVirtualQMediaDevices(QObject* parent): QMediaDevices(parent) {};
 
 	virtual ~MiqtVirtualQMediaDevices() override = default;
 
@@ -48,9 +48,11 @@ public:
 		if (handle__event == 0) {
 			return QMediaDevices::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QMediaDevices_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -64,10 +66,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QMediaDevices::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QMediaDevices_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -82,10 +86,12 @@ public:
 			QMediaDevices::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QMediaDevices_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QMediaDevices_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -99,10 +105,12 @@ public:
 			QMediaDevices::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QMediaDevices_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QMediaDevices_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -116,10 +124,12 @@ public:
 			QMediaDevices::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QMediaDevices_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QMediaDevices_virtualbase_customEvent(void* self, QEvent* event);
@@ -133,12 +143,14 @@ public:
 			QMediaDevices::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QMediaDevices_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QMediaDevices_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -152,12 +164,14 @@ public:
 			QMediaDevices::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QMediaDevices_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QMediaDevices_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -170,11 +184,11 @@ public:
 };
 
 QMediaDevices* QMediaDevices_new() {
-	return new (std::nothrow) MiqtVirtualQMediaDevices();
+	return new MiqtVirtualQMediaDevices();
 }
 
 QMediaDevices* QMediaDevices_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQMediaDevices(parent);
+	return new MiqtVirtualQMediaDevices(parent);
 }
 
 void QMediaDevices_virtbase(QMediaDevices* src, QObject** outptr_QObject) {
@@ -256,7 +270,7 @@ void QMediaDevices_audioInputsChanged(QMediaDevices* self) {
 }
 
 void QMediaDevices_connect_audioInputsChanged(QMediaDevices* self, intptr_t slot) {
-	QMediaDevices::connect(self, static_cast<void (QMediaDevices::*)()>(&QMediaDevices::audioInputsChanged), self, [=]() {
+	MiqtVirtualQMediaDevices::connect(self, static_cast<void (QMediaDevices::*)()>(&QMediaDevices::audioInputsChanged), self, [=]() {
 		miqt_exec_callback_QMediaDevices_audioInputsChanged(slot);
 	});
 }
@@ -266,7 +280,7 @@ void QMediaDevices_audioOutputsChanged(QMediaDevices* self) {
 }
 
 void QMediaDevices_connect_audioOutputsChanged(QMediaDevices* self, intptr_t slot) {
-	QMediaDevices::connect(self, static_cast<void (QMediaDevices::*)()>(&QMediaDevices::audioOutputsChanged), self, [=]() {
+	MiqtVirtualQMediaDevices::connect(self, static_cast<void (QMediaDevices::*)()>(&QMediaDevices::audioOutputsChanged), self, [=]() {
 		miqt_exec_callback_QMediaDevices_audioOutputsChanged(slot);
 	});
 }
@@ -276,7 +290,7 @@ void QMediaDevices_videoInputsChanged(QMediaDevices* self) {
 }
 
 void QMediaDevices_connect_videoInputsChanged(QMediaDevices* self, intptr_t slot) {
-	QMediaDevices::connect(self, static_cast<void (QMediaDevices::*)()>(&QMediaDevices::videoInputsChanged), self, [=]() {
+	MiqtVirtualQMediaDevices::connect(self, static_cast<void (QMediaDevices::*)()>(&QMediaDevices::videoInputsChanged), self, [=]() {
 		miqt_exec_callback_QMediaDevices_videoInputsChanged(slot);
 	});
 }
@@ -308,13 +322,15 @@ bool QMediaDevices_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QMediaDevices_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQMediaDevices*>(self)->QMediaDevices::event(event);
+
+	return ( (MiqtVirtualQMediaDevices*)(self) )->QMediaDevices::event(event);
+
 }
 
 bool QMediaDevices_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -322,13 +338,15 @@ bool QMediaDevices_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QMediaDevices_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQMediaDevices*>(self)->QMediaDevices::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQMediaDevices*)(self) )->QMediaDevices::eventFilter(watched, event);
+
 }
 
 bool QMediaDevices_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -336,13 +354,15 @@ bool QMediaDevices_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QMediaDevices_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQMediaDevices*>(self)->QMediaDevices::timerEvent(event);
+
+	( (MiqtVirtualQMediaDevices*)(self) )->QMediaDevices::timerEvent(event);
+
 }
 
 bool QMediaDevices_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -350,13 +370,15 @@ bool QMediaDevices_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QMediaDevices_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQMediaDevices*>(self)->QMediaDevices::childEvent(event);
+
+	( (MiqtVirtualQMediaDevices*)(self) )->QMediaDevices::childEvent(event);
+
 }
 
 bool QMediaDevices_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -364,13 +386,15 @@ bool QMediaDevices_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QMediaDevices_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQMediaDevices*>(self)->QMediaDevices::customEvent(event);
+
+	( (MiqtVirtualQMediaDevices*)(self) )->QMediaDevices::customEvent(event);
+
 }
 
 bool QMediaDevices_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -378,13 +402,15 @@ bool QMediaDevices_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QMediaDevices_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQMediaDevices*>(self)->QMediaDevices::connectNotify(*signal);
+
+	( (MiqtVirtualQMediaDevices*)(self) )->QMediaDevices::connectNotify(*signal);
+
 }
 
 bool QMediaDevices_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -392,13 +418,15 @@ bool QMediaDevices_override_virtual_disconnectNotify(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QMediaDevices_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQMediaDevices*>(self)->QMediaDevices::disconnectNotify(*signal);
+
+	( (MiqtVirtualQMediaDevices*)(self) )->QMediaDevices::disconnectNotify(*signal);
+
 }
 
 QObject* QMediaDevices_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -407,9 +435,11 @@ QObject* QMediaDevices_protectedbase_sender(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QMediaDevices_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -418,9 +448,11 @@ int QMediaDevices_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QMediaDevices_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -429,9 +461,11 @@ int QMediaDevices_protectedbase_receivers(bool* _dynamic_cast_ok, const void* se
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QMediaDevices_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -440,9 +474,11 @@ bool QMediaDevices_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QMediaDevices_delete(QMediaDevices* self) {

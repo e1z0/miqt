@@ -47,7 +47,7 @@ void miqt_exec_callback_QSpatialSound_disconnectNotify(QSpatialSound*, intptr_t,
 class MiqtVirtualQSpatialSound final : public QSpatialSound {
 public:
 
-	MiqtVirtualQSpatialSound(QAudioEngine* engine): QSpatialSound(engine) {}
+	MiqtVirtualQSpatialSound(QAudioEngine* engine): QSpatialSound(engine) {};
 
 	virtual ~MiqtVirtualQSpatialSound() override = default;
 
@@ -59,9 +59,11 @@ public:
 		if (handle__event == 0) {
 			return QSpatialSound::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QSpatialSound_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -75,10 +77,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QSpatialSound::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QSpatialSound_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -93,10 +97,12 @@ public:
 			QSpatialSound::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QSpatialSound_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QSpatialSound_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -110,10 +116,12 @@ public:
 			QSpatialSound::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QSpatialSound_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QSpatialSound_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -127,10 +135,12 @@ public:
 			QSpatialSound::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QSpatialSound_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QSpatialSound_virtualbase_customEvent(void* self, QEvent* event);
@@ -144,12 +154,14 @@ public:
 			QSpatialSound::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QSpatialSound_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QSpatialSound_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -163,12 +175,14 @@ public:
 			QSpatialSound::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QSpatialSound_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QSpatialSound_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -181,7 +195,7 @@ public:
 };
 
 QSpatialSound* QSpatialSound_new(QAudioEngine* engine) {
-	return new (std::nothrow) MiqtVirtualQSpatialSound(engine);
+	return new MiqtVirtualQSpatialSound(engine);
 }
 
 void QSpatialSound_virtbase(QSpatialSound* src, QObject** outptr_QObject) {
@@ -329,7 +343,7 @@ void QSpatialSound_sourceChanged(QSpatialSound* self) {
 }
 
 void QSpatialSound_connect_sourceChanged(QSpatialSound* self, intptr_t slot) {
-	QSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::sourceChanged), self, [=]() {
+	MiqtVirtualQSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::sourceChanged), self, [=]() {
 		miqt_exec_callback_QSpatialSound_sourceChanged(slot);
 	});
 }
@@ -339,7 +353,7 @@ void QSpatialSound_loopsChanged(QSpatialSound* self) {
 }
 
 void QSpatialSound_connect_loopsChanged(QSpatialSound* self, intptr_t slot) {
-	QSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::loopsChanged), self, [=]() {
+	MiqtVirtualQSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::loopsChanged), self, [=]() {
 		miqt_exec_callback_QSpatialSound_loopsChanged(slot);
 	});
 }
@@ -349,7 +363,7 @@ void QSpatialSound_autoPlayChanged(QSpatialSound* self) {
 }
 
 void QSpatialSound_connect_autoPlayChanged(QSpatialSound* self, intptr_t slot) {
-	QSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::autoPlayChanged), self, [=]() {
+	MiqtVirtualQSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::autoPlayChanged), self, [=]() {
 		miqt_exec_callback_QSpatialSound_autoPlayChanged(slot);
 	});
 }
@@ -359,7 +373,7 @@ void QSpatialSound_positionChanged(QSpatialSound* self) {
 }
 
 void QSpatialSound_connect_positionChanged(QSpatialSound* self, intptr_t slot) {
-	QSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::positionChanged), self, [=]() {
+	MiqtVirtualQSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::positionChanged), self, [=]() {
 		miqt_exec_callback_QSpatialSound_positionChanged(slot);
 	});
 }
@@ -369,7 +383,7 @@ void QSpatialSound_rotationChanged(QSpatialSound* self) {
 }
 
 void QSpatialSound_connect_rotationChanged(QSpatialSound* self, intptr_t slot) {
-	QSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::rotationChanged), self, [=]() {
+	MiqtVirtualQSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::rotationChanged), self, [=]() {
 		miqt_exec_callback_QSpatialSound_rotationChanged(slot);
 	});
 }
@@ -379,7 +393,7 @@ void QSpatialSound_volumeChanged(QSpatialSound* self) {
 }
 
 void QSpatialSound_connect_volumeChanged(QSpatialSound* self, intptr_t slot) {
-	QSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::volumeChanged), self, [=]() {
+	MiqtVirtualQSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::volumeChanged), self, [=]() {
 		miqt_exec_callback_QSpatialSound_volumeChanged(slot);
 	});
 }
@@ -389,7 +403,7 @@ void QSpatialSound_distanceModelChanged(QSpatialSound* self) {
 }
 
 void QSpatialSound_connect_distanceModelChanged(QSpatialSound* self, intptr_t slot) {
-	QSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::distanceModelChanged), self, [=]() {
+	MiqtVirtualQSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::distanceModelChanged), self, [=]() {
 		miqt_exec_callback_QSpatialSound_distanceModelChanged(slot);
 	});
 }
@@ -399,7 +413,7 @@ void QSpatialSound_sizeChanged(QSpatialSound* self) {
 }
 
 void QSpatialSound_connect_sizeChanged(QSpatialSound* self, intptr_t slot) {
-	QSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::sizeChanged), self, [=]() {
+	MiqtVirtualQSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::sizeChanged), self, [=]() {
 		miqt_exec_callback_QSpatialSound_sizeChanged(slot);
 	});
 }
@@ -409,7 +423,7 @@ void QSpatialSound_distanceCutoffChanged(QSpatialSound* self) {
 }
 
 void QSpatialSound_connect_distanceCutoffChanged(QSpatialSound* self, intptr_t slot) {
-	QSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::distanceCutoffChanged), self, [=]() {
+	MiqtVirtualQSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::distanceCutoffChanged), self, [=]() {
 		miqt_exec_callback_QSpatialSound_distanceCutoffChanged(slot);
 	});
 }
@@ -419,7 +433,7 @@ void QSpatialSound_manualAttenuationChanged(QSpatialSound* self) {
 }
 
 void QSpatialSound_connect_manualAttenuationChanged(QSpatialSound* self, intptr_t slot) {
-	QSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::manualAttenuationChanged), self, [=]() {
+	MiqtVirtualQSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::manualAttenuationChanged), self, [=]() {
 		miqt_exec_callback_QSpatialSound_manualAttenuationChanged(slot);
 	});
 }
@@ -429,7 +443,7 @@ void QSpatialSound_occlusionIntensityChanged(QSpatialSound* self) {
 }
 
 void QSpatialSound_connect_occlusionIntensityChanged(QSpatialSound* self, intptr_t slot) {
-	QSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::occlusionIntensityChanged), self, [=]() {
+	MiqtVirtualQSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::occlusionIntensityChanged), self, [=]() {
 		miqt_exec_callback_QSpatialSound_occlusionIntensityChanged(slot);
 	});
 }
@@ -439,7 +453,7 @@ void QSpatialSound_directivityChanged(QSpatialSound* self) {
 }
 
 void QSpatialSound_connect_directivityChanged(QSpatialSound* self, intptr_t slot) {
-	QSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::directivityChanged), self, [=]() {
+	MiqtVirtualQSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::directivityChanged), self, [=]() {
 		miqt_exec_callback_QSpatialSound_directivityChanged(slot);
 	});
 }
@@ -449,7 +463,7 @@ void QSpatialSound_directivityOrderChanged(QSpatialSound* self) {
 }
 
 void QSpatialSound_connect_directivityOrderChanged(QSpatialSound* self, intptr_t slot) {
-	QSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::directivityOrderChanged), self, [=]() {
+	MiqtVirtualQSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::directivityOrderChanged), self, [=]() {
 		miqt_exec_callback_QSpatialSound_directivityOrderChanged(slot);
 	});
 }
@@ -459,7 +473,7 @@ void QSpatialSound_nearFieldGainChanged(QSpatialSound* self) {
 }
 
 void QSpatialSound_connect_nearFieldGainChanged(QSpatialSound* self, intptr_t slot) {
-	QSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::nearFieldGainChanged), self, [=]() {
+	MiqtVirtualQSpatialSound::connect(self, static_cast<void (QSpatialSound::*)()>(&QSpatialSound::nearFieldGainChanged), self, [=]() {
 		miqt_exec_callback_QSpatialSound_nearFieldGainChanged(slot);
 	});
 }
@@ -503,13 +517,15 @@ bool QSpatialSound_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QSpatialSound_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQSpatialSound*>(self)->QSpatialSound::event(event);
+
+	return ( (MiqtVirtualQSpatialSound*)(self) )->QSpatialSound::event(event);
+
 }
 
 bool QSpatialSound_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -517,13 +533,15 @@ bool QSpatialSound_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QSpatialSound_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQSpatialSound*>(self)->QSpatialSound::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQSpatialSound*)(self) )->QSpatialSound::eventFilter(watched, event);
+
 }
 
 bool QSpatialSound_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -531,13 +549,15 @@ bool QSpatialSound_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QSpatialSound_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQSpatialSound*>(self)->QSpatialSound::timerEvent(event);
+
+	( (MiqtVirtualQSpatialSound*)(self) )->QSpatialSound::timerEvent(event);
+
 }
 
 bool QSpatialSound_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -545,13 +565,15 @@ bool QSpatialSound_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QSpatialSound_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQSpatialSound*>(self)->QSpatialSound::childEvent(event);
+
+	( (MiqtVirtualQSpatialSound*)(self) )->QSpatialSound::childEvent(event);
+
 }
 
 bool QSpatialSound_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -559,13 +581,15 @@ bool QSpatialSound_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QSpatialSound_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQSpatialSound*>(self)->QSpatialSound::customEvent(event);
+
+	( (MiqtVirtualQSpatialSound*)(self) )->QSpatialSound::customEvent(event);
+
 }
 
 bool QSpatialSound_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -573,13 +597,15 @@ bool QSpatialSound_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QSpatialSound_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQSpatialSound*>(self)->QSpatialSound::connectNotify(*signal);
+
+	( (MiqtVirtualQSpatialSound*)(self) )->QSpatialSound::connectNotify(*signal);
+
 }
 
 bool QSpatialSound_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -587,13 +613,15 @@ bool QSpatialSound_override_virtual_disconnectNotify(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QSpatialSound_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQSpatialSound*>(self)->QSpatialSound::disconnectNotify(*signal);
+
+	( (MiqtVirtualQSpatialSound*)(self) )->QSpatialSound::disconnectNotify(*signal);
+
 }
 
 QObject* QSpatialSound_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -602,9 +630,11 @@ QObject* QSpatialSound_protectedbase_sender(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QSpatialSound_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -613,9 +643,11 @@ int QSpatialSound_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QSpatialSound_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -624,9 +656,11 @@ int QSpatialSound_protectedbase_receivers(bool* _dynamic_cast_ok, const void* se
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QSpatialSound_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -635,9 +669,11 @@ bool QSpatialSound_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QSpatialSound_delete(QSpatialSound* self) {

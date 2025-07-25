@@ -15,7 +15,7 @@ QUrl* miqt_exec_callback_QQmlAbstractUrlInterceptor_intercept(QQmlAbstractUrlInt
 class MiqtVirtualQQmlAbstractUrlInterceptor final : public QQmlAbstractUrlInterceptor {
 public:
 
-	MiqtVirtualQQmlAbstractUrlInterceptor(): QQmlAbstractUrlInterceptor() {}
+	MiqtVirtualQQmlAbstractUrlInterceptor(): QQmlAbstractUrlInterceptor() {};
 
 	virtual ~MiqtVirtualQQmlAbstractUrlInterceptor() override = default;
 
@@ -27,20 +27,22 @@ public:
 		if (handle__intercept == 0) {
 			return QUrl(); // Pure virtual, there is no base we can call
 		}
-
+		
 		const QUrl& path_ret = path;
 		// Cast returned reference into pointer
 		QUrl* sigval1 = const_cast<QUrl*>(&path_ret);
 		QQmlAbstractUrlInterceptor::DataType type_ret = type;
 		int sigval2 = static_cast<int>(type_ret);
+
 		QUrl* callback_return_value = miqt_exec_callback_QQmlAbstractUrlInterceptor_intercept(this, handle__intercept, sigval1, sigval2);
+
 		return *callback_return_value;
 	}
 
 };
 
 QQmlAbstractUrlInterceptor* QQmlAbstractUrlInterceptor_new() {
-	return new (std::nothrow) MiqtVirtualQQmlAbstractUrlInterceptor();
+	return new MiqtVirtualQQmlAbstractUrlInterceptor();
 }
 
 QUrl* QQmlAbstractUrlInterceptor_intercept(QQmlAbstractUrlInterceptor* self, QUrl* path, int type) {
@@ -56,7 +58,7 @@ bool QQmlAbstractUrlInterceptor_override_virtual_intercept(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__intercept = slot;
 	return true;
 }

@@ -39,7 +39,6 @@ long long QAudioBuffer_startTime(const QAudioBuffer* self);
 const void* QAudioBuffer_constData(const QAudioBuffer* self);
 const void* QAudioBuffer_data(const QAudioBuffer* self);
 void* QAudioBuffer_data2(QAudioBuffer* self);
-
 void QAudioBuffer_delete(QAudioBuffer* self);
 
 #ifdef __cplusplus

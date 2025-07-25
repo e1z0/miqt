@@ -185,7 +185,6 @@ struct miqt_string QTabBar_tr2(const char* s, const char* c);
 struct miqt_string QTabBar_tr3(const char* s, const char* c, int n);
 struct miqt_string QTabBar_trUtf82(const char* s, const char* c);
 struct miqt_string QTabBar_trUtf83(const char* s, const char* c, int n);
-
 bool QTabBar_override_virtual_sizeHint(void* self, intptr_t slot);
 QSize* QTabBar_virtualbase_sizeHint(const void* self);
 bool QTabBar_override_virtual_minimumSizeHint(void* self, intptr_t slot);
@@ -290,7 +289,6 @@ bool QTabBar_override_virtual_connectNotify(void* self, intptr_t slot);
 void QTabBar_virtualbase_connectNotify(void* self, QMetaMethod* signal);
 bool QTabBar_override_virtual_disconnectNotify(void* self, intptr_t slot);
 void QTabBar_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
-
 void QTabBar_protectedbase_initStyleOption(bool* _dynamic_cast_ok, const void* self, QStyleOptionTab* option, int tabIndex);
 void QTabBar_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* self);
 void QTabBar_protectedbase_create(bool* _dynamic_cast_ok, void* self);
@@ -301,7 +299,6 @@ QObject* QTabBar_protectedbase_sender(bool* _dynamic_cast_ok, const void* self);
 int QTabBar_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self);
 int QTabBar_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal);
 bool QTabBar_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal);
-
 void QTabBar_delete(QTabBar* self);
 
 #ifdef __cplusplus

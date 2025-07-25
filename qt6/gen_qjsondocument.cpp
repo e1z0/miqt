@@ -35,19 +35,19 @@ void QJsonParseError_delete(QJsonParseError* self) {
 }
 
 QJsonDocument* QJsonDocument_new() {
-	return new (std::nothrow) QJsonDocument();
+	return new QJsonDocument();
 }
 
 QJsonDocument* QJsonDocument_new2(QJsonObject* object) {
-	return new (std::nothrow) QJsonDocument(*object);
+	return new QJsonDocument(*object);
 }
 
 QJsonDocument* QJsonDocument_new3(QJsonArray* array) {
-	return new (std::nothrow) QJsonDocument(*array);
+	return new QJsonDocument(*array);
 }
 
 QJsonDocument* QJsonDocument_new4(QJsonDocument* other) {
-	return new (std::nothrow) QJsonDocument(*other);
+	return new QJsonDocument(*other);
 }
 
 void QJsonDocument_operatorAssign(QJsonDocument* self, QJsonDocument* other) {

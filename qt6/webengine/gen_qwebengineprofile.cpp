@@ -40,10 +40,10 @@ void miqt_exec_callback_QWebEngineProfile_disconnectNotify(QWebEngineProfile*, i
 class MiqtVirtualQWebEngineProfile final : public QWebEngineProfile {
 public:
 
-	MiqtVirtualQWebEngineProfile(): QWebEngineProfile() {}
-	MiqtVirtualQWebEngineProfile(const QString& name): QWebEngineProfile(name) {}
-	MiqtVirtualQWebEngineProfile(QObject* parent): QWebEngineProfile(parent) {}
-	MiqtVirtualQWebEngineProfile(const QString& name, QObject* parent): QWebEngineProfile(name, parent) {}
+	MiqtVirtualQWebEngineProfile(): QWebEngineProfile() {};
+	MiqtVirtualQWebEngineProfile(const QString& name): QWebEngineProfile(name) {};
+	MiqtVirtualQWebEngineProfile(QObject* parent): QWebEngineProfile(parent) {};
+	MiqtVirtualQWebEngineProfile(const QString& name, QObject* parent): QWebEngineProfile(name, parent) {};
 
 	virtual ~MiqtVirtualQWebEngineProfile() override = default;
 
@@ -55,9 +55,11 @@ public:
 		if (handle__event == 0) {
 			return QWebEngineProfile::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QWebEngineProfile_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -71,10 +73,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QWebEngineProfile::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QWebEngineProfile_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -89,10 +93,12 @@ public:
 			QWebEngineProfile::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineProfile_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineProfile_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -106,10 +112,12 @@ public:
 			QWebEngineProfile::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineProfile_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineProfile_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -123,10 +131,12 @@ public:
 			QWebEngineProfile::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QWebEngineProfile_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QWebEngineProfile_virtualbase_customEvent(void* self, QEvent* event);
@@ -140,12 +150,14 @@ public:
 			QWebEngineProfile::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QWebEngineProfile_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QWebEngineProfile_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -159,12 +171,14 @@ public:
 			QWebEngineProfile::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QWebEngineProfile_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QWebEngineProfile_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -177,21 +191,21 @@ public:
 };
 
 QWebEngineProfile* QWebEngineProfile_new() {
-	return new (std::nothrow) MiqtVirtualQWebEngineProfile();
+	return new MiqtVirtualQWebEngineProfile();
 }
 
 QWebEngineProfile* QWebEngineProfile_new2(struct miqt_string name) {
 	QString name_QString = QString::fromUtf8(name.data, name.len);
-	return new (std::nothrow) MiqtVirtualQWebEngineProfile(name_QString);
+	return new MiqtVirtualQWebEngineProfile(name_QString);
 }
 
 QWebEngineProfile* QWebEngineProfile_new3(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQWebEngineProfile(parent);
+	return new MiqtVirtualQWebEngineProfile(parent);
 }
 
 QWebEngineProfile* QWebEngineProfile_new4(struct miqt_string name, QObject* parent) {
 	QString name_QString = QString::fromUtf8(name.data, name.len);
-	return new (std::nothrow) MiqtVirtualQWebEngineProfile(name_QString, parent);
+	return new MiqtVirtualQWebEngineProfile(name_QString, parent);
 }
 
 void QWebEngineProfile_virtbase(QWebEngineProfile* src, QObject** outptr_QObject) {
@@ -451,7 +465,7 @@ void QWebEngineProfile_downloadRequested(QWebEngineProfile* self, QWebEngineDown
 }
 
 void QWebEngineProfile_connect_downloadRequested(QWebEngineProfile* self, intptr_t slot) {
-	QWebEngineProfile::connect(self, static_cast<void (QWebEngineProfile::*)(QWebEngineDownloadRequest*)>(&QWebEngineProfile::downloadRequested), self, [=](QWebEngineDownloadRequest* download) {
+	MiqtVirtualQWebEngineProfile::connect(self, static_cast<void (QWebEngineProfile::*)(QWebEngineDownloadRequest*)>(&QWebEngineProfile::downloadRequested), self, [=](QWebEngineDownloadRequest* download) {
 		QWebEngineDownloadRequest* sigval1 = download;
 		miqt_exec_callback_QWebEngineProfile_downloadRequested(slot, sigval1);
 	});
@@ -484,13 +498,15 @@ bool QWebEngineProfile_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QWebEngineProfile_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQWebEngineProfile*>(self)->QWebEngineProfile::event(event);
+
+	return ( (MiqtVirtualQWebEngineProfile*)(self) )->QWebEngineProfile::event(event);
+
 }
 
 bool QWebEngineProfile_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -498,13 +514,15 @@ bool QWebEngineProfile_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QWebEngineProfile_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQWebEngineProfile*>(self)->QWebEngineProfile::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQWebEngineProfile*)(self) )->QWebEngineProfile::eventFilter(watched, event);
+
 }
 
 bool QWebEngineProfile_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -512,13 +530,15 @@ bool QWebEngineProfile_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QWebEngineProfile_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQWebEngineProfile*>(self)->QWebEngineProfile::timerEvent(event);
+
+	( (MiqtVirtualQWebEngineProfile*)(self) )->QWebEngineProfile::timerEvent(event);
+
 }
 
 bool QWebEngineProfile_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -526,13 +546,15 @@ bool QWebEngineProfile_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QWebEngineProfile_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQWebEngineProfile*>(self)->QWebEngineProfile::childEvent(event);
+
+	( (MiqtVirtualQWebEngineProfile*)(self) )->QWebEngineProfile::childEvent(event);
+
 }
 
 bool QWebEngineProfile_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -540,13 +562,15 @@ bool QWebEngineProfile_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QWebEngineProfile_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQWebEngineProfile*>(self)->QWebEngineProfile::customEvent(event);
+
+	( (MiqtVirtualQWebEngineProfile*)(self) )->QWebEngineProfile::customEvent(event);
+
 }
 
 bool QWebEngineProfile_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -554,13 +578,15 @@ bool QWebEngineProfile_override_virtual_connectNotify(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QWebEngineProfile_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQWebEngineProfile*>(self)->QWebEngineProfile::connectNotify(*signal);
+
+	( (MiqtVirtualQWebEngineProfile*)(self) )->QWebEngineProfile::connectNotify(*signal);
+
 }
 
 bool QWebEngineProfile_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -568,13 +594,15 @@ bool QWebEngineProfile_override_virtual_disconnectNotify(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QWebEngineProfile_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQWebEngineProfile*>(self)->QWebEngineProfile::disconnectNotify(*signal);
+
+	( (MiqtVirtualQWebEngineProfile*)(self) )->QWebEngineProfile::disconnectNotify(*signal);
+
 }
 
 QObject* QWebEngineProfile_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -583,9 +611,11 @@ QObject* QWebEngineProfile_protectedbase_sender(bool* _dynamic_cast_ok, const vo
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QWebEngineProfile_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -594,9 +624,11 @@ int QWebEngineProfile_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, co
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QWebEngineProfile_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -605,9 +637,11 @@ int QWebEngineProfile_protectedbase_receivers(bool* _dynamic_cast_ok, const void
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QWebEngineProfile_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -616,9 +650,11 @@ bool QWebEngineProfile_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, c
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QWebEngineProfile_delete(QWebEngineProfile* self) {

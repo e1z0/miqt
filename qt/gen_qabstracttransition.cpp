@@ -20,9 +20,6 @@
 extern "C" {
 #endif
 
-void miqt_exec_callback_QAbstractTransition_triggered(intptr_t);
-void miqt_exec_callback_QAbstractTransition_targetStateChanged(intptr_t);
-void miqt_exec_callback_QAbstractTransition_targetStatesChanged(intptr_t);
 bool miqt_exec_callback_QAbstractTransition_eventTest(QAbstractTransition*, intptr_t, QEvent*);
 void miqt_exec_callback_QAbstractTransition_onTransition(QAbstractTransition*, intptr_t, QEvent*);
 bool miqt_exec_callback_QAbstractTransition_event(QAbstractTransition*, intptr_t, QEvent*);
@@ -39,8 +36,8 @@ void miqt_exec_callback_QAbstractTransition_disconnectNotify(QAbstractTransition
 class MiqtVirtualQAbstractTransition final : public QAbstractTransition {
 public:
 
-	MiqtVirtualQAbstractTransition(): QAbstractTransition() {}
-	MiqtVirtualQAbstractTransition(QState* sourceState): QAbstractTransition(sourceState) {}
+	MiqtVirtualQAbstractTransition(): QAbstractTransition() {};
+	MiqtVirtualQAbstractTransition(QState* sourceState): QAbstractTransition(sourceState) {};
 
 	virtual ~MiqtVirtualQAbstractTransition() override = default;
 
@@ -52,9 +49,11 @@ public:
 		if (handle__eventTest == 0) {
 			return false; // Pure virtual, there is no base we can call
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QAbstractTransition_eventTest(this, handle__eventTest, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -66,10 +65,12 @@ public:
 		if (handle__onTransition == 0) {
 			return; // Pure virtual, there is no base we can call
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractTransition_onTransition(this, handle__onTransition, sigval1);
 
+		
 	}
 
 	// cgo.Handle value for overwritten implementation
@@ -80,9 +81,11 @@ public:
 		if (handle__event == 0) {
 			return QAbstractTransition::event(e);
 		}
-
+		
 		QEvent* sigval1 = e;
+
 		bool callback_return_value = miqt_exec_callback_QAbstractTransition_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -96,10 +99,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QAbstractTransition::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QAbstractTransition_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -114,10 +119,12 @@ public:
 			QAbstractTransition::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractTransition_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractTransition_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -131,10 +138,12 @@ public:
 			QAbstractTransition::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractTransition_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractTransition_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -148,10 +157,12 @@ public:
 			QAbstractTransition::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QAbstractTransition_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QAbstractTransition_virtualbase_customEvent(void* self, QEvent* event);
@@ -165,12 +176,14 @@ public:
 			QAbstractTransition::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QAbstractTransition_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QAbstractTransition_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -184,12 +197,14 @@ public:
 			QAbstractTransition::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QAbstractTransition_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QAbstractTransition_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -202,11 +217,11 @@ public:
 };
 
 QAbstractTransition* QAbstractTransition_new() {
-	return new (std::nothrow) MiqtVirtualQAbstractTransition();
+	return new MiqtVirtualQAbstractTransition();
 }
 
 QAbstractTransition* QAbstractTransition_new2(QState* sourceState) {
-	return new (std::nothrow) MiqtVirtualQAbstractTransition(sourceState);
+	return new MiqtVirtualQAbstractTransition(sourceState);
 }
 
 void QAbstractTransition_virtbase(QAbstractTransition* src, QObject** outptr_QObject) {
@@ -361,7 +376,7 @@ bool QAbstractTransition_override_virtual_eventTest(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventTest = slot;
 	return true;
 }
@@ -371,7 +386,7 @@ bool QAbstractTransition_override_virtual_onTransition(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__onTransition = slot;
 	return true;
 }
@@ -381,13 +396,15 @@ bool QAbstractTransition_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QAbstractTransition_virtualbase_event(void* self, QEvent* e) {
-	return static_cast<MiqtVirtualQAbstractTransition*>(self)->QAbstractTransition::event(e);
+
+	return ( (MiqtVirtualQAbstractTransition*)(self) )->QAbstractTransition::event(e);
+
 }
 
 bool QAbstractTransition_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -395,13 +412,15 @@ bool QAbstractTransition_override_virtual_eventFilter(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QAbstractTransition_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQAbstractTransition*>(self)->QAbstractTransition::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQAbstractTransition*)(self) )->QAbstractTransition::eventFilter(watched, event);
+
 }
 
 bool QAbstractTransition_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -409,13 +428,15 @@ bool QAbstractTransition_override_virtual_timerEvent(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QAbstractTransition_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQAbstractTransition*>(self)->QAbstractTransition::timerEvent(event);
+
+	( (MiqtVirtualQAbstractTransition*)(self) )->QAbstractTransition::timerEvent(event);
+
 }
 
 bool QAbstractTransition_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -423,13 +444,15 @@ bool QAbstractTransition_override_virtual_childEvent(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QAbstractTransition_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQAbstractTransition*>(self)->QAbstractTransition::childEvent(event);
+
+	( (MiqtVirtualQAbstractTransition*)(self) )->QAbstractTransition::childEvent(event);
+
 }
 
 bool QAbstractTransition_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -437,13 +460,15 @@ bool QAbstractTransition_override_virtual_customEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QAbstractTransition_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQAbstractTransition*>(self)->QAbstractTransition::customEvent(event);
+
+	( (MiqtVirtualQAbstractTransition*)(self) )->QAbstractTransition::customEvent(event);
+
 }
 
 bool QAbstractTransition_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -451,13 +476,15 @@ bool QAbstractTransition_override_virtual_connectNotify(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QAbstractTransition_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQAbstractTransition*>(self)->QAbstractTransition::connectNotify(*signal);
+
+	( (MiqtVirtualQAbstractTransition*)(self) )->QAbstractTransition::connectNotify(*signal);
+
 }
 
 bool QAbstractTransition_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -465,13 +492,15 @@ bool QAbstractTransition_override_virtual_disconnectNotify(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QAbstractTransition_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQAbstractTransition*>(self)->QAbstractTransition::disconnectNotify(*signal);
+
+	( (MiqtVirtualQAbstractTransition*)(self) )->QAbstractTransition::disconnectNotify(*signal);
+
 }
 
 QObject* QAbstractTransition_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -480,9 +509,11 @@ QObject* QAbstractTransition_protectedbase_sender(bool* _dynamic_cast_ok, const 
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QAbstractTransition_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -491,9 +522,11 @@ int QAbstractTransition_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QAbstractTransition_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -502,9 +535,11 @@ int QAbstractTransition_protectedbase_receivers(bool* _dynamic_cast_ok, const vo
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QAbstractTransition_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -513,27 +548,11 @@ bool QAbstractTransition_protectedbase_isSignalConnected(bool* _dynamic_cast_ok,
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
-}
 
-void QAbstractTransition_connect_triggered(QAbstractTransition* self, intptr_t slot) {
-	QAbstractTransition::connect(self, &QAbstractTransition::triggered, self, [=]() {
-		miqt_exec_callback_QAbstractTransition_triggered(slot);
-	});
-}
-
-void QAbstractTransition_connect_targetStateChanged(QAbstractTransition* self, intptr_t slot) {
-	QAbstractTransition::connect(self, &QAbstractTransition::targetStateChanged, self, [=]() {
-		miqt_exec_callback_QAbstractTransition_targetStateChanged(slot);
-	});
-}
-
-void QAbstractTransition_connect_targetStatesChanged(QAbstractTransition* self, intptr_t slot) {
-	QAbstractTransition::connect(self, &QAbstractTransition::targetStatesChanged, self, [=]() {
-		miqt_exec_callback_QAbstractTransition_targetStatesChanged(slot);
-	});
 }
 
 void QAbstractTransition_delete(QAbstractTransition* self) {

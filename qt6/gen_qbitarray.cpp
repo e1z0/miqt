@@ -12,19 +12,19 @@ extern "C" {
 #endif
 
 QBitArray* QBitArray_new() {
-	return new (std::nothrow) QBitArray();
+	return new QBitArray();
 }
 
 QBitArray* QBitArray_new2(ptrdiff_t size) {
-	return new (std::nothrow) QBitArray((qsizetype)(size));
+	return new QBitArray((qsizetype)(size));
 }
 
 QBitArray* QBitArray_new3(QBitArray* other) {
-	return new (std::nothrow) QBitArray(*other);
+	return new QBitArray(*other);
 }
 
 QBitArray* QBitArray_new4(ptrdiff_t size, bool val) {
-	return new (std::nothrow) QBitArray((qsizetype)(size), val);
+	return new QBitArray((qsizetype)(size), val);
 }
 
 void QBitArray_operatorAssign(QBitArray* self, QBitArray* other) {
@@ -165,7 +165,7 @@ void QBitArray_delete(QBitArray* self) {
 }
 
 QBitRef* QBitRef_new(QBitRef* param1) {
-	return new (std::nothrow) QBitRef(*param1);
+	return new QBitRef(*param1);
 }
 
 bool QBitRef_ToBool(const QBitRef* self) {

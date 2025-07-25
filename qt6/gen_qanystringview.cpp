@@ -16,25 +16,25 @@ extern "C" {
 #endif
 
 QAnyStringView* QAnyStringView_new() {
-	return new (std::nothrow) QAnyStringView();
+	return new QAnyStringView();
 }
 
 QAnyStringView* QAnyStringView_new2(struct miqt_string str) {
 	QByteArray str_QByteArray(str.data, str.len);
-	return new (std::nothrow) QAnyStringView(str_QByteArray);
+	return new QAnyStringView(str_QByteArray);
 }
 
 QAnyStringView* QAnyStringView_new3(struct miqt_string str) {
 	QString str_QString = QString::fromUtf8(str.data, str.len);
-	return new (std::nothrow) QAnyStringView(str_QString);
+	return new QAnyStringView(str_QString);
 }
 
 QAnyStringView* QAnyStringView_new4(QChar* c) {
-	return new (std::nothrow) QAnyStringView(*c);
+	return new QAnyStringView(*c);
 }
 
 QAnyStringView* QAnyStringView_new5(QAnyStringView* param1) {
-	return new (std::nothrow) QAnyStringView(*param1);
+	return new QAnyStringView(*param1);
 }
 
 struct miqt_string QAnyStringView_toString(const QAnyStringView* self) {

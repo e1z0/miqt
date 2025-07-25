@@ -19,11 +19,11 @@ extern "C" {
 #endif
 
 QDebug* QDebug_new(QIODevice* device) {
-	return new (std::nothrow) QDebug(device);
+	return new QDebug(device);
 }
 
 QDebug* QDebug_new2(QDebug* o) {
-	return new (std::nothrow) QDebug(*o);
+	return new QDebug(*o);
 }
 
 void QDebug_operatorAssign(QDebug* self, QDebug* other) {
@@ -213,7 +213,7 @@ void QDebug_delete(QDebug* self) {
 }
 
 QDebugStateSaver* QDebugStateSaver_new(QDebug* dbg) {
-	return new (std::nothrow) QDebugStateSaver(*dbg);
+	return new QDebugStateSaver(*dbg);
 }
 
 void QDebugStateSaver_delete(QDebugStateSaver* self) {

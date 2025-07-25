@@ -34,8 +34,8 @@ void miqt_exec_callback_QCandlestickLegendMarker_disconnectNotify(QCandlestickLe
 class MiqtVirtualQCandlestickLegendMarker final : public QCandlestickLegendMarker {
 public:
 
-	MiqtVirtualQCandlestickLegendMarker(QCandlestickSeries* series, QLegend* legend): QCandlestickLegendMarker(series, legend) {}
-	MiqtVirtualQCandlestickLegendMarker(QCandlestickSeries* series, QLegend* legend, QObject* parent): QCandlestickLegendMarker(series, legend, parent) {}
+	MiqtVirtualQCandlestickLegendMarker(QCandlestickSeries* series, QLegend* legend): QCandlestickLegendMarker(series, legend) {};
+	MiqtVirtualQCandlestickLegendMarker(QCandlestickSeries* series, QLegend* legend, QObject* parent): QCandlestickLegendMarker(series, legend, parent) {};
 
 	virtual ~MiqtVirtualQCandlestickLegendMarker() override = default;
 
@@ -47,8 +47,10 @@ public:
 		if (handle__type == 0) {
 			return QCandlestickLegendMarker::type();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_QCandlestickLegendMarker_type(this, handle__type);
+
 		return static_cast<QLegendMarker::LegendMarkerType>(callback_return_value);
 	}
 
@@ -62,8 +64,10 @@ public:
 		if (handle__series == 0) {
 			return QCandlestickLegendMarker::series();
 		}
+		
 
 		QCandlestickSeries* callback_return_value = miqt_exec_callback_QCandlestickLegendMarker_series(this, handle__series);
+
 		return callback_return_value;
 	}
 
@@ -77,9 +81,11 @@ public:
 		if (handle__event == 0) {
 			return QCandlestickLegendMarker::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QCandlestickLegendMarker_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -93,10 +99,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QCandlestickLegendMarker::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QCandlestickLegendMarker_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -111,10 +119,12 @@ public:
 			QCandlestickLegendMarker::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QCandlestickLegendMarker_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QCandlestickLegendMarker_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -128,10 +138,12 @@ public:
 			QCandlestickLegendMarker::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QCandlestickLegendMarker_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QCandlestickLegendMarker_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -145,10 +157,12 @@ public:
 			QCandlestickLegendMarker::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QCandlestickLegendMarker_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QCandlestickLegendMarker_virtualbase_customEvent(void* self, QEvent* event);
@@ -162,12 +176,14 @@ public:
 			QCandlestickLegendMarker::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QCandlestickLegendMarker_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QCandlestickLegendMarker_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -181,12 +197,14 @@ public:
 			QCandlestickLegendMarker::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QCandlestickLegendMarker_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QCandlestickLegendMarker_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -199,11 +217,11 @@ public:
 };
 
 QCandlestickLegendMarker* QCandlestickLegendMarker_new(QCandlestickSeries* series, QLegend* legend) {
-	return new (std::nothrow) MiqtVirtualQCandlestickLegendMarker(series, legend);
+	return new MiqtVirtualQCandlestickLegendMarker(series, legend);
 }
 
 QCandlestickLegendMarker* QCandlestickLegendMarker_new2(QCandlestickSeries* series, QLegend* legend, QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQCandlestickLegendMarker(series, legend, parent);
+	return new MiqtVirtualQCandlestickLegendMarker(series, legend, parent);
 }
 
 void QCandlestickLegendMarker_virtbase(QCandlestickLegendMarker* src, QLegendMarker** outptr_QLegendMarker) {
@@ -265,14 +283,16 @@ bool QCandlestickLegendMarker_override_virtual_type(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__type = slot;
 	return true;
 }
 
 int QCandlestickLegendMarker_virtualbase_type(void* self) {
-	MiqtVirtualQCandlestickLegendMarker::LegendMarkerType _ret = static_cast<MiqtVirtualQCandlestickLegendMarker*>(self)->QCandlestickLegendMarker::type();
+
+	MiqtVirtualQCandlestickLegendMarker::LegendMarkerType _ret = ( (MiqtVirtualQCandlestickLegendMarker*)(self) )->QCandlestickLegendMarker::type();
 	return static_cast<int>(_ret);
+
 }
 
 bool QCandlestickLegendMarker_override_virtual_series(void* self, intptr_t slot) {
@@ -280,13 +300,15 @@ bool QCandlestickLegendMarker_override_virtual_series(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__series = slot;
 	return true;
 }
 
 QCandlestickSeries* QCandlestickLegendMarker_virtualbase_series(void* self) {
-	return static_cast<MiqtVirtualQCandlestickLegendMarker*>(self)->QCandlestickLegendMarker::series();
+
+	return ( (MiqtVirtualQCandlestickLegendMarker*)(self) )->QCandlestickLegendMarker::series();
+
 }
 
 bool QCandlestickLegendMarker_override_virtual_event(void* self, intptr_t slot) {
@@ -294,13 +316,15 @@ bool QCandlestickLegendMarker_override_virtual_event(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QCandlestickLegendMarker_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQCandlestickLegendMarker*>(self)->QCandlestickLegendMarker::event(event);
+
+	return ( (MiqtVirtualQCandlestickLegendMarker*)(self) )->QCandlestickLegendMarker::event(event);
+
 }
 
 bool QCandlestickLegendMarker_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -308,13 +332,15 @@ bool QCandlestickLegendMarker_override_virtual_eventFilter(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QCandlestickLegendMarker_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQCandlestickLegendMarker*>(self)->QCandlestickLegendMarker::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQCandlestickLegendMarker*)(self) )->QCandlestickLegendMarker::eventFilter(watched, event);
+
 }
 
 bool QCandlestickLegendMarker_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -322,13 +348,15 @@ bool QCandlestickLegendMarker_override_virtual_timerEvent(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QCandlestickLegendMarker_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQCandlestickLegendMarker*>(self)->QCandlestickLegendMarker::timerEvent(event);
+
+	( (MiqtVirtualQCandlestickLegendMarker*)(self) )->QCandlestickLegendMarker::timerEvent(event);
+
 }
 
 bool QCandlestickLegendMarker_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -336,13 +364,15 @@ bool QCandlestickLegendMarker_override_virtual_childEvent(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QCandlestickLegendMarker_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQCandlestickLegendMarker*>(self)->QCandlestickLegendMarker::childEvent(event);
+
+	( (MiqtVirtualQCandlestickLegendMarker*)(self) )->QCandlestickLegendMarker::childEvent(event);
+
 }
 
 bool QCandlestickLegendMarker_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -350,13 +380,15 @@ bool QCandlestickLegendMarker_override_virtual_customEvent(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QCandlestickLegendMarker_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQCandlestickLegendMarker*>(self)->QCandlestickLegendMarker::customEvent(event);
+
+	( (MiqtVirtualQCandlestickLegendMarker*)(self) )->QCandlestickLegendMarker::customEvent(event);
+
 }
 
 bool QCandlestickLegendMarker_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -364,13 +396,15 @@ bool QCandlestickLegendMarker_override_virtual_connectNotify(void* self, intptr_
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QCandlestickLegendMarker_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQCandlestickLegendMarker*>(self)->QCandlestickLegendMarker::connectNotify(*signal);
+
+	( (MiqtVirtualQCandlestickLegendMarker*)(self) )->QCandlestickLegendMarker::connectNotify(*signal);
+
 }
 
 bool QCandlestickLegendMarker_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -378,13 +412,15 @@ bool QCandlestickLegendMarker_override_virtual_disconnectNotify(void* self, intp
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QCandlestickLegendMarker_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQCandlestickLegendMarker*>(self)->QCandlestickLegendMarker::disconnectNotify(*signal);
+
+	( (MiqtVirtualQCandlestickLegendMarker*)(self) )->QCandlestickLegendMarker::disconnectNotify(*signal);
+
 }
 
 QObject* QCandlestickLegendMarker_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -393,9 +429,11 @@ QObject* QCandlestickLegendMarker_protectedbase_sender(bool* _dynamic_cast_ok, c
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QCandlestickLegendMarker_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -404,9 +442,11 @@ int QCandlestickLegendMarker_protectedbase_senderSignalIndex(bool* _dynamic_cast
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QCandlestickLegendMarker_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -415,9 +455,11 @@ int QCandlestickLegendMarker_protectedbase_receivers(bool* _dynamic_cast_ok, con
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QCandlestickLegendMarker_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -426,9 +468,11 @@ bool QCandlestickLegendMarker_protectedbase_isSignalConnected(bool* _dynamic_cas
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QCandlestickLegendMarker_delete(QCandlestickLegendMarker* self) {

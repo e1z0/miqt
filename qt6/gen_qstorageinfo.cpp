@@ -17,20 +17,20 @@ extern "C" {
 #endif
 
 QStorageInfo* QStorageInfo_new() {
-	return new (std::nothrow) QStorageInfo();
+	return new QStorageInfo();
 }
 
 QStorageInfo* QStorageInfo_new2(struct miqt_string path) {
 	QString path_QString = QString::fromUtf8(path.data, path.len);
-	return new (std::nothrow) QStorageInfo(path_QString);
+	return new QStorageInfo(path_QString);
 }
 
 QStorageInfo* QStorageInfo_new3(QDir* dir) {
-	return new (std::nothrow) QStorageInfo(*dir);
+	return new QStorageInfo(*dir);
 }
 
 QStorageInfo* QStorageInfo_new4(QStorageInfo* other) {
-	return new (std::nothrow) QStorageInfo(*other);
+	return new QStorageInfo(*other);
 }
 
 void QStorageInfo_operatorAssign(QStorageInfo* self, QStorageInfo* other) {

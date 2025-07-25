@@ -32,8 +32,8 @@ void miqt_exec_callback_QQmlWebChannel_disconnectNotify(QQmlWebChannel*, intptr_
 class MiqtVirtualQQmlWebChannel final : public QQmlWebChannel {
 public:
 
-	MiqtVirtualQQmlWebChannel(): QQmlWebChannel() {}
-	MiqtVirtualQQmlWebChannel(QObject* parent): QQmlWebChannel(parent) {}
+	MiqtVirtualQQmlWebChannel(): QQmlWebChannel() {};
+	MiqtVirtualQQmlWebChannel(QObject* parent): QQmlWebChannel(parent) {};
 
 	virtual ~MiqtVirtualQQmlWebChannel() override = default;
 
@@ -45,9 +45,11 @@ public:
 		if (handle__event == 0) {
 			return QQmlWebChannel::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QQmlWebChannel_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -61,10 +63,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QQmlWebChannel::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QQmlWebChannel_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -79,10 +83,12 @@ public:
 			QQmlWebChannel::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QQmlWebChannel_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QQmlWebChannel_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -96,10 +102,12 @@ public:
 			QQmlWebChannel::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QQmlWebChannel_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QQmlWebChannel_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -113,10 +121,12 @@ public:
 			QQmlWebChannel::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QQmlWebChannel_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QQmlWebChannel_virtualbase_customEvent(void* self, QEvent* event);
@@ -130,12 +140,14 @@ public:
 			QQmlWebChannel::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QQmlWebChannel_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QQmlWebChannel_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -149,12 +161,14 @@ public:
 			QQmlWebChannel::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QQmlWebChannel_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QQmlWebChannel_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -167,11 +181,11 @@ public:
 };
 
 QQmlWebChannel* QQmlWebChannel_new() {
-	return new (std::nothrow) MiqtVirtualQQmlWebChannel();
+	return new MiqtVirtualQQmlWebChannel();
 }
 
 QQmlWebChannel* QQmlWebChannel_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQQmlWebChannel(parent);
+	return new MiqtVirtualQQmlWebChannel(parent);
 }
 
 void QQmlWebChannel_virtbase(QQmlWebChannel* src, QWebChannel** outptr_QWebChannel) {
@@ -276,13 +290,15 @@ bool QQmlWebChannel_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QQmlWebChannel_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQQmlWebChannel*>(self)->QQmlWebChannel::event(event);
+
+	return ( (MiqtVirtualQQmlWebChannel*)(self) )->QQmlWebChannel::event(event);
+
 }
 
 bool QQmlWebChannel_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -290,13 +306,15 @@ bool QQmlWebChannel_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QQmlWebChannel_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQQmlWebChannel*>(self)->QQmlWebChannel::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQQmlWebChannel*)(self) )->QQmlWebChannel::eventFilter(watched, event);
+
 }
 
 bool QQmlWebChannel_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -304,13 +322,15 @@ bool QQmlWebChannel_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QQmlWebChannel_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQQmlWebChannel*>(self)->QQmlWebChannel::timerEvent(event);
+
+	( (MiqtVirtualQQmlWebChannel*)(self) )->QQmlWebChannel::timerEvent(event);
+
 }
 
 bool QQmlWebChannel_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -318,13 +338,15 @@ bool QQmlWebChannel_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QQmlWebChannel_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQQmlWebChannel*>(self)->QQmlWebChannel::childEvent(event);
+
+	( (MiqtVirtualQQmlWebChannel*)(self) )->QQmlWebChannel::childEvent(event);
+
 }
 
 bool QQmlWebChannel_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -332,13 +354,15 @@ bool QQmlWebChannel_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QQmlWebChannel_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQQmlWebChannel*>(self)->QQmlWebChannel::customEvent(event);
+
+	( (MiqtVirtualQQmlWebChannel*)(self) )->QQmlWebChannel::customEvent(event);
+
 }
 
 bool QQmlWebChannel_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -346,13 +370,15 @@ bool QQmlWebChannel_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QQmlWebChannel_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQQmlWebChannel*>(self)->QQmlWebChannel::connectNotify(*signal);
+
+	( (MiqtVirtualQQmlWebChannel*)(self) )->QQmlWebChannel::connectNotify(*signal);
+
 }
 
 bool QQmlWebChannel_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -360,13 +386,15 @@ bool QQmlWebChannel_override_virtual_disconnectNotify(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QQmlWebChannel_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQQmlWebChannel*>(self)->QQmlWebChannel::disconnectNotify(*signal);
+
+	( (MiqtVirtualQQmlWebChannel*)(self) )->QQmlWebChannel::disconnectNotify(*signal);
+
 }
 
 QObject* QQmlWebChannel_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -375,9 +403,11 @@ QObject* QQmlWebChannel_protectedbase_sender(bool* _dynamic_cast_ok, const void*
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QQmlWebChannel_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -386,9 +416,11 @@ int QQmlWebChannel_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QQmlWebChannel_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -397,9 +429,11 @@ int QQmlWebChannel_protectedbase_receivers(bool* _dynamic_cast_ok, const void* s
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QQmlWebChannel_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -408,9 +442,11 @@ bool QQmlWebChannel_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, cons
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QQmlWebChannel_delete(QQmlWebChannel* self) {

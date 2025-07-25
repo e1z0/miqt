@@ -18,17 +18,17 @@ extern "C" {
 #endif
 
 QResource* QResource_new() {
-	return new (std::nothrow) QResource();
+	return new QResource();
 }
 
 QResource* QResource_new2(struct miqt_string file) {
 	QString file_QString = QString::fromUtf8(file.data, file.len);
-	return new (std::nothrow) QResource(file_QString);
+	return new QResource(file_QString);
 }
 
 QResource* QResource_new3(struct miqt_string file, QLocale* locale) {
 	QString file_QString = QString::fromUtf8(file.data, file.len);
-	return new (std::nothrow) QResource(file_QString, *locale);
+	return new QResource(file_QString, *locale);
 }
 
 void QResource_setFileName(QResource* self, struct miqt_string file) {

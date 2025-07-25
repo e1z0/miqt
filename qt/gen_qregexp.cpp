@@ -15,26 +15,26 @@ extern "C" {
 #endif
 
 QRegExp* QRegExp_new() {
-	return new (std::nothrow) QRegExp();
+	return new QRegExp();
 }
 
 QRegExp* QRegExp_new2(struct miqt_string pattern) {
 	QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
-	return new (std::nothrow) QRegExp(pattern_QString);
+	return new QRegExp(pattern_QString);
 }
 
 QRegExp* QRegExp_new3(QRegExp* rx) {
-	return new (std::nothrow) QRegExp(*rx);
+	return new QRegExp(*rx);
 }
 
 QRegExp* QRegExp_new4(struct miqt_string pattern, int cs) {
 	QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
-	return new (std::nothrow) QRegExp(pattern_QString, static_cast<Qt::CaseSensitivity>(cs));
+	return new QRegExp(pattern_QString, static_cast<Qt::CaseSensitivity>(cs));
 }
 
 QRegExp* QRegExp_new5(struct miqt_string pattern, int cs, int syntax) {
 	QString pattern_QString = QString::fromUtf8(pattern.data, pattern.len);
-	return new (std::nothrow) QRegExp(pattern_QString, static_cast<Qt::CaseSensitivity>(cs), static_cast<QRegExp::PatternSyntax>(syntax));
+	return new QRegExp(pattern_QString, static_cast<Qt::CaseSensitivity>(cs), static_cast<QRegExp::PatternSyntax>(syntax));
 }
 
 void QRegExp_operatorAssign(QRegExp* self, QRegExp* rx) {

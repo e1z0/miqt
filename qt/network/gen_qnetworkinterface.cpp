@@ -18,11 +18,11 @@ extern "C" {
 #endif
 
 QNetworkAddressEntry* QNetworkAddressEntry_new() {
-	return new (std::nothrow) QNetworkAddressEntry();
+	return new QNetworkAddressEntry();
 }
 
 QNetworkAddressEntry* QNetworkAddressEntry_new2(QNetworkAddressEntry* other) {
-	return new (std::nothrow) QNetworkAddressEntry(*other);
+	return new QNetworkAddressEntry(*other);
 }
 
 void QNetworkAddressEntry_operatorAssign(QNetworkAddressEntry* self, QNetworkAddressEntry* other) {
@@ -115,11 +115,11 @@ void QNetworkAddressEntry_delete(QNetworkAddressEntry* self) {
 }
 
 QNetworkInterface* QNetworkInterface_new() {
-	return new (std::nothrow) QNetworkInterface();
+	return new QNetworkInterface();
 }
 
 QNetworkInterface* QNetworkInterface_new2(QNetworkInterface* other) {
-	return new (std::nothrow) QNetworkInterface(*other);
+	return new QNetworkInterface(*other);
 }
 
 void QNetworkInterface_operatorAssign(QNetworkInterface* self, QNetworkInterface* other) {

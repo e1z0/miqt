@@ -35,10 +35,10 @@ void miqt_exec_callback_QQmlContext_disconnectNotify(QQmlContext*, intptr_t, QMe
 class MiqtVirtualQQmlContext final : public QQmlContext {
 public:
 
-	MiqtVirtualQQmlContext(QQmlEngine* parent): QQmlContext(parent) {}
-	MiqtVirtualQQmlContext(QQmlContext* parent): QQmlContext(parent) {}
-	MiqtVirtualQQmlContext(QQmlEngine* parent, QObject* objParent): QQmlContext(parent, objParent) {}
-	MiqtVirtualQQmlContext(QQmlContext* parent, QObject* objParent): QQmlContext(parent, objParent) {}
+	MiqtVirtualQQmlContext(QQmlEngine* parent): QQmlContext(parent) {};
+	MiqtVirtualQQmlContext(QQmlContext* parent): QQmlContext(parent) {};
+	MiqtVirtualQQmlContext(QQmlEngine* parent, QObject* objParent): QQmlContext(parent, objParent) {};
+	MiqtVirtualQQmlContext(QQmlContext* parent, QObject* objParent): QQmlContext(parent, objParent) {};
 
 	virtual ~MiqtVirtualQQmlContext() override = default;
 
@@ -50,9 +50,11 @@ public:
 		if (handle__event == 0) {
 			return QQmlContext::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QQmlContext_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -66,10 +68,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QQmlContext::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QQmlContext_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -84,10 +88,12 @@ public:
 			QQmlContext::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QQmlContext_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QQmlContext_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -101,10 +107,12 @@ public:
 			QQmlContext::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QQmlContext_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QQmlContext_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -118,10 +126,12 @@ public:
 			QQmlContext::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QQmlContext_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QQmlContext_virtualbase_customEvent(void* self, QEvent* event);
@@ -135,12 +145,14 @@ public:
 			QQmlContext::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QQmlContext_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QQmlContext_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -154,12 +166,14 @@ public:
 			QQmlContext::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QQmlContext_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QQmlContext_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -172,19 +186,19 @@ public:
 };
 
 QQmlContext* QQmlContext_new(QQmlEngine* parent) {
-	return new (std::nothrow) MiqtVirtualQQmlContext(parent);
+	return new MiqtVirtualQQmlContext(parent);
 }
 
 QQmlContext* QQmlContext_new2(QQmlContext* parent) {
-	return new (std::nothrow) MiqtVirtualQQmlContext(parent);
+	return new MiqtVirtualQQmlContext(parent);
 }
 
 QQmlContext* QQmlContext_new3(QQmlEngine* parent, QObject* objParent) {
-	return new (std::nothrow) MiqtVirtualQQmlContext(parent, objParent);
+	return new MiqtVirtualQQmlContext(parent, objParent);
 }
 
 QQmlContext* QQmlContext_new4(QQmlContext* parent, QObject* objParent) {
-	return new (std::nothrow) MiqtVirtualQQmlContext(parent, objParent);
+	return new MiqtVirtualQQmlContext(parent, objParent);
 }
 
 void QQmlContext_virtbase(QQmlContext* src, QObject** outptr_QObject) {
@@ -315,13 +329,15 @@ bool QQmlContext_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QQmlContext_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQQmlContext*>(self)->QQmlContext::event(event);
+
+	return ( (MiqtVirtualQQmlContext*)(self) )->QQmlContext::event(event);
+
 }
 
 bool QQmlContext_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -329,13 +345,15 @@ bool QQmlContext_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QQmlContext_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQQmlContext*>(self)->QQmlContext::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQQmlContext*)(self) )->QQmlContext::eventFilter(watched, event);
+
 }
 
 bool QQmlContext_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -343,13 +361,15 @@ bool QQmlContext_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QQmlContext_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQQmlContext*>(self)->QQmlContext::timerEvent(event);
+
+	( (MiqtVirtualQQmlContext*)(self) )->QQmlContext::timerEvent(event);
+
 }
 
 bool QQmlContext_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -357,13 +377,15 @@ bool QQmlContext_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QQmlContext_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQQmlContext*>(self)->QQmlContext::childEvent(event);
+
+	( (MiqtVirtualQQmlContext*)(self) )->QQmlContext::childEvent(event);
+
 }
 
 bool QQmlContext_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -371,13 +393,15 @@ bool QQmlContext_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QQmlContext_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQQmlContext*>(self)->QQmlContext::customEvent(event);
+
+	( (MiqtVirtualQQmlContext*)(self) )->QQmlContext::customEvent(event);
+
 }
 
 bool QQmlContext_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -385,13 +409,15 @@ bool QQmlContext_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QQmlContext_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQQmlContext*>(self)->QQmlContext::connectNotify(*signal);
+
+	( (MiqtVirtualQQmlContext*)(self) )->QQmlContext::connectNotify(*signal);
+
 }
 
 bool QQmlContext_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -399,13 +425,15 @@ bool QQmlContext_override_virtual_disconnectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QQmlContext_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQQmlContext*>(self)->QQmlContext::disconnectNotify(*signal);
+
+	( (MiqtVirtualQQmlContext*)(self) )->QQmlContext::disconnectNotify(*signal);
+
 }
 
 QObject* QQmlContext_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -414,9 +442,11 @@ QObject* QQmlContext_protectedbase_sender(bool* _dynamic_cast_ok, const void* se
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QQmlContext_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -425,9 +455,11 @@ int QQmlContext_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const vo
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QQmlContext_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -436,9 +468,11 @@ int QQmlContext_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QQmlContext_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -447,9 +481,11 @@ bool QQmlContext_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const v
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QQmlContext_delete(QQmlContext* self) {
@@ -457,7 +493,7 @@ void QQmlContext_delete(QQmlContext* self) {
 }
 
 QQmlContext__PropertyPair* QQmlContext__PropertyPair_new(QQmlContext__PropertyPair* param1) {
-	return new (std::nothrow) QQmlContext::PropertyPair(*param1);
+	return new QQmlContext::PropertyPair(*param1);
 }
 
 void QQmlContext__PropertyPair_operatorAssign(QQmlContext__PropertyPair* self, QQmlContext__PropertyPair* param1) {

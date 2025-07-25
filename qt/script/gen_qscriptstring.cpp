@@ -14,11 +14,11 @@ extern "C" {
 #endif
 
 QScriptString* QScriptString_new() {
-	return new (std::nothrow) QScriptString();
+	return new QScriptString();
 }
 
 QScriptString* QScriptString_new2(QScriptString* other) {
-	return new (std::nothrow) QScriptString(*other);
+	return new QScriptString(*other);
 }
 
 void QScriptString_operatorAssign(QScriptString* self, QScriptString* other) {

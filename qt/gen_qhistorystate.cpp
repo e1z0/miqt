@@ -18,9 +18,6 @@
 extern "C" {
 #endif
 
-void miqt_exec_callback_QHistoryState_defaultTransitionChanged(intptr_t);
-void miqt_exec_callback_QHistoryState_defaultStateChanged(intptr_t);
-void miqt_exec_callback_QHistoryState_historyTypeChanged(intptr_t);
 void miqt_exec_callback_QHistoryState_onEntry(QHistoryState*, intptr_t, QEvent*);
 void miqt_exec_callback_QHistoryState_onExit(QHistoryState*, intptr_t, QEvent*);
 bool miqt_exec_callback_QHistoryState_event(QHistoryState*, intptr_t, QEvent*);
@@ -37,10 +34,10 @@ void miqt_exec_callback_QHistoryState_disconnectNotify(QHistoryState*, intptr_t,
 class MiqtVirtualQHistoryState final : public QHistoryState {
 public:
 
-	MiqtVirtualQHistoryState(): QHistoryState() {}
-	MiqtVirtualQHistoryState(QHistoryState::HistoryType type): QHistoryState(type) {}
-	MiqtVirtualQHistoryState(QState* parent): QHistoryState(parent) {}
-	MiqtVirtualQHistoryState(QHistoryState::HistoryType type, QState* parent): QHistoryState(type, parent) {}
+	MiqtVirtualQHistoryState(): QHistoryState() {};
+	MiqtVirtualQHistoryState(QHistoryState::HistoryType type): QHistoryState(type) {};
+	MiqtVirtualQHistoryState(QState* parent): QHistoryState(parent) {};
+	MiqtVirtualQHistoryState(QHistoryState::HistoryType type, QState* parent): QHistoryState(type, parent) {};
 
 	virtual ~MiqtVirtualQHistoryState() override = default;
 
@@ -53,10 +50,12 @@ public:
 			QHistoryState::onEntry(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QHistoryState_onEntry(this, handle__onEntry, sigval1);
 
+		
 	}
 
 	friend void QHistoryState_virtualbase_onEntry(void* self, QEvent* event);
@@ -70,10 +69,12 @@ public:
 			QHistoryState::onExit(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QHistoryState_onExit(this, handle__onExit, sigval1);
 
+		
 	}
 
 	friend void QHistoryState_virtualbase_onExit(void* self, QEvent* event);
@@ -86,9 +87,11 @@ public:
 		if (handle__event == 0) {
 			return QHistoryState::event(e);
 		}
-
+		
 		QEvent* sigval1 = e;
+
 		bool callback_return_value = miqt_exec_callback_QHistoryState_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -102,10 +105,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QHistoryState::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QHistoryState_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -120,10 +125,12 @@ public:
 			QHistoryState::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QHistoryState_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QHistoryState_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -137,10 +144,12 @@ public:
 			QHistoryState::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QHistoryState_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QHistoryState_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -154,10 +163,12 @@ public:
 			QHistoryState::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QHistoryState_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QHistoryState_virtualbase_customEvent(void* self, QEvent* event);
@@ -171,12 +182,14 @@ public:
 			QHistoryState::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QHistoryState_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QHistoryState_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -190,12 +203,14 @@ public:
 			QHistoryState::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QHistoryState_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QHistoryState_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -208,19 +223,19 @@ public:
 };
 
 QHistoryState* QHistoryState_new() {
-	return new (std::nothrow) MiqtVirtualQHistoryState();
+	return new MiqtVirtualQHistoryState();
 }
 
 QHistoryState* QHistoryState_new2(int type) {
-	return new (std::nothrow) MiqtVirtualQHistoryState(static_cast<QHistoryState::HistoryType>(type));
+	return new MiqtVirtualQHistoryState(static_cast<QHistoryState::HistoryType>(type));
 }
 
 QHistoryState* QHistoryState_new3(QState* parent) {
-	return new (std::nothrow) MiqtVirtualQHistoryState(parent);
+	return new MiqtVirtualQHistoryState(parent);
 }
 
 QHistoryState* QHistoryState_new4(int type, QState* parent) {
-	return new (std::nothrow) MiqtVirtualQHistoryState(static_cast<QHistoryState::HistoryType>(type), parent);
+	return new MiqtVirtualQHistoryState(static_cast<QHistoryState::HistoryType>(type), parent);
 }
 
 void QHistoryState_virtbase(QHistoryState* src, QAbstractState** outptr_QAbstractState) {
@@ -331,13 +346,15 @@ bool QHistoryState_override_virtual_onEntry(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__onEntry = slot;
 	return true;
 }
 
 void QHistoryState_virtualbase_onEntry(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQHistoryState*>(self)->QHistoryState::onEntry(event);
+
+	( (MiqtVirtualQHistoryState*)(self) )->QHistoryState::onEntry(event);
+
 }
 
 bool QHistoryState_override_virtual_onExit(void* self, intptr_t slot) {
@@ -345,13 +362,15 @@ bool QHistoryState_override_virtual_onExit(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__onExit = slot;
 	return true;
 }
 
 void QHistoryState_virtualbase_onExit(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQHistoryState*>(self)->QHistoryState::onExit(event);
+
+	( (MiqtVirtualQHistoryState*)(self) )->QHistoryState::onExit(event);
+
 }
 
 bool QHistoryState_override_virtual_event(void* self, intptr_t slot) {
@@ -359,13 +378,15 @@ bool QHistoryState_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QHistoryState_virtualbase_event(void* self, QEvent* e) {
-	return static_cast<MiqtVirtualQHistoryState*>(self)->QHistoryState::event(e);
+
+	return ( (MiqtVirtualQHistoryState*)(self) )->QHistoryState::event(e);
+
 }
 
 bool QHistoryState_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -373,13 +394,15 @@ bool QHistoryState_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QHistoryState_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQHistoryState*>(self)->QHistoryState::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQHistoryState*)(self) )->QHistoryState::eventFilter(watched, event);
+
 }
 
 bool QHistoryState_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -387,13 +410,15 @@ bool QHistoryState_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QHistoryState_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQHistoryState*>(self)->QHistoryState::timerEvent(event);
+
+	( (MiqtVirtualQHistoryState*)(self) )->QHistoryState::timerEvent(event);
+
 }
 
 bool QHistoryState_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -401,13 +426,15 @@ bool QHistoryState_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QHistoryState_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQHistoryState*>(self)->QHistoryState::childEvent(event);
+
+	( (MiqtVirtualQHistoryState*)(self) )->QHistoryState::childEvent(event);
+
 }
 
 bool QHistoryState_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -415,13 +442,15 @@ bool QHistoryState_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QHistoryState_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQHistoryState*>(self)->QHistoryState::customEvent(event);
+
+	( (MiqtVirtualQHistoryState*)(self) )->QHistoryState::customEvent(event);
+
 }
 
 bool QHistoryState_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -429,13 +458,15 @@ bool QHistoryState_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QHistoryState_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQHistoryState*>(self)->QHistoryState::connectNotify(*signal);
+
+	( (MiqtVirtualQHistoryState*)(self) )->QHistoryState::connectNotify(*signal);
+
 }
 
 bool QHistoryState_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -443,13 +474,15 @@ bool QHistoryState_override_virtual_disconnectNotify(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QHistoryState_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQHistoryState*>(self)->QHistoryState::disconnectNotify(*signal);
+
+	( (MiqtVirtualQHistoryState*)(self) )->QHistoryState::disconnectNotify(*signal);
+
 }
 
 QObject* QHistoryState_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -458,9 +491,11 @@ QObject* QHistoryState_protectedbase_sender(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QHistoryState_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -469,9 +504,11 @@ int QHistoryState_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QHistoryState_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -480,9 +517,11 @@ int QHistoryState_protectedbase_receivers(bool* _dynamic_cast_ok, const void* se
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QHistoryState_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -491,27 +530,11 @@ bool QHistoryState_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
-}
 
-void QHistoryState_connect_defaultTransitionChanged(QHistoryState* self, intptr_t slot) {
-	QHistoryState::connect(self, &QHistoryState::defaultTransitionChanged, self, [=]() {
-		miqt_exec_callback_QHistoryState_defaultTransitionChanged(slot);
-	});
-}
-
-void QHistoryState_connect_defaultStateChanged(QHistoryState* self, intptr_t slot) {
-	QHistoryState::connect(self, &QHistoryState::defaultStateChanged, self, [=]() {
-		miqt_exec_callback_QHistoryState_defaultStateChanged(slot);
-	});
-}
-
-void QHistoryState_connect_historyTypeChanged(QHistoryState* self, intptr_t slot) {
-	QHistoryState::connect(self, &QHistoryState::historyTypeChanged, self, [=]() {
-		miqt_exec_callback_QHistoryState_historyTypeChanged(slot);
-	});
 }
 
 void QHistoryState_delete(QHistoryState* self) {

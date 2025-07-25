@@ -110,7 +110,6 @@ struct miqt_string QSlider_tr2(const char* s, const char* c);
 struct miqt_string QSlider_tr3(const char* s, const char* c, int n);
 struct miqt_string QSlider_trUtf82(const char* s, const char* c);
 struct miqt_string QSlider_trUtf83(const char* s, const char* c, int n);
-
 bool QSlider_override_virtual_sizeHint(void* self, intptr_t slot);
 QSize* QSlider_virtualbase_sizeHint(const void* self);
 bool QSlider_override_virtual_minimumSizeHint(void* self, intptr_t slot);
@@ -207,7 +206,6 @@ bool QSlider_override_virtual_connectNotify(void* self, intptr_t slot);
 void QSlider_virtualbase_connectNotify(void* self, QMetaMethod* signal);
 bool QSlider_override_virtual_disconnectNotify(void* self, intptr_t slot);
 void QSlider_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
-
 void QSlider_protectedbase_initStyleOption(bool* _dynamic_cast_ok, const void* self, QStyleOptionSlider* option);
 void QSlider_protectedbase_setRepeatAction(bool* _dynamic_cast_ok, void* self, int action);
 int QSlider_protectedbase_repeatAction(bool* _dynamic_cast_ok, const void* self);
@@ -220,7 +218,6 @@ QObject* QSlider_protectedbase_sender(bool* _dynamic_cast_ok, const void* self);
 int QSlider_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self);
 int QSlider_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal);
 bool QSlider_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal);
-
 void QSlider_delete(QSlider* self);
 
 #ifdef __cplusplus

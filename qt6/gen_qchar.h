@@ -25,7 +25,6 @@ typedef struct QLatin1Char QLatin1Char;
 QLatin1Char* QLatin1Char_new(char c);
 QLatin1Char* QLatin1Char_new2(QLatin1Char* param1);
 char QLatin1Char_toLatin1(const QLatin1Char* self);
-
 void QLatin1Char_delete(QLatin1Char* self);
 
 QChar* QChar_new();
@@ -78,7 +77,6 @@ unsigned char QChar_row(const QChar* self);
 void QChar_setCell(QChar* self, unsigned char acell);
 void QChar_setRow(QChar* self, unsigned char arow);
 int QChar_currentUnicodeVersion();
-
 void QChar_delete(QChar* self);
 
 #ifdef __cplusplus

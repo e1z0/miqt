@@ -238,19 +238,19 @@ void miqt_exec_callback_ScintillaEdit_disconnectNotify(ScintillaEdit*, intptr_t,
 #endif
 
 Scintilla__Internal__Point* Scintilla__Internal__Point_new() {
-	return new (std::nothrow) Scintilla::Internal::Point();
+	return new Scintilla::Internal::Point();
 }
 
 Scintilla__Internal__Point* Scintilla__Internal__Point_new2(Scintilla__Internal__Point* param1) {
-	return new (std::nothrow) Scintilla::Internal::Point(*param1);
+	return new Scintilla::Internal::Point(*param1);
 }
 
 Scintilla__Internal__Point* Scintilla__Internal__Point_new3(double x_) {
-	return new (std::nothrow) Scintilla::Internal::Point(static_cast<Scintilla::Internal::XYPOSITION>(x_));
+	return new Scintilla::Internal::Point(static_cast<Scintilla::Internal::XYPOSITION>(x_));
 }
 
 Scintilla__Internal__Point* Scintilla__Internal__Point_new4(double x_, double y_) {
-	return new (std::nothrow) Scintilla::Internal::Point(static_cast<Scintilla::Internal::XYPOSITION>(x_), static_cast<Scintilla::Internal::XYPOSITION>(y_));
+	return new Scintilla::Internal::Point(static_cast<Scintilla::Internal::XYPOSITION>(x_), static_cast<Scintilla::Internal::XYPOSITION>(y_));
 }
 
 Scintilla__Internal__Point* Scintilla__Internal__Point_FromInts(int x_, int y_) {
@@ -303,27 +303,27 @@ void Scintilla__Internal__Interval_delete(Scintilla__Internal__Interval* self) {
 }
 
 Scintilla__Internal__PRectangle* Scintilla__Internal__PRectangle_new() {
-	return new (std::nothrow) Scintilla::Internal::PRectangle();
+	return new Scintilla::Internal::PRectangle();
 }
 
 Scintilla__Internal__PRectangle* Scintilla__Internal__PRectangle_new2(Scintilla__Internal__PRectangle* param1) {
-	return new (std::nothrow) Scintilla::Internal::PRectangle(*param1);
+	return new Scintilla::Internal::PRectangle(*param1);
 }
 
 Scintilla__Internal__PRectangle* Scintilla__Internal__PRectangle_new3(double left_) {
-	return new (std::nothrow) Scintilla::Internal::PRectangle(static_cast<Scintilla::Internal::XYPOSITION>(left_));
+	return new Scintilla::Internal::PRectangle(static_cast<Scintilla::Internal::XYPOSITION>(left_));
 }
 
 Scintilla__Internal__PRectangle* Scintilla__Internal__PRectangle_new4(double left_, double top_) {
-	return new (std::nothrow) Scintilla::Internal::PRectangle(static_cast<Scintilla::Internal::XYPOSITION>(left_), static_cast<Scintilla::Internal::XYPOSITION>(top_));
+	return new Scintilla::Internal::PRectangle(static_cast<Scintilla::Internal::XYPOSITION>(left_), static_cast<Scintilla::Internal::XYPOSITION>(top_));
 }
 
 Scintilla__Internal__PRectangle* Scintilla__Internal__PRectangle_new5(double left_, double top_, double right_) {
-	return new (std::nothrow) Scintilla::Internal::PRectangle(static_cast<Scintilla::Internal::XYPOSITION>(left_), static_cast<Scintilla::Internal::XYPOSITION>(top_), static_cast<Scintilla::Internal::XYPOSITION>(right_));
+	return new Scintilla::Internal::PRectangle(static_cast<Scintilla::Internal::XYPOSITION>(left_), static_cast<Scintilla::Internal::XYPOSITION>(top_), static_cast<Scintilla::Internal::XYPOSITION>(right_));
 }
 
 Scintilla__Internal__PRectangle* Scintilla__Internal__PRectangle_new6(double left_, double top_, double right_, double bottom_) {
-	return new (std::nothrow) Scintilla::Internal::PRectangle(static_cast<Scintilla::Internal::XYPOSITION>(left_), static_cast<Scintilla::Internal::XYPOSITION>(top_), static_cast<Scintilla::Internal::XYPOSITION>(right_), static_cast<Scintilla::Internal::XYPOSITION>(bottom_));
+	return new Scintilla::Internal::PRectangle(static_cast<Scintilla::Internal::XYPOSITION>(left_), static_cast<Scintilla::Internal::XYPOSITION>(top_), static_cast<Scintilla::Internal::XYPOSITION>(right_), static_cast<Scintilla::Internal::XYPOSITION>(bottom_));
 }
 
 Scintilla__Internal__PRectangle* Scintilla__Internal__PRectangle_FromInts(int left_, int top_, int right_, int bottom_) {
@@ -393,27 +393,27 @@ void Scintilla__Internal__PRectangle_delete(Scintilla__Internal__PRectangle* sel
 }
 
 Scintilla__Internal__ColourRGBA* Scintilla__Internal__ColourRGBA_new() {
-	return new (std::nothrow) Scintilla::Internal::ColourRGBA();
+	return new Scintilla::Internal::ColourRGBA();
 }
 
 Scintilla__Internal__ColourRGBA* Scintilla__Internal__ColourRGBA_new2(unsigned int red, unsigned int green, unsigned int blue) {
-	return new (std::nothrow) Scintilla::Internal::ColourRGBA(static_cast<unsigned int>(red), static_cast<unsigned int>(green), static_cast<unsigned int>(blue));
+	return new Scintilla::Internal::ColourRGBA(static_cast<unsigned int>(red), static_cast<unsigned int>(green), static_cast<unsigned int>(blue));
 }
 
 Scintilla__Internal__ColourRGBA* Scintilla__Internal__ColourRGBA_new3(Scintilla__Internal__ColourRGBA* cd, unsigned int alpha) {
-	return new (std::nothrow) Scintilla::Internal::ColourRGBA(*cd, static_cast<unsigned int>(alpha));
+	return new Scintilla::Internal::ColourRGBA(*cd, static_cast<unsigned int>(alpha));
 }
 
 Scintilla__Internal__ColourRGBA* Scintilla__Internal__ColourRGBA_new4(Scintilla__Internal__ColourRGBA* param1) {
-	return new (std::nothrow) Scintilla::Internal::ColourRGBA(*param1);
+	return new Scintilla::Internal::ColourRGBA(*param1);
 }
 
 Scintilla__Internal__ColourRGBA* Scintilla__Internal__ColourRGBA_new5(int co_) {
-	return new (std::nothrow) Scintilla::Internal::ColourRGBA(static_cast<int>(co_));
+	return new Scintilla::Internal::ColourRGBA(static_cast<int>(co_));
 }
 
 Scintilla__Internal__ColourRGBA* Scintilla__Internal__ColourRGBA_new6(unsigned int red, unsigned int green, unsigned int blue, unsigned int alpha) {
-	return new (std::nothrow) Scintilla::Internal::ColourRGBA(static_cast<unsigned int>(red), static_cast<unsigned int>(green), static_cast<unsigned int>(blue), static_cast<unsigned int>(alpha));
+	return new Scintilla::Internal::ColourRGBA(static_cast<unsigned int>(red), static_cast<unsigned int>(green), static_cast<unsigned int>(blue), static_cast<unsigned int>(alpha));
 }
 
 Scintilla__Internal__ColourRGBA* Scintilla__Internal__ColourRGBA_FromRGB(int co_) {
@@ -505,15 +505,15 @@ void Scintilla__Internal__ColourRGBA_delete(Scintilla__Internal__ColourRGBA* sel
 }
 
 Scintilla__Internal__Stroke* Scintilla__Internal__Stroke_new(Scintilla__Internal__ColourRGBA* colour_) {
-	return new (std::nothrow) Scintilla::Internal::Stroke(*colour_);
+	return new Scintilla::Internal::Stroke(*colour_);
 }
 
 Scintilla__Internal__Stroke* Scintilla__Internal__Stroke_new2(Scintilla__Internal__Stroke* param1) {
-	return new (std::nothrow) Scintilla::Internal::Stroke(*param1);
+	return new Scintilla::Internal::Stroke(*param1);
 }
 
 Scintilla__Internal__Stroke* Scintilla__Internal__Stroke_new3(Scintilla__Internal__ColourRGBA* colour_, double width_) {
-	return new (std::nothrow) Scintilla::Internal::Stroke(*colour_, static_cast<Scintilla::Internal::XYPOSITION>(width_));
+	return new Scintilla::Internal::Stroke(*colour_, static_cast<Scintilla::Internal::XYPOSITION>(width_));
 }
 
 float Scintilla__Internal__Stroke_WidthF(const Scintilla__Internal__Stroke* self) {
@@ -525,11 +525,11 @@ void Scintilla__Internal__Stroke_delete(Scintilla__Internal__Stroke* self) {
 }
 
 Scintilla__Internal__Fill* Scintilla__Internal__Fill_new(Scintilla__Internal__ColourRGBA* colour_) {
-	return new (std::nothrow) Scintilla::Internal::Fill(*colour_);
+	return new Scintilla::Internal::Fill(*colour_);
 }
 
 Scintilla__Internal__Fill* Scintilla__Internal__Fill_new2(Scintilla__Internal__Fill* param1) {
-	return new (std::nothrow) Scintilla::Internal::Fill(*param1);
+	return new Scintilla::Internal::Fill(*param1);
 }
 
 void Scintilla__Internal__Fill_delete(Scintilla__Internal__Fill* self) {
@@ -537,19 +537,19 @@ void Scintilla__Internal__Fill_delete(Scintilla__Internal__Fill* self) {
 }
 
 Scintilla__Internal__FillStroke* Scintilla__Internal__FillStroke_new(Scintilla__Internal__ColourRGBA* colourFill_, Scintilla__Internal__ColourRGBA* colourStroke_) {
-	return new (std::nothrow) Scintilla::Internal::FillStroke(*colourFill_, *colourStroke_);
+	return new Scintilla::Internal::FillStroke(*colourFill_, *colourStroke_);
 }
 
 Scintilla__Internal__FillStroke* Scintilla__Internal__FillStroke_new2(Scintilla__Internal__ColourRGBA* colourBoth) {
-	return new (std::nothrow) Scintilla::Internal::FillStroke(*colourBoth);
+	return new Scintilla::Internal::FillStroke(*colourBoth);
 }
 
 Scintilla__Internal__FillStroke* Scintilla__Internal__FillStroke_new3(Scintilla__Internal__ColourRGBA* colourFill_, Scintilla__Internal__ColourRGBA* colourStroke_, double widthStroke_) {
-	return new (std::nothrow) Scintilla::Internal::FillStroke(*colourFill_, *colourStroke_, static_cast<Scintilla::Internal::XYPOSITION>(widthStroke_));
+	return new Scintilla::Internal::FillStroke(*colourFill_, *colourStroke_, static_cast<Scintilla::Internal::XYPOSITION>(widthStroke_));
 }
 
 Scintilla__Internal__FillStroke* Scintilla__Internal__FillStroke_new4(Scintilla__Internal__ColourRGBA* colourBoth, double widthStroke_) {
-	return new (std::nothrow) Scintilla::Internal::FillStroke(*colourBoth, static_cast<Scintilla::Internal::XYPOSITION>(widthStroke_));
+	return new Scintilla::Internal::FillStroke(*colourBoth, static_cast<Scintilla::Internal::XYPOSITION>(widthStroke_));
 }
 
 void Scintilla__Internal__FillStroke_delete(Scintilla__Internal__FillStroke* self) {
@@ -557,7 +557,7 @@ void Scintilla__Internal__FillStroke_delete(Scintilla__Internal__FillStroke* sel
 }
 
 Scintilla__Internal__ColourStop* Scintilla__Internal__ColourStop_new(double position_, Scintilla__Internal__ColourRGBA* colour_) {
-	return new (std::nothrow) Scintilla::Internal::ColourStop(static_cast<Scintilla::Internal::XYPOSITION>(position_), *colour_);
+	return new Scintilla::Internal::ColourStop(static_cast<Scintilla::Internal::XYPOSITION>(position_), *colour_);
 }
 
 void Scintilla__Internal__ColourStop_delete(Scintilla__Internal__ColourStop* self) {
@@ -609,39 +609,39 @@ void Scintilla__NotificationData_delete(Scintilla__NotificationData* self) {
 }
 
 Scintilla__Internal__FontParameters* Scintilla__Internal__FontParameters_new(const char* faceName_) {
-	return new (std::nothrow) Scintilla::Internal::FontParameters(faceName_);
+	return new Scintilla::Internal::FontParameters(faceName_);
 }
 
 Scintilla__Internal__FontParameters* Scintilla__Internal__FontParameters_new2(const char* faceName_, double size_) {
-	return new (std::nothrow) Scintilla::Internal::FontParameters(faceName_, static_cast<Scintilla::Internal::XYPOSITION>(size_));
+	return new Scintilla::Internal::FontParameters(faceName_, static_cast<Scintilla::Internal::XYPOSITION>(size_));
 }
 
 Scintilla__Internal__FontParameters* Scintilla__Internal__FontParameters_new3(const char* faceName_, double size_, int weight_) {
-	return new (std::nothrow) Scintilla::Internal::FontParameters(faceName_, static_cast<Scintilla::Internal::XYPOSITION>(size_), static_cast<Scintilla::FontWeight>(weight_));
+	return new Scintilla::Internal::FontParameters(faceName_, static_cast<Scintilla::Internal::XYPOSITION>(size_), static_cast<Scintilla::FontWeight>(weight_));
 }
 
 Scintilla__Internal__FontParameters* Scintilla__Internal__FontParameters_new4(const char* faceName_, double size_, int weight_, bool italic_) {
-	return new (std::nothrow) Scintilla::Internal::FontParameters(faceName_, static_cast<Scintilla::Internal::XYPOSITION>(size_), static_cast<Scintilla::FontWeight>(weight_), italic_);
+	return new Scintilla::Internal::FontParameters(faceName_, static_cast<Scintilla::Internal::XYPOSITION>(size_), static_cast<Scintilla::FontWeight>(weight_), italic_);
 }
 
 Scintilla__Internal__FontParameters* Scintilla__Internal__FontParameters_new5(const char* faceName_, double size_, int weight_, bool italic_, int extraFontFlag_) {
-	return new (std::nothrow) Scintilla::Internal::FontParameters(faceName_, static_cast<Scintilla::Internal::XYPOSITION>(size_), static_cast<Scintilla::FontWeight>(weight_), italic_, static_cast<Scintilla::FontQuality>(extraFontFlag_));
+	return new Scintilla::Internal::FontParameters(faceName_, static_cast<Scintilla::Internal::XYPOSITION>(size_), static_cast<Scintilla::FontWeight>(weight_), italic_, static_cast<Scintilla::FontQuality>(extraFontFlag_));
 }
 
 Scintilla__Internal__FontParameters* Scintilla__Internal__FontParameters_new6(const char* faceName_, double size_, int weight_, bool italic_, int extraFontFlag_, int technology_) {
-	return new (std::nothrow) Scintilla::Internal::FontParameters(faceName_, static_cast<Scintilla::Internal::XYPOSITION>(size_), static_cast<Scintilla::FontWeight>(weight_), italic_, static_cast<Scintilla::FontQuality>(extraFontFlag_), static_cast<Scintilla::Technology>(technology_));
+	return new Scintilla::Internal::FontParameters(faceName_, static_cast<Scintilla::Internal::XYPOSITION>(size_), static_cast<Scintilla::FontWeight>(weight_), italic_, static_cast<Scintilla::FontQuality>(extraFontFlag_), static_cast<Scintilla::Technology>(technology_));
 }
 
 Scintilla__Internal__FontParameters* Scintilla__Internal__FontParameters_new7(const char* faceName_, double size_, int weight_, bool italic_, int extraFontFlag_, int technology_, int characterSet_) {
-	return new (std::nothrow) Scintilla::Internal::FontParameters(faceName_, static_cast<Scintilla::Internal::XYPOSITION>(size_), static_cast<Scintilla::FontWeight>(weight_), italic_, static_cast<Scintilla::FontQuality>(extraFontFlag_), static_cast<Scintilla::Technology>(technology_), static_cast<Scintilla::CharacterSet>(characterSet_));
+	return new Scintilla::Internal::FontParameters(faceName_, static_cast<Scintilla::Internal::XYPOSITION>(size_), static_cast<Scintilla::FontWeight>(weight_), italic_, static_cast<Scintilla::FontQuality>(extraFontFlag_), static_cast<Scintilla::Technology>(technology_), static_cast<Scintilla::CharacterSet>(characterSet_));
 }
 
 Scintilla__Internal__FontParameters* Scintilla__Internal__FontParameters_new8(const char* faceName_, double size_, int weight_, bool italic_, int extraFontFlag_, int technology_, int characterSet_, const char* localeName_) {
-	return new (std::nothrow) Scintilla::Internal::FontParameters(faceName_, static_cast<Scintilla::Internal::XYPOSITION>(size_), static_cast<Scintilla::FontWeight>(weight_), italic_, static_cast<Scintilla::FontQuality>(extraFontFlag_), static_cast<Scintilla::Technology>(technology_), static_cast<Scintilla::CharacterSet>(characterSet_), localeName_);
+	return new Scintilla::Internal::FontParameters(faceName_, static_cast<Scintilla::Internal::XYPOSITION>(size_), static_cast<Scintilla::FontWeight>(weight_), italic_, static_cast<Scintilla::FontQuality>(extraFontFlag_), static_cast<Scintilla::Technology>(technology_), static_cast<Scintilla::CharacterSet>(characterSet_), localeName_);
 }
 
 Scintilla__Internal__FontParameters* Scintilla__Internal__FontParameters_new9(const char* faceName_, double size_, int weight_, bool italic_, int extraFontFlag_, int technology_, int characterSet_, const char* localeName_, int stretch_) {
-	return new (std::nothrow) Scintilla::Internal::FontParameters(faceName_, static_cast<Scintilla::Internal::XYPOSITION>(size_), static_cast<Scintilla::FontWeight>(weight_), italic_, static_cast<Scintilla::FontQuality>(extraFontFlag_), static_cast<Scintilla::Technology>(technology_), static_cast<Scintilla::CharacterSet>(characterSet_), localeName_, static_cast<Scintilla::FontStretch>(stretch_));
+	return new Scintilla::Internal::FontParameters(faceName_, static_cast<Scintilla::Internal::XYPOSITION>(size_), static_cast<Scintilla::FontWeight>(weight_), italic_, static_cast<Scintilla::FontQuality>(extraFontFlag_), static_cast<Scintilla::Technology>(technology_), static_cast<Scintilla::CharacterSet>(characterSet_), localeName_, static_cast<Scintilla::FontStretch>(stretch_));
 }
 
 void Scintilla__Internal__FontParameters_delete(Scintilla__Internal__FontParameters* self) {
@@ -649,7 +649,7 @@ void Scintilla__Internal__FontParameters_delete(Scintilla__Internal__FontParamet
 }
 
 Scintilla__Internal__Font* Scintilla__Internal__Font_new() {
-	return new (std::nothrow) Scintilla::Internal::Font();
+	return new Scintilla::Internal::Font();
 }
 
 void Scintilla__Internal__Font_delete(Scintilla__Internal__Font* self) {
@@ -724,11 +724,11 @@ void Scintilla__Internal__IScreenLineLayout_delete(Scintilla__Internal__IScreenL
 }
 
 Scintilla__Internal__SurfaceMode* Scintilla__Internal__SurfaceMode_new() {
-	return new (std::nothrow) Scintilla::Internal::SurfaceMode();
+	return new Scintilla::Internal::SurfaceMode();
 }
 
 Scintilla__Internal__SurfaceMode* Scintilla__Internal__SurfaceMode_new2(int codePage_, bool bidiR2L_) {
-	return new (std::nothrow) Scintilla::Internal::SurfaceMode(static_cast<int>(codePage_), bidiR2L_);
+	return new Scintilla::Internal::SurfaceMode(static_cast<int>(codePage_), bidiR2L_);
 }
 
 void Scintilla__Internal__SurfaceMode_delete(Scintilla__Internal__SurfaceMode* self) {
@@ -873,7 +873,7 @@ void Scintilla__Internal__Surface_delete(Scintilla__Internal__Surface* self) {
 }
 
 Scintilla__Internal__Window* Scintilla__Internal__Window_new() {
-	return new (std::nothrow) Scintilla::Internal::Window();
+	return new Scintilla::Internal::Window();
 }
 
 void Scintilla__Internal__Window_operatorAssign(Scintilla__Internal__Window* self, void* wid_) {
@@ -938,7 +938,7 @@ void Scintilla__Internal__Window_delete(Scintilla__Internal__Window* self) {
 }
 
 Scintilla__Internal__ListBoxEvent* Scintilla__Internal__ListBoxEvent_new(int event_) {
-	return new (std::nothrow) Scintilla::Internal::ListBoxEvent(static_cast<Scintilla::Internal::ListBoxEvent::EventType>(event_));
+	return new Scintilla::Internal::ListBoxEvent(static_cast<Scintilla::Internal::ListBoxEvent::EventType>(event_));
 }
 
 void Scintilla__Internal__ListBoxEvent_delete(Scintilla__Internal__ListBoxEvent* self) {
@@ -1046,7 +1046,7 @@ void Scintilla__Internal__ListBox_delete(Scintilla__Internal__ListBox* self) {
 }
 
 Scintilla__Internal__Menu* Scintilla__Internal__Menu_new() {
-	return new (std::nothrow) Scintilla::Internal::Menu();
+	return new Scintilla::Internal::Menu();
 }
 
 void* Scintilla__Internal__Menu_GetID(const Scintilla__Internal__Menu* self) {
@@ -1117,8 +1117,8 @@ void SCNotification_delete(SCNotification* self) {
 class MiqtVirtualScintillaEditBase final : public ScintillaEditBase {
 public:
 
-	MiqtVirtualScintillaEditBase(QWidget* parent): ScintillaEditBase(parent) {}
-	MiqtVirtualScintillaEditBase(): ScintillaEditBase() {}
+	MiqtVirtualScintillaEditBase(QWidget* parent): ScintillaEditBase(parent) {};
+	MiqtVirtualScintillaEditBase(): ScintillaEditBase() {};
 
 	virtual ~MiqtVirtualScintillaEditBase() override = default;
 
@@ -1130,13 +1130,15 @@ public:
 		if (handle__send == 0) {
 			return ScintillaEditBase::send(iMessage, wParam, lParam);
 		}
-
+		
 		unsigned int sigval1 = iMessage;
 		uptr_t wParam_ret = wParam;
 		uintptr_t sigval2 = static_cast<uintptr_t>(wParam_ret);
 		sptr_t lParam_ret = lParam;
 		intptr_t sigval3 = static_cast<intptr_t>(lParam_ret);
+
 		intptr_t callback_return_value = miqt_exec_callback_ScintillaEditBase_send(this, handle__send, sigval1, sigval2, sigval3);
+
 		return static_cast<sptr_t>(callback_return_value);
 	}
 
@@ -1150,12 +1152,14 @@ public:
 		if (handle__sends == 0) {
 			return ScintillaEditBase::sends(iMessage, wParam, s);
 		}
-
+		
 		unsigned int sigval1 = iMessage;
 		uptr_t wParam_ret = wParam;
 		uintptr_t sigval2 = static_cast<uintptr_t>(wParam_ret);
 		const char* sigval3 = (const char*) s;
+
 		intptr_t callback_return_value = miqt_exec_callback_ScintillaEditBase_sends(this, handle__sends, sigval1, sigval2, sigval3);
+
 		return static_cast<sptr_t>(callback_return_value);
 	}
 
@@ -1169,9 +1173,11 @@ public:
 		if (handle__event == 0) {
 			return ScintillaEditBase::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_ScintillaEditBase_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -1186,10 +1192,12 @@ public:
 			ScintillaEditBase::paintEvent(event);
 			return;
 		}
-
+		
 		QPaintEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_paintEvent(this, handle__paintEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_paintEvent(void* self, QPaintEvent* event);
@@ -1203,10 +1211,12 @@ public:
 			ScintillaEditBase::wheelEvent(event);
 			return;
 		}
-
+		
 		QWheelEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_wheelEvent(this, handle__wheelEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_wheelEvent(void* self, QWheelEvent* event);
@@ -1220,10 +1230,12 @@ public:
 			ScintillaEditBase::focusInEvent(event);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_focusInEvent(this, handle__focusInEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_focusInEvent(void* self, QFocusEvent* event);
@@ -1237,10 +1249,12 @@ public:
 			ScintillaEditBase::focusOutEvent(event);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_focusOutEvent(this, handle__focusOutEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_focusOutEvent(void* self, QFocusEvent* event);
@@ -1254,10 +1268,12 @@ public:
 			ScintillaEditBase::resizeEvent(event);
 			return;
 		}
-
+		
 		QResizeEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_resizeEvent(this, handle__resizeEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_resizeEvent(void* self, QResizeEvent* event);
@@ -1271,10 +1287,12 @@ public:
 			ScintillaEditBase::keyPressEvent(event);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_keyPressEvent(this, handle__keyPressEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_keyPressEvent(void* self, QKeyEvent* event);
@@ -1288,10 +1306,12 @@ public:
 			ScintillaEditBase::mousePressEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_mousePressEvent(this, handle__mousePressEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_mousePressEvent(void* self, QMouseEvent* event);
@@ -1305,10 +1325,12 @@ public:
 			ScintillaEditBase::mouseReleaseEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_mouseReleaseEvent(this, handle__mouseReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_mouseReleaseEvent(void* self, QMouseEvent* event);
@@ -1322,10 +1344,12 @@ public:
 			ScintillaEditBase::mouseDoubleClickEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_mouseDoubleClickEvent(this, handle__mouseDoubleClickEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_mouseDoubleClickEvent(void* self, QMouseEvent* event);
@@ -1339,10 +1363,12 @@ public:
 			ScintillaEditBase::mouseMoveEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_mouseMoveEvent(this, handle__mouseMoveEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_mouseMoveEvent(void* self, QMouseEvent* event);
@@ -1356,10 +1382,12 @@ public:
 			ScintillaEditBase::contextMenuEvent(event);
 			return;
 		}
-
+		
 		QContextMenuEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_contextMenuEvent(this, handle__contextMenuEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_contextMenuEvent(void* self, QContextMenuEvent* event);
@@ -1373,10 +1401,12 @@ public:
 			ScintillaEditBase::dragEnterEvent(event);
 			return;
 		}
-
+		
 		QDragEnterEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_dragEnterEvent(this, handle__dragEnterEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_dragEnterEvent(void* self, QDragEnterEvent* event);
@@ -1390,10 +1420,12 @@ public:
 			ScintillaEditBase::dragLeaveEvent(event);
 			return;
 		}
-
+		
 		QDragLeaveEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_dragLeaveEvent(this, handle__dragLeaveEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_dragLeaveEvent(void* self, QDragLeaveEvent* event);
@@ -1407,10 +1439,12 @@ public:
 			ScintillaEditBase::dragMoveEvent(event);
 			return;
 		}
-
+		
 		QDragMoveEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_dragMoveEvent(this, handle__dragMoveEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_dragMoveEvent(void* self, QDragMoveEvent* event);
@@ -1424,10 +1458,12 @@ public:
 			ScintillaEditBase::dropEvent(event);
 			return;
 		}
-
+		
 		QDropEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_dropEvent(this, handle__dropEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_dropEvent(void* self, QDropEvent* event);
@@ -1441,10 +1477,12 @@ public:
 			ScintillaEditBase::inputMethodEvent(event);
 			return;
 		}
-
+		
 		QInputMethodEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_inputMethodEvent(this, handle__inputMethodEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* event);
@@ -1457,10 +1495,12 @@ public:
 		if (handle__inputMethodQuery == 0) {
 			return ScintillaEditBase::inputMethodQuery(query);
 		}
-
+		
 		Qt::InputMethodQuery query_ret = query;
 		int sigval1 = static_cast<int>(query_ret);
+
 		QVariant* callback_return_value = miqt_exec_callback_ScintillaEditBase_inputMethodQuery(this, handle__inputMethodQuery, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -1475,11 +1515,13 @@ public:
 			ScintillaEditBase::scrollContentsBy(param1, param2);
 			return;
 		}
-
+		
 		int sigval1 = param1;
 		int sigval2 = param2;
+
 		miqt_exec_callback_ScintillaEditBase_scrollContentsBy(this, handle__scrollContentsBy, sigval1, sigval2);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_scrollContentsBy(void* self, int param1, int param2);
@@ -1492,8 +1534,10 @@ public:
 		if (handle__minimumSizeHint == 0) {
 			return ScintillaEditBase::minimumSizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_ScintillaEditBase_minimumSizeHint(this, handle__minimumSizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -1507,8 +1551,10 @@ public:
 		if (handle__sizeHint == 0) {
 			return ScintillaEditBase::sizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_ScintillaEditBase_sizeHint(this, handle__sizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -1523,10 +1569,12 @@ public:
 			ScintillaEditBase::setupViewport(viewport);
 			return;
 		}
-
+		
 		QWidget* sigval1 = viewport;
+
 		miqt_exec_callback_ScintillaEditBase_setupViewport(this, handle__setupViewport, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_setupViewport(void* self, QWidget* viewport);
@@ -1539,10 +1587,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return ScintillaEditBase::eventFilter(param1, param2);
 		}
-
+		
 		QObject* sigval1 = param1;
 		QEvent* sigval2 = param2;
+
 		bool callback_return_value = miqt_exec_callback_ScintillaEditBase_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -1556,9 +1606,11 @@ public:
 		if (handle__viewportEvent == 0) {
 			return ScintillaEditBase::viewportEvent(param1);
 		}
-
+		
 		QEvent* sigval1 = param1;
+
 		bool callback_return_value = miqt_exec_callback_ScintillaEditBase_viewportEvent(this, handle__viewportEvent, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -1572,8 +1624,10 @@ public:
 		if (handle__viewportSizeHint == 0) {
 			return ScintillaEditBase::viewportSizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_ScintillaEditBase_viewportSizeHint(this, handle__viewportSizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -1588,10 +1642,12 @@ public:
 			ScintillaEditBase::changeEvent(param1);
 			return;
 		}
-
+		
 		QEvent* sigval1 = param1;
+
 		miqt_exec_callback_ScintillaEditBase_changeEvent(this, handle__changeEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_changeEvent(void* self, QEvent* param1);
@@ -1604,8 +1660,10 @@ public:
 		if (handle__devType == 0) {
 			return ScintillaEditBase::devType();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_ScintillaEditBase_devType(this, handle__devType);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -1620,10 +1678,12 @@ public:
 			ScintillaEditBase::setVisible(visible);
 			return;
 		}
-
+		
 		bool sigval1 = visible;
+
 		miqt_exec_callback_ScintillaEditBase_setVisible(this, handle__setVisible, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_setVisible(void* self, bool visible);
@@ -1636,9 +1696,11 @@ public:
 		if (handle__heightForWidth == 0) {
 			return ScintillaEditBase::heightForWidth(param1);
 		}
-
+		
 		int sigval1 = param1;
+
 		int callback_return_value = miqt_exec_callback_ScintillaEditBase_heightForWidth(this, handle__heightForWidth, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -1652,8 +1714,10 @@ public:
 		if (handle__hasHeightForWidth == 0) {
 			return ScintillaEditBase::hasHeightForWidth();
 		}
+		
 
 		bool callback_return_value = miqt_exec_callback_ScintillaEditBase_hasHeightForWidth(this, handle__hasHeightForWidth);
+
 		return callback_return_value;
 	}
 
@@ -1667,8 +1731,10 @@ public:
 		if (handle__paintEngine == 0) {
 			return ScintillaEditBase::paintEngine();
 		}
+		
 
 		QPaintEngine* callback_return_value = miqt_exec_callback_ScintillaEditBase_paintEngine(this, handle__paintEngine);
+
 		return callback_return_value;
 	}
 
@@ -1683,10 +1749,12 @@ public:
 			ScintillaEditBase::keyReleaseEvent(event);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_keyReleaseEvent(this, handle__keyReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_keyReleaseEvent(void* self, QKeyEvent* event);
@@ -1700,10 +1768,12 @@ public:
 			ScintillaEditBase::enterEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_enterEvent(this, handle__enterEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_enterEvent(void* self, QEvent* event);
@@ -1717,10 +1787,12 @@ public:
 			ScintillaEditBase::leaveEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_leaveEvent(this, handle__leaveEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_leaveEvent(void* self, QEvent* event);
@@ -1734,10 +1806,12 @@ public:
 			ScintillaEditBase::moveEvent(event);
 			return;
 		}
-
+		
 		QMoveEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_moveEvent(this, handle__moveEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_moveEvent(void* self, QMoveEvent* event);
@@ -1751,10 +1825,12 @@ public:
 			ScintillaEditBase::closeEvent(event);
 			return;
 		}
-
+		
 		QCloseEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_closeEvent(this, handle__closeEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_closeEvent(void* self, QCloseEvent* event);
@@ -1768,10 +1844,12 @@ public:
 			ScintillaEditBase::tabletEvent(event);
 			return;
 		}
-
+		
 		QTabletEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_tabletEvent(this, handle__tabletEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_tabletEvent(void* self, QTabletEvent* event);
@@ -1785,10 +1863,12 @@ public:
 			ScintillaEditBase::actionEvent(event);
 			return;
 		}
-
+		
 		QActionEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_actionEvent(this, handle__actionEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_actionEvent(void* self, QActionEvent* event);
@@ -1802,10 +1882,12 @@ public:
 			ScintillaEditBase::showEvent(event);
 			return;
 		}
-
+		
 		QShowEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_showEvent(this, handle__showEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_showEvent(void* self, QShowEvent* event);
@@ -1819,10 +1901,12 @@ public:
 			ScintillaEditBase::hideEvent(event);
 			return;
 		}
-
+		
 		QHideEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_hideEvent(this, handle__hideEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_hideEvent(void* self, QHideEvent* event);
@@ -1835,7 +1919,7 @@ public:
 		if (handle__nativeEvent == 0) {
 			return ScintillaEditBase::nativeEvent(eventType, message, result);
 		}
-
+		
 		const QByteArray eventType_qb = eventType;
 		struct miqt_string eventType_ms;
 		eventType_ms.len = eventType_qb.length();
@@ -1844,7 +1928,9 @@ public:
 		struct miqt_string sigval1 = eventType_ms;
 		void* sigval2 = message;
 		long* sigval3 = result;
+
 		bool callback_return_value = miqt_exec_callback_ScintillaEditBase_nativeEvent(this, handle__nativeEvent, sigval1, sigval2, sigval3);
+
 		return callback_return_value;
 	}
 
@@ -1858,10 +1944,12 @@ public:
 		if (handle__metric == 0) {
 			return ScintillaEditBase::metric(param1);
 		}
-
+		
 		QPaintDevice::PaintDeviceMetric param1_ret = param1;
 		int sigval1 = static_cast<int>(param1_ret);
+
 		int callback_return_value = miqt_exec_callback_ScintillaEditBase_metric(this, handle__metric, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -1876,10 +1964,12 @@ public:
 			ScintillaEditBase::initPainter(painter);
 			return;
 		}
-
+		
 		QPainter* sigval1 = painter;
+
 		miqt_exec_callback_ScintillaEditBase_initPainter(this, handle__initPainter, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_initPainter(const void* self, QPainter* painter);
@@ -1892,9 +1982,11 @@ public:
 		if (handle__redirected == 0) {
 			return ScintillaEditBase::redirected(offset);
 		}
-
+		
 		QPoint* sigval1 = offset;
+
 		QPaintDevice* callback_return_value = miqt_exec_callback_ScintillaEditBase_redirected(this, handle__redirected, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -1908,8 +2000,10 @@ public:
 		if (handle__sharedPainter == 0) {
 			return ScintillaEditBase::sharedPainter();
 		}
+		
 
 		QPainter* callback_return_value = miqt_exec_callback_ScintillaEditBase_sharedPainter(this, handle__sharedPainter);
+
 		return callback_return_value;
 	}
 
@@ -1923,9 +2017,11 @@ public:
 		if (handle__focusNextPrevChild == 0) {
 			return ScintillaEditBase::focusNextPrevChild(next);
 		}
-
+		
 		bool sigval1 = next;
+
 		bool callback_return_value = miqt_exec_callback_ScintillaEditBase_focusNextPrevChild(this, handle__focusNextPrevChild, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -1940,10 +2036,12 @@ public:
 			ScintillaEditBase::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -1957,10 +2055,12 @@ public:
 			ScintillaEditBase::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -1974,10 +2074,12 @@ public:
 			ScintillaEditBase::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEditBase_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_customEvent(void* self, QEvent* event);
@@ -1991,12 +2093,14 @@ public:
 			ScintillaEditBase::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_ScintillaEditBase_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -2010,12 +2114,14 @@ public:
 			ScintillaEditBase::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_ScintillaEditBase_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void ScintillaEditBase_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -2037,11 +2143,11 @@ public:
 };
 
 ScintillaEditBase* ScintillaEditBase_new(QWidget* parent) {
-	return new (std::nothrow) MiqtVirtualScintillaEditBase(parent);
+	return new MiqtVirtualScintillaEditBase(parent);
 }
 
 ScintillaEditBase* ScintillaEditBase_new2() {
-	return new (std::nothrow) MiqtVirtualScintillaEditBase();
+	return new MiqtVirtualScintillaEditBase();
 }
 
 void ScintillaEditBase_virtbase(ScintillaEditBase* src, QAbstractScrollArea** outptr_QAbstractScrollArea) {
@@ -2109,7 +2215,7 @@ void ScintillaEditBase_horizontalScrolled(ScintillaEditBase* self, int value) {
 }
 
 void ScintillaEditBase_connect_horizontalScrolled(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int)>(&ScintillaEditBase::horizontalScrolled), self, [=](int value) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int)>(&ScintillaEditBase::horizontalScrolled), self, [=](int value) {
 		int sigval1 = value;
 		miqt_exec_callback_ScintillaEditBase_horizontalScrolled(slot, sigval1);
 	});
@@ -2120,7 +2226,7 @@ void ScintillaEditBase_verticalScrolled(ScintillaEditBase* self, int value) {
 }
 
 void ScintillaEditBase_connect_verticalScrolled(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int)>(&ScintillaEditBase::verticalScrolled), self, [=](int value) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int)>(&ScintillaEditBase::verticalScrolled), self, [=](int value) {
 		int sigval1 = value;
 		miqt_exec_callback_ScintillaEditBase_verticalScrolled(slot, sigval1);
 	});
@@ -2131,7 +2237,7 @@ void ScintillaEditBase_horizontalRangeChanged(ScintillaEditBase* self, int max, 
 }
 
 void ScintillaEditBase_connect_horizontalRangeChanged(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int, int)>(&ScintillaEditBase::horizontalRangeChanged), self, [=](int max, int page) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int, int)>(&ScintillaEditBase::horizontalRangeChanged), self, [=](int max, int page) {
 		int sigval1 = max;
 		int sigval2 = page;
 		miqt_exec_callback_ScintillaEditBase_horizontalRangeChanged(slot, sigval1, sigval2);
@@ -2143,7 +2249,7 @@ void ScintillaEditBase_verticalRangeChanged(ScintillaEditBase* self, int max, in
 }
 
 void ScintillaEditBase_connect_verticalRangeChanged(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int, int)>(&ScintillaEditBase::verticalRangeChanged), self, [=](int max, int page) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int, int)>(&ScintillaEditBase::verticalRangeChanged), self, [=](int max, int page) {
 		int sigval1 = max;
 		int sigval2 = page;
 		miqt_exec_callback_ScintillaEditBase_verticalRangeChanged(slot, sigval1, sigval2);
@@ -2155,7 +2261,7 @@ void ScintillaEditBase_notifyChange(ScintillaEditBase* self) {
 }
 
 void ScintillaEditBase_connect_notifyChange(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)()>(&ScintillaEditBase::notifyChange), self, [=]() {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)()>(&ScintillaEditBase::notifyChange), self, [=]() {
 		miqt_exec_callback_ScintillaEditBase_notifyChange(slot);
 	});
 }
@@ -2165,7 +2271,7 @@ void ScintillaEditBase_linesAdded(ScintillaEditBase* self, intptr_t linesAdded) 
 }
 
 void ScintillaEditBase_connect_linesAdded(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position)>(&ScintillaEditBase::linesAdded), self, [=](Scintilla::Position linesAdded) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position)>(&ScintillaEditBase::linesAdded), self, [=](Scintilla::Position linesAdded) {
 		Scintilla::Position linesAdded_ret = linesAdded;
 		intptr_t sigval1 = static_cast<intptr_t>(linesAdded_ret);
 		miqt_exec_callback_ScintillaEditBase_linesAdded(slot, sigval1);
@@ -2177,7 +2283,7 @@ void ScintillaEditBase_aboutToCopy(ScintillaEditBase* self, QMimeData* data) {
 }
 
 void ScintillaEditBase_connect_aboutToCopy(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(QMimeData*)>(&ScintillaEditBase::aboutToCopy), self, [=](QMimeData* data) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(QMimeData*)>(&ScintillaEditBase::aboutToCopy), self, [=](QMimeData* data) {
 		QMimeData* sigval1 = data;
 		miqt_exec_callback_ScintillaEditBase_aboutToCopy(slot, sigval1);
 	});
@@ -2188,7 +2294,7 @@ void ScintillaEditBase_styleNeeded(ScintillaEditBase* self, intptr_t position) {
 }
 
 void ScintillaEditBase_connect_styleNeeded(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position)>(&ScintillaEditBase::styleNeeded), self, [=](Scintilla::Position position) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position)>(&ScintillaEditBase::styleNeeded), self, [=](Scintilla::Position position) {
 		Scintilla::Position position_ret = position;
 		intptr_t sigval1 = static_cast<intptr_t>(position_ret);
 		miqt_exec_callback_ScintillaEditBase_styleNeeded(slot, sigval1);
@@ -2200,7 +2306,7 @@ void ScintillaEditBase_charAdded(ScintillaEditBase* self, int ch) {
 }
 
 void ScintillaEditBase_connect_charAdded(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int)>(&ScintillaEditBase::charAdded), self, [=](int ch) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int)>(&ScintillaEditBase::charAdded), self, [=](int ch) {
 		int sigval1 = ch;
 		miqt_exec_callback_ScintillaEditBase_charAdded(slot, sigval1);
 	});
@@ -2211,7 +2317,7 @@ void ScintillaEditBase_savePointChanged(ScintillaEditBase* self, bool dirty) {
 }
 
 void ScintillaEditBase_connect_savePointChanged(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(bool)>(&ScintillaEditBase::savePointChanged), self, [=](bool dirty) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(bool)>(&ScintillaEditBase::savePointChanged), self, [=](bool dirty) {
 		bool sigval1 = dirty;
 		miqt_exec_callback_ScintillaEditBase_savePointChanged(slot, sigval1);
 	});
@@ -2222,7 +2328,7 @@ void ScintillaEditBase_modifyAttemptReadOnly(ScintillaEditBase* self) {
 }
 
 void ScintillaEditBase_connect_modifyAttemptReadOnly(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)()>(&ScintillaEditBase::modifyAttemptReadOnly), self, [=]() {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)()>(&ScintillaEditBase::modifyAttemptReadOnly), self, [=]() {
 		miqt_exec_callback_ScintillaEditBase_modifyAttemptReadOnly(slot);
 	});
 }
@@ -2232,7 +2338,7 @@ void ScintillaEditBase_key(ScintillaEditBase* self, int key) {
 }
 
 void ScintillaEditBase_connect_key(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int)>(&ScintillaEditBase::key), self, [=](int key) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int)>(&ScintillaEditBase::key), self, [=](int key) {
 		int sigval1 = key;
 		miqt_exec_callback_ScintillaEditBase_key(slot, sigval1);
 	});
@@ -2243,7 +2349,7 @@ void ScintillaEditBase_doubleClick(ScintillaEditBase* self, intptr_t position, i
 }
 
 void ScintillaEditBase_connect_doubleClick(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position, Scintilla::Position)>(&ScintillaEditBase::doubleClick), self, [=](Scintilla::Position position, Scintilla::Position line) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position, Scintilla::Position)>(&ScintillaEditBase::doubleClick), self, [=](Scintilla::Position position, Scintilla::Position line) {
 		Scintilla::Position position_ret = position;
 		intptr_t sigval1 = static_cast<intptr_t>(position_ret);
 		Scintilla::Position line_ret = line;
@@ -2257,7 +2363,7 @@ void ScintillaEditBase_updateUi(ScintillaEditBase* self, int updated) {
 }
 
 void ScintillaEditBase_connect_updateUi(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Update)>(&ScintillaEditBase::updateUi), self, [=](Scintilla::Update updated) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Update)>(&ScintillaEditBase::updateUi), self, [=](Scintilla::Update updated) {
 		Scintilla::Update updated_ret = updated;
 		int sigval1 = static_cast<int>(updated_ret);
 		miqt_exec_callback_ScintillaEditBase_updateUi(slot, sigval1);
@@ -2270,7 +2376,7 @@ void ScintillaEditBase_modified(ScintillaEditBase* self, int type, intptr_t posi
 }
 
 void ScintillaEditBase_connect_modified(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::ModificationFlags, Scintilla::Position, Scintilla::Position, Scintilla::Position, const QByteArray&, Scintilla::Position, Scintilla::FoldLevel, Scintilla::FoldLevel)>(&ScintillaEditBase::modified), self, [=](Scintilla::ModificationFlags type, Scintilla::Position position, Scintilla::Position length, Scintilla::Position linesAdded, const QByteArray& text, Scintilla::Position line, Scintilla::FoldLevel foldNow, Scintilla::FoldLevel foldPrev) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::ModificationFlags, Scintilla::Position, Scintilla::Position, Scintilla::Position, const QByteArray&, Scintilla::Position, Scintilla::FoldLevel, Scintilla::FoldLevel)>(&ScintillaEditBase::modified), self, [=](Scintilla::ModificationFlags type, Scintilla::Position position, Scintilla::Position length, Scintilla::Position linesAdded, const QByteArray& text, Scintilla::Position line, Scintilla::FoldLevel foldNow, Scintilla::FoldLevel foldPrev) {
 		Scintilla::ModificationFlags type_ret = type;
 		int sigval1 = static_cast<int>(type_ret);
 		Scintilla::Position position_ret = position;
@@ -2300,7 +2406,7 @@ void ScintillaEditBase_macroRecord(ScintillaEditBase* self, int message, uintptr
 }
 
 void ScintillaEditBase_connect_macroRecord(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Message, Scintilla::uptr_t, Scintilla::sptr_t)>(&ScintillaEditBase::macroRecord), self, [=](Scintilla::Message message, Scintilla::uptr_t wParam, Scintilla::sptr_t lParam) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Message, Scintilla::uptr_t, Scintilla::sptr_t)>(&ScintillaEditBase::macroRecord), self, [=](Scintilla::Message message, Scintilla::uptr_t wParam, Scintilla::sptr_t lParam) {
 		Scintilla::Message message_ret = message;
 		int sigval1 = static_cast<int>(message_ret);
 		Scintilla::uptr_t wParam_ret = wParam;
@@ -2316,7 +2422,7 @@ void ScintillaEditBase_marginClicked(ScintillaEditBase* self, intptr_t position,
 }
 
 void ScintillaEditBase_connect_marginClicked(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position, Scintilla::KeyMod, int)>(&ScintillaEditBase::marginClicked), self, [=](Scintilla::Position position, Scintilla::KeyMod modifiers, int margin) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position, Scintilla::KeyMod, int)>(&ScintillaEditBase::marginClicked), self, [=](Scintilla::Position position, Scintilla::KeyMod modifiers, int margin) {
 		Scintilla::Position position_ret = position;
 		intptr_t sigval1 = static_cast<intptr_t>(position_ret);
 		Scintilla::KeyMod modifiers_ret = modifiers;
@@ -2331,7 +2437,7 @@ void ScintillaEditBase_textAreaClicked(ScintillaEditBase* self, intptr_t line, i
 }
 
 void ScintillaEditBase_connect_textAreaClicked(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position, int)>(&ScintillaEditBase::textAreaClicked), self, [=](Scintilla::Position line, int modifiers) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position, int)>(&ScintillaEditBase::textAreaClicked), self, [=](Scintilla::Position line, int modifiers) {
 		Scintilla::Position line_ret = line;
 		intptr_t sigval1 = static_cast<intptr_t>(line_ret);
 		int sigval2 = modifiers;
@@ -2344,7 +2450,7 @@ void ScintillaEditBase_needShown(ScintillaEditBase* self, intptr_t position, int
 }
 
 void ScintillaEditBase_connect_needShown(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position, Scintilla::Position)>(&ScintillaEditBase::needShown), self, [=](Scintilla::Position position, Scintilla::Position length) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position, Scintilla::Position)>(&ScintillaEditBase::needShown), self, [=](Scintilla::Position position, Scintilla::Position length) {
 		Scintilla::Position position_ret = position;
 		intptr_t sigval1 = static_cast<intptr_t>(position_ret);
 		Scintilla::Position length_ret = length;
@@ -2358,7 +2464,7 @@ void ScintillaEditBase_painted(ScintillaEditBase* self) {
 }
 
 void ScintillaEditBase_connect_painted(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)()>(&ScintillaEditBase::painted), self, [=]() {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)()>(&ScintillaEditBase::painted), self, [=]() {
 		miqt_exec_callback_ScintillaEditBase_painted(slot);
 	});
 }
@@ -2368,7 +2474,7 @@ void ScintillaEditBase_userListSelection(ScintillaEditBase* self) {
 }
 
 void ScintillaEditBase_connect_userListSelection(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)()>(&ScintillaEditBase::userListSelection), self, [=]() {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)()>(&ScintillaEditBase::userListSelection), self, [=]() {
 		miqt_exec_callback_ScintillaEditBase_userListSelection(slot);
 	});
 }
@@ -2379,7 +2485,7 @@ void ScintillaEditBase_uriDropped(ScintillaEditBase* self, struct miqt_string ur
 }
 
 void ScintillaEditBase_connect_uriDropped(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(const QString&)>(&ScintillaEditBase::uriDropped), self, [=](const QString& uri) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(const QString&)>(&ScintillaEditBase::uriDropped), self, [=](const QString& uri) {
 		const QString uri_ret = uri;
 		// Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
 		QByteArray uri_b = uri_ret.toUtf8();
@@ -2397,7 +2503,7 @@ void ScintillaEditBase_dwellStart(ScintillaEditBase* self, int x, int y) {
 }
 
 void ScintillaEditBase_connect_dwellStart(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int, int)>(&ScintillaEditBase::dwellStart), self, [=](int x, int y) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int, int)>(&ScintillaEditBase::dwellStart), self, [=](int x, int y) {
 		int sigval1 = x;
 		int sigval2 = y;
 		miqt_exec_callback_ScintillaEditBase_dwellStart(slot, sigval1, sigval2);
@@ -2409,7 +2515,7 @@ void ScintillaEditBase_dwellEnd(ScintillaEditBase* self, int x, int y) {
 }
 
 void ScintillaEditBase_connect_dwellEnd(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int, int)>(&ScintillaEditBase::dwellEnd), self, [=](int x, int y) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int, int)>(&ScintillaEditBase::dwellEnd), self, [=](int x, int y) {
 		int sigval1 = x;
 		int sigval2 = y;
 		miqt_exec_callback_ScintillaEditBase_dwellEnd(slot, sigval1, sigval2);
@@ -2421,7 +2527,7 @@ void ScintillaEditBase_zoom(ScintillaEditBase* self, int zoom) {
 }
 
 void ScintillaEditBase_connect_zoom(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int)>(&ScintillaEditBase::zoom), self, [=](int zoom) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(int)>(&ScintillaEditBase::zoom), self, [=](int zoom) {
 		int sigval1 = zoom;
 		miqt_exec_callback_ScintillaEditBase_zoom(slot, sigval1);
 	});
@@ -2432,7 +2538,7 @@ void ScintillaEditBase_hotSpotClick(ScintillaEditBase* self, intptr_t position, 
 }
 
 void ScintillaEditBase_connect_hotSpotClick(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position, Scintilla::KeyMod)>(&ScintillaEditBase::hotSpotClick), self, [=](Scintilla::Position position, Scintilla::KeyMod modifiers) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position, Scintilla::KeyMod)>(&ScintillaEditBase::hotSpotClick), self, [=](Scintilla::Position position, Scintilla::KeyMod modifiers) {
 		Scintilla::Position position_ret = position;
 		intptr_t sigval1 = static_cast<intptr_t>(position_ret);
 		Scintilla::KeyMod modifiers_ret = modifiers;
@@ -2446,7 +2552,7 @@ void ScintillaEditBase_hotSpotDoubleClick(ScintillaEditBase* self, intptr_t posi
 }
 
 void ScintillaEditBase_connect_hotSpotDoubleClick(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position, Scintilla::KeyMod)>(&ScintillaEditBase::hotSpotDoubleClick), self, [=](Scintilla::Position position, Scintilla::KeyMod modifiers) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position, Scintilla::KeyMod)>(&ScintillaEditBase::hotSpotDoubleClick), self, [=](Scintilla::Position position, Scintilla::KeyMod modifiers) {
 		Scintilla::Position position_ret = position;
 		intptr_t sigval1 = static_cast<intptr_t>(position_ret);
 		Scintilla::KeyMod modifiers_ret = modifiers;
@@ -2460,7 +2566,7 @@ void ScintillaEditBase_callTipClick(ScintillaEditBase* self) {
 }
 
 void ScintillaEditBase_connect_callTipClick(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)()>(&ScintillaEditBase::callTipClick), self, [=]() {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)()>(&ScintillaEditBase::callTipClick), self, [=]() {
 		miqt_exec_callback_ScintillaEditBase_callTipClick(slot);
 	});
 }
@@ -2471,7 +2577,7 @@ void ScintillaEditBase_autoCompleteSelection(ScintillaEditBase* self, intptr_t p
 }
 
 void ScintillaEditBase_connect_autoCompleteSelection(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position, const QString&)>(&ScintillaEditBase::autoCompleteSelection), self, [=](Scintilla::Position position, const QString& text) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::Position, const QString&)>(&ScintillaEditBase::autoCompleteSelection), self, [=](Scintilla::Position position, const QString& text) {
 		Scintilla::Position position_ret = position;
 		intptr_t sigval1 = static_cast<intptr_t>(position_ret);
 		const QString text_ret = text;
@@ -2491,7 +2597,7 @@ void ScintillaEditBase_autoCompleteCancelled(ScintillaEditBase* self) {
 }
 
 void ScintillaEditBase_connect_autoCompleteCancelled(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)()>(&ScintillaEditBase::autoCompleteCancelled), self, [=]() {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)()>(&ScintillaEditBase::autoCompleteCancelled), self, [=]() {
 		miqt_exec_callback_ScintillaEditBase_autoCompleteCancelled(slot);
 	});
 }
@@ -2501,7 +2607,7 @@ void ScintillaEditBase_focusChanged(ScintillaEditBase* self, bool focused) {
 }
 
 void ScintillaEditBase_connect_focusChanged(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(bool)>(&ScintillaEditBase::focusChanged), self, [=](bool focused) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(bool)>(&ScintillaEditBase::focusChanged), self, [=](bool focused) {
 		bool sigval1 = focused;
 		miqt_exec_callback_ScintillaEditBase_focusChanged(slot, sigval1);
 	});
@@ -2512,7 +2618,7 @@ void ScintillaEditBase_notify(ScintillaEditBase* self, Scintilla__NotificationDa
 }
 
 void ScintillaEditBase_connect_notify(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::NotificationData*)>(&ScintillaEditBase::notify), self, [=](Scintilla::NotificationData* pscn) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::NotificationData*)>(&ScintillaEditBase::notify), self, [=](Scintilla::NotificationData* pscn) {
 		Scintilla__NotificationData* sigval1 = pscn;
 		miqt_exec_callback_ScintillaEditBase_notify(slot, sigval1);
 	});
@@ -2523,7 +2629,7 @@ void ScintillaEditBase_command(ScintillaEditBase* self, uintptr_t wParam, intptr
 }
 
 void ScintillaEditBase_connect_command(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::uptr_t, Scintilla::sptr_t)>(&ScintillaEditBase::command), self, [=](Scintilla::uptr_t wParam, Scintilla::sptr_t lParam) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(Scintilla::uptr_t, Scintilla::sptr_t)>(&ScintillaEditBase::command), self, [=](Scintilla::uptr_t wParam, Scintilla::sptr_t lParam) {
 		Scintilla::uptr_t wParam_ret = wParam;
 		uintptr_t sigval1 = static_cast<uintptr_t>(wParam_ret);
 		Scintilla::sptr_t lParam_ret = lParam;
@@ -2537,7 +2643,7 @@ void ScintillaEditBase_buttonPressed(ScintillaEditBase* self, QMouseEvent* event
 }
 
 void ScintillaEditBase_connect_buttonPressed(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(QMouseEvent*)>(&ScintillaEditBase::buttonPressed), self, [=](QMouseEvent* event) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(QMouseEvent*)>(&ScintillaEditBase::buttonPressed), self, [=](QMouseEvent* event) {
 		QMouseEvent* sigval1 = event;
 		miqt_exec_callback_ScintillaEditBase_buttonPressed(slot, sigval1);
 	});
@@ -2548,7 +2654,7 @@ void ScintillaEditBase_buttonReleased(ScintillaEditBase* self, QMouseEvent* even
 }
 
 void ScintillaEditBase_connect_buttonReleased(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(QMouseEvent*)>(&ScintillaEditBase::buttonReleased), self, [=](QMouseEvent* event) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(QMouseEvent*)>(&ScintillaEditBase::buttonReleased), self, [=](QMouseEvent* event) {
 		QMouseEvent* sigval1 = event;
 		miqt_exec_callback_ScintillaEditBase_buttonReleased(slot, sigval1);
 	});
@@ -2559,7 +2665,7 @@ void ScintillaEditBase_keyPressed(ScintillaEditBase* self, QKeyEvent* event) {
 }
 
 void ScintillaEditBase_connect_keyPressed(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(QKeyEvent*)>(&ScintillaEditBase::keyPressed), self, [=](QKeyEvent* event) {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)(QKeyEvent*)>(&ScintillaEditBase::keyPressed), self, [=](QKeyEvent* event) {
 		QKeyEvent* sigval1 = event;
 		miqt_exec_callback_ScintillaEditBase_keyPressed(slot, sigval1);
 	});
@@ -2570,7 +2676,7 @@ void ScintillaEditBase_resized(ScintillaEditBase* self) {
 }
 
 void ScintillaEditBase_connect_resized(ScintillaEditBase* self, intptr_t slot) {
-	ScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)()>(&ScintillaEditBase::resized), self, [=]() {
+	MiqtVirtualScintillaEditBase::connect(self, static_cast<void (ScintillaEditBase::*)()>(&ScintillaEditBase::resized), self, [=]() {
 		miqt_exec_callback_ScintillaEditBase_resized(slot);
 	});
 }
@@ -2624,14 +2730,16 @@ bool ScintillaEditBase_override_virtual_send(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__send = slot;
 	return true;
 }
 
 intptr_t ScintillaEditBase_virtualbase_send(const void* self, unsigned int iMessage, uintptr_t wParam, intptr_t lParam) {
-	sptr_t _ret = static_cast<const MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::send(static_cast<unsigned int>(iMessage), static_cast<uptr_t>(wParam), static_cast<sptr_t>(lParam));
+
+	sptr_t _ret = ( (const MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::send(static_cast<unsigned int>(iMessage), static_cast<uptr_t>(wParam), static_cast<sptr_t>(lParam));
 	return static_cast<intptr_t>(_ret);
+
 }
 
 bool ScintillaEditBase_override_virtual_sends(void* self, intptr_t slot) {
@@ -2639,14 +2747,16 @@ bool ScintillaEditBase_override_virtual_sends(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sends = slot;
 	return true;
 }
 
 intptr_t ScintillaEditBase_virtualbase_sends(const void* self, unsigned int iMessage, uintptr_t wParam, const char* s) {
-	sptr_t _ret = static_cast<const MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::sends(static_cast<unsigned int>(iMessage), static_cast<uptr_t>(wParam), s);
+
+	sptr_t _ret = ( (const MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::sends(static_cast<unsigned int>(iMessage), static_cast<uptr_t>(wParam), s);
 	return static_cast<intptr_t>(_ret);
+
 }
 
 bool ScintillaEditBase_override_virtual_event(void* self, intptr_t slot) {
@@ -2654,13 +2764,15 @@ bool ScintillaEditBase_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool ScintillaEditBase_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::event(event);
+
+	return ( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::event(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_paintEvent(void* self, intptr_t slot) {
@@ -2668,13 +2780,15 @@ bool ScintillaEditBase_override_virtual_paintEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paintEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_paintEvent(void* self, QPaintEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::paintEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::paintEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_wheelEvent(void* self, intptr_t slot) {
@@ -2682,13 +2796,15 @@ bool ScintillaEditBase_override_virtual_wheelEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__wheelEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_wheelEvent(void* self, QWheelEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::wheelEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::wheelEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_focusInEvent(void* self, intptr_t slot) {
@@ -2696,13 +2812,15 @@ bool ScintillaEditBase_override_virtual_focusInEvent(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusInEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_focusInEvent(void* self, QFocusEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::focusInEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::focusInEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_focusOutEvent(void* self, intptr_t slot) {
@@ -2710,13 +2828,15 @@ bool ScintillaEditBase_override_virtual_focusOutEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusOutEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_focusOutEvent(void* self, QFocusEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::focusOutEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::focusOutEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_resizeEvent(void* self, intptr_t slot) {
@@ -2724,13 +2844,15 @@ bool ScintillaEditBase_override_virtual_resizeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__resizeEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_resizeEvent(void* self, QResizeEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::resizeEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::resizeEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_keyPressEvent(void* self, intptr_t slot) {
@@ -2738,13 +2860,15 @@ bool ScintillaEditBase_override_virtual_keyPressEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyPressEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_keyPressEvent(void* self, QKeyEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::keyPressEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::keyPressEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_mousePressEvent(void* self, intptr_t slot) {
@@ -2752,13 +2876,15 @@ bool ScintillaEditBase_override_virtual_mousePressEvent(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mousePressEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_mousePressEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::mousePressEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::mousePressEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_mouseReleaseEvent(void* self, intptr_t slot) {
@@ -2766,13 +2892,15 @@ bool ScintillaEditBase_override_virtual_mouseReleaseEvent(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseReleaseEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_mouseReleaseEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::mouseReleaseEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::mouseReleaseEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_mouseDoubleClickEvent(void* self, intptr_t slot) {
@@ -2780,13 +2908,15 @@ bool ScintillaEditBase_override_virtual_mouseDoubleClickEvent(void* self, intptr
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseDoubleClickEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_mouseDoubleClickEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::mouseDoubleClickEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::mouseDoubleClickEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_mouseMoveEvent(void* self, intptr_t slot) {
@@ -2794,13 +2924,15 @@ bool ScintillaEditBase_override_virtual_mouseMoveEvent(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseMoveEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_mouseMoveEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::mouseMoveEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::mouseMoveEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_contextMenuEvent(void* self, intptr_t slot) {
@@ -2808,13 +2940,15 @@ bool ScintillaEditBase_override_virtual_contextMenuEvent(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__contextMenuEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_contextMenuEvent(void* self, QContextMenuEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::contextMenuEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::contextMenuEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_dragEnterEvent(void* self, intptr_t slot) {
@@ -2822,13 +2956,15 @@ bool ScintillaEditBase_override_virtual_dragEnterEvent(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragEnterEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_dragEnterEvent(void* self, QDragEnterEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::dragEnterEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::dragEnterEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_dragLeaveEvent(void* self, intptr_t slot) {
@@ -2836,13 +2972,15 @@ bool ScintillaEditBase_override_virtual_dragLeaveEvent(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragLeaveEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_dragLeaveEvent(void* self, QDragLeaveEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::dragLeaveEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::dragLeaveEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_dragMoveEvent(void* self, intptr_t slot) {
@@ -2850,13 +2988,15 @@ bool ScintillaEditBase_override_virtual_dragMoveEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragMoveEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_dragMoveEvent(void* self, QDragMoveEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::dragMoveEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::dragMoveEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_dropEvent(void* self, intptr_t slot) {
@@ -2864,13 +3004,15 @@ bool ScintillaEditBase_override_virtual_dropEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dropEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_dropEvent(void* self, QDropEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::dropEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::dropEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_inputMethodEvent(void* self, intptr_t slot) {
@@ -2878,13 +3020,15 @@ bool ScintillaEditBase_override_virtual_inputMethodEvent(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::inputMethodEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::inputMethodEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_inputMethodQuery(void* self, intptr_t slot) {
@@ -2892,13 +3036,15 @@ bool ScintillaEditBase_override_virtual_inputMethodQuery(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodQuery = slot;
 	return true;
 }
 
 QVariant* ScintillaEditBase_virtualbase_inputMethodQuery(const void* self, int query) {
-	return new QVariant(static_cast<const MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
+
+	return new QVariant(( (const MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
+
 }
 
 bool ScintillaEditBase_override_virtual_scrollContentsBy(void* self, intptr_t slot) {
@@ -2906,13 +3052,15 @@ bool ScintillaEditBase_override_virtual_scrollContentsBy(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__scrollContentsBy = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_scrollContentsBy(void* self, int param1, int param2) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::scrollContentsBy(static_cast<int>(param1), static_cast<int>(param2));
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::scrollContentsBy(static_cast<int>(param1), static_cast<int>(param2));
+
 }
 
 bool ScintillaEditBase_override_virtual_minimumSizeHint(void* self, intptr_t slot) {
@@ -2920,13 +3068,15 @@ bool ScintillaEditBase_override_virtual_minimumSizeHint(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__minimumSizeHint = slot;
 	return true;
 }
 
 QSize* ScintillaEditBase_virtualbase_minimumSizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::minimumSizeHint());
+
+	return new QSize(( (const MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::minimumSizeHint());
+
 }
 
 bool ScintillaEditBase_override_virtual_sizeHint(void* self, intptr_t slot) {
@@ -2934,13 +3084,15 @@ bool ScintillaEditBase_override_virtual_sizeHint(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sizeHint = slot;
 	return true;
 }
 
 QSize* ScintillaEditBase_virtualbase_sizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::sizeHint());
+
+	return new QSize(( (const MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::sizeHint());
+
 }
 
 bool ScintillaEditBase_override_virtual_setupViewport(void* self, intptr_t slot) {
@@ -2948,13 +3100,15 @@ bool ScintillaEditBase_override_virtual_setupViewport(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setupViewport = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_setupViewport(void* self, QWidget* viewport) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::setupViewport(viewport);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::setupViewport(viewport);
+
 }
 
 bool ScintillaEditBase_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -2962,13 +3116,15 @@ bool ScintillaEditBase_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool ScintillaEditBase_virtualbase_eventFilter(void* self, QObject* param1, QEvent* param2) {
-	return static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::eventFilter(param1, param2);
+
+	return ( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::eventFilter(param1, param2);
+
 }
 
 bool ScintillaEditBase_override_virtual_viewportEvent(void* self, intptr_t slot) {
@@ -2976,13 +3132,15 @@ bool ScintillaEditBase_override_virtual_viewportEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__viewportEvent = slot;
 	return true;
 }
 
 bool ScintillaEditBase_virtualbase_viewportEvent(void* self, QEvent* param1) {
-	return static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::viewportEvent(param1);
+
+	return ( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::viewportEvent(param1);
+
 }
 
 bool ScintillaEditBase_override_virtual_viewportSizeHint(void* self, intptr_t slot) {
@@ -2990,13 +3148,15 @@ bool ScintillaEditBase_override_virtual_viewportSizeHint(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__viewportSizeHint = slot;
 	return true;
 }
 
 QSize* ScintillaEditBase_virtualbase_viewportSizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::viewportSizeHint());
+
+	return new QSize(( (const MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::viewportSizeHint());
+
 }
 
 bool ScintillaEditBase_override_virtual_changeEvent(void* self, intptr_t slot) {
@@ -3004,13 +3164,15 @@ bool ScintillaEditBase_override_virtual_changeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__changeEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_changeEvent(void* self, QEvent* param1) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::changeEvent(param1);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::changeEvent(param1);
+
 }
 
 bool ScintillaEditBase_override_virtual_devType(void* self, intptr_t slot) {
@@ -3018,13 +3180,15 @@ bool ScintillaEditBase_override_virtual_devType(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__devType = slot;
 	return true;
 }
 
 int ScintillaEditBase_virtualbase_devType(const void* self) {
-	return static_cast<const MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::devType();
+
+	return ( (const MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::devType();
+
 }
 
 bool ScintillaEditBase_override_virtual_setVisible(void* self, intptr_t slot) {
@@ -3032,13 +3196,15 @@ bool ScintillaEditBase_override_virtual_setVisible(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setVisible = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_setVisible(void* self, bool visible) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::setVisible(visible);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::setVisible(visible);
+
 }
 
 bool ScintillaEditBase_override_virtual_heightForWidth(void* self, intptr_t slot) {
@@ -3046,13 +3212,15 @@ bool ScintillaEditBase_override_virtual_heightForWidth(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__heightForWidth = slot;
 	return true;
 }
 
 int ScintillaEditBase_virtualbase_heightForWidth(const void* self, int param1) {
-	return static_cast<const MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::heightForWidth(static_cast<int>(param1));
+
+	return ( (const MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::heightForWidth(static_cast<int>(param1));
+
 }
 
 bool ScintillaEditBase_override_virtual_hasHeightForWidth(void* self, intptr_t slot) {
@@ -3060,13 +3228,15 @@ bool ScintillaEditBase_override_virtual_hasHeightForWidth(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hasHeightForWidth = slot;
 	return true;
 }
 
 bool ScintillaEditBase_virtualbase_hasHeightForWidth(const void* self) {
-	return static_cast<const MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::hasHeightForWidth();
+
+	return ( (const MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::hasHeightForWidth();
+
 }
 
 bool ScintillaEditBase_override_virtual_paintEngine(void* self, intptr_t slot) {
@@ -3074,13 +3244,15 @@ bool ScintillaEditBase_override_virtual_paintEngine(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paintEngine = slot;
 	return true;
 }
 
 QPaintEngine* ScintillaEditBase_virtualbase_paintEngine(const void* self) {
-	return static_cast<const MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::paintEngine();
+
+	return ( (const MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::paintEngine();
+
 }
 
 bool ScintillaEditBase_override_virtual_keyReleaseEvent(void* self, intptr_t slot) {
@@ -3088,13 +3260,15 @@ bool ScintillaEditBase_override_virtual_keyReleaseEvent(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyReleaseEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_keyReleaseEvent(void* self, QKeyEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::keyReleaseEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::keyReleaseEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_enterEvent(void* self, intptr_t slot) {
@@ -3102,13 +3276,15 @@ bool ScintillaEditBase_override_virtual_enterEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__enterEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_enterEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::enterEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::enterEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_leaveEvent(void* self, intptr_t slot) {
@@ -3116,13 +3292,15 @@ bool ScintillaEditBase_override_virtual_leaveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__leaveEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_leaveEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::leaveEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::leaveEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_moveEvent(void* self, intptr_t slot) {
@@ -3130,13 +3308,15 @@ bool ScintillaEditBase_override_virtual_moveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__moveEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_moveEvent(void* self, QMoveEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::moveEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::moveEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_closeEvent(void* self, intptr_t slot) {
@@ -3144,13 +3324,15 @@ bool ScintillaEditBase_override_virtual_closeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__closeEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_closeEvent(void* self, QCloseEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::closeEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::closeEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_tabletEvent(void* self, intptr_t slot) {
@@ -3158,13 +3340,15 @@ bool ScintillaEditBase_override_virtual_tabletEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__tabletEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_tabletEvent(void* self, QTabletEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::tabletEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::tabletEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_actionEvent(void* self, intptr_t slot) {
@@ -3172,13 +3356,15 @@ bool ScintillaEditBase_override_virtual_actionEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__actionEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_actionEvent(void* self, QActionEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::actionEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::actionEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_showEvent(void* self, intptr_t slot) {
@@ -3186,13 +3372,15 @@ bool ScintillaEditBase_override_virtual_showEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__showEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_showEvent(void* self, QShowEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::showEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::showEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_hideEvent(void* self, intptr_t slot) {
@@ -3200,13 +3388,15 @@ bool ScintillaEditBase_override_virtual_hideEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hideEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_hideEvent(void* self, QHideEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::hideEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::hideEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_nativeEvent(void* self, intptr_t slot) {
@@ -3214,14 +3404,16 @@ bool ScintillaEditBase_override_virtual_nativeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__nativeEvent = slot;
 	return true;
 }
 
 bool ScintillaEditBase_virtualbase_nativeEvent(void* self, struct miqt_string eventType, void* message, long* result) {
 	QByteArray eventType_QByteArray(eventType.data, eventType.len);
-	return static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::nativeEvent(eventType_QByteArray, message, static_cast<long*>(result));
+
+	return ( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::nativeEvent(eventType_QByteArray, message, static_cast<long*>(result));
+
 }
 
 bool ScintillaEditBase_override_virtual_metric(void* self, intptr_t slot) {
@@ -3229,13 +3421,15 @@ bool ScintillaEditBase_override_virtual_metric(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__metric = slot;
 	return true;
 }
 
 int ScintillaEditBase_virtualbase_metric(const void* self, int param1) {
-	return static_cast<const MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::metric(static_cast<MiqtVirtualScintillaEditBase::PaintDeviceMetric>(param1));
+
+	return ( (const MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::metric(static_cast<MiqtVirtualScintillaEditBase::PaintDeviceMetric>(param1));
+
 }
 
 bool ScintillaEditBase_override_virtual_initPainter(void* self, intptr_t slot) {
@@ -3243,13 +3437,15 @@ bool ScintillaEditBase_override_virtual_initPainter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__initPainter = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_initPainter(const void* self, QPainter* painter) {
-	static_cast<const MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::initPainter(painter);
+
+	( (const MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::initPainter(painter);
+
 }
 
 bool ScintillaEditBase_override_virtual_redirected(void* self, intptr_t slot) {
@@ -3257,13 +3453,15 @@ bool ScintillaEditBase_override_virtual_redirected(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__redirected = slot;
 	return true;
 }
 
 QPaintDevice* ScintillaEditBase_virtualbase_redirected(const void* self, QPoint* offset) {
-	return static_cast<const MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::redirected(offset);
+
+	return ( (const MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::redirected(offset);
+
 }
 
 bool ScintillaEditBase_override_virtual_sharedPainter(void* self, intptr_t slot) {
@@ -3271,13 +3469,15 @@ bool ScintillaEditBase_override_virtual_sharedPainter(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sharedPainter = slot;
 	return true;
 }
 
 QPainter* ScintillaEditBase_virtualbase_sharedPainter(const void* self) {
-	return static_cast<const MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::sharedPainter();
+
+	return ( (const MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::sharedPainter();
+
 }
 
 bool ScintillaEditBase_override_virtual_focusNextPrevChild(void* self, intptr_t slot) {
@@ -3285,13 +3485,15 @@ bool ScintillaEditBase_override_virtual_focusNextPrevChild(void* self, intptr_t 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusNextPrevChild = slot;
 	return true;
 }
 
 bool ScintillaEditBase_virtualbase_focusNextPrevChild(void* self, bool next) {
-	return static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::focusNextPrevChild(next);
+
+	return ( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::focusNextPrevChild(next);
+
 }
 
 bool ScintillaEditBase_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -3299,13 +3501,15 @@ bool ScintillaEditBase_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::timerEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::timerEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -3313,13 +3517,15 @@ bool ScintillaEditBase_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::childEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::childEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -3327,13 +3533,15 @@ bool ScintillaEditBase_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::customEvent(event);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::customEvent(event);
+
 }
 
 bool ScintillaEditBase_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -3341,13 +3549,15 @@ bool ScintillaEditBase_override_virtual_connectNotify(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::connectNotify(*signal);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::connectNotify(*signal);
+
 }
 
 bool ScintillaEditBase_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -3355,13 +3565,15 @@ bool ScintillaEditBase_override_virtual_disconnectNotify(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void ScintillaEditBase_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualScintillaEditBase*>(self)->ScintillaEditBase::disconnectNotify(*signal);
+
+	( (MiqtVirtualScintillaEditBase*)(self) )->ScintillaEditBase::disconnectNotify(*signal);
+
 }
 
 void ScintillaEditBase_protectedbase_setViewportMargins(bool* _dynamic_cast_ok, void* self, int left, int top, int right, int bottom) {
@@ -3370,9 +3582,11 @@ void ScintillaEditBase_protectedbase_setViewportMargins(bool* _dynamic_cast_ok, 
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+
 }
 
 QMargins* ScintillaEditBase_protectedbase_viewportMargins(bool* _dynamic_cast_ok, const void* self) {
@@ -3381,9 +3595,11 @@ QMargins* ScintillaEditBase_protectedbase_viewportMargins(bool* _dynamic_cast_ok
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return new QMargins(self_cast->viewportMargins());
+
 }
 
 void ScintillaEditBase_protectedbase_drawFrame(bool* _dynamic_cast_ok, void* self, QPainter* param1) {
@@ -3392,9 +3608,11 @@ void ScintillaEditBase_protectedbase_drawFrame(bool* _dynamic_cast_ok, void* sel
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->drawFrame(param1);
+
 }
 
 void ScintillaEditBase_protectedbase_initStyleOption(bool* _dynamic_cast_ok, const void* self, QStyleOptionFrame* option) {
@@ -3403,9 +3621,11 @@ void ScintillaEditBase_protectedbase_initStyleOption(bool* _dynamic_cast_ok, con
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->initStyleOption(option);
+
 }
 
 void ScintillaEditBase_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* self) {
@@ -3414,9 +3634,11 @@ void ScintillaEditBase_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, vo
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->updateMicroFocus();
+
 }
 
 void ScintillaEditBase_protectedbase_create(bool* _dynamic_cast_ok, void* self) {
@@ -3425,9 +3647,11 @@ void ScintillaEditBase_protectedbase_create(bool* _dynamic_cast_ok, void* self) 
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->create();
+
 }
 
 void ScintillaEditBase_protectedbase_destroy(bool* _dynamic_cast_ok, void* self) {
@@ -3436,9 +3660,11 @@ void ScintillaEditBase_protectedbase_destroy(bool* _dynamic_cast_ok, void* self)
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->destroy();
+
 }
 
 bool ScintillaEditBase_protectedbase_focusNextChild(bool* _dynamic_cast_ok, void* self) {
@@ -3447,9 +3673,11 @@ bool ScintillaEditBase_protectedbase_focusNextChild(bool* _dynamic_cast_ok, void
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->focusNextChild();
+
 }
 
 bool ScintillaEditBase_protectedbase_focusPreviousChild(bool* _dynamic_cast_ok, void* self) {
@@ -3458,9 +3686,11 @@ bool ScintillaEditBase_protectedbase_focusPreviousChild(bool* _dynamic_cast_ok, 
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->focusPreviousChild();
+
 }
 
 QObject* ScintillaEditBase_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -3469,9 +3699,11 @@ QObject* ScintillaEditBase_protectedbase_sender(bool* _dynamic_cast_ok, const vo
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int ScintillaEditBase_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -3480,9 +3712,11 @@ int ScintillaEditBase_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, co
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int ScintillaEditBase_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -3491,9 +3725,11 @@ int ScintillaEditBase_protectedbase_receivers(bool* _dynamic_cast_ok, const void
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool ScintillaEditBase_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -3502,9 +3738,11 @@ bool ScintillaEditBase_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, c
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void ScintillaEditBase_delete(ScintillaEditBase* self) {
@@ -3514,9 +3752,9 @@ void ScintillaEditBase_delete(ScintillaEditBase* self) {
 class MiqtVirtualScintillaDocument final : public ScintillaDocument {
 public:
 
-	MiqtVirtualScintillaDocument(): ScintillaDocument() {}
-	MiqtVirtualScintillaDocument(QObject* parent): ScintillaDocument(parent) {}
-	MiqtVirtualScintillaDocument(QObject* parent, void* pdoc_): ScintillaDocument(parent, pdoc_) {}
+	MiqtVirtualScintillaDocument(): ScintillaDocument() {};
+	MiqtVirtualScintillaDocument(QObject* parent): ScintillaDocument(parent) {};
+	MiqtVirtualScintillaDocument(QObject* parent, void* pdoc_): ScintillaDocument(parent, pdoc_) {};
 
 	virtual ~MiqtVirtualScintillaDocument() override = default;
 
@@ -3528,9 +3766,11 @@ public:
 		if (handle__event == 0) {
 			return ScintillaDocument::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_ScintillaDocument_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -3544,10 +3784,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return ScintillaDocument::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_ScintillaDocument_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -3562,10 +3804,12 @@ public:
 			ScintillaDocument::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaDocument_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaDocument_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -3579,10 +3823,12 @@ public:
 			ScintillaDocument::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaDocument_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaDocument_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -3596,10 +3842,12 @@ public:
 			ScintillaDocument::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaDocument_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaDocument_virtualbase_customEvent(void* self, QEvent* event);
@@ -3613,12 +3861,14 @@ public:
 			ScintillaDocument::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_ScintillaDocument_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void ScintillaDocument_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -3632,12 +3882,14 @@ public:
 			ScintillaDocument::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_ScintillaDocument_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void ScintillaDocument_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -3650,15 +3902,15 @@ public:
 };
 
 ScintillaDocument* ScintillaDocument_new() {
-	return new (std::nothrow) MiqtVirtualScintillaDocument();
+	return new MiqtVirtualScintillaDocument();
 }
 
 ScintillaDocument* ScintillaDocument_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualScintillaDocument(parent);
+	return new MiqtVirtualScintillaDocument(parent);
 }
 
 ScintillaDocument* ScintillaDocument_new3(QObject* parent, void* pdoc_) {
-	return new (std::nothrow) MiqtVirtualScintillaDocument(parent, pdoc_);
+	return new MiqtVirtualScintillaDocument(parent, pdoc_);
 }
 
 void ScintillaDocument_virtbase(ScintillaDocument* src, QObject** outptr_QObject) {
@@ -3866,7 +4118,7 @@ void ScintillaDocument_modifyAttempt(ScintillaDocument* self) {
 }
 
 void ScintillaDocument_connect_modifyAttempt(ScintillaDocument* self, intptr_t slot) {
-	ScintillaDocument::connect(self, static_cast<void (ScintillaDocument::*)()>(&ScintillaDocument::modify_attempt), self, [=]() {
+	MiqtVirtualScintillaDocument::connect(self, static_cast<void (ScintillaDocument::*)()>(&ScintillaDocument::modify_attempt), self, [=]() {
 		miqt_exec_callback_ScintillaDocument_modifyAttempt(slot);
 	});
 }
@@ -3876,7 +4128,7 @@ void ScintillaDocument_savePoint(ScintillaDocument* self, bool atSavePoint) {
 }
 
 void ScintillaDocument_connect_savePoint(ScintillaDocument* self, intptr_t slot) {
-	ScintillaDocument::connect(self, static_cast<void (ScintillaDocument::*)(bool)>(&ScintillaDocument::save_point), self, [=](bool atSavePoint) {
+	MiqtVirtualScintillaDocument::connect(self, static_cast<void (ScintillaDocument::*)(bool)>(&ScintillaDocument::save_point), self, [=](bool atSavePoint) {
 		bool sigval1 = atSavePoint;
 		miqt_exec_callback_ScintillaDocument_savePoint(slot, sigval1);
 	});
@@ -3888,7 +4140,7 @@ void ScintillaDocument_modified(ScintillaDocument* self, int position, int modif
 }
 
 void ScintillaDocument_connect_modified(ScintillaDocument* self, intptr_t slot) {
-	ScintillaDocument::connect(self, static_cast<void (ScintillaDocument::*)(int, int, const QByteArray&, int, int, int, int, int)>(&ScintillaDocument::modified), self, [=](int position, int modification_type, const QByteArray& text, int length, int linesAdded, int line, int foldLevelNow, int foldLevelPrev) {
+	MiqtVirtualScintillaDocument::connect(self, static_cast<void (ScintillaDocument::*)(int, int, const QByteArray&, int, int, int, int, int)>(&ScintillaDocument::modified), self, [=](int position, int modification_type, const QByteArray& text, int length, int linesAdded, int line, int foldLevelNow, int foldLevelPrev) {
 		int sigval1 = position;
 		int sigval2 = modification_type;
 		const QByteArray text_qb = text;
@@ -3911,7 +4163,7 @@ void ScintillaDocument_styleNeeded(ScintillaDocument* self, int pos) {
 }
 
 void ScintillaDocument_connect_styleNeeded(ScintillaDocument* self, intptr_t slot) {
-	ScintillaDocument::connect(self, static_cast<void (ScintillaDocument::*)(int)>(&ScintillaDocument::style_needed), self, [=](int pos) {
+	MiqtVirtualScintillaDocument::connect(self, static_cast<void (ScintillaDocument::*)(int)>(&ScintillaDocument::style_needed), self, [=](int pos) {
 		int sigval1 = pos;
 		miqt_exec_callback_ScintillaDocument_styleNeeded(slot, sigval1);
 	});
@@ -3922,7 +4174,7 @@ void ScintillaDocument_errorOccurred(ScintillaDocument* self, int status) {
 }
 
 void ScintillaDocument_connect_errorOccurred(ScintillaDocument* self, intptr_t slot) {
-	ScintillaDocument::connect(self, static_cast<void (ScintillaDocument::*)(int)>(&ScintillaDocument::error_occurred), self, [=](int status) {
+	MiqtVirtualScintillaDocument::connect(self, static_cast<void (ScintillaDocument::*)(int)>(&ScintillaDocument::error_occurred), self, [=](int status) {
 		int sigval1 = status;
 		miqt_exec_callback_ScintillaDocument_errorOccurred(slot, sigval1);
 	});
@@ -3981,13 +4233,15 @@ bool ScintillaDocument_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool ScintillaDocument_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualScintillaDocument*>(self)->ScintillaDocument::event(event);
+
+	return ( (MiqtVirtualScintillaDocument*)(self) )->ScintillaDocument::event(event);
+
 }
 
 bool ScintillaDocument_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -3995,13 +4249,15 @@ bool ScintillaDocument_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool ScintillaDocument_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualScintillaDocument*>(self)->ScintillaDocument::eventFilter(watched, event);
+
+	return ( (MiqtVirtualScintillaDocument*)(self) )->ScintillaDocument::eventFilter(watched, event);
+
 }
 
 bool ScintillaDocument_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -4009,13 +4265,15 @@ bool ScintillaDocument_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void ScintillaDocument_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualScintillaDocument*>(self)->ScintillaDocument::timerEvent(event);
+
+	( (MiqtVirtualScintillaDocument*)(self) )->ScintillaDocument::timerEvent(event);
+
 }
 
 bool ScintillaDocument_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -4023,13 +4281,15 @@ bool ScintillaDocument_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void ScintillaDocument_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualScintillaDocument*>(self)->ScintillaDocument::childEvent(event);
+
+	( (MiqtVirtualScintillaDocument*)(self) )->ScintillaDocument::childEvent(event);
+
 }
 
 bool ScintillaDocument_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -4037,13 +4297,15 @@ bool ScintillaDocument_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void ScintillaDocument_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualScintillaDocument*>(self)->ScintillaDocument::customEvent(event);
+
+	( (MiqtVirtualScintillaDocument*)(self) )->ScintillaDocument::customEvent(event);
+
 }
 
 bool ScintillaDocument_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -4051,13 +4313,15 @@ bool ScintillaDocument_override_virtual_connectNotify(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void ScintillaDocument_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualScintillaDocument*>(self)->ScintillaDocument::connectNotify(*signal);
+
+	( (MiqtVirtualScintillaDocument*)(self) )->ScintillaDocument::connectNotify(*signal);
+
 }
 
 bool ScintillaDocument_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -4065,13 +4329,15 @@ bool ScintillaDocument_override_virtual_disconnectNotify(void* self, intptr_t sl
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void ScintillaDocument_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualScintillaDocument*>(self)->ScintillaDocument::disconnectNotify(*signal);
+
+	( (MiqtVirtualScintillaDocument*)(self) )->ScintillaDocument::disconnectNotify(*signal);
+
 }
 
 QObject* ScintillaDocument_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -4080,9 +4346,11 @@ QObject* ScintillaDocument_protectedbase_sender(bool* _dynamic_cast_ok, const vo
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int ScintillaDocument_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -4091,9 +4359,11 @@ int ScintillaDocument_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, co
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int ScintillaDocument_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -4102,9 +4372,11 @@ int ScintillaDocument_protectedbase_receivers(bool* _dynamic_cast_ok, const void
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool ScintillaDocument_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -4113,9 +4385,11 @@ bool ScintillaDocument_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, c
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void ScintillaDocument_delete(ScintillaDocument* self) {
@@ -4125,8 +4399,8 @@ void ScintillaDocument_delete(ScintillaDocument* self) {
 class MiqtVirtualScintillaEdit final : public ScintillaEdit {
 public:
 
-	MiqtVirtualScintillaEdit(QWidget* parent): ScintillaEdit(parent) {}
-	MiqtVirtualScintillaEdit(): ScintillaEdit() {}
+	MiqtVirtualScintillaEdit(QWidget* parent): ScintillaEdit(parent) {};
+	MiqtVirtualScintillaEdit(): ScintillaEdit() {};
 
 	virtual ~MiqtVirtualScintillaEdit() override = default;
 
@@ -4138,13 +4412,15 @@ public:
 		if (handle__send == 0) {
 			return ScintillaEdit::send(iMessage, wParam, lParam);
 		}
-
+		
 		unsigned int sigval1 = iMessage;
 		uptr_t wParam_ret = wParam;
 		uintptr_t sigval2 = static_cast<uintptr_t>(wParam_ret);
 		sptr_t lParam_ret = lParam;
 		intptr_t sigval3 = static_cast<intptr_t>(lParam_ret);
+
 		intptr_t callback_return_value = miqt_exec_callback_ScintillaEdit_send(this, handle__send, sigval1, sigval2, sigval3);
+
 		return static_cast<sptr_t>(callback_return_value);
 	}
 
@@ -4158,12 +4434,14 @@ public:
 		if (handle__sends == 0) {
 			return ScintillaEdit::sends(iMessage, wParam, s);
 		}
-
+		
 		unsigned int sigval1 = iMessage;
 		uptr_t wParam_ret = wParam;
 		uintptr_t sigval2 = static_cast<uintptr_t>(wParam_ret);
 		const char* sigval3 = (const char*) s;
+
 		intptr_t callback_return_value = miqt_exec_callback_ScintillaEdit_sends(this, handle__sends, sigval1, sigval2, sigval3);
+
 		return static_cast<sptr_t>(callback_return_value);
 	}
 
@@ -4177,9 +4455,11 @@ public:
 		if (handle__event == 0) {
 			return ScintillaEdit::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_ScintillaEdit_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -4194,10 +4474,12 @@ public:
 			ScintillaEdit::paintEvent(event);
 			return;
 		}
-
+		
 		QPaintEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_paintEvent(this, handle__paintEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_paintEvent(void* self, QPaintEvent* event);
@@ -4211,10 +4493,12 @@ public:
 			ScintillaEdit::wheelEvent(event);
 			return;
 		}
-
+		
 		QWheelEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_wheelEvent(this, handle__wheelEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_wheelEvent(void* self, QWheelEvent* event);
@@ -4228,10 +4512,12 @@ public:
 			ScintillaEdit::focusInEvent(event);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_focusInEvent(this, handle__focusInEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_focusInEvent(void* self, QFocusEvent* event);
@@ -4245,10 +4531,12 @@ public:
 			ScintillaEdit::focusOutEvent(event);
 			return;
 		}
-
+		
 		QFocusEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_focusOutEvent(this, handle__focusOutEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_focusOutEvent(void* self, QFocusEvent* event);
@@ -4262,10 +4550,12 @@ public:
 			ScintillaEdit::resizeEvent(event);
 			return;
 		}
-
+		
 		QResizeEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_resizeEvent(this, handle__resizeEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_resizeEvent(void* self, QResizeEvent* event);
@@ -4279,10 +4569,12 @@ public:
 			ScintillaEdit::keyPressEvent(event);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_keyPressEvent(this, handle__keyPressEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_keyPressEvent(void* self, QKeyEvent* event);
@@ -4296,10 +4588,12 @@ public:
 			ScintillaEdit::mousePressEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_mousePressEvent(this, handle__mousePressEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_mousePressEvent(void* self, QMouseEvent* event);
@@ -4313,10 +4607,12 @@ public:
 			ScintillaEdit::mouseReleaseEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_mouseReleaseEvent(this, handle__mouseReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_mouseReleaseEvent(void* self, QMouseEvent* event);
@@ -4330,10 +4626,12 @@ public:
 			ScintillaEdit::mouseDoubleClickEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_mouseDoubleClickEvent(this, handle__mouseDoubleClickEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_mouseDoubleClickEvent(void* self, QMouseEvent* event);
@@ -4347,10 +4645,12 @@ public:
 			ScintillaEdit::mouseMoveEvent(event);
 			return;
 		}
-
+		
 		QMouseEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_mouseMoveEvent(this, handle__mouseMoveEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_mouseMoveEvent(void* self, QMouseEvent* event);
@@ -4364,10 +4664,12 @@ public:
 			ScintillaEdit::contextMenuEvent(event);
 			return;
 		}
-
+		
 		QContextMenuEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_contextMenuEvent(this, handle__contextMenuEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_contextMenuEvent(void* self, QContextMenuEvent* event);
@@ -4381,10 +4683,12 @@ public:
 			ScintillaEdit::dragEnterEvent(event);
 			return;
 		}
-
+		
 		QDragEnterEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_dragEnterEvent(this, handle__dragEnterEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_dragEnterEvent(void* self, QDragEnterEvent* event);
@@ -4398,10 +4702,12 @@ public:
 			ScintillaEdit::dragLeaveEvent(event);
 			return;
 		}
-
+		
 		QDragLeaveEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_dragLeaveEvent(this, handle__dragLeaveEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_dragLeaveEvent(void* self, QDragLeaveEvent* event);
@@ -4415,10 +4721,12 @@ public:
 			ScintillaEdit::dragMoveEvent(event);
 			return;
 		}
-
+		
 		QDragMoveEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_dragMoveEvent(this, handle__dragMoveEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_dragMoveEvent(void* self, QDragMoveEvent* event);
@@ -4432,10 +4740,12 @@ public:
 			ScintillaEdit::dropEvent(event);
 			return;
 		}
-
+		
 		QDropEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_dropEvent(this, handle__dropEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_dropEvent(void* self, QDropEvent* event);
@@ -4449,10 +4759,12 @@ public:
 			ScintillaEdit::inputMethodEvent(event);
 			return;
 		}
-
+		
 		QInputMethodEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_inputMethodEvent(this, handle__inputMethodEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* event);
@@ -4465,10 +4777,12 @@ public:
 		if (handle__inputMethodQuery == 0) {
 			return ScintillaEdit::inputMethodQuery(query);
 		}
-
+		
 		Qt::InputMethodQuery query_ret = query;
 		int sigval1 = static_cast<int>(query_ret);
+
 		QVariant* callback_return_value = miqt_exec_callback_ScintillaEdit_inputMethodQuery(this, handle__inputMethodQuery, sigval1);
+
 		return *callback_return_value;
 	}
 
@@ -4483,11 +4797,13 @@ public:
 			ScintillaEdit::scrollContentsBy(param1, param2);
 			return;
 		}
-
+		
 		int sigval1 = param1;
 		int sigval2 = param2;
+
 		miqt_exec_callback_ScintillaEdit_scrollContentsBy(this, handle__scrollContentsBy, sigval1, sigval2);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_scrollContentsBy(void* self, int param1, int param2);
@@ -4500,8 +4816,10 @@ public:
 		if (handle__minimumSizeHint == 0) {
 			return ScintillaEdit::minimumSizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_ScintillaEdit_minimumSizeHint(this, handle__minimumSizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -4515,8 +4833,10 @@ public:
 		if (handle__sizeHint == 0) {
 			return ScintillaEdit::sizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_ScintillaEdit_sizeHint(this, handle__sizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -4531,10 +4851,12 @@ public:
 			ScintillaEdit::setupViewport(viewport);
 			return;
 		}
-
+		
 		QWidget* sigval1 = viewport;
+
 		miqt_exec_callback_ScintillaEdit_setupViewport(this, handle__setupViewport, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_setupViewport(void* self, QWidget* viewport);
@@ -4547,10 +4869,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return ScintillaEdit::eventFilter(param1, param2);
 		}
-
+		
 		QObject* sigval1 = param1;
 		QEvent* sigval2 = param2;
+
 		bool callback_return_value = miqt_exec_callback_ScintillaEdit_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -4564,9 +4888,11 @@ public:
 		if (handle__viewportEvent == 0) {
 			return ScintillaEdit::viewportEvent(param1);
 		}
-
+		
 		QEvent* sigval1 = param1;
+
 		bool callback_return_value = miqt_exec_callback_ScintillaEdit_viewportEvent(this, handle__viewportEvent, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -4580,8 +4906,10 @@ public:
 		if (handle__viewportSizeHint == 0) {
 			return ScintillaEdit::viewportSizeHint();
 		}
+		
 
 		QSize* callback_return_value = miqt_exec_callback_ScintillaEdit_viewportSizeHint(this, handle__viewportSizeHint);
+
 		return *callback_return_value;
 	}
 
@@ -4596,10 +4924,12 @@ public:
 			ScintillaEdit::changeEvent(param1);
 			return;
 		}
-
+		
 		QEvent* sigval1 = param1;
+
 		miqt_exec_callback_ScintillaEdit_changeEvent(this, handle__changeEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_changeEvent(void* self, QEvent* param1);
@@ -4612,8 +4942,10 @@ public:
 		if (handle__devType == 0) {
 			return ScintillaEdit::devType();
 		}
+		
 
 		int callback_return_value = miqt_exec_callback_ScintillaEdit_devType(this, handle__devType);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -4628,10 +4960,12 @@ public:
 			ScintillaEdit::setVisible(visible);
 			return;
 		}
-
+		
 		bool sigval1 = visible;
+
 		miqt_exec_callback_ScintillaEdit_setVisible(this, handle__setVisible, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_setVisible(void* self, bool visible);
@@ -4644,9 +4978,11 @@ public:
 		if (handle__heightForWidth == 0) {
 			return ScintillaEdit::heightForWidth(param1);
 		}
-
+		
 		int sigval1 = param1;
+
 		int callback_return_value = miqt_exec_callback_ScintillaEdit_heightForWidth(this, handle__heightForWidth, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -4660,8 +4996,10 @@ public:
 		if (handle__hasHeightForWidth == 0) {
 			return ScintillaEdit::hasHeightForWidth();
 		}
+		
 
 		bool callback_return_value = miqt_exec_callback_ScintillaEdit_hasHeightForWidth(this, handle__hasHeightForWidth);
+
 		return callback_return_value;
 	}
 
@@ -4675,8 +5013,10 @@ public:
 		if (handle__paintEngine == 0) {
 			return ScintillaEdit::paintEngine();
 		}
+		
 
 		QPaintEngine* callback_return_value = miqt_exec_callback_ScintillaEdit_paintEngine(this, handle__paintEngine);
+
 		return callback_return_value;
 	}
 
@@ -4691,10 +5031,12 @@ public:
 			ScintillaEdit::keyReleaseEvent(event);
 			return;
 		}
-
+		
 		QKeyEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_keyReleaseEvent(this, handle__keyReleaseEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_keyReleaseEvent(void* self, QKeyEvent* event);
@@ -4708,10 +5050,12 @@ public:
 			ScintillaEdit::enterEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_enterEvent(this, handle__enterEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_enterEvent(void* self, QEvent* event);
@@ -4725,10 +5069,12 @@ public:
 			ScintillaEdit::leaveEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_leaveEvent(this, handle__leaveEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_leaveEvent(void* self, QEvent* event);
@@ -4742,10 +5088,12 @@ public:
 			ScintillaEdit::moveEvent(event);
 			return;
 		}
-
+		
 		QMoveEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_moveEvent(this, handle__moveEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_moveEvent(void* self, QMoveEvent* event);
@@ -4759,10 +5107,12 @@ public:
 			ScintillaEdit::closeEvent(event);
 			return;
 		}
-
+		
 		QCloseEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_closeEvent(this, handle__closeEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_closeEvent(void* self, QCloseEvent* event);
@@ -4776,10 +5126,12 @@ public:
 			ScintillaEdit::tabletEvent(event);
 			return;
 		}
-
+		
 		QTabletEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_tabletEvent(this, handle__tabletEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_tabletEvent(void* self, QTabletEvent* event);
@@ -4793,10 +5145,12 @@ public:
 			ScintillaEdit::actionEvent(event);
 			return;
 		}
-
+		
 		QActionEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_actionEvent(this, handle__actionEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_actionEvent(void* self, QActionEvent* event);
@@ -4810,10 +5164,12 @@ public:
 			ScintillaEdit::showEvent(event);
 			return;
 		}
-
+		
 		QShowEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_showEvent(this, handle__showEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_showEvent(void* self, QShowEvent* event);
@@ -4827,10 +5183,12 @@ public:
 			ScintillaEdit::hideEvent(event);
 			return;
 		}
-
+		
 		QHideEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_hideEvent(this, handle__hideEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_hideEvent(void* self, QHideEvent* event);
@@ -4843,7 +5201,7 @@ public:
 		if (handle__nativeEvent == 0) {
 			return ScintillaEdit::nativeEvent(eventType, message, result);
 		}
-
+		
 		const QByteArray eventType_qb = eventType;
 		struct miqt_string eventType_ms;
 		eventType_ms.len = eventType_qb.length();
@@ -4852,7 +5210,9 @@ public:
 		struct miqt_string sigval1 = eventType_ms;
 		void* sigval2 = message;
 		long* sigval3 = result;
+
 		bool callback_return_value = miqt_exec_callback_ScintillaEdit_nativeEvent(this, handle__nativeEvent, sigval1, sigval2, sigval3);
+
 		return callback_return_value;
 	}
 
@@ -4866,10 +5226,12 @@ public:
 		if (handle__metric == 0) {
 			return ScintillaEdit::metric(param1);
 		}
-
+		
 		QPaintDevice::PaintDeviceMetric param1_ret = param1;
 		int sigval1 = static_cast<int>(param1_ret);
+
 		int callback_return_value = miqt_exec_callback_ScintillaEdit_metric(this, handle__metric, sigval1);
+
 		return static_cast<int>(callback_return_value);
 	}
 
@@ -4884,10 +5246,12 @@ public:
 			ScintillaEdit::initPainter(painter);
 			return;
 		}
-
+		
 		QPainter* sigval1 = painter;
+
 		miqt_exec_callback_ScintillaEdit_initPainter(this, handle__initPainter, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_initPainter(const void* self, QPainter* painter);
@@ -4900,9 +5264,11 @@ public:
 		if (handle__redirected == 0) {
 			return ScintillaEdit::redirected(offset);
 		}
-
+		
 		QPoint* sigval1 = offset;
+
 		QPaintDevice* callback_return_value = miqt_exec_callback_ScintillaEdit_redirected(this, handle__redirected, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -4916,8 +5282,10 @@ public:
 		if (handle__sharedPainter == 0) {
 			return ScintillaEdit::sharedPainter();
 		}
+		
 
 		QPainter* callback_return_value = miqt_exec_callback_ScintillaEdit_sharedPainter(this, handle__sharedPainter);
+
 		return callback_return_value;
 	}
 
@@ -4931,9 +5299,11 @@ public:
 		if (handle__focusNextPrevChild == 0) {
 			return ScintillaEdit::focusNextPrevChild(next);
 		}
-
+		
 		bool sigval1 = next;
+
 		bool callback_return_value = miqt_exec_callback_ScintillaEdit_focusNextPrevChild(this, handle__focusNextPrevChild, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -4948,10 +5318,12 @@ public:
 			ScintillaEdit::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -4965,10 +5337,12 @@ public:
 			ScintillaEdit::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -4982,10 +5356,12 @@ public:
 			ScintillaEdit::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_ScintillaEdit_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_customEvent(void* self, QEvent* event);
@@ -4999,12 +5375,14 @@ public:
 			ScintillaEdit::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_ScintillaEdit_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -5018,12 +5396,14 @@ public:
 			ScintillaEdit::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_ScintillaEdit_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void ScintillaEdit_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -5045,11 +5425,11 @@ public:
 };
 
 ScintillaEdit* ScintillaEdit_new(QWidget* parent) {
-	return new (std::nothrow) MiqtVirtualScintillaEdit(parent);
+	return new MiqtVirtualScintillaEdit(parent);
 }
 
 ScintillaEdit* ScintillaEdit_new2() {
-	return new (std::nothrow) MiqtVirtualScintillaEdit();
+	return new MiqtVirtualScintillaEdit();
 }
 
 void ScintillaEdit_virtbase(ScintillaEdit* src, ScintillaEditBase** outptr_ScintillaEditBase) {
@@ -8821,14 +9201,16 @@ bool ScintillaEdit_override_virtual_send(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__send = slot;
 	return true;
 }
 
 intptr_t ScintillaEdit_virtualbase_send(const void* self, unsigned int iMessage, uintptr_t wParam, intptr_t lParam) {
-	sptr_t _ret = static_cast<const MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::send(static_cast<unsigned int>(iMessage), static_cast<uptr_t>(wParam), static_cast<sptr_t>(lParam));
+
+	sptr_t _ret = ( (const MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::send(static_cast<unsigned int>(iMessage), static_cast<uptr_t>(wParam), static_cast<sptr_t>(lParam));
 	return static_cast<intptr_t>(_ret);
+
 }
 
 bool ScintillaEdit_override_virtual_sends(void* self, intptr_t slot) {
@@ -8836,14 +9218,16 @@ bool ScintillaEdit_override_virtual_sends(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sends = slot;
 	return true;
 }
 
 intptr_t ScintillaEdit_virtualbase_sends(const void* self, unsigned int iMessage, uintptr_t wParam, const char* s) {
-	sptr_t _ret = static_cast<const MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::sends(static_cast<unsigned int>(iMessage), static_cast<uptr_t>(wParam), s);
+
+	sptr_t _ret = ( (const MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::sends(static_cast<unsigned int>(iMessage), static_cast<uptr_t>(wParam), s);
 	return static_cast<intptr_t>(_ret);
+
 }
 
 bool ScintillaEdit_override_virtual_event(void* self, intptr_t slot) {
@@ -8851,13 +9235,15 @@ bool ScintillaEdit_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool ScintillaEdit_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::event(event);
+
+	return ( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::event(event);
+
 }
 
 bool ScintillaEdit_override_virtual_paintEvent(void* self, intptr_t slot) {
@@ -8865,13 +9251,15 @@ bool ScintillaEdit_override_virtual_paintEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paintEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_paintEvent(void* self, QPaintEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::paintEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::paintEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_wheelEvent(void* self, intptr_t slot) {
@@ -8879,13 +9267,15 @@ bool ScintillaEdit_override_virtual_wheelEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__wheelEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_wheelEvent(void* self, QWheelEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::wheelEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::wheelEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_focusInEvent(void* self, intptr_t slot) {
@@ -8893,13 +9283,15 @@ bool ScintillaEdit_override_virtual_focusInEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusInEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_focusInEvent(void* self, QFocusEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::focusInEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::focusInEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_focusOutEvent(void* self, intptr_t slot) {
@@ -8907,13 +9299,15 @@ bool ScintillaEdit_override_virtual_focusOutEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusOutEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_focusOutEvent(void* self, QFocusEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::focusOutEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::focusOutEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_resizeEvent(void* self, intptr_t slot) {
@@ -8921,13 +9315,15 @@ bool ScintillaEdit_override_virtual_resizeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__resizeEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_resizeEvent(void* self, QResizeEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::resizeEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::resizeEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_keyPressEvent(void* self, intptr_t slot) {
@@ -8935,13 +9331,15 @@ bool ScintillaEdit_override_virtual_keyPressEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyPressEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_keyPressEvent(void* self, QKeyEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::keyPressEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::keyPressEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_mousePressEvent(void* self, intptr_t slot) {
@@ -8949,13 +9347,15 @@ bool ScintillaEdit_override_virtual_mousePressEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mousePressEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_mousePressEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::mousePressEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::mousePressEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_mouseReleaseEvent(void* self, intptr_t slot) {
@@ -8963,13 +9363,15 @@ bool ScintillaEdit_override_virtual_mouseReleaseEvent(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseReleaseEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_mouseReleaseEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::mouseReleaseEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::mouseReleaseEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_mouseDoubleClickEvent(void* self, intptr_t slot) {
@@ -8977,13 +9379,15 @@ bool ScintillaEdit_override_virtual_mouseDoubleClickEvent(void* self, intptr_t s
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseDoubleClickEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_mouseDoubleClickEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::mouseDoubleClickEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::mouseDoubleClickEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_mouseMoveEvent(void* self, intptr_t slot) {
@@ -8991,13 +9395,15 @@ bool ScintillaEdit_override_virtual_mouseMoveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__mouseMoveEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_mouseMoveEvent(void* self, QMouseEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::mouseMoveEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::mouseMoveEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_contextMenuEvent(void* self, intptr_t slot) {
@@ -9005,13 +9411,15 @@ bool ScintillaEdit_override_virtual_contextMenuEvent(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__contextMenuEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_contextMenuEvent(void* self, QContextMenuEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::contextMenuEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::contextMenuEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_dragEnterEvent(void* self, intptr_t slot) {
@@ -9019,13 +9427,15 @@ bool ScintillaEdit_override_virtual_dragEnterEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragEnterEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_dragEnterEvent(void* self, QDragEnterEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::dragEnterEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::dragEnterEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_dragLeaveEvent(void* self, intptr_t slot) {
@@ -9033,13 +9443,15 @@ bool ScintillaEdit_override_virtual_dragLeaveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragLeaveEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_dragLeaveEvent(void* self, QDragLeaveEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::dragLeaveEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::dragLeaveEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_dragMoveEvent(void* self, intptr_t slot) {
@@ -9047,13 +9459,15 @@ bool ScintillaEdit_override_virtual_dragMoveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dragMoveEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_dragMoveEvent(void* self, QDragMoveEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::dragMoveEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::dragMoveEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_dropEvent(void* self, intptr_t slot) {
@@ -9061,13 +9475,15 @@ bool ScintillaEdit_override_virtual_dropEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__dropEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_dropEvent(void* self, QDropEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::dropEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::dropEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_inputMethodEvent(void* self, intptr_t slot) {
@@ -9075,13 +9491,15 @@ bool ScintillaEdit_override_virtual_inputMethodEvent(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_inputMethodEvent(void* self, QInputMethodEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::inputMethodEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::inputMethodEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_inputMethodQuery(void* self, intptr_t slot) {
@@ -9089,13 +9507,15 @@ bool ScintillaEdit_override_virtual_inputMethodQuery(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__inputMethodQuery = slot;
 	return true;
 }
 
 QVariant* ScintillaEdit_virtualbase_inputMethodQuery(const void* self, int query) {
-	return new QVariant(static_cast<const MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
+
+	return new QVariant(( (const MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
+
 }
 
 bool ScintillaEdit_override_virtual_scrollContentsBy(void* self, intptr_t slot) {
@@ -9103,13 +9523,15 @@ bool ScintillaEdit_override_virtual_scrollContentsBy(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__scrollContentsBy = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_scrollContentsBy(void* self, int param1, int param2) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::scrollContentsBy(static_cast<int>(param1), static_cast<int>(param2));
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::scrollContentsBy(static_cast<int>(param1), static_cast<int>(param2));
+
 }
 
 bool ScintillaEdit_override_virtual_minimumSizeHint(void* self, intptr_t slot) {
@@ -9117,13 +9539,15 @@ bool ScintillaEdit_override_virtual_minimumSizeHint(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__minimumSizeHint = slot;
 	return true;
 }
 
 QSize* ScintillaEdit_virtualbase_minimumSizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::minimumSizeHint());
+
+	return new QSize(( (const MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::minimumSizeHint());
+
 }
 
 bool ScintillaEdit_override_virtual_sizeHint(void* self, intptr_t slot) {
@@ -9131,13 +9555,15 @@ bool ScintillaEdit_override_virtual_sizeHint(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sizeHint = slot;
 	return true;
 }
 
 QSize* ScintillaEdit_virtualbase_sizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::sizeHint());
+
+	return new QSize(( (const MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::sizeHint());
+
 }
 
 bool ScintillaEdit_override_virtual_setupViewport(void* self, intptr_t slot) {
@@ -9145,13 +9571,15 @@ bool ScintillaEdit_override_virtual_setupViewport(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setupViewport = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_setupViewport(void* self, QWidget* viewport) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::setupViewport(viewport);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::setupViewport(viewport);
+
 }
 
 bool ScintillaEdit_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -9159,13 +9587,15 @@ bool ScintillaEdit_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool ScintillaEdit_virtualbase_eventFilter(void* self, QObject* param1, QEvent* param2) {
-	return static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::eventFilter(param1, param2);
+
+	return ( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::eventFilter(param1, param2);
+
 }
 
 bool ScintillaEdit_override_virtual_viewportEvent(void* self, intptr_t slot) {
@@ -9173,13 +9603,15 @@ bool ScintillaEdit_override_virtual_viewportEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__viewportEvent = slot;
 	return true;
 }
 
 bool ScintillaEdit_virtualbase_viewportEvent(void* self, QEvent* param1) {
-	return static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::viewportEvent(param1);
+
+	return ( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::viewportEvent(param1);
+
 }
 
 bool ScintillaEdit_override_virtual_viewportSizeHint(void* self, intptr_t slot) {
@@ -9187,13 +9619,15 @@ bool ScintillaEdit_override_virtual_viewportSizeHint(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__viewportSizeHint = slot;
 	return true;
 }
 
 QSize* ScintillaEdit_virtualbase_viewportSizeHint(const void* self) {
-	return new QSize(static_cast<const MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::viewportSizeHint());
+
+	return new QSize(( (const MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::viewportSizeHint());
+
 }
 
 bool ScintillaEdit_override_virtual_changeEvent(void* self, intptr_t slot) {
@@ -9201,13 +9635,15 @@ bool ScintillaEdit_override_virtual_changeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__changeEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_changeEvent(void* self, QEvent* param1) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::changeEvent(param1);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::changeEvent(param1);
+
 }
 
 bool ScintillaEdit_override_virtual_devType(void* self, intptr_t slot) {
@@ -9215,13 +9651,15 @@ bool ScintillaEdit_override_virtual_devType(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__devType = slot;
 	return true;
 }
 
 int ScintillaEdit_virtualbase_devType(const void* self) {
-	return static_cast<const MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::devType();
+
+	return ( (const MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::devType();
+
 }
 
 bool ScintillaEdit_override_virtual_setVisible(void* self, intptr_t slot) {
@@ -9229,13 +9667,15 @@ bool ScintillaEdit_override_virtual_setVisible(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__setVisible = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_setVisible(void* self, bool visible) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::setVisible(visible);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::setVisible(visible);
+
 }
 
 bool ScintillaEdit_override_virtual_heightForWidth(void* self, intptr_t slot) {
@@ -9243,13 +9683,15 @@ bool ScintillaEdit_override_virtual_heightForWidth(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__heightForWidth = slot;
 	return true;
 }
 
 int ScintillaEdit_virtualbase_heightForWidth(const void* self, int param1) {
-	return static_cast<const MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::heightForWidth(static_cast<int>(param1));
+
+	return ( (const MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::heightForWidth(static_cast<int>(param1));
+
 }
 
 bool ScintillaEdit_override_virtual_hasHeightForWidth(void* self, intptr_t slot) {
@@ -9257,13 +9699,15 @@ bool ScintillaEdit_override_virtual_hasHeightForWidth(void* self, intptr_t slot)
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hasHeightForWidth = slot;
 	return true;
 }
 
 bool ScintillaEdit_virtualbase_hasHeightForWidth(const void* self) {
-	return static_cast<const MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::hasHeightForWidth();
+
+	return ( (const MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::hasHeightForWidth();
+
 }
 
 bool ScintillaEdit_override_virtual_paintEngine(void* self, intptr_t slot) {
@@ -9271,13 +9715,15 @@ bool ScintillaEdit_override_virtual_paintEngine(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__paintEngine = slot;
 	return true;
 }
 
 QPaintEngine* ScintillaEdit_virtualbase_paintEngine(const void* self) {
-	return static_cast<const MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::paintEngine();
+
+	return ( (const MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::paintEngine();
+
 }
 
 bool ScintillaEdit_override_virtual_keyReleaseEvent(void* self, intptr_t slot) {
@@ -9285,13 +9731,15 @@ bool ScintillaEdit_override_virtual_keyReleaseEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__keyReleaseEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_keyReleaseEvent(void* self, QKeyEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::keyReleaseEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::keyReleaseEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_enterEvent(void* self, intptr_t slot) {
@@ -9299,13 +9747,15 @@ bool ScintillaEdit_override_virtual_enterEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__enterEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_enterEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::enterEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::enterEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_leaveEvent(void* self, intptr_t slot) {
@@ -9313,13 +9763,15 @@ bool ScintillaEdit_override_virtual_leaveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__leaveEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_leaveEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::leaveEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::leaveEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_moveEvent(void* self, intptr_t slot) {
@@ -9327,13 +9779,15 @@ bool ScintillaEdit_override_virtual_moveEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__moveEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_moveEvent(void* self, QMoveEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::moveEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::moveEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_closeEvent(void* self, intptr_t slot) {
@@ -9341,13 +9795,15 @@ bool ScintillaEdit_override_virtual_closeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__closeEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_closeEvent(void* self, QCloseEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::closeEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::closeEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_tabletEvent(void* self, intptr_t slot) {
@@ -9355,13 +9811,15 @@ bool ScintillaEdit_override_virtual_tabletEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__tabletEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_tabletEvent(void* self, QTabletEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::tabletEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::tabletEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_actionEvent(void* self, intptr_t slot) {
@@ -9369,13 +9827,15 @@ bool ScintillaEdit_override_virtual_actionEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__actionEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_actionEvent(void* self, QActionEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::actionEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::actionEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_showEvent(void* self, intptr_t slot) {
@@ -9383,13 +9843,15 @@ bool ScintillaEdit_override_virtual_showEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__showEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_showEvent(void* self, QShowEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::showEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::showEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_hideEvent(void* self, intptr_t slot) {
@@ -9397,13 +9859,15 @@ bool ScintillaEdit_override_virtual_hideEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__hideEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_hideEvent(void* self, QHideEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::hideEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::hideEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_nativeEvent(void* self, intptr_t slot) {
@@ -9411,14 +9875,16 @@ bool ScintillaEdit_override_virtual_nativeEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__nativeEvent = slot;
 	return true;
 }
 
 bool ScintillaEdit_virtualbase_nativeEvent(void* self, struct miqt_string eventType, void* message, long* result) {
 	QByteArray eventType_QByteArray(eventType.data, eventType.len);
-	return static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::nativeEvent(eventType_QByteArray, message, static_cast<long*>(result));
+
+	return ( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::nativeEvent(eventType_QByteArray, message, static_cast<long*>(result));
+
 }
 
 bool ScintillaEdit_override_virtual_metric(void* self, intptr_t slot) {
@@ -9426,13 +9892,15 @@ bool ScintillaEdit_override_virtual_metric(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__metric = slot;
 	return true;
 }
 
 int ScintillaEdit_virtualbase_metric(const void* self, int param1) {
-	return static_cast<const MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::metric(static_cast<MiqtVirtualScintillaEdit::PaintDeviceMetric>(param1));
+
+	return ( (const MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::metric(static_cast<MiqtVirtualScintillaEdit::PaintDeviceMetric>(param1));
+
 }
 
 bool ScintillaEdit_override_virtual_initPainter(void* self, intptr_t slot) {
@@ -9440,13 +9908,15 @@ bool ScintillaEdit_override_virtual_initPainter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__initPainter = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_initPainter(const void* self, QPainter* painter) {
-	static_cast<const MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::initPainter(painter);
+
+	( (const MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::initPainter(painter);
+
 }
 
 bool ScintillaEdit_override_virtual_redirected(void* self, intptr_t slot) {
@@ -9454,13 +9924,15 @@ bool ScintillaEdit_override_virtual_redirected(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__redirected = slot;
 	return true;
 }
 
 QPaintDevice* ScintillaEdit_virtualbase_redirected(const void* self, QPoint* offset) {
-	return static_cast<const MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::redirected(offset);
+
+	return ( (const MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::redirected(offset);
+
 }
 
 bool ScintillaEdit_override_virtual_sharedPainter(void* self, intptr_t slot) {
@@ -9468,13 +9940,15 @@ bool ScintillaEdit_override_virtual_sharedPainter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__sharedPainter = slot;
 	return true;
 }
 
 QPainter* ScintillaEdit_virtualbase_sharedPainter(const void* self) {
-	return static_cast<const MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::sharedPainter();
+
+	return ( (const MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::sharedPainter();
+
 }
 
 bool ScintillaEdit_override_virtual_focusNextPrevChild(void* self, intptr_t slot) {
@@ -9482,13 +9956,15 @@ bool ScintillaEdit_override_virtual_focusNextPrevChild(void* self, intptr_t slot
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__focusNextPrevChild = slot;
 	return true;
 }
 
 bool ScintillaEdit_virtualbase_focusNextPrevChild(void* self, bool next) {
-	return static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::focusNextPrevChild(next);
+
+	return ( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::focusNextPrevChild(next);
+
 }
 
 bool ScintillaEdit_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -9496,13 +9972,15 @@ bool ScintillaEdit_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::timerEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::timerEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -9510,13 +9988,15 @@ bool ScintillaEdit_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::childEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::childEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -9524,13 +10004,15 @@ bool ScintillaEdit_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::customEvent(event);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::customEvent(event);
+
 }
 
 bool ScintillaEdit_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -9538,13 +10020,15 @@ bool ScintillaEdit_override_virtual_connectNotify(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::connectNotify(*signal);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::connectNotify(*signal);
+
 }
 
 bool ScintillaEdit_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -9552,13 +10036,15 @@ bool ScintillaEdit_override_virtual_disconnectNotify(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void ScintillaEdit_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualScintillaEdit*>(self)->ScintillaEdit::disconnectNotify(*signal);
+
+	( (MiqtVirtualScintillaEdit*)(self) )->ScintillaEdit::disconnectNotify(*signal);
+
 }
 
 void ScintillaEdit_protectedbase_setViewportMargins(bool* _dynamic_cast_ok, void* self, int left, int top, int right, int bottom) {
@@ -9567,9 +10053,11 @@ void ScintillaEdit_protectedbase_setViewportMargins(bool* _dynamic_cast_ok, void
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setViewportMargins(static_cast<int>(left), static_cast<int>(top), static_cast<int>(right), static_cast<int>(bottom));
+
 }
 
 QMargins* ScintillaEdit_protectedbase_viewportMargins(bool* _dynamic_cast_ok, const void* self) {
@@ -9578,9 +10066,11 @@ QMargins* ScintillaEdit_protectedbase_viewportMargins(bool* _dynamic_cast_ok, co
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return new QMargins(self_cast->viewportMargins());
+
 }
 
 void ScintillaEdit_protectedbase_drawFrame(bool* _dynamic_cast_ok, void* self, QPainter* param1) {
@@ -9589,9 +10079,11 @@ void ScintillaEdit_protectedbase_drawFrame(bool* _dynamic_cast_ok, void* self, Q
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->drawFrame(param1);
+
 }
 
 void ScintillaEdit_protectedbase_initStyleOption(bool* _dynamic_cast_ok, const void* self, QStyleOptionFrame* option) {
@@ -9600,9 +10092,11 @@ void ScintillaEdit_protectedbase_initStyleOption(bool* _dynamic_cast_ok, const v
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->initStyleOption(option);
+
 }
 
 void ScintillaEdit_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* self) {
@@ -9611,9 +10105,11 @@ void ScintillaEdit_protectedbase_updateMicroFocus(bool* _dynamic_cast_ok, void* 
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->updateMicroFocus();
+
 }
 
 void ScintillaEdit_protectedbase_create(bool* _dynamic_cast_ok, void* self) {
@@ -9622,9 +10118,11 @@ void ScintillaEdit_protectedbase_create(bool* _dynamic_cast_ok, void* self) {
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->create();
+
 }
 
 void ScintillaEdit_protectedbase_destroy(bool* _dynamic_cast_ok, void* self) {
@@ -9633,9 +10131,11 @@ void ScintillaEdit_protectedbase_destroy(bool* _dynamic_cast_ok, void* self) {
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->destroy();
+
 }
 
 bool ScintillaEdit_protectedbase_focusNextChild(bool* _dynamic_cast_ok, void* self) {
@@ -9644,9 +10144,11 @@ bool ScintillaEdit_protectedbase_focusNextChild(bool* _dynamic_cast_ok, void* se
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->focusNextChild();
+
 }
 
 bool ScintillaEdit_protectedbase_focusPreviousChild(bool* _dynamic_cast_ok, void* self) {
@@ -9655,9 +10157,11 @@ bool ScintillaEdit_protectedbase_focusPreviousChild(bool* _dynamic_cast_ok, void
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->focusPreviousChild();
+
 }
 
 QObject* ScintillaEdit_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -9666,9 +10170,11 @@ QObject* ScintillaEdit_protectedbase_sender(bool* _dynamic_cast_ok, const void* 
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int ScintillaEdit_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -9677,9 +10183,11 @@ int ScintillaEdit_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const 
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int ScintillaEdit_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -9688,9 +10196,11 @@ int ScintillaEdit_protectedbase_receivers(bool* _dynamic_cast_ok, const void* se
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool ScintillaEdit_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -9699,9 +10209,11 @@ bool ScintillaEdit_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void ScintillaEdit_delete(ScintillaEdit* self) {

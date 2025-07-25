@@ -20,7 +20,7 @@ extern "C" {
 #endif
 
 QMimeDatabase* QMimeDatabase_new() {
-	return new (std::nothrow) QMimeDatabase();
+	return new QMimeDatabase();
 }
 
 QMimeType* QMimeDatabase_mimeTypeForName(const QMimeDatabase* self, struct miqt_string nameOrAlias) {

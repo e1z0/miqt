@@ -38,8 +38,8 @@ void miqt_exec_callback_QHPieModelMapper_disconnectNotify(QHPieModelMapper*, int
 class MiqtVirtualQHPieModelMapper final : public QHPieModelMapper {
 public:
 
-	MiqtVirtualQHPieModelMapper(): QHPieModelMapper() {}
-	MiqtVirtualQHPieModelMapper(QObject* parent): QHPieModelMapper(parent) {}
+	MiqtVirtualQHPieModelMapper(): QHPieModelMapper() {};
+	MiqtVirtualQHPieModelMapper(QObject* parent): QHPieModelMapper(parent) {};
 
 	virtual ~MiqtVirtualQHPieModelMapper() override = default;
 
@@ -51,9 +51,11 @@ public:
 		if (handle__event == 0) {
 			return QHPieModelMapper::event(event);
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		bool callback_return_value = miqt_exec_callback_QHPieModelMapper_event(this, handle__event, sigval1);
+
 		return callback_return_value;
 	}
 
@@ -67,10 +69,12 @@ public:
 		if (handle__eventFilter == 0) {
 			return QHPieModelMapper::eventFilter(watched, event);
 		}
-
+		
 		QObject* sigval1 = watched;
 		QEvent* sigval2 = event;
+
 		bool callback_return_value = miqt_exec_callback_QHPieModelMapper_eventFilter(this, handle__eventFilter, sigval1, sigval2);
+
 		return callback_return_value;
 	}
 
@@ -85,10 +89,12 @@ public:
 			QHPieModelMapper::timerEvent(event);
 			return;
 		}
-
+		
 		QTimerEvent* sigval1 = event;
+
 		miqt_exec_callback_QHPieModelMapper_timerEvent(this, handle__timerEvent, sigval1);
 
+		
 	}
 
 	friend void QHPieModelMapper_virtualbase_timerEvent(void* self, QTimerEvent* event);
@@ -102,10 +108,12 @@ public:
 			QHPieModelMapper::childEvent(event);
 			return;
 		}
-
+		
 		QChildEvent* sigval1 = event;
+
 		miqt_exec_callback_QHPieModelMapper_childEvent(this, handle__childEvent, sigval1);
 
+		
 	}
 
 	friend void QHPieModelMapper_virtualbase_childEvent(void* self, QChildEvent* event);
@@ -119,10 +127,12 @@ public:
 			QHPieModelMapper::customEvent(event);
 			return;
 		}
-
+		
 		QEvent* sigval1 = event;
+
 		miqt_exec_callback_QHPieModelMapper_customEvent(this, handle__customEvent, sigval1);
 
+		
 	}
 
 	friend void QHPieModelMapper_virtualbase_customEvent(void* self, QEvent* event);
@@ -136,12 +146,14 @@ public:
 			QHPieModelMapper::connectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QHPieModelMapper_connectNotify(this, handle__connectNotify, sigval1);
 
+		
 	}
 
 	friend void QHPieModelMapper_virtualbase_connectNotify(void* self, QMetaMethod* signal);
@@ -155,12 +167,14 @@ public:
 			QHPieModelMapper::disconnectNotify(signal);
 			return;
 		}
-
+		
 		const QMetaMethod& signal_ret = signal;
 		// Cast returned reference into pointer
 		QMetaMethod* sigval1 = const_cast<QMetaMethod*>(&signal_ret);
+
 		miqt_exec_callback_QHPieModelMapper_disconnectNotify(this, handle__disconnectNotify, sigval1);
 
+		
 	}
 
 	friend void QHPieModelMapper_virtualbase_disconnectNotify(void* self, QMetaMethod* signal);
@@ -183,11 +197,11 @@ public:
 };
 
 QHPieModelMapper* QHPieModelMapper_new() {
-	return new (std::nothrow) MiqtVirtualQHPieModelMapper();
+	return new MiqtVirtualQHPieModelMapper();
 }
 
 QHPieModelMapper* QHPieModelMapper_new2(QObject* parent) {
-	return new (std::nothrow) MiqtVirtualQHPieModelMapper(parent);
+	return new MiqtVirtualQHPieModelMapper(parent);
 }
 
 void QHPieModelMapper_virtbase(QHPieModelMapper* src, QPieModelMapper** outptr_QPieModelMapper) {
@@ -266,7 +280,7 @@ void QHPieModelMapper_seriesReplaced(QHPieModelMapper* self) {
 }
 
 void QHPieModelMapper_connect_seriesReplaced(QHPieModelMapper* self, intptr_t slot) {
-	QHPieModelMapper::connect(self, static_cast<void (QHPieModelMapper::*)()>(&QHPieModelMapper::seriesReplaced), self, [=]() {
+	MiqtVirtualQHPieModelMapper::connect(self, static_cast<void (QHPieModelMapper::*)()>(&QHPieModelMapper::seriesReplaced), self, [=]() {
 		miqt_exec_callback_QHPieModelMapper_seriesReplaced(slot);
 	});
 }
@@ -276,7 +290,7 @@ void QHPieModelMapper_modelReplaced(QHPieModelMapper* self) {
 }
 
 void QHPieModelMapper_connect_modelReplaced(QHPieModelMapper* self, intptr_t slot) {
-	QHPieModelMapper::connect(self, static_cast<void (QHPieModelMapper::*)()>(&QHPieModelMapper::modelReplaced), self, [=]() {
+	MiqtVirtualQHPieModelMapper::connect(self, static_cast<void (QHPieModelMapper::*)()>(&QHPieModelMapper::modelReplaced), self, [=]() {
 		miqt_exec_callback_QHPieModelMapper_modelReplaced(slot);
 	});
 }
@@ -286,7 +300,7 @@ void QHPieModelMapper_valuesRowChanged(QHPieModelMapper* self) {
 }
 
 void QHPieModelMapper_connect_valuesRowChanged(QHPieModelMapper* self, intptr_t slot) {
-	QHPieModelMapper::connect(self, static_cast<void (QHPieModelMapper::*)()>(&QHPieModelMapper::valuesRowChanged), self, [=]() {
+	MiqtVirtualQHPieModelMapper::connect(self, static_cast<void (QHPieModelMapper::*)()>(&QHPieModelMapper::valuesRowChanged), self, [=]() {
 		miqt_exec_callback_QHPieModelMapper_valuesRowChanged(slot);
 	});
 }
@@ -296,7 +310,7 @@ void QHPieModelMapper_labelsRowChanged(QHPieModelMapper* self) {
 }
 
 void QHPieModelMapper_connect_labelsRowChanged(QHPieModelMapper* self, intptr_t slot) {
-	QHPieModelMapper::connect(self, static_cast<void (QHPieModelMapper::*)()>(&QHPieModelMapper::labelsRowChanged), self, [=]() {
+	MiqtVirtualQHPieModelMapper::connect(self, static_cast<void (QHPieModelMapper::*)()>(&QHPieModelMapper::labelsRowChanged), self, [=]() {
 		miqt_exec_callback_QHPieModelMapper_labelsRowChanged(slot);
 	});
 }
@@ -306,7 +320,7 @@ void QHPieModelMapper_firstColumnChanged(QHPieModelMapper* self) {
 }
 
 void QHPieModelMapper_connect_firstColumnChanged(QHPieModelMapper* self, intptr_t slot) {
-	QHPieModelMapper::connect(self, static_cast<void (QHPieModelMapper::*)()>(&QHPieModelMapper::firstColumnChanged), self, [=]() {
+	MiqtVirtualQHPieModelMapper::connect(self, static_cast<void (QHPieModelMapper::*)()>(&QHPieModelMapper::firstColumnChanged), self, [=]() {
 		miqt_exec_callback_QHPieModelMapper_firstColumnChanged(slot);
 	});
 }
@@ -316,7 +330,7 @@ void QHPieModelMapper_columnCountChanged(QHPieModelMapper* self) {
 }
 
 void QHPieModelMapper_connect_columnCountChanged(QHPieModelMapper* self, intptr_t slot) {
-	QHPieModelMapper::connect(self, static_cast<void (QHPieModelMapper::*)()>(&QHPieModelMapper::columnCountChanged), self, [=]() {
+	MiqtVirtualQHPieModelMapper::connect(self, static_cast<void (QHPieModelMapper::*)()>(&QHPieModelMapper::columnCountChanged), self, [=]() {
 		miqt_exec_callback_QHPieModelMapper_columnCountChanged(slot);
 	});
 }
@@ -348,13 +362,15 @@ bool QHPieModelMapper_override_virtual_event(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__event = slot;
 	return true;
 }
 
 bool QHPieModelMapper_virtualbase_event(void* self, QEvent* event) {
-	return static_cast<MiqtVirtualQHPieModelMapper*>(self)->QHPieModelMapper::event(event);
+
+	return ( (MiqtVirtualQHPieModelMapper*)(self) )->QHPieModelMapper::event(event);
+
 }
 
 bool QHPieModelMapper_override_virtual_eventFilter(void* self, intptr_t slot) {
@@ -362,13 +378,15 @@ bool QHPieModelMapper_override_virtual_eventFilter(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__eventFilter = slot;
 	return true;
 }
 
 bool QHPieModelMapper_virtualbase_eventFilter(void* self, QObject* watched, QEvent* event) {
-	return static_cast<MiqtVirtualQHPieModelMapper*>(self)->QHPieModelMapper::eventFilter(watched, event);
+
+	return ( (MiqtVirtualQHPieModelMapper*)(self) )->QHPieModelMapper::eventFilter(watched, event);
+
 }
 
 bool QHPieModelMapper_override_virtual_timerEvent(void* self, intptr_t slot) {
@@ -376,13 +394,15 @@ bool QHPieModelMapper_override_virtual_timerEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__timerEvent = slot;
 	return true;
 }
 
 void QHPieModelMapper_virtualbase_timerEvent(void* self, QTimerEvent* event) {
-	static_cast<MiqtVirtualQHPieModelMapper*>(self)->QHPieModelMapper::timerEvent(event);
+
+	( (MiqtVirtualQHPieModelMapper*)(self) )->QHPieModelMapper::timerEvent(event);
+
 }
 
 bool QHPieModelMapper_override_virtual_childEvent(void* self, intptr_t slot) {
@@ -390,13 +410,15 @@ bool QHPieModelMapper_override_virtual_childEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__childEvent = slot;
 	return true;
 }
 
 void QHPieModelMapper_virtualbase_childEvent(void* self, QChildEvent* event) {
-	static_cast<MiqtVirtualQHPieModelMapper*>(self)->QHPieModelMapper::childEvent(event);
+
+	( (MiqtVirtualQHPieModelMapper*)(self) )->QHPieModelMapper::childEvent(event);
+
 }
 
 bool QHPieModelMapper_override_virtual_customEvent(void* self, intptr_t slot) {
@@ -404,13 +426,15 @@ bool QHPieModelMapper_override_virtual_customEvent(void* self, intptr_t slot) {
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__customEvent = slot;
 	return true;
 }
 
 void QHPieModelMapper_virtualbase_customEvent(void* self, QEvent* event) {
-	static_cast<MiqtVirtualQHPieModelMapper*>(self)->QHPieModelMapper::customEvent(event);
+
+	( (MiqtVirtualQHPieModelMapper*)(self) )->QHPieModelMapper::customEvent(event);
+
 }
 
 bool QHPieModelMapper_override_virtual_connectNotify(void* self, intptr_t slot) {
@@ -418,13 +442,15 @@ bool QHPieModelMapper_override_virtual_connectNotify(void* self, intptr_t slot) 
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__connectNotify = slot;
 	return true;
 }
 
 void QHPieModelMapper_virtualbase_connectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQHPieModelMapper*>(self)->QHPieModelMapper::connectNotify(*signal);
+
+	( (MiqtVirtualQHPieModelMapper*)(self) )->QHPieModelMapper::connectNotify(*signal);
+
 }
 
 bool QHPieModelMapper_override_virtual_disconnectNotify(void* self, intptr_t slot) {
@@ -432,13 +458,15 @@ bool QHPieModelMapper_override_virtual_disconnectNotify(void* self, intptr_t slo
 	if (self_cast == nullptr) {
 		return false;
 	}
-
+	
 	self_cast->handle__disconnectNotify = slot;
 	return true;
 }
 
 void QHPieModelMapper_virtualbase_disconnectNotify(void* self, QMetaMethod* signal) {
-	static_cast<MiqtVirtualQHPieModelMapper*>(self)->QHPieModelMapper::disconnectNotify(*signal);
+
+	( (MiqtVirtualQHPieModelMapper*)(self) )->QHPieModelMapper::disconnectNotify(*signal);
+
 }
 
 int QHPieModelMapper_protectedbase_first(bool* _dynamic_cast_ok, const void* self) {
@@ -447,9 +475,11 @@ int QHPieModelMapper_protectedbase_first(bool* _dynamic_cast_ok, const void* sel
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->first();
+
 }
 
 void QHPieModelMapper_protectedbase_setFirst(bool* _dynamic_cast_ok, void* self, int first) {
@@ -458,9 +488,11 @@ void QHPieModelMapper_protectedbase_setFirst(bool* _dynamic_cast_ok, void* self,
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setFirst(static_cast<int>(first));
+
 }
 
 int QHPieModelMapper_protectedbase_count(bool* _dynamic_cast_ok, const void* self) {
@@ -469,9 +501,11 @@ int QHPieModelMapper_protectedbase_count(bool* _dynamic_cast_ok, const void* sel
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->count();
+
 }
 
 void QHPieModelMapper_protectedbase_setCount(bool* _dynamic_cast_ok, void* self, int count) {
@@ -480,9 +514,11 @@ void QHPieModelMapper_protectedbase_setCount(bool* _dynamic_cast_ok, void* self,
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setCount(static_cast<int>(count));
+
 }
 
 int QHPieModelMapper_protectedbase_valuesSection(bool* _dynamic_cast_ok, const void* self) {
@@ -491,9 +527,11 @@ int QHPieModelMapper_protectedbase_valuesSection(bool* _dynamic_cast_ok, const v
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->valuesSection();
+
 }
 
 void QHPieModelMapper_protectedbase_setValuesSection(bool* _dynamic_cast_ok, void* self, int valuesSection) {
@@ -502,9 +540,11 @@ void QHPieModelMapper_protectedbase_setValuesSection(bool* _dynamic_cast_ok, voi
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setValuesSection(static_cast<int>(valuesSection));
+
 }
 
 int QHPieModelMapper_protectedbase_labelsSection(bool* _dynamic_cast_ok, const void* self) {
@@ -513,9 +553,11 @@ int QHPieModelMapper_protectedbase_labelsSection(bool* _dynamic_cast_ok, const v
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->labelsSection();
+
 }
 
 void QHPieModelMapper_protectedbase_setLabelsSection(bool* _dynamic_cast_ok, void* self, int labelsSection) {
@@ -524,9 +566,11 @@ void QHPieModelMapper_protectedbase_setLabelsSection(bool* _dynamic_cast_ok, voi
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setLabelsSection(static_cast<int>(labelsSection));
+
 }
 
 int QHPieModelMapper_protectedbase_orientation(bool* _dynamic_cast_ok, const void* self) {
@@ -535,10 +579,12 @@ int QHPieModelMapper_protectedbase_orientation(bool* _dynamic_cast_ok, const voi
 		*_dynamic_cast_ok = false;
 		return (int)(0);
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	Qt::Orientation _ret = self_cast->orientation();
 	return static_cast<int>(_ret);
+
 }
 
 void QHPieModelMapper_protectedbase_setOrientation(bool* _dynamic_cast_ok, void* self, int orientation) {
@@ -547,9 +593,11 @@ void QHPieModelMapper_protectedbase_setOrientation(bool* _dynamic_cast_ok, void*
 		*_dynamic_cast_ok = false;
 		return ;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	self_cast->setOrientation(static_cast<Qt::Orientation>(orientation));
+
 }
 
 QObject* QHPieModelMapper_protectedbase_sender(bool* _dynamic_cast_ok, const void* self) {
@@ -558,9 +606,11 @@ QObject* QHPieModelMapper_protectedbase_sender(bool* _dynamic_cast_ok, const voi
 		*_dynamic_cast_ok = false;
 		return nullptr;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->sender();
+
 }
 
 int QHPieModelMapper_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, const void* self) {
@@ -569,9 +619,11 @@ int QHPieModelMapper_protectedbase_senderSignalIndex(bool* _dynamic_cast_ok, con
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->senderSignalIndex();
+
 }
 
 int QHPieModelMapper_protectedbase_receivers(bool* _dynamic_cast_ok, const void* self, const char* signal) {
@@ -580,9 +632,11 @@ int QHPieModelMapper_protectedbase_receivers(bool* _dynamic_cast_ok, const void*
 		*_dynamic_cast_ok = false;
 		return 0;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->receivers(signal);
+
 }
 
 bool QHPieModelMapper_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, const void* self, QMetaMethod* signal) {
@@ -591,9 +645,11 @@ bool QHPieModelMapper_protectedbase_isSignalConnected(bool* _dynamic_cast_ok, co
 		*_dynamic_cast_ok = false;
 		return false;
 	}
-
+	
 	*_dynamic_cast_ok = true;
+	
 	return self_cast->isSignalConnected(*signal);
+
 }
 
 void QHPieModelMapper_delete(QHPieModelMapper* self) {

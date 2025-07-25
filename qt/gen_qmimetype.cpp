@@ -15,11 +15,11 @@ extern "C" {
 #endif
 
 QMimeType* QMimeType_new() {
-	return new (std::nothrow) QMimeType();
+	return new QMimeType();
 }
 
 QMimeType* QMimeType_new2(QMimeType* other) {
-	return new (std::nothrow) QMimeType(*other);
+	return new QMimeType(*other);
 }
 
 void QMimeType_operatorAssign(QMimeType* self, QMimeType* other) {
