@@ -9,9 +9,9 @@ package webengine
 import "C"
 
 import (
-	"github.com/mappu/miqt/qt6"
-	"github.com/mappu/miqt/qt6/network"
-	"github.com/mappu/miqt/qt6/webchannel"
+	"github.com/e1z0/miqt/qt6"
+	"github.com/e1z0/miqt/qt6/network"
+	"github.com/e1z0/miqt/qt6/webchannel"
 	"runtime"
 	"runtime/cgo"
 	"unsafe"

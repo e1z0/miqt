@@ -9,8 +9,8 @@ package webengine
 import "C"
 
 import (
-	"github.com/mappu/miqt/qt6"
-	"github.com/mappu/miqt/qt6/printsupport"
+	"github.com/e1z0/miqt/qt6"
+	"github.com/e1z0/miqt/qt6/printsupport"
 	"runtime"
 	"runtime/cgo"
 	"unsafe"

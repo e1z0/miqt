@@ -9,7 +9,7 @@ package webengine
 import "C"
 
 import (
-	"github.com/mappu/miqt/qt/network"
+	"github.com/e1z0/miqt/qt/network"
 	"unsafe"
 )
 

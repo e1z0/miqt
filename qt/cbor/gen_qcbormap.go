@@ -9,7 +9,7 @@ package cbor
 import "C"
 
 import (
-	"github.com/mappu/miqt/qt"
+	"github.com/e1z0/miqt/qt"
 	"runtime"
 	"unsafe"
 )
